@@ -23,10 +23,13 @@ var timer = Timer.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"../level/floor".owner = level
+	$"../level/environment".owner = level
+	$"../level/DirectionalLight".owner = level
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	level = get_node("/root/main/level")
 	cursor_pos = Vector3(ScrenPointToRay())
 	cursor_pos.y = 0
 	
@@ -45,7 +48,7 @@ func _process(delta):
 	#		preview_level.remove_child(n)
 	#		n.queue_free()
 	
-	if(Global.edit_mode and can_place and object_point.collider.name == "floor"):
+	if(play.edit_mode and can_place and object_point.collider.name == "floor"):
 		#var preview_item = preview.instance()
 		#preview_level.add_child(preview_item)
 		#preview_item.global_translation = cursor_pos

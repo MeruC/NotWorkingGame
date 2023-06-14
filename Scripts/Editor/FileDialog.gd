@@ -4,6 +4,7 @@ onready var object_cursor = get_node("/root/main/Editor_Object")
 onready var level = get_node("/root/main/level")
 onready var ui = get_node("/root/main/UI")
 onready var play = get_node("/root/main/play")
+onready var main = get_node("/root/main")
 
 func refresh():
 	self._draw()
@@ -54,9 +55,9 @@ func load_level():
 	var toLoad : PackedScene = PackedScene.new()
 	toLoad = ResourceLoader.load(popup.current_path)
 	var this_level = toLoad.instance()
-	get_parent().remove_child(level)
+	main.remove_child(level)
 	level.queue_free()
-	get_parent().add_child(this_level)
+	main.add_child(this_level)
 	level = this_level
 	
 func new_level():
