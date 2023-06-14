@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Materials/grid.tres" type="Material" id=1]
+
+[node name="environment" type="Spatial"]
+
+[node name="floor2" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="wall" type="CSGBox" parent="floor2"]
+width = 128.0
+height = 4.0
+depth = 128.0
+
+[node name="playarea" type="CSGBox" parent="floor2/wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+operation = 2
+width = 42.0
+height = 8.0
+depth = 30.0
+material = ExtResource( 1 )

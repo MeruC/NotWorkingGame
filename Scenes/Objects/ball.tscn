@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Shaders/toonShader.tres" type="Material" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="object_ball" type="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="CSGSphere" type="CSGSphere" parent="CollisionShape2D"]
+radial_segments = 32
+rings = 32
+material = ExtResource( 1 )
