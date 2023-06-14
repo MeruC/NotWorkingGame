@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Editor/Editor_Object.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Entities/Player/player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://icon.png" type="Texture" id=10]
 [ext_resource path="res://Shaders/pixel.tres" type="Material" id=11]
 [ext_resource path="res://Materials/grid.tres" type="Material" id=12]
+
+[sub_resource type="Theme" id=12]
 
 [sub_resource type="PlaneMesh" id=11]
 
@@ -39,6 +41,7 @@ shader = SubResource( 8 )
 [node name="main" type="Spatial"]
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 material = ExtResource( 11 )
 position = Vector2( 960, 540 )
 scale = Vector2( 30, 16.875 )
@@ -59,11 +62,13 @@ margin_bottom = 44.0
 
 [node name="FileDialog" type="FileDialog" parent="UI/Item_Select"]
 visible = true
+anchor_bottom = 1.0
 margin_left = -1124.0
 margin_top = 210.0
 margin_right = -661.0
 margin_bottom = 536.0
 rect_scale = Vector2( 2, 2 )
+theme = SubResource( 12 )
 filters = PoolStringArray( "*.tscn" )
 script = ExtResource( 8 )
 
