@@ -1,7 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Materials/grid.tres" type="Material" id=1]
-[ext_resource path="res://Shaders/environment.tres" type="Environment" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
@@ -11,6 +10,11 @@ albedo_color = Color( 1, 1, 1, 0 )
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0 )
 
+[sub_resource type="Environment" id=3]
+background_mode = 1
+background_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+
 [node name="environment" type="Spatial"]
 
 [node name="floor2" type="CSGCombiner" parent="."]
@@ -18,14 +22,14 @@ use_collision = true
 
 [node name="wall" type="CSGBox" parent="floor2"]
 width = 130.0
-height = 4.0
+height = 8.0
 depth = 130.0
 
 [node name="playarea" type="CSGBox" parent="floor2/wall"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 operation = 2
 width = 42.0
-height = 8.0
+height = 10.0
 depth = 30.0
 material = ExtResource( 1 )
 
@@ -48,9 +52,13 @@ material = SubResource( 2 )
 [node name="light" type="Spatial" parent="."]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="light"]
+[node name="light" type="DirectionalLight" parent="light"]
 transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0 )
+light_energy = 0.3
+light_indirect_energy = 0.0
 shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_normal_bias = 0.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 2 )
+environment = SubResource( 3 )

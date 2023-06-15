@@ -1,37 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Shaders/cel.shader" type="Shader" id=1]
+[ext_resource path="res://Models/Player/Walk/1.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Scripts/Player_Input/movement.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Player_Input/Camera.gd" type="Script" id=3]
-[ext_resource path="res://Shaders/outline.shader" type="Shader" id=4]
-
-[sub_resource type="ShaderMaterial" id=12]
-shader = ExtResource( 4 )
-shader_param/outline_thickness = 0.1
-shader_param/outline_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="ShaderMaterial" id=13]
-next_pass = SubResource( 12 )
-shader = ExtResource( 1 )
-shader_param/use_shade = true
-shader_param/use_specular = true
-shader_param/use_rim = true
-shader_param/use_light = false
-shader_param/use_shadow = true
-shader_param/base_color = Color( 0, 0.6, 1, 1 )
-shader_param/shade_color = Color( 0.0196078, 0.34902, 0.568627, 1 )
-shader_param/specular_tint = Color( 0.75, 0.75, 0.75, 0.75 )
-shader_param/rim_tint = Color( 0.75, 0.75, 0.75, 0.75 )
-shader_param/shade_threshold = 0.253
-shader_param/shade_softness = 0.01
-shader_param/specular_glossiness = 15.0
-shader_param/specular_threshold = 0.5
-shader_param/specular_softness = 0.1
-shader_param/rim_threshold = 0.25
-shader_param/rim_softness = 0.05
-shader_param/rim_spread = 0.5
-shader_param/shadow_threshold = 0.7
-shader_param/shadow_softness = 0.1
+[ext_resource path="res://Models/Player/player.tres" type="Material" id=4]
+[ext_resource path="res://Models/Player/Idle/1.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://Models/Player/Walk/2.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://Models/Player/Walk/6.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://Models/Player/Walk/5.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://Models/Player/Walk/3.obj" type="ArrayMesh" id=14]
 
 [sub_resource type="CapsuleShape" id=9]
 
@@ -44,22 +21,56 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.445, 0 )
 script = ExtResource( 2 )
 
 [node name="Pivot" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0645748, 0 )
 
-[node name="CSGSphere" type="CSGSphere" parent="Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 6.75016e-14, 0, -2.4869e-14, 1, 0, -0.284732, -2.4869e-14 )
-radial_segments = 32
-rings = 32
-material = SubResource( 13 )
+[node name="CSGSphere" type="CSGMesh" parent="Pivot"]
+transform = Transform( -0.714136, 0, -6.24318e-08, 0, 0.714136, 0, 6.24317e-08, 0, -0.714136, 0, -1.45127, 0 )
+mesh = ExtResource( 6 )
+material = ExtResource( 4 )
 
-[node name="CSGSphere2" type="CSGSphere" parent="Pivot"]
-transform = Transform( 0.299973, 0, 0, 0, 0.299973, 2.02486e-14, 0, -7.46002e-15, 0.299973, 0, -0.284732, -1.54803 )
-radial_segments = 32
-rings = 32
-material = SubResource( 13 )
+[node name="walk" type="Spatial" parent="Pivot"]
+transform = Transform( 0.714136, 0, 0, 0, 0.714136, 0, 0, 0, 0.714136, 0, -0.451477, 0 )
+visible = false
+
+[node name="1" type="CSGMesh" parent="Pivot/walk"]
+transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+mesh = ExtResource( 1 )
+material = ExtResource( 4 )
+
+[node name="2" type="CSGMesh" parent="Pivot/walk"]
+transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+visible = false
+mesh = ExtResource( 10 )
+material = ExtResource( 4 )
+
+[node name="3" type="CSGMesh" parent="Pivot/walk"]
+transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+visible = false
+mesh = ExtResource( 14 )
+material = ExtResource( 4 )
+
+[node name="4" type="CSGMesh" parent="Pivot/walk"]
+transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+visible = false
+mesh = ExtResource( 12 )
+material = ExtResource( 4 )
+
+[node name="5" type="CSGMesh" parent="Pivot/walk"]
+transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+visible = false
+mesh = ExtResource( 6 )
+material = ExtResource( 4 )
+
+[node name="6" type="CSGMesh" parent="Pivot/walk"]
+transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+visible = false
+mesh = ExtResource( 11 )
+material = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="Pivot/walk"]
+wait_time = 2.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.93312, 0, 0, 0, -5.28908e-08, 1.2, 0, -0.940896, -4.0788e-08, 0, 0.358578, 0 )
+transform = Transform( 0.816235, 0, 0, 0, -3.74598e-08, 1.08755, 0, -0.856981, -4.75385e-08, 0, 0.180094, 0 )
 shape = SubResource( 9 )
 
 [node name="Camera" type="Spatial" parent="."]

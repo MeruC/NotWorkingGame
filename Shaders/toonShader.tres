@@ -1,4 +1,6 @@
-[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Models/Player/1.png" type="Texture" id=1]
 
 [sub_resource type="SpatialMaterial" id=9]
 flags_unshaded = true
@@ -12,5 +14,6 @@ next_pass = SubResource( 9 )
 params_diffuse_mode = 4
 params_specular_mode = 4
 params_line_width = 0.1
-albedo_color = Color( 0.388235, 0.701961, 1, 1 )
+albedo_color = Color( 1, 1, 1, 0 )
+albedo_texture = ExtResource( 1 )
 roughness = 0.2
