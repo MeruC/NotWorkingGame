@@ -14,7 +14,6 @@ var object_point
 func _ready():
 	$"../level/floor".owner = level
 	$"../level/environment".owner = level
-	$"../level/DirectionalLight".owner = level
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,6 +25,8 @@ func _process(delta):
 	#This Snaps the Objects Position to a grid
 	cursor_pos.x = stepify(cursor_pos.x, 2)
 	cursor_pos.z = stepify(cursor_pos.z, 2)
+	
+	var object_pos = cursor_pos
 	
 	#DEBUG, POSITION CHECK
 	#print(cursor_pos)
@@ -52,7 +53,6 @@ func _process(delta):
 			
 		if (Input.is_action_just_pressed("mb_right") and "object" in object_point.collider.name):
 			delete_object = level.get_node(object_point.collider.name)
-			print(delete_object)
 			delete_object.queue_free()
 			pass
 			

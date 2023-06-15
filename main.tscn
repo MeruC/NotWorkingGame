@@ -92,15 +92,8 @@ playerSpawn = ExtResource( 2 )
 
 [node name="level" type="Spatial" parent="."]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="level"]
-transform = Transform( 0.689718, 0.0336629, -0.723295, 0.483021, 0.722786, 0.494237, 0.539425, -0.690251, 0.482259, 0, 18.039, 6.7331 )
-light_color = Color( 1, 0.956863, 0.843137, 1 )
-light_energy = 0.3
-light_indirect_energy = 0.5
-shadow_enabled = true
-
 [node name="floor" type="CSGMesh" parent="level"]
-transform = Transform( 64, 0, 0, 0, 1, 0, 0, 0, 64, 0, 0, 0 )
+transform = Transform( 61, 0, 0, 0, 1, 0, 0, 0, 61, 0, 0, 0 )
 use_collision = true
 mesh = SubResource( 11 )
 material = ExtResource( 12 )
@@ -108,17 +101,16 @@ material = ExtResource( 12 )
 [node name="environment" parent="level" instance=ExtResource( 9 )]
 
 [node name="Editor_Camera" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Editor_Camera"]
+transform = Transform( 23, 0, 0, 0, 1, 0, 0, 0, 13, -0.00794983, 35.0018, -0.00646972 )
+shape = SubResource( 13 )
 
 [node name="Camera" type="Camera" parent="Editor_Camera"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 32, 0 )
 projection = 1
 size = 25.0
-
-[node name="CollisionShape" type="CollisionShape" parent="Editor_Camera"]
-transform = Transform( 23, 0, 0, 0, 1, 0, 0, 0, 13, -0.00794983, 35.0018, -0.00646972 )
-shape = SubResource( 13 )
 
 [node name="preview" parent="." instance=ExtResource( 4 )]
 

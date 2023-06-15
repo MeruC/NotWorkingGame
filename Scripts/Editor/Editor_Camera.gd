@@ -6,9 +6,9 @@ onready var camera = $"."
 var t = false
 var c_rot
 
-export var max_speed = 50
-export var acceleration = 100
-export var friction = 100
+export var max_speed = 25
+export var acceleration = 200
+export var friction = 200
 var velocity := Vector3.ZERO
 
 # Called when the node enters the scene tree for the first time.
