@@ -1,6 +1,5 @@
 extends FileDialog
 
-onready var object_cursor = get_node("/root/main/Editor_Object")
 onready var level = get_node("/root/main/level")
 onready var ui = get_node("/root/main/UI")
 onready var play = get_node("/root/main/play")
@@ -18,7 +17,7 @@ func _on_Save_pressed():
 
 	play.set_visible(false)
 	ui.set_visible(false)
-	object_cursor.can_place = false
+	Global.can_place = false
 	popup.mode = 4
 	popup.popup()
 	pass # Replace with function body.
@@ -26,14 +25,14 @@ func _on_Save_pressed():
 func _on_Load_pressed():
 	play.set_visible(false)
 	ui.set_visible(false)
-	object_cursor.can_place = false
+	Global.can_place = false
 	popup.mode = 0
 	popup.popup()
 	pass # Replace with function body.
 
 
 func _on_FileDialog_popup_hide():
-	object_cursor.can_place = true
+	Global.can_place = true
 	play.set_visible(true)
 	ui.set_visible(true)
 	pass # Replace with function body.
@@ -65,19 +64,19 @@ func new_level():
 	pass
 
 func _on_Save_mouse_entered():
-	object_cursor.can_place = false
+	Global.can_place = false
 	
 
 func _on_Save_mouse_exited():
-	object_cursor.can_place = true
+	Global.can_place = true
 
 
 func _on_Load_mouse_entered():
-	object_cursor.can_place = false
+	Global.can_place = false
 
 
 func _on_Load_mouse_exited():
-	object_cursor.can_place = true
+	Global.can_place = true
 
 
 func _on_New_pressed():

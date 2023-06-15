@@ -19,10 +19,10 @@ func _item_clicked(event):
 	pass
 
 func _on_item_texture_mouse_entered():
-	object_cursor.can_place = false
-	print(object_cursor.can_place)
+	Global.can_place = false
+	print(Global.can_place)
 
 
 func _on_item_texture_mouse_exited():
-	object_cursor.can_place = true
-	print(object_cursor.can_place)
+	Global.can_place = true
+	print(Global.can_place)

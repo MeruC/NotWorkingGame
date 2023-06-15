@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Editor/Editor_Object.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Entities/Player/player.tscn" type="PackedScene" id=2]
@@ -17,31 +17,11 @@
 
 [sub_resource type="PlaneMesh" id=11]
 
-[sub_resource type="QuadMesh" id=9]
-
-[sub_resource type="Shader" id=8]
-code = "shader_type spatial;
-render_mode unshaded;
-
-const int pixel_size = 6; //resolution must be divisible by pixel_size
-
-void fragment() {
-	float x = float(int(FRAGCOORD.x) % pixel_size);
-	float y = float(int(FRAGCOORD.y) % pixel_size);
-
-	x = FRAGCOORD.x + floor(float(pixel_size) / 2.0) - x;
-	y = FRAGCOORD.y + floor(float(pixel_size) / 2.0) - y;
-
-	ALBEDO = texture(SCREEN_TEXTURE, vec2(x, y) / VIEWPORT_SIZE).xyz;
-}"
-
-[sub_resource type="ShaderMaterial" id=10]
-shader = SubResource( 8 )
+[sub_resource type="BoxShape" id=13]
 
 [node name="main" type="Spatial"]
 
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
+[node name="pixelizer" type="Sprite" parent="."]
 material = ExtResource( 11 )
 position = Vector2( 960, 540 )
 scale = Vector2( 30, 16.875 )
@@ -62,7 +42,6 @@ margin_bottom = 44.0
 
 [node name="FileDialog" type="FileDialog" parent="UI/Item_Select"]
 visible = true
-anchor_bottom = 1.0
 margin_left = -1124.0
 margin_top = 210.0
 margin_right = -661.0
@@ -128,20 +107,18 @@ material = ExtResource( 12 )
 
 [node name="environment" parent="level" instance=ExtResource( 9 )]
 
-[node name="Editor_Camera" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.5, 0.866026, 0, -0.866026, 0.5, 0, 1.445, 0.432 )
+[node name="Editor_Camera" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 script = ExtResource( 6 )
 
 [node name="Camera" type="Camera" parent="Editor_Camera"]
-transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 15, 25 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 32, 0 )
 projection = 1
 size = 25.0
 
-[node name="pixelize" type="MeshInstance" parent="Editor_Camera/Camera"]
-transform = Transform( 1600, 0, 0, 0, 900, -5.29819e-08, 0, 4.76837e-05, 1, 0, -7.15256e-07, -1.00661 )
-visible = false
-mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+[node name="CollisionShape" type="CollisionShape" parent="Editor_Camera"]
+transform = Transform( 23, 0, 0, 0, 1, 0, 0, 0, 13, -0.00794983, 35.0018, -0.00646972 )
+shape = SubResource( 13 )
 
 [node name="preview" parent="." instance=ExtResource( 4 )]
 
@@ -150,7 +127,6 @@ visible = false
 
 [node name="Editor_Object" type="Spatial" parent="."]
 script = ExtResource( 1 )
-preview = ExtResource( 4 )
 
 [connection signal="confirmed" from="UI/Item_Select/FileDialog" to="UI/Item_Select/FileDialog" method="_on_FileDialog_confirmed"]
 [connection signal="popup_hide" from="UI/Item_Select/FileDialog" to="UI/Item_Select/FileDialog" method="_on_FileDialog_popup_hide"]
