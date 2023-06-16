@@ -17,23 +17,26 @@ ambient_light_color = Color( 1, 1, 1, 1 )
 
 [node name="environment" type="Spatial"]
 
-[node name="floor2" type="CSGCombiner" parent="."]
+[node name="playarea" type="CSGCombiner" parent="."]
 use_collision = true
 
-[node name="wall" type="CSGBox" parent="floor2"]
+[node name="wall" type="CSGBox" parent="playarea"]
 width = 130.0
 height = 8.0
 depth = 130.0
 
-[node name="playarea" type="CSGBox" parent="floor2/wall"]
+[node name="playarea" type="CSGBox" parent="playarea/wall"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 operation = 2
-width = 42.0
+width = 122.0
 height = 10.0
-depth = 30.0
+depth = 122.0
 material = ExtResource( 1 )
 
-[node name="actual_wall" type="CSGBox" parent="floor2"]
+[node name="actual_wall" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="actual_wall" type="CSGBox" parent="actual_wall"]
 transform = Transform( 1, 0, 0, 0, 16.8432, 0, 0, 0, 1, 0, 32, 0 )
 cast_shadow = 0
 width = 134.0
@@ -41,7 +44,7 @@ height = 4.0
 depth = 134.0
 material = SubResource( 1 )
 
-[node name="hollow" type="CSGBox" parent="floor2/actual_wall"]
+[node name="hollow" type="CSGBox" parent="actual_wall/actual_wall"]
 cast_shadow = 0
 operation = 2
 width = 130.0

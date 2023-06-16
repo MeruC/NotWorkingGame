@@ -27,11 +27,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/1/ScrollContainer"]
-margin_right = 112.0
+margin_right = 226.0
 margin_bottom = 70.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/1/ScrollContainer/VBoxContainer"]
-margin_right = 112.0
+margin_right = 226.0
 margin_bottom = 70.0
 
 [node name="cube" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
@@ -39,6 +39,16 @@ margin_right = 112.0
 margin_bottom = 70.0
 rect_scale = Vector2( 1, 1 )
 text = "CUBE"
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ball" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 116.0
+margin_right = 226.0
+margin_bottom = 70.0
+text = "BALL"
 icon = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,15 +77,6 @@ margin_bottom = 70.0
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/2/ScrollContainer/VBoxContainer"]
 margin_right = 110.0
 margin_bottom = 70.0
-
-[node name="ball" parent="TabContainer/2/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
-margin_right = 110.0
-margin_bottom = 70.0
-text = "BALL"
-icon = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="mouse_entered" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_entered"]
 [connection signal="mouse_exited" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_exited"]

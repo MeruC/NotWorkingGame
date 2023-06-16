@@ -43,7 +43,7 @@ func _process(delta):
 			delete_item.set_visible(true)
 			cursor_pos.y = 2
 			delete_item.global_translation = cursor_pos
-		else:
+		if !Global.edit_mode:
 			preview_item.set_visible(false)
 			delete_item.set_visible(false)
 			
@@ -51,7 +51,7 @@ func _process(delta):
 			print(object_point.collider.name)
 			pass
 			
-		if (Input.is_action_just_pressed("mb_right") and "object" in object_point.collider.name):
+		if (Global.edit_mode and Input.is_action_just_pressed("mb_right") and "object" in object_point.collider.name):
 			delete_object = level.get_node(object_point.collider.name)
 			delete_object.queue_free()
 			pass

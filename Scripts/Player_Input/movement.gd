@@ -20,7 +20,7 @@ var timer = null#$Pivot/walk/Timer
 
 onready var idle = $Pivot/CSGSphere
 onready var walk = $Pivot/walk
-onready var walking = [$"Pivot/walk/1", $"Pivot/walk/2", $"Pivot/walk/3", $"Pivot/walk/4", $"Pivot/walk/5", $"Pivot/walk/6"]
+onready var walking = [$"Pivot/walk/1", $"Pivot/walk/2", $"Pivot/walk/3", $"Pivot/walk/4"]
 
 func _ready():
 	timer = Timer.new()
@@ -28,7 +28,6 @@ func _ready():
 	timer.set_wait_time(0.2)
 	timer.connect("timeout", self, "animation")
 	add_child(timer)
-	timer.start()	
 
 func _physics_process(delta: float) -> void:
 	var input_vector = get_input_vector()
@@ -36,25 +35,32 @@ func _physics_process(delta: float) -> void:
 	apply_friction(direction, delta)
 	apply_movement(input_vector, direction, delta)
 	velocity = move_and_slide(velocity, Vector3.UP)
-	yield(get_tree().create_timer(2), "timeout")
 	
 	
 func _process(delta):
 	if velocity.x == 0 and velocity.z == 0:
 		idle.set_visible(true)
 		walk.set_visible(false)
+		walk.global_translation.y = 1
+		if (timer.time_left > 0):
+			timer.stop()
 	else:
 		idle.set_visible(false)
 		walk.set_visible(true)	
+		if !(timer.time_left > 0):
+			timer.start()
 	
 func animation():
 	prev = frame
 	frame += 1
-	if(frame > 5): frame = 0
-	print(prev)
-	print(frame)
+	if(frame > 3): frame = 0
 	walking[prev].set_visible(false)
 	walking[frame].set_visible(true)
+	if(frame/2==0):
+		walk.global_translation.y = 0.9
+	else:
+		walk.global_translation.y = 1
+
 
 #Getting The Input
 func get_input_vector():

@@ -1,14 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Models/Player/Walk/1.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Scripts/Player_Input/movement.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Player_Input/Camera.gd" type="Script" id=3]
 [ext_resource path="res://Models/Player/player.tres" type="Material" id=4]
 [ext_resource path="res://Models/Player/Idle/1.obj" type="ArrayMesh" id=6]
-[ext_resource path="res://Models/Player/Walk/2.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://Models/Player/Walk/6.obj" type="ArrayMesh" id=11]
-[ext_resource path="res://Models/Player/Walk/5.obj" type="ArrayMesh" id=12]
-[ext_resource path="res://Models/Player/Walk/3.obj" type="ArrayMesh" id=14]
 
 [sub_resource type="CapsuleShape" id=9]
 
@@ -32,42 +29,27 @@ transform = Transform( 0.714136, 0, 0, 0, 0.714136, 0, 0, 0, 0.714136, 0, -0.451
 visible = false
 
 [node name="1" type="CSGMesh" parent="Pivot/walk"]
-transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+transform = Transform( -1, 1.57834e-08, 1.50169e-07, 0, 0.994522, -0.104529, -1.50996e-07, -0.104529, -0.994522, 0, -1.4, 0 )
 mesh = ExtResource( 1 )
 material = ExtResource( 4 )
 
 [node name="2" type="CSGMesh" parent="Pivot/walk"]
-transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
-visible = false
-mesh = ExtResource( 10 )
-material = ExtResource( 4 )
-
-[node name="3" type="CSGMesh" parent="Pivot/walk"]
-transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
-visible = false
-mesh = ExtResource( 14 )
-material = ExtResource( 4 )
-
-[node name="4" type="CSGMesh" parent="Pivot/walk"]
-transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
-visible = false
-mesh = ExtResource( 12 )
-material = ExtResource( 4 )
-
-[node name="5" type="CSGMesh" parent="Pivot/walk"]
-transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+transform = Transform( -1, 1.57834e-08, 1.50169e-07, 0, 0.994522, -0.104529, -1.50996e-07, -0.104529, -0.994522, 0, -1.4, 0 )
 visible = false
 mesh = ExtResource( 6 )
 material = ExtResource( 4 )
 
-[node name="6" type="CSGMesh" parent="Pivot/walk"]
-transform = Transform( -1, 4.57535e-09, 8.7303e-08, 0, 0.99863, -0.052336, -8.74228e-08, -0.052336, -0.99863, 0, -1.4, 0 )
+[node name="3" type="CSGMesh" parent="Pivot/walk"]
+transform = Transform( -1, 1.57834e-08, 1.50169e-07, 0, 0.994522, -0.104529, -1.50996e-07, -0.104529, -0.994522, 0, -1.4, 0 )
 visible = false
 mesh = ExtResource( 11 )
 material = ExtResource( 4 )
 
-[node name="Timer" type="Timer" parent="Pivot/walk"]
-wait_time = 2.0
+[node name="4" type="CSGMesh" parent="Pivot/walk"]
+transform = Transform( -1, 1.57834e-08, 1.50169e-07, 0, 0.994522, -0.104529, -1.50996e-07, -0.104529, -0.994522, 0, -1.4, 0 )
+visible = false
+mesh = ExtResource( 6 )
+material = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.816235, 0, 0, 0, -3.74598e-08, 1.08755, 0, -0.856981, -4.75385e-08, 0, 0.180094, 0 )
