@@ -18,6 +18,7 @@ ambient_light_color = Color( 1, 1, 1, 1 )
 [node name="actual_wall2" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 16.8432, 0, 0, 0, 1, 0, 32, 0 )
 cast_shadow = 0
+use_collision = true
 width = 142.0
 height = 4.0
 depth = 142.0
