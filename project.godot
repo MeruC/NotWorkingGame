@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="NotWorking"
-run/main_scene="res://main.tscn"
+run/main_scene="res://level_create_Menu/level_create.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -95,12 +95,26 @@ playerSpawn = ExtResource( 2 )
 [node name="level" type="Spatial" parent="."]
 
 [node name="floor" type="CSGMesh" parent="level"]
-transform = Transform( 61, 0, 0, 0, 1, 0, 0, 0, 61, 0, 0, 0 )
+transform = Transform( 69, 0, 0, 0, 1, 0, 0, 0, 69, 0, 0, 0 )
 use_collision = true
 mesh = SubResource( 11 )
 material = ExtResource( 12 )
 
 [node name="environment" parent="level" instance=ExtResource( 9 )]
+
+[node name="wall" type="CSGBox" parent="level"]
+use_collision = true
+width = 138.0
+height = 8.0
+depth = 138.0
+
+[node name="playarea" type="CSGBox" parent="level/wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1 )
+operation = 2
+width = 128.0
+height = 10.0
+depth = 128.0
+material = ExtResource( 12 )
 
 [node name="Editor_Camera" type="KinematicBody" parent="."]
 script = ExtResource( 6 )
@@ -136,3 +150,5 @@ script = ExtResource( 1 )
 [connection signal="mouse_entered" from="play" to="play" method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="play" to="play" method="_on_play_mouse_exited"]
 [connection signal="pressed" from="play" to="play" method="_on_play_pressed"]
+
+[editable path="level/environment"]

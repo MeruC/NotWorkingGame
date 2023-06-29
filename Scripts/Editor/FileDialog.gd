@@ -60,7 +60,7 @@ func load_level():
 	level = this_level
 	
 func new_level():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to(load("res://level_create_Menu/level_create.tscn"))
 	pass
 
 func _on_Save_mouse_entered():
