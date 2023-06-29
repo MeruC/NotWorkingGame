@@ -14,20 +14,11 @@ var start_pos = Vector3(0, .5, 0)
 
 var can_move = false
 var is_moving = false
-var frame = 0
-var prev
-var timer = null#$Pivot/walk/Timer
+
+onready var walk_animation = $AnimationPlayer
 
 onready var idle = $Pivot/CSGSphere
 onready var walk = $Pivot/walk
-onready var walking = [$"Pivot/walk/1", $"Pivot/walk/2", $"Pivot/walk/3", $"Pivot/walk/4"]
-
-func _ready():
-	timer = Timer.new()
-	timer.set_one_shot(false)
-	timer.set_wait_time(0.2)
-	timer.connect("timeout", self, "animation")
-	add_child(timer)
 
 func _physics_process(delta: float) -> void:
 	var input_vector = get_input_vector()
@@ -42,24 +33,11 @@ func _process(delta):
 		idle.set_visible(true)
 		walk.set_visible(false)
 		walk.global_translation.y = 1
-		if (timer.time_left > 0):
-			timer.stop()
+		walk_animation.current_animation = "RESET"
 	else:
 		idle.set_visible(false)
 		walk.set_visible(true)	
-		if !(timer.time_left > 0):
-			timer.start()
-	
-func animation():
-	prev = frame
-	frame += 1
-	if(frame > 3): frame = 0
-	walking[prev].set_visible(false)
-	walking[frame].set_visible(true)
-	if(frame/2==0):
-		walk.global_translation.y = 0.9
-	else:
-		walk.global_translation.y = 1
+		walk_animation.current_animation = "player_walk"
 
 
 #Getting The Input
