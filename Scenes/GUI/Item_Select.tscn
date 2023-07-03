@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Items/cube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Editor/TabContainer.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Items/ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Objects/huaweiRouter.tscn" type="PackedScene" id=6]
 
 [node name="Item_Select" type="Control"]
 margin_right = 40.0
@@ -28,7 +29,7 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/1/ScrollContainer"]
 margin_right = 226.0
-margin_bottom = 70.0
+margin_bottom = 144.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/1/ScrollContainer/VBoxContainer"]
 margin_right = 226.0
@@ -53,6 +54,21 @@ icon = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/1/ScrollContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 226.0
+margin_bottom = 144.0
+
+[node name="ball2" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 3 )]
+margin_right = 123.0
+margin_bottom = 70.0
+text = "huawei"
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 6 )
 
 [node name="2" type="Tabs" parent="TabContainer"]
 visible = false

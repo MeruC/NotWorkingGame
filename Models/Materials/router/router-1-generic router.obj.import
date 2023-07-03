@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/router-1-generic router.obj-ed90f3fc17fa16ad24f4dbd0fe249ec2.mesh"
+
+[deps]
+
+files=[ "res://.import/router-1-generic router.obj-ed90f3fc17fa16ad24f4dbd0fe249ec2.mesh" ]
+
+source_file="res://Models/Materials/router/router-1-generic router.obj"
+dest_files=[ "res://.import/router-1-generic router.obj-ed90f3fc17fa16ad24f4dbd0fe249ec2.mesh", "res://.import/router-1-generic router.obj-ed90f3fc17fa16ad24f4dbd0fe249ec2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

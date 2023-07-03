@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/skin(t- shirt change blue).obj-2d8c742cbb2aecb31a3bdb57f2e681ea.mesh"
+
+[deps]
+
+files=[ "res://.import/skin(t- shirt change blue).obj-2d8c742cbb2aecb31a3bdb57f2e681ea.mesh" ]
+
+source_file="res://Models/Character skin boy/skin(t- shirt change blue).obj"
+dest_files=[ "res://.import/skin(t- shirt change blue).obj-2d8c742cbb2aecb31a3bdb57f2e681ea.mesh", "res://.import/skin(t- shirt change blue).obj-2d8c742cbb2aecb31a3bdb57f2e681ea.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
