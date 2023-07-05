@@ -6,7 +6,7 @@ onready var delete_item = get_node("/root/main/delete")
 
 var current_item 
 var cursor_pos := Vector3.ZERO
-var delete_object
+var current_object
 
 var object_point
 
@@ -51,9 +51,14 @@ func _process(delta):
 			print(object_point.collider.name)
 			pass
 			
+		if (Global.edit_mode and Input.is_action_just_pressed("rotate") and "object" in object_point.collider.name):
+			current_object = level.get_node(object_point.collider.name)
+			current_object.rotate(Vector3(0,1,0),-(PI/2))
+			pass
+			
 		if (Global.edit_mode and Input.is_action_just_pressed("mb_right") and "object" in object_point.collider.name):
-			delete_object = level.get_node(object_point.collider.name)
-			delete_object.queue_free()
+			current_object = level.get_node(object_point.collider.name)
+			current_object.queue_free()
 			pass
 			
 		#Checks for Input
