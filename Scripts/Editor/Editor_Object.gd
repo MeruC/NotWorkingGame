@@ -57,7 +57,7 @@ func _process(delta):
 			pass
 			
 		#Checks for Input
-		if(Global.can_place and Input.is_action_just_pressed("mb_left") and current_item != null and object_point.collider.name == "floor"):
+		if(Global.edit_mode and Global.can_place and Input.is_action_just_pressed("mb_left") and current_item != null and object_point.collider.name == "floor"):
 			#	for n in preview_level.get_children():
 			#		preview_level.remove_child(n)
 			#		n.queue_free()
