@@ -85,8 +85,6 @@ __meta__ = {
 }
 this_scene = ExtResource( 7 )
 
-[node name="object_monitor" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer2/ball3" instance=ExtResource( 7 )]
-
 [node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/1/ScrollContainer/VBoxContainer"]
 margin_top = 148.0
 margin_right = 267.0
@@ -112,8 +110,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 8 )
-
-[node name="object_monitor" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer3/ball3" instance=ExtResource( 7 )]
 
 [node name="2" type="Tabs" parent="TabContainer"]
 visible = false
