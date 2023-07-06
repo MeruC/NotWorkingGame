@@ -124,13 +124,13 @@ script = ExtResource( 2 )
 [node name="Pivot" type="Position3D" parent="."]
 
 [node name="CSGSphere" type="CSGMesh" parent="Pivot"]
-transform = Transform( -0.714136, 0, -6.24318e-08, 0, 0.714136, 0, 6.24317e-08, 0, -0.714136, 0, -1.45127, 0 )
+transform = Transform( -0.62, 0, -9.36174e-08, 0, 0.62, 0, 9.36174e-08, 0, -0.62, 0, -1.45127, 0 )
 visible = false
 mesh = ExtResource( 6 )
 material = ExtResource( 4 )
 
 [node name="walk" type="Spatial" parent="Pivot"]
-transform = Transform( 0.714136, 0, 0, 0, 0.714136, 0, 0, 0, 0.714136, 0, -0.451477, 0 )
+transform = Transform( 0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, -0.451477, 0 )
 
 [node name="1" type="CSGMesh" parent="Pivot/walk"]
 transform = Transform( -1, 1.57834e-08, 1.50169e-07, 0, 0.994522, -0.104529, -1.50996e-07, -0.104529, -0.994522, 0, -1.4, 0 )
@@ -165,8 +165,10 @@ script = ExtResource( 3 )
 
 [node name="Camera" type="Camera" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 15, 25 )
+h_offset = 0.055
+v_offset = -1.0
 projection = 1
-size = 20.0
+size = 18.0
 
 [node name="pixelize" type="MeshInstance" parent="Camera/Camera"]
 transform = Transform( 1600, 0, 0, 0, 900, -5.96046e-08, 0, 3.05176e-05, 1, 0, 0, -1.00661 )
