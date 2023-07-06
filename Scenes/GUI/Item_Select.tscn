@@ -64,7 +64,7 @@ margin_top = 74.0
 margin_right = 267.0
 margin_bottom = 144.0
 
-[node name="ball2" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 3 )]
+[node name="huawei" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 3 )]
 margin_right = 123.0
 margin_bottom = 70.0
 text = "huawei"
@@ -74,7 +74,7 @@ __meta__ = {
 }
 this_scene = ExtResource( 6 )
 
-[node name="ball3" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 3 )]
+[node name="computer" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 3 )]
 margin_left = 127.0
 margin_right = 267.0
 margin_bottom = 70.0
@@ -84,15 +84,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 7 )
-
-[node name="object_monitor" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer2/ball3" instance=ExtResource( 7 )]
+placeOn = "object_table"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/1/ScrollContainer/VBoxContainer"]
 margin_top = 148.0
 margin_right = 267.0
 margin_bottom = 218.0
 
-[node name="ball2" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 3 )]
+[node name="tower" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 3 )]
 margin_right = 114.0
 margin_bottom = 70.0
 text = "tower"
@@ -102,7 +101,7 @@ __meta__ = {
 }
 this_scene = ExtResource( 5 )
 
-[node name="ball3" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 3 )]
+[node name="table" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 3 )]
 margin_left = 118.0
 margin_right = 228.0
 margin_bottom = 70.0
@@ -112,8 +111,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 8 )
-
-[node name="object_monitor" parent="TabContainer/1/ScrollContainer/VBoxContainer/HBoxContainer3/ball3" instance=ExtResource( 7 )]
 
 [node name="2" type="Tabs" parent="TabContainer"]
 visible = false
