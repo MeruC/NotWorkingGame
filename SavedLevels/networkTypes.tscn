@@ -58,7 +58,7 @@ material = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.65, 4 )
 
 [node name="object_monitor" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.65, 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.926, 1.5, 1.932 )
 
 [node name="object_table" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2 )

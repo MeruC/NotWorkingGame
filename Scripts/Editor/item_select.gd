@@ -1,6 +1,8 @@
 extends Button
 
 export(PackedScene) var this_scene
+export(String) var placeOn
+export(float) var height
 onready var object_cursor = get_node("/root/main/Editor_Object")
 
 #onready var cursor_sprite = object_cursor.get_node("Sprite")

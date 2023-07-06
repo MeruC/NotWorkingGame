@@ -16,6 +16,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0 )
 shape = SubResource( 1 )
 
 [node name="CSGMesh" type="CSGMesh" parent="CollisionShape2D"]
-transform = Transform( 1.2, 0, 0, 0, 1, 0, 0, 0, 0.6, 0.12, -1, -1.98 )
+transform = Transform( 1.2, 0, 0, 0, 1.05, 0, 0, 0, 0.6, 0.12, -1.00005, -1.98 )
 mesh = ExtResource( 1 )
 material = SubResource( 2 )
