@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/Models/Materials/computer/parts-4-table.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://resources/Models/Materials/computer/parts-4-table.png" type="Texture" id=2]
+
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[node name="object_table" type="StaticBody"]
+
+[node name="CollisionShape2D" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 0.619978, 0, 0, 0, 0.619978, 0, 0, 0, 0.619978, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material = SubResource( 2 )

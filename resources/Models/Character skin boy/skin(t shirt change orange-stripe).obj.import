@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/skin(t shirt change orange-stripe).obj-8b57fc9187c9c367c9377520cf756c59.mesh"
+
+[deps]
+
+files=[ "res://.import/skin(t shirt change orange-stripe).obj-8b57fc9187c9c367c9377520cf756c59.mesh" ]
+
+source_file="res://resources/Models/Character skin boy/skin(t shirt change orange-stripe).obj"
+dest_files=[ "res://.import/skin(t shirt change orange-stripe).obj-8b57fc9187c9c367c9377520cf756c59.mesh", "res://.import/skin(t shirt change orange-stripe).obj-8b57fc9187c9c367c9377520cf756c59.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

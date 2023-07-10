@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/network types-0-switch.obj-ff92e5f3c1b70774d0a174d9028fd067.mesh"
+
+[deps]
+
+files=[ "res://.import/network types-0-switch.obj-ff92e5f3c1b70774d0a174d9028fd067.mesh" ]
+
+source_file="res://resources/Models/Materials/network types/network types-0-switch.obj"
+dest_files=[ "res://.import/network types-0-switch.obj-ff92e5f3c1b70774d0a174d9028fd067.mesh", "res://.import/network types-0-switch.obj-ff92e5f3c1b70774d0a174d9028fd067.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

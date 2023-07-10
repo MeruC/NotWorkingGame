@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/Sprites/Items/item_texture.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/Objects/cube.tscn" type="PackedScene" id=2]
+
+[node name="item_wolf" instance=ExtResource( 1 )]
+margin_right = 441.0
+margin_bottom = 432.0
+rect_scale = Vector2( 0.2, 0.2 )
+this_scene = ExtResource( 2 )

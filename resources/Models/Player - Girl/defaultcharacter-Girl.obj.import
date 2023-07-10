@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/defaultcharacter-Girl.obj-6d80a7eba720365f45b40835b46c2b35.mesh"
+
+[deps]
+
+files=[ "res://.import/defaultcharacter-Girl.obj-6d80a7eba720365f45b40835b46c2b35.mesh" ]
+
+source_file="res://resources/Models/Player - Girl/defaultcharacter-Girl.obj"
+dest_files=[ "res://.import/defaultcharacter-Girl.obj-6d80a7eba720365f45b40835b46c2b35.mesh", "res://.import/defaultcharacter-Girl.obj-6d80a7eba720365f45b40835b46c2b35.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

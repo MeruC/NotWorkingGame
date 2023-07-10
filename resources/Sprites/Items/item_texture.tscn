@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://online_mode/level_editor/scripts/item_select.gd" type="Script" id=1]
+
+[node name="item_texture" type="Button"]
+margin_right = 111.0
+margin_bottom = 111.0
+script = ExtResource( 1 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_item_texture_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_item_texture_mouse_exited"]

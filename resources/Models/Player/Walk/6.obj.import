@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/6.obj-3fd2b0e28a27be2263e6bf25d634ea7a.mesh"
+
+[deps]
+
+files=[ "res://.import/6.obj-3fd2b0e28a27be2263e6bf25d634ea7a.mesh" ]
+
+source_file="res://resources/Models/Player/Walk/6.obj"
+dest_files=[ "res://.import/6.obj-3fd2b0e28a27be2263e6bf25d634ea7a.mesh", "res://.import/6.obj-3fd2b0e28a27be2263e6bf25d634ea7a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

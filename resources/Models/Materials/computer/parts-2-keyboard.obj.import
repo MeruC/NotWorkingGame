@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/parts-2-keyboard.obj-0f56790634f993f354c75313cd2e6c7d.mesh"
+
+[deps]
+
+files=[ "res://.import/parts-2-keyboard.obj-0f56790634f993f354c75313cd2e6c7d.mesh" ]
+
+source_file="res://resources/Models/Materials/computer/parts-2-keyboard.obj"
+dest_files=[ "res://.import/parts-2-keyboard.obj-0f56790634f993f354c75313cd2e6c7d.mesh", "res://.import/parts-2-keyboard.obj-0f56790634f993f354c75313cd2e6c7d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

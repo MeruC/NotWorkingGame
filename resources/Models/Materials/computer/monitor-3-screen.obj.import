@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/monitor-3-screen.obj-7fe13a7fd9dac68b4c7449ab57306614.mesh"
+
+[deps]
+
+files=[ "res://.import/monitor-3-screen.obj-7fe13a7fd9dac68b4c7449ab57306614.mesh" ]
+
+source_file="res://resources/Models/Materials/computer/monitor-3-screen.obj"
+dest_files=[ "res://.import/monitor-3-screen.obj-7fe13a7fd9dac68b4c7449ab57306614.mesh", "res://.import/monitor-3-screen.obj-7fe13a7fd9dac68b4c7449ab57306614.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

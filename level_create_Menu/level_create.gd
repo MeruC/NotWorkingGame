@@ -18,7 +18,7 @@ func _ready():
 func _on_create_pressed():
 	Global.w = cur_w
 	Global.d = cur_d
-	get_tree().change_scene_to(load("res://main.tscn"))
+	get_tree().change_scene_to(load("res://online_mode/level_editor/level_editor.tscn"))
 	pass # Replace with function body.
 
 

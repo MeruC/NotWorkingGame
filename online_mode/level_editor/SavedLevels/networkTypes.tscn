@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/Materials/grid.tres" type="Material" id=1]
+[ext_resource path="res://online_mode/level_editor/EditorPremade/environment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/Objects/computer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/Objects/table.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/Objects/monitor.tscn" type="PackedScene" id=5]
+
+
+[sub_resource type="PlaneMesh" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 1
+background_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[node name="level" type="Spatial"]
+
+[node name="floor" type="CSGMesh" parent="."]
+transform = Transform( 69, 0, 0, 0, 1, 0, 0, 0, 69, 0, 0, 0 )
+use_collision = true
+mesh = SubResource( 11 )
+material = ExtResource( 1 )
+
+[node name="environment" parent="." instance=ExtResource( 2 )]
+
+[node name="actual_wall2" parent="environment" index="0"]
+material = SubResource( 1 )
+
+[node name="hollow" parent="environment/actual_wall2" index="0"]
+material = SubResource( 2 )
+
+[node name="WorldEnvironment" parent="environment" index="2"]
+environment = SubResource( 3 )
+
+[node name="wall" type="CSGBox" parent="."]
+use_collision = true
+width = 138.0
+height = 8.0
+depth = 138.0
+
+[node name="playarea" type="CSGBox" parent="wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1 )
+operation = 2
+width = 20.0
+height = 10.0
+depth = 20.0
+material = ExtResource( 1 )
+
+[node name="object_tower" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.65, 4 )
+
+[node name="object_monitor" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.926, 1.5, 1.932 )
+
+[node name="object_table" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2 )
+
+[editable path="environment"]
