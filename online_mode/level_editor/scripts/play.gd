@@ -11,7 +11,7 @@ func _on_play_pressed():
 		var new_item = playerSpawn.instance() 
 		main.add_child(new_item)
 		new_item.owner = main
-		
+		player = get_node("/root/main/Player")
 		#new_item.global_translation = Vec
 		$"../Editor_Camera/Camera".current=false
 		$"../Player/Camera/Camera".current=true
