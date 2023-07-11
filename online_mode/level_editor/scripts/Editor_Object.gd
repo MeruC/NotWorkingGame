@@ -62,15 +62,21 @@ func _process(delta):
 			pass
 			
 		#Checks for Input
-		if(Global.edit_mode and Global.can_place and Input.is_action_just_pressed("mb_left") and current_item != null and object_point.collider.name == "floor"):
+		if(Global.edit_mode and Global.can_place and Input.is_action_just_pressed("mb_left") and current_item != null):
 			#	for n in preview_level.get_children():
 			#		preview_level.remove_child(n)
 			#		n.queue_free()
 			var new_item = current_item.instance() 
 			if (new_item != null):
-				level.add_child(new_item)
-				new_item.owner = level
-				new_item.global_translation = cursor_pos
+				if (object_point.collider.name == "floor"):
+					level.add_child(new_item)
+					new_item.owner = level
+					new_item.global_translation = cursor_pos
+				elif (object_point.collider.name.substr(0,13) == "@object_table" or object_point.collider.name == "object_table"):
+					level.add_child(new_item)
+					new_item.owner = level
+					new_item.global_translation = cursor_pos
+					new_item.global_translation.y = 1
 		pass
 	
 

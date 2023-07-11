@@ -3,7 +3,6 @@
 [ext_resource path="res://resources/Models/Materials/router/router-0-huawei router.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://resources/Models/Materials/router/router-0-huawei router.png" type="Texture" id=2]
 
-
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="SpatialMaterial" id=2]
@@ -16,6 +15,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 1 )
 
 [node name="CSGMesh" type="CSGMesh" parent="."]
-transform = Transform( -7.81751e-09, 0, 0.178844, 0, 0.178844, 0, -0.178844, 0, -7.81751e-09, 0.51774, -2.38419e-07, 0.751356 )
+transform = Transform( -7.81752e-09, 0, 0.178844, 0, 0.178844, 0, -0.178844, 0, -7.81752e-09, 0.51774, -2.38419e-07, 0.751356 )
 mesh = ExtResource( 1 )
 material = SubResource( 2 )
