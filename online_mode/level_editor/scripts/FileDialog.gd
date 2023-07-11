@@ -11,7 +11,7 @@ func refresh():
 func _draw():
 	set_current_dir("res://online_mode/level_editor/SavedLevels/")
 
-onready var popup : FileDialog = get_node("/root/main/UI/Item_Select/FileDialog")
+onready var popup : FileDialog = get_node("/root/main/UI/FileDialog")
 
 func _on_Save_pressed():
 

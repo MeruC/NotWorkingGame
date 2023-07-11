@@ -30,3 +30,8 @@ func _on_w_value_changed(value):
 func _on_d_value_changed(value):
 	cur_d = value
 	pass # Replace with function body.
+
+
+func _on_inventory_test_pressed():
+	get_tree().change_scene_to(load("res://inventory_test.tscn"))
+	pass # Replace with function body.

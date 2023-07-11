@@ -15,10 +15,10 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="w" type="SpinBox" parent="."]
-margin_left = 546.0
-margin_top = 436.0
-margin_right = 776.0
-margin_bottom = 553.0
+margin_left = 264.0
+margin_top = 20.0
+margin_right = 494.0
+margin_bottom = 137.0
 rect_pivot_offset = Vector2( 433, 117 )
 theme = SubResource( 2 )
 min_value = 10.0
@@ -27,10 +27,10 @@ step = 2.0
 value = 10.0
 
 [node name="d" type="SpinBox" parent="."]
-margin_left = 1004.0
-margin_top = 435.0
-margin_right = 1234.0
-margin_bottom = 552.0
+margin_left = 722.0
+margin_top = 19.0
+margin_right = 952.0
+margin_bottom = 136.0
 rect_pivot_offset = Vector2( 433, 117 )
 theme = SubResource( 2 )
 min_value = 10.0
@@ -39,21 +39,30 @@ step = 2.0
 value = 10.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 860.0
-margin_top = 459.0
-margin_right = 943.0
-margin_bottom = 567.0
+margin_left = 574.0
+margin_top = 35.0
+margin_right = 657.0
+margin_bottom = 143.0
 custom_fonts/normal_font = ExtResource( 1 )
 text = "X"
 
 [node name="create" type="Button" parent="."]
-margin_left = 715.0
-margin_top = 660.0
-margin_right = 1040.0
-margin_bottom = 784.0
+margin_left = 612.0
+margin_top = 404.0
+margin_right = 937.0
+margin_bottom = 528.0
 theme = SubResource( 3 )
 text = "Create"
+
+[node name="inventory test" type="Button" parent="."]
+margin_left = 11.0
+margin_top = 403.0
+margin_right = 437.0
+margin_bottom = 527.0
+theme = SubResource( 3 )
+text = "Inventory Test"
 
 [connection signal="value_changed" from="w" to="." method="_on_w_value_changed"]
 [connection signal="value_changed" from="d" to="." method="_on_d_value_changed"]
 [connection signal="pressed" from="create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="inventory test" to="." method="_on_inventory_test_pressed"]

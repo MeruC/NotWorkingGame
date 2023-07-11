@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Button",
+"class": "Chest",
+"language": "GDScript",
+"path": "res://chest.gd"
+}, {
 "base": "HBoxContainer",
 "class": "ContributorClass",
 "language": "GDScript",
@@ -19,10 +24,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/GistItem.gd"
 }, {
+"base": "NinePatchRect",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://global/GUI/inventory/inventory.gd"
+}, {
+"base": "TextureRect",
+"class": "Inventory_Slot",
+"language": "GDScript",
+"path": "res://global/GUI/inventory/inventory_slot.gd"
+}, {
 "base": "HBoxContainer",
 "class": "InvitationItem",
 "language": "GDScript",
 "path": "res://addons/github-integration/scripts/InvitationItem.gd"
+}, {
+"base": "TextureRect",
+"class": "Item",
+"language": "GDScript",
+"path": "res://global/items/item.gd"
 }, {
 "base": "PanelContainer",
 "class": "RepositoryItem",
@@ -30,9 +50,13 @@ _global_script_classes=[ {
 "path": "res://addons/github-integration/scripts/RepositoryItem.gd"
 } ]
 _global_script_class_icons={
+"Chest": "",
 "ContributorClass": "",
 "GistItem": "",
+"Inventory": "",
+"Inventory_Slot": "",
 "InvitationItem": "",
+"Item": "",
 "RepositoryItem": ""
 }
 
@@ -49,11 +73,13 @@ PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
 IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
 UserData="*res://addons/github-integration/scripts/user_data.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
+ItemManager="*res://managers/item_manager.gd"
+SignalManager="*res://managers/signal_manager.gd"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=960
+window/size/height=540
 window/size/always_on_top=true
 window/size/test_width=1280
 window/size/test_height=720
