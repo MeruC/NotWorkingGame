@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Scale_Control
 
 export(NodePath) onready var inventory = get_node( inventory ) as Inventory
 

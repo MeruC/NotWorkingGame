@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Item",
 "language": "GDScript",
 "path": "res://global/items/item.gd"
+}, {
+"base": "Control",
+"class": "Scale_Control",
+"language": "GDScript",
+"path": "res://ui/scale_control.gd"
 } ]
 _global_script_class_icons={
 "Chest": "",
 "Inventory": "",
 "Inventory_Slot": "",
-"Item": ""
+"Item": "",
+"Scale_Control": ""
 }
 
 [application]
