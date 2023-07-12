@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://resources/Sprites/Items/cube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/scripts/TabContainer.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://resources/Objects/ciscoRouter.tscn" type="PackedScene" id=10]
 [ext_resource path="res://resources/Objects/switch.tscn" type="PackedScene" id=11]
 [ext_resource path="res://resources/Objects/server.tscn" type="PackedScene" id=12]
+[ext_resource path="res://resources/Objects/printer.tscn" type="PackedScene" id=13]
 
 [node name="Item_Select" type="Control"]
 margin_right = 40.0
@@ -178,6 +179,32 @@ __meta__ = {
 this_scene = ExtResource( 11 )
 
 [node name="table" parent="TabContainer/2/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource( 3 )]
+margin_left = 118.0
+margin_right = 228.0
+margin_bottom = 70.0
+text = "Server"
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 12 )
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="TabContainer/2/ScrollContainer/VBoxContainer"]
+margin_top = 222.0
+margin_right = 267.0
+margin_bottom = 292.0
+
+[node name="router" parent="TabContainer/2/ScrollContainer/VBoxContainer/HBoxContainer6" instance=ExtResource( 3 )]
+margin_right = 114.0
+margin_bottom = 70.0
+text = "Printer"
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 13 )
+
+[node name="table" parent="TabContainer/2/ScrollContainer/VBoxContainer/HBoxContainer6" instance=ExtResource( 3 )]
 margin_left = 118.0
 margin_right = 228.0
 margin_bottom = 70.0

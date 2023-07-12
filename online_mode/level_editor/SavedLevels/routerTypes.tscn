@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://resources/Objects/genericRouter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/Objects/table.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/Objects/huaweiRouter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://online_mode/level_editor/EditorPremade/environment.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/Objects/ciscoRouter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/Materials/grid.tres" type="Material" id=6]
+
+[sub_resource type="PlaneMesh" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 1
+background_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[node name="level" type="Spatial"]
+
+[node name="floor" type="CSGMesh" parent="."]
+transform = Transform( 69, 0, 0, 0, 1, 0, 0, 0, 69, 0, 0, 0 )
+use_collision = true
+mesh = SubResource( 11 )
+material = ExtResource( 6 )
+
+[node name="environment" parent="." instance=ExtResource( 4 )]
+
+[node name="actual_wall2" parent="environment" index="0"]
+transform = Transform( 1, 0, 0, 0, 16.8432, 0, 0, 0, 1, 0, 32, 0 )
+cast_shadow = 0
+use_collision = true
+width = 142.0
+height = 4.0
+depth = 142.0
+material = SubResource( 1 )
+
+[node name="hollow" parent="environment/actual_wall2" index="0"]
+cast_shadow = 0
+operation = 2
+width = 138.0
+height = 6.0
+depth = 138.0
+material = SubResource( 2 )
+
+[node name="light" parent="environment" index="1"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0 )
+
+[node name="light" parent="environment/light" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0 )
+light_energy = 0.3
+light_indirect_energy = 0.0
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_normal_bias = 0.1
+
+[node name="WorldEnvironment" parent="environment" index="2"]
+environment = SubResource( 3 )
+
+[node name="wall" type="CSGBox" parent="."]
+use_collision = true
+width = 138.0
+height = 8.0
+depth = 138.0
+
+[node name="playarea" type="CSGBox" parent="wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1 )
+operation = 2
+width = 20.0
+height = 10.0
+depth = 20.0
+material = ExtResource( 6 )
+
+[node name="object_table" type="StaticBody" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -10 )
+
+[node name="@object_table@98" type="StaticBody" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -10 )
+
+[node name="@object_table@99" type="StaticBody" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -10 )
+
+[node name="object_huaweiRouter" type="StaticBody" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -10 )
+
+[node name="object_genericRouter" type="StaticBody" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -10 )
+
+[node name="object_ciscoRouter" type="StaticBody" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -10 )
+
+[editable path="environment"]
