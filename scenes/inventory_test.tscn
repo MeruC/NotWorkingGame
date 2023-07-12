@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://global/GUI/inventory/inventory_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://global/GUI/inventory/inventory_container.tscn" type="PackedScene" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://chest_rng.gd" type="Script" id=4]
 [ext_resource path="res://chest.gd" type="Script" id=5]
 [ext_resource path="res://managers/inventory_manager.gd" type="Script" id=6]
-[ext_resource path="res://scale_test.gd" type="Script" id=7]
+[ext_resource path="res://ui/settings.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/ui_container.gd" type="Script" id=8]
 
 [node name="main" type="Node2D"]
 
@@ -16,22 +17,28 @@
 
 [node name="inventory_manager" type="Node2D" parent="managers"]
 script = ExtResource( 6 )
-item_in_hand_node = NodePath("../../ui/item_in_hand")
-item_info = NodePath("../../ui/item_info")
+item_in_hand_node = NodePath("../../ui/ui_container/item_in_hand")
+item_info = NodePath("../../ui/ui_container/item_info")
 
 [node name="ui" type="CanvasLayer" parent="."]
 
-[node name="inventory_container" parent="ui" instance=ExtResource( 2 )]
-margin_left = -123.0
-margin_top = -117.0
-margin_right = 21.0
-margin_bottom = -57.0
+[node name="ui_container" type="Control" parent="ui"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+settings = NodePath("settings")
 
-[node name="inventory_container2" parent="ui" instance=ExtResource( 1 )]
-margin_left = -346.0
-margin_top = -115.0
-margin_right = -202.0
-margin_bottom = -55.0
+[node name="inventory_container" parent="ui/ui_container" instance=ExtResource( 2 )]
+margin_left = -178.0
+margin_top = -168.0
+margin_right = -34.0
+margin_bottom = -108.0
+
+[node name="inventory_player" parent="ui/ui_container" instance=ExtResource( 1 )]
+margin_left = -395.0
+margin_top = -166.0
+margin_right = -251.0
+margin_bottom = -106.0
 patch_margin_left = 9
 patch_margin_top = 9
 patch_margin_right = 9
@@ -39,35 +46,50 @@ patch_margin_bottom = 9
 axis_stretch_horizontal = 0
 axis_stretch_vertical = 0
 
-[node name="item_in_hand" type="Control" parent="ui"]
+[node name="settings" parent="ui/ui_container" instance=ExtResource( 7 )]
+visible = false
+margin_left = -74.0
+margin_top = -40.0
+margin_right = 70.0
+margin_bottom = 42.0
+
+[node name="item_in_hand" type="Control" parent="ui/ui_container"]
+margin_left = -451.0
+margin_top = -231.0
+margin_right = -451.0
+margin_bottom = -231.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="item_info" parent="ui" instance=ExtResource( 3 )]
+[node name="item_info" parent="ui/ui_container" instance=ExtResource( 3 )]
 visible = false
 margin_left = 551.5
 margin_top = 324.5
 margin_right = 634.5
 margin_bottom = 351.5
 
-[node name="chest" type="Button" parent="ui"]
-margin_left = 323.0
-margin_top = 421.0
-margin_right = 427.0
-margin_bottom = 441.0
+[node name="buttons" type="Control" parent="ui/ui_container"]
+margin_left = 444.0
+margin_top = 419.0
+margin_right = 484.0
+margin_bottom = 459.0
+
+[node name="chest" type="Button" parent="ui/ui_container/buttons"]
+margin_left = -121.0
+margin_top = 2.0
+margin_right = -17.0
+margin_bottom = 22.0
 text = "Chest"
 script = ExtResource( 5 )
 size = 5
 inventory_name = "Chest"
 items = [ "gold", "crystal" ]
 
-[node name="chest2" type="Button" parent="ui"]
-margin_left = 444.0
-margin_top = 419.0
-margin_right = 548.0
-margin_bottom = 439.0
+[node name="chest2" type="Button" parent="ui/ui_container/buttons"]
+margin_right = 104.0
+margin_bottom = 20.0
 text = "Random Chest"
 script = ExtResource( 4 )
 size = 15
@@ -75,35 +97,13 @@ inventory_name = "Random Chest"
 items = [ "gold", "stone_brick", "tree", "crystal" ]
 number_of_items = 10
 
-[node name="scale0_5" type="Button" parent="ui"]
-margin_left = 191.0
-margin_top = 452.0
-margin_right = 248.0
-margin_bottom = 472.0
-text = "scale 0.5"
-script = ExtResource( 7 )
-scale = 0.5
+[node name="settings" type="Button" parent="ui/ui_container/buttons"]
+margin_left = 418.0
+margin_top = -408.0
+margin_right = 504.0
+margin_bottom = -366.0
+text = "Settings"
 
-[node name="scale1" type="Button" parent="ui"]
-margin_left = 192.0
-margin_top = 419.0
-margin_right = 249.0
-margin_bottom = 439.0
-text = "scale 1"
-script = ExtResource( 7 )
-scale = 1.0
-
-[node name="scale1_5" type="Button" parent="ui"]
-margin_left = 193.0
-margin_top = 388.0
-margin_right = 250.0
-margin_bottom = 408.0
-text = "scale 1.5"
-script = ExtResource( 7 )
-scale = 1.5
-
-[connection signal="pressed" from="ui/chest" to="ui/chest" method="_on_chest_pressed"]
-[connection signal="pressed" from="ui/chest2" to="ui/chest2" method="_on_chest_pressed"]
-[connection signal="pressed" from="ui/scale0_5" to="ui/scale0_5" method="_on_pressed"]
-[connection signal="pressed" from="ui/scale1" to="ui/scale1" method="_on_pressed"]
-[connection signal="pressed" from="ui/scale1_5" to="ui/scale1_5" method="_on_pressed"]
+[connection signal="pressed" from="ui/ui_container/buttons/chest" to="ui/ui_container/buttons/chest" method="_on_chest_pressed"]
+[connection signal="pressed" from="ui/ui_container/buttons/chest2" to="ui/ui_container/buttons/chest2" method="_on_chest_pressed"]
+[connection signal="pressed" from="ui/ui_container/buttons/settings" to="ui/ui_container" method="_on_settings_pressed"]

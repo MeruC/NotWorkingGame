@@ -53,6 +53,7 @@ config/icon="res://icon.png"
 Global="*res://global/Global.gd"
 ItemManager="*res://managers/item_manager.gd"
 SignalManager="*res://managers/signal_manager.gd"
+SettingsManager="*res://managers/settings_manager.gd"
 
 [display]
 
