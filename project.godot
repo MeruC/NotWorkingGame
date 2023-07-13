@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://chest.gd"
 }, {
+"base": "Scale_Control",
+"class": "Dragable_Control",
+"language": "GDScript",
+"path": "res://ui/dragable_control.gd"
+}, {
 "base": "NinePatchRect",
 "class": "Inventory",
 "language": "GDScript",
@@ -36,6 +41,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Chest": "",
+"Dragable_Control": "",
 "Inventory": "",
 "Inventory_Slot": "",
 "Item": "",

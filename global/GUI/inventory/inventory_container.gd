@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Dragable_Control
 
 export( NodePath ) onready var inventory_container = get_node( inventory_container ) as Control
 

@@ -1,4 +1,4 @@
-extends Scale_Control
+extends Dragable_Control
 
 export( NodePath ) onready var scale_slider = get_node( scale_slider ) as HSlider
 export( NodePath ) onready var fullscreen_check = get_node( fullscreen_check ) as CheckBox

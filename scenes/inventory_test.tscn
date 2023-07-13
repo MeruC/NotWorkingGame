@@ -26,19 +26,23 @@ item_info = NodePath("../../ui/ui_container/item_info")
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 8 )
-settings = NodePath("settings")
+settings = NodePath("windows/settings")
 
-[node name="inventory_container" parent="ui/ui_container" instance=ExtResource( 2 )]
-margin_left = -178.0
-margin_top = -168.0
-margin_right = -34.0
-margin_bottom = -108.0
+[node name="windows" type="Control" parent="ui/ui_container"]
+margin_right = 40.0
+margin_bottom = 40.0
 
-[node name="inventory_player" parent="ui/ui_container" instance=ExtResource( 1 )]
-margin_left = -395.0
-margin_top = -166.0
-margin_right = -251.0
-margin_bottom = -106.0
+[node name="inventory_container" parent="ui/ui_container/windows" instance=ExtResource( 2 )]
+margin_left = 282.0
+margin_top = 82.0
+margin_right = 426.0
+margin_bottom = 142.0
+
+[node name="inventory_player" parent="ui/ui_container/windows" instance=ExtResource( 1 )]
+margin_left = 65.0
+margin_top = 84.0
+margin_right = 209.0
+margin_bottom = 144.0
 patch_margin_left = 9
 patch_margin_top = 9
 patch_margin_right = 9
@@ -46,12 +50,12 @@ patch_margin_bottom = 9
 axis_stretch_horizontal = 0
 axis_stretch_vertical = 0
 
-[node name="settings" parent="ui/ui_container" instance=ExtResource( 7 )]
+[node name="settings" parent="ui/ui_container/windows" instance=ExtResource( 7 )]
 visible = false
-margin_left = -74.0
-margin_top = -40.0
-margin_right = 70.0
-margin_bottom = 42.0
+margin_left = 386.0
+margin_top = 210.0
+margin_right = 530.0
+margin_bottom = 292.0
 
 [node name="item_in_hand" type="Control" parent="ui/ui_container"]
 margin_left = -451.0

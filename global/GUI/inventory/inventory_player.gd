@@ -1,4 +1,4 @@
-extends Scale_Control
+extends Dragable_Control
 
 export(NodePath) onready var inventory = get_node( inventory ) as Inventory
 
