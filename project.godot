@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/dragable_control.gd"
 }, {
+"base": "Inventory_Slot",
+"class": "Equipment_Slot",
+"language": "GDScript",
+"path": "res://ui/equipment_slot.gd"
+}, {
+"base": "Reference",
+"class": "Game_Enums",
+"language": "GDScript",
+"path": "res://managers/game_enums.gd"
+}, {
 "base": "NinePatchRect",
 "class": "Inventory",
 "language": "GDScript",
@@ -42,6 +52,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Chest": "",
 "Dragable_Control": "",
+"Equipment_Slot": "",
+"Game_Enums": "",
 "Inventory": "",
 "Inventory_Slot": "",
 "Item": "",

@@ -1,10 +1,10 @@
 extends Node
 
-export(NodePath) onready var item_in_hand_node = get_node( item_in_hand_node ) as Control
-export(NodePath) onready var item_info = get_node( item_info ) as Control
+export( NodePath ) onready var item_in_hand_node = get_node( item_in_hand_node ) as Control
+export( NodePath ) onready var item_info = get_node( item_info ) as Control
 
 var inventories : Array = []
-var item_in_hand = null
+var item_in_hand : Item = null
 var item_offset = Vector2.ZERO
 
 func _ready():
@@ -33,6 +33,9 @@ func _on_mouse_exited_slot():
 func _on_gui_input_slot( event : InputEvent, slot : Inventory_Slot ):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 		if item_in_hand:
+			if slot is Equipment_Slot and item_in_hand.equipment_type != slot.type:
+				return
+			
 			item_in_hand_node.remove_child( item_in_hand )
 			
 			if slot.item:
@@ -52,9 +55,3 @@ func _on_gui_input_slot( event : InputEvent, slot : Inventory_Slot ):
 			slot.pick_item()
 			item_in_hand_node.add_child( item_in_hand )
 			item_in_hand.rect_global_position = event.global_position - item_offset
-
-
-
-
-
-

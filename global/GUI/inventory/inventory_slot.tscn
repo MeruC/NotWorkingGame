@@ -6,11 +6,9 @@
 [node name="inventory_slot" type="TextureRect"]
 margin_right = 20.0
 margin_bottom = 20.0
+mouse_filter = 0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 item_container = NodePath("item_container")
 
 [node name="item_container" type="CenterContainer" parent="."]

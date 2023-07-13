@@ -10,8 +10,6 @@ margin_right = 18.0
 margin_bottom = 18.0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 id = "crystal"
 item_name = "Crystal"
+equipment_type = 3
