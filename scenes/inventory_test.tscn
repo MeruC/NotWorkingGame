@@ -37,6 +37,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
+[node name="hotbar" parent="ui/ui_container/windows" instance=ExtResource( 10 )]
+size = 5
+
 [node name="inventory_player" parent="ui/ui_container/windows" instance=ExtResource( 1 )]
 margin_left = -307.0
 margin_top = -109.0
@@ -98,9 +101,6 @@ margin_top = -408.0
 margin_right = 504.0
 margin_bottom = -366.0
 text = "Settings"
-
-[node name="hotbar" parent="ui/ui_container" instance=ExtResource( 10 )]
-size = 5
 
 [node name="split stack" parent="ui/ui_container" instance=ExtResource( 9 )]
 visible = false
