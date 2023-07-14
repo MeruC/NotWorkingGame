@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Game_Enums",
 "language": "GDScript",
-"path": "res://managers/game_enums.gd"
+"path": "res://managers/inventory/game_enums.gd"
 }, {
 "base": "Scale_Control",
 "class": "Hotbar",
@@ -69,10 +69,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/item_stat_line.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Resource_Manager",
 "language": "GDScript",
-"path": "res://managers/resource_manager.gd"
+"path": "res://managers/inventory/resource_manager.gd"
 }, {
 "base": "Control",
 "class": "Scale_Control",
@@ -117,10 +117,10 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://global/Global.gd"
-ItemManager="*res://managers/item_manager.gd"
-SignalManager="*res://managers/signal_manager.gd"
-SettingsManager="*res://managers/settings_manager.gd"
-ResourceManager="*res://managers/resource_manager.gd"
+ItemManager="*res://managers/inventory/item_manager.gd"
+SignalManager="*res://managers/inventory/signal_manager.gd"
+SettingsManager="*res://managers/inventory/settings_manager.gd"
+ResourceManager="*res://managers/inventory/resource_manager.gd"
 
 [display]
 
