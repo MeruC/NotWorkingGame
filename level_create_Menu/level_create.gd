@@ -33,5 +33,5 @@ func _on_d_value_changed(value):
 
 
 func _on_inventory_test_pressed():
-	get_tree().change_scene_to(load("res://scenes/inventory.tscn"))
+	get_tree().change_scene_to(load("res://nodes/inventory.tscn"))
 	pass # Replace with function body.

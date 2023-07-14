@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://global/GUI/inventory/sprites/inner_panel.png" type="Texture" id=1]
-[ext_resource path="res://global/GUI/inventory/sprites/title.png" type="Texture" id=2]
+[ext_resource path="res://global/inventory/sprites/inner_panel.png" type="Texture" id=1]
+[ext_resource path="res://global/inventory/sprites/title.png" type="Texture" id=2]
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://global/items/item_info.gd" type="Script" id=4]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 10

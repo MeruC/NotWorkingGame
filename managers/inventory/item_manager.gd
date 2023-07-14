@@ -4,10 +4,10 @@ const ITEM_PATH = "res://global/items/data/items.json"
 var items = {}
 
 onready var placeholders = {
-	Game_Enums.EQUIPMENT_TYPE.HEAD : preload("res://global/GUI/inventory/sprites/placeholder_head.png"),
-	Game_Enums.EQUIPMENT_TYPE.CHEST : preload("res://global/GUI/inventory/sprites/placeholder_chest.png"),
-	Game_Enums.EQUIPMENT_TYPE.MAIN_HAND : preload("res://global/GUI/inventory/sprites/placeholder_main_hand.png"),
-	Game_Enums.EQUIPMENT_TYPE.OFFHAND : preload("res://global/GUI/inventory/sprites/placeholder_offhand.png"),
+	Game_Enums.EQUIPMENT_TYPE.HEAD : preload("res://global/inventory/sprites/placeholder_head.png"),
+	Game_Enums.EQUIPMENT_TYPE.CHEST : preload("res://global/inventory/sprites/placeholder_chest.png"),
+	Game_Enums.EQUIPMENT_TYPE.MAIN_HAND : preload("res://global/inventory/sprites/placeholder_main_hand.png"),
+	Game_Enums.EQUIPMENT_TYPE.OFFHAND : preload("res://global/inventory/sprites/placeholder_offhand.png"),
 }
 
 func _ready():

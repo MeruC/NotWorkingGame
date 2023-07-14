@@ -1,0 +1,198 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://resources/Sprites/Items/cube.tscn" type="PackedScene" id=1]
+[ext_resource path="res://online_mode/level_editor/scripts/TabContainer.gd" type="Script" id=2]
+[ext_resource path="res://resources/Sprites/Items/ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://global/objects/computer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://global/objects/huaweiRouter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://global/objects/monitor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://global/objects/table.tscn" type="PackedScene" id=8]
+[ext_resource path="res://global/objects/genericRouter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://global/objects/ciscoRouter.tscn" type="PackedScene" id=10]
+[ext_resource path="res://global/objects/switch.tscn" type="PackedScene" id=11]
+[ext_resource path="res://global/objects/server.tscn" type="PackedScene" id=12]
+[ext_resource path="res://global/objects/printer.tscn" type="PackedScene" id=13]
+
+[node name="Item_Select" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 196.0
+margin_bottom = 129.0
+script = ExtResource( 2 )
+
+[node name="Furniture" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Furniture"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Furniture/ScrollContainer"]
+margin_right = 117.0
+margin_bottom = 68.0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 4
+columns = 2
+
+[node name="cube" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
+margin_right = 65.0
+margin_bottom = 20.0
+rect_scale = Vector2( 1, 1 )
+text = "CUBE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chest" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
+margin_left = 69.0
+margin_right = 117.0
+margin_bottom = 20.0
+rect_scale = Vector2( 1, 1 )
+text = "Chest"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pickable" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 24.0
+margin_right = 65.0
+margin_bottom = 44.0
+rect_scale = Vector2( 1, 1 )
+text = "pickable"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ball" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 69.0
+margin_top = 24.0
+margin_right = 117.0
+margin_bottom = 44.0
+text = "BALL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="table" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 48.0
+margin_right = 65.0
+margin_bottom = 68.0
+text = "table"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 8 )
+
+[node name="Devices" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Devices"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Devices/ScrollContainer"]
+margin_right = 184.0
+margin_bottom = 92.0
+grow_horizontal = 0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 4
+columns = 2
+
+[node name="pc_tower" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_right = 92.0
+margin_bottom = 20.0
+text = "PC Tower"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 5 )
+
+[node name="huawei" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 96.0
+margin_right = 184.0
+margin_bottom = 20.0
+text = "Huawei"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 6 )
+
+[node name="computer" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 24.0
+margin_right = 92.0
+margin_bottom = 44.0
+text = "Computer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 7 )
+placeOn = "object_table"
+
+[node name="generic_router" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 96.0
+margin_top = 24.0
+margin_right = 184.0
+margin_bottom = 44.0
+text = "Gen. Router"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 9 )
+
+[node name="cisco_router" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 48.0
+margin_right = 92.0
+margin_bottom = 68.0
+text = "Cisco Router"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 10 )
+
+[node name="generic_switch" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 96.0
+margin_top = 48.0
+margin_right = 184.0
+margin_bottom = 68.0
+text = "Gen. Switch"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 11 )
+
+[node name="server" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 72.0
+margin_right = 92.0
+margin_bottom = 92.0
+text = "Server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 12 )
+
+[node name="printer" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 96.0
+margin_top = 72.0
+margin_right = 184.0
+margin_bottom = 92.0
+text = "Printer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 13 )
+
+[connection signal="mouse_entered" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_entered"]
+[connection signal="mouse_exited" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_exited"]

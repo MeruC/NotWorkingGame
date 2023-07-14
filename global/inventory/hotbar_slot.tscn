@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://invRes/hotbar_slot.gd" type="Script" id=1]
+[ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://global/inventory/inventory_slot.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="hotbar_slot" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+lbl_key = NodePath("lbl_key")
+
+[node name="lbl_key" type="Label" parent="." index="1"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -8.0
+margin_bottom = 4.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

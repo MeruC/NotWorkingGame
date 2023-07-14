@@ -7,7 +7,7 @@ export( Array, String ) var items
 var inventory : Inventory
 
 func _init():
-	inventory = preload("res://global/GUI/inventory/inventory.tscn").instance()
+	inventory = preload("res://global/inventory/inventory.tscn").instance()
 
 func _ready():
 	inventory.size = size

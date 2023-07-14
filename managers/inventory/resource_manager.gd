@@ -25,8 +25,8 @@ var colors = {
 }
 
 var tscn = {
-	"splitter": preload("res://ui/splitter.tscn"),
-	"hotbar_slot": preload("res://global/GUI/inventory/hotbar_slot.tscn")
+	"splitter": preload("res://invRes/splitter.tscn"),
+	"hotbar_slot": preload("res://global/inventory/hotbar_slot.tscn")
 }
 
 var stat_info = {}
