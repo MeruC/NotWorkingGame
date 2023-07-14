@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://global/GUI/inventory/inventory_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/hotbar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://global/items/item_info.tscn" type="PackedScene" id=4]
 [ext_resource path="res://global/GUI/inventory/inventory_container.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/settings.tscn" type="PackedScene" id=6]
 [ext_resource path="res://global/GUI/inventory/split_stack.tscn" type="PackedScene" id=7]
 [ext_resource path="res://managers/inventory/inventory_manager.gd" type="Script" id=8]
 [ext_resource path="res://chest.gd" type="Script" id=9]
@@ -33,12 +34,19 @@ split_stack = NodePath("../../ui/split stack")
 [node name="item_void" type="Control" parent="ui"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ui_container" type="Control" parent="ui"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="windows" type="Control" parent="ui/ui_container"]
 anchor_right = 1.0
@@ -147,6 +155,14 @@ number_of_items = 10
 visible = false
 rect_pivot_offset = Vector2( 640, 360 )
 
+[node name="settings" parent="ui" instance=ExtResource( 6 )]
+mouse_filter = 2
+
+[node name="settings" parent="ui/settings" index="1"]
+visible = false
+
 [connection signal="pressed" from="ui/ui_container/buttons/exit" to="ui/ui_container" method="_on_exit_pressed"]
 [connection signal="pressed" from="ui/ui_container/buttons/chests/chest" to="ui/ui_container/buttons/chests/chest" method="_on_chest_pressed"]
 [connection signal="pressed" from="ui/ui_container/buttons/chests/randomChest" to="ui/ui_container/buttons/chests/randomChest" method="_on_chest_pressed"]
+
+[editable path="ui/settings"]

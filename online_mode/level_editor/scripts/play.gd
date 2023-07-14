@@ -1,4 +1,4 @@
-extends Button
+extends Scale_Control
 
 var player
 export( NodePath ) onready var ui = get_node(ui) as CanvasLayer

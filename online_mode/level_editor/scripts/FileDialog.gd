@@ -11,7 +11,7 @@ func refresh():
 func _draw():
 	set_current_dir("res://online_mode/level_editor/SavedLevels/")
 
-onready var popup : FileDialog = get_node("/root/main/UI/FileDialog")
+onready var popup : FileDialog = get_node("/root/main/UI/editor/FileDialog")
 
 func _on_Save_pressed():
 
@@ -81,4 +81,3 @@ func _on_Load_mouse_exited():
 
 func _on_New_pressed():
 	new_level()
-	pass # Replace with function body.

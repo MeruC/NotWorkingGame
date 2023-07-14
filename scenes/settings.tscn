@@ -8,6 +8,9 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 settings = NodePath("settings")
 
 [node name="settingsBtn" type="Button" parent="."]
@@ -22,7 +25,5 @@ text = "Settings"
 script = ExtResource( 3 )
 
 [node name="settings" parent="." instance=ExtResource( 1 )]
-anchor_top = 0.5
-anchor_bottom = 0.5
 
 [connection signal="pressed" from="settingsBtn" to="." method="_on_settingsBtn_pressed"]

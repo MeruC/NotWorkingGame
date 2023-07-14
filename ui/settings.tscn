@@ -23,6 +23,7 @@ font_data = ExtResource( 9 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 640, 360 )
+mouse_filter = 2
 color = Color( 0, 0, 0, 0.592157 )
 script = ExtResource( 8 )
 scale_slider = NodePath("settings/setting list/scale/HSlider")

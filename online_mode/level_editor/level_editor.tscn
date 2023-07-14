@@ -15,9 +15,9 @@
 [ext_resource path="res://resources/Shaders/pixel.tres" type="Material" id=13]
 [ext_resource path="res://scenes/inventory.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/settings.tscn" type="PackedScene" id=15]
-[ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=17]
+[ext_resource path="res://ui/scale_control.gd" type="Script" id=19]
 
-[sub_resource type="Theme" id=12]
+[sub_resource type="CameraTexture" id=14]
 
 [sub_resource type="PlaneMesh" id=11]
 
@@ -34,6 +34,9 @@ mouse_filter = 2
 texture = ExtResource( 10 )
 stretch_mode = 1
 flip_v = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="pixelizer2" type="Sprite" parent="."]
 visible = false
@@ -44,82 +47,92 @@ texture = ExtResource( 10 )
 flip_v = true
 
 [node name="play" type="Button" parent="."]
-margin_left = 140.0
-margin_top = 648.0
-margin_right = 171.0
-margin_bottom = 663.0
-rect_scale = Vector2( 4, 4 )
-custom_fonts/font = ExtResource( 17 )
-text = "PLAY"
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = -34.0
+margin_right = 55.0
+margin_bottom = -14.0
+rect_pivot_offset = Vector2( 0, 20 )
+text = "Play"
 script = ExtResource( 11 )
 ui = NodePath("../UI")
 playerSpawn = ExtResource( 3 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Item_Select" parent="UI" instance=ExtResource( 4 )]
+[node name="editor" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = 14.0
+margin_right = -13.0
+margin_bottom = -14.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Item_Select" parent="UI/editor" instance=ExtResource( 4 )]
 margin_left = 12.0
 margin_top = 8.0
 margin_right = 52.0
 margin_bottom = 50.0
+script = ExtResource( 19 )
 
-[node name="Save" type="Button" parent="UI"]
-visible = false
-margin_left = 1273.0
-margin_top = 677.0
-margin_right = 1305.0
-margin_bottom = 692.0
-rect_scale = Vector2( 4, 4 )
-rect_pivot_offset = Vector2( 43.0625, 9.9375 )
-custom_fonts/font = ExtResource( 17 )
-text = "SAVE"
-
-[node name="New" type="Button" parent="UI"]
-visible = false
-margin_left = 140.0
-margin_top = 680.0
-margin_right = 167.0
-margin_bottom = 695.0
-rect_scale = Vector2( 4, 4 )
-rect_pivot_offset = Vector2( 43.0625, 9.9375 )
-custom_fonts/font = ExtResource( 17 )
-text = "NEW"
-
-[node name="Load" type="Button" parent="UI"]
-visible = false
-margin_left = 1142.0
-margin_top = 576.0
-margin_right = 1174.0
-margin_bottom = 591.0
-rect_scale = Vector2( 4, 4 )
-custom_fonts/font = ExtResource( 17 )
-text = "LOAD"
-
-[node name="FileDialog" type="FileDialog" parent="UI"]
+[node name="FileDialog" type="FileDialog" parent="UI/editor"]
 visible = true
-margin_left = 355.0
-margin_top = 146.0
-margin_right = 670.0
-margin_bottom = 363.0
-rect_scale = Vector2( 2, 2 )
-theme = SubResource( 12 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -210.0
+margin_top = -150.0
+margin_right = 210.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 210, 150 )
 filters = PoolStringArray( "*.tscn" )
 script = ExtResource( 8 )
 
-[node name="inventory" parent="UI" instance=ExtResource( 14 )]
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="file" type="Control" parent="UI/editor"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -119.0
+margin_top = -70.0
+rect_pivot_offset = Vector2( 119, 70 )
+script = ExtResource( 19 )
 
-[node name="ui" parent="UI/inventory" index="1"]
-visible = false
+[node name="New" type="Button" parent="UI/editor/file"]
+anchor_right = 1.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 119, 20 )
+text = "New"
+
+[node name="Load" type="Button" parent="UI/editor/file"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_bottom = 10.0
+rect_pivot_offset = Vector2( 119, 20 )
+text = "Load"
+
+[node name="Save" type="Button" parent="UI/editor/file"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+rect_pivot_offset = Vector2( 119, 20 )
+text = "Save"
+icon = SubResource( 14 )
 
 [node name="settings" parent="UI" instance=ExtResource( 15 )]
 mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="settings" parent="UI/settings" index="1"]
+visible = false
 
 [node name="Tween" type="Tween" parent="."]
 playback_process_mode = 0
@@ -148,6 +161,15 @@ height = 10.0
 depth = 128.0
 material = ExtResource( 9 )
 
+[node name="inventory" parent="level" instance=ExtResource( 14 )]
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ui" parent="level/inventory" index="1"]
+visible = false
+
 [node name="Editor_Camera" type="KinematicBody" parent="."]
 script = ExtResource( 6 )
 
@@ -171,18 +193,14 @@ script = ExtResource( 7 )
 [connection signal="mouse_entered" from="play" to="play" method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="play" to="play" method="_on_play_mouse_exited"]
 [connection signal="pressed" from="play" to="play" method="_on_play_pressed"]
-[connection signal="mouse_entered" from="UI/Save" to="UI/FileDialog" method="_on_Save_mouse_entered"]
-[connection signal="mouse_exited" from="UI/Save" to="UI/FileDialog" method="_on_Save_mouse_exited"]
-[connection signal="pressed" from="UI/Save" to="UI/FileDialog" method="_on_Save_pressed"]
-[connection signal="mouse_entered" from="UI/New" to="UI/FileDialog" method="_on_Save_mouse_entered"]
-[connection signal="mouse_exited" from="UI/New" to="UI/FileDialog" method="_on_Save_mouse_exited"]
-[connection signal="pressed" from="UI/New" to="UI/FileDialog" method="_on_New_pressed"]
-[connection signal="mouse_entered" from="UI/Load" to="UI/FileDialog" method="_on_Load_mouse_entered"]
-[connection signal="mouse_exited" from="UI/Load" to="UI/FileDialog" method="_on_Load_mouse_exited"]
-[connection signal="pressed" from="UI/Load" to="UI/FileDialog" method="_on_Load_pressed"]
-[connection signal="confirmed" from="UI/FileDialog" to="UI/FileDialog" method="_on_FileDialog_confirmed"]
-[connection signal="popup_hide" from="UI/FileDialog" to="UI/FileDialog" method="_on_FileDialog_popup_hide"]
+[connection signal="confirmed" from="UI/editor/FileDialog" to="UI/editor/FileDialog" method="_on_FileDialog_confirmed"]
+[connection signal="popup_hide" from="UI/editor/FileDialog" to="UI/editor/FileDialog" method="_on_FileDialog_popup_hide"]
+[connection signal="pressed" from="UI/editor/file/New" to="UI/editor/FileDialog" method="_on_New_pressed"]
+[connection signal="pressed" from="UI/editor/file/Load" to="UI/editor/FileDialog" method="_on_Load_pressed"]
+[connection signal="pressed" from="UI/editor/file/Save" to="UI/editor/FileDialog" method="_on_Save_pressed"]
 
-[editable path="UI/inventory"]
 [editable path="UI/settings"]
+[editable path="UI/settings/settings"]
 [editable path="level/environment"]
+[editable path="level/inventory"]
+[editable path="level/inventory/ui/settings"]
