@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://global/GUI/inventory/inventory_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://global/GUI/inventory/inventory_container.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://managers/inventory_manager.gd" type="Script" id=6]
 [ext_resource path="res://ui/settings.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/ui_container.gd" type="Script" id=8]
+[ext_resource path="res://global/GUI/inventory/split_stack.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ui/hotbar.tscn" type="PackedScene" id=10]
 
 [node name="main" type="Node2D"]
 
@@ -19,6 +21,7 @@
 script = ExtResource( 6 )
 item_in_hand_node = NodePath("../../ui/ui_container/item_in_hand")
 item_info = NodePath("../../ui/ui_container/item_info")
+split_stack = NodePath("../../ui/ui_container/split stack")
 
 [node name="ui" type="CanvasLayer" parent="."]
 
@@ -75,9 +78,9 @@ margin_right = -17.0
 margin_bottom = 22.0
 text = "Chest"
 script = ExtResource( 5 )
-size = 5
+size = 9
 inventory_name = "Chest"
-items = [ "gold", "crystal" ]
+items = [ "gold_coin", "crystal", "magic_orb", "iron_sword", "chestplate", "helmet" ]
 
 [node name="chest2" type="Button" parent="ui/ui_container/buttons"]
 margin_right = 104.0
@@ -86,7 +89,7 @@ text = "Random Chest"
 script = ExtResource( 4 )
 size = 15
 inventory_name = "Random Chest"
-items = [ "gold", "stone_brick", "tree", "crystal" ]
+items = [ "gold_coin", "stone_brick", "wood", "crystal" ]
 number_of_items = 10
 
 [node name="settings" type="Button" parent="ui/ui_container/buttons"]
@@ -95,6 +98,27 @@ margin_top = -408.0
 margin_right = 504.0
 margin_bottom = -366.0
 text = "Settings"
+
+[node name="hotbar" parent="ui/ui_container" instance=ExtResource( 10 )]
+size = 5
+
+[node name="split stack" parent="ui/ui_container" instance=ExtResource( 9 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -270.0
+margin_right = 480.0
+margin_bottom = 270.0
+
+[node name="Label" type="Label" parent="ui"]
+margin_left = 752.0
+margin_top = 510.0
+margin_right = 947.0
+margin_bottom = 524.0
+text = "Split Stack:    Shift + Right Click"
 
 [connection signal="pressed" from="ui/ui_container/buttons/chest" to="ui/ui_container/buttons/chest" method="_on_chest_pressed"]
 [connection signal="pressed" from="ui/ui_container/buttons/chest2" to="ui/ui_container/buttons/chest2" method="_on_chest_pressed"]

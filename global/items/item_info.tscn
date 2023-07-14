@@ -10,8 +10,8 @@ size = 10
 font_data = ExtResource( 3 )
 
 [node name="item_info" type="NinePatchRect"]
-margin_right = 83.0
-margin_bottom = 27.0
+margin_right = 59.0
+margin_bottom = 25.0
 texture = ExtResource( 1 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -19,13 +19,11 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 script = ExtResource( 4 )
 item_name = NodePath("title/Label")
+line_container = NodePath("line_container")
 
 [node name="title" type="NinePatchRect" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -32.5
+anchor_right = 1.0
 margin_top = -14.0
-margin_right = 32.5
 margin_bottom = 2.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
@@ -42,3 +40,11 @@ custom_fonts/font = SubResource( 1 )
 text = "item name"
 align = 1
 valign = 1
+
+[node name="line_container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold.png-655535c4ad75689cbc7ec094bff8e5f3.stex"
+path="res://.import/magic_orb.png-60856831bbbd80a9ba69a9b5037a113d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://global/items/sprites/gold.png"
-dest_files=[ "res://.import/gold.png-655535c4ad75689cbc7ec094bff8e5f3.stex" ]
+source_file="res://global/items/sprites/magic_orb.png"
+dest_files=[ "res://.import/magic_orb.png-60856831bbbd80a9ba69a9b5037a113d.stex" ]
 
 [params]
 
