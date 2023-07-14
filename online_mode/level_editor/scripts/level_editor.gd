@@ -7,6 +7,7 @@ extends Spatial
 onready var level = get_node("/root/main/level/")
 onready var wall = get_node("/root/main/level/wall/")
 onready var playarea = get_node("/root/main/level/wall/playarea")
+onready var inventory = get_node("/root/main/level/inventory")
 
 
 var timer = null
@@ -16,6 +17,7 @@ var x = 1
 func _ready():
 	wall.owner = level
 	playarea.owner = level
+	inventory.owner = level
 	playarea.set_width(Global.w * 2)
 	playarea.set_depth(Global.d * 2)
 	pass

@@ -49,6 +49,7 @@ text = "CUBE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+placeOn = [ "floor" ]
 
 [node name="chest" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
 margin_left = 69.0
@@ -59,6 +60,7 @@ text = "Chest"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+placeOn = [ "floor" ]
 
 [node name="pickable" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
 margin_top = 24.0
@@ -69,6 +71,7 @@ text = "pickable"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+placeOn = [ "floor" ]
 
 [node name="ball" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_left = 69.0
@@ -79,6 +82,7 @@ text = "BALL"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+placeOn = [ "floor" ]
 
 [node name="table" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_top = 48.0
@@ -89,6 +93,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 8 )
+placeOn = [ "floor" ]
 
 [node name="Devices" type="Tabs" parent="TabContainer"]
 visible = false
@@ -119,6 +124,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 5 )
+placeOn = [ "object_table", "floor" ]
+height = 15.0
 
 [node name="huawei" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_left = 96.0
@@ -129,6 +136,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 6 )
+placeOn = [ "object_table" ]
+height = 15.0
 
 [node name="computer" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_top = 24.0
@@ -139,7 +148,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 7 )
-placeOn = "object_table"
+placeOn = [ "object_table" ]
+height = 15.0
 
 [node name="generic_router" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_left = 96.0
@@ -151,6 +161,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 9 )
+placeOn = [ "object_table" ]
+height = 15.0
 
 [node name="cisco_router" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_top = 48.0
@@ -161,6 +173,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 10 )
+placeOn = [ "object_table" ]
+height = 15.0
 
 [node name="generic_switch" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_left = 96.0
@@ -172,6 +186,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 11 )
+placeOn = [ "object_table" ]
+height = 15.0
 
 [node name="server" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_top = 72.0
@@ -182,6 +198,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 12 )
+placeOn = [ "object_table" ]
+height = 15.0
 
 [node name="printer" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
 margin_left = 96.0
@@ -193,6 +211,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 this_scene = ExtResource( 13 )
+placeOn = [ "object_table" ]
+height = 15.0
 
 [connection signal="mouse_entered" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_entered"]
 [connection signal="mouse_exited" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_exited"]

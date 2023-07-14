@@ -1,12 +1,15 @@
 extends Spatial
 
-onready var level = get_node("/root/main/level")
-onready var preview_item = get_node("/root/main/preview")
-onready var delete_item = get_node("/root/main/delete")
+export( NodePath ) onready var level = get_node(level) as Spatial
+export( NodePath ) onready var preview_item = get_node(preview_item) as StaticBody
+export( NodePath ) onready var delete_item = get_node(delete_item) as StaticBody
 
 var current_item 
 var cursor_pos := Vector3.ZERO
 var current_object
+
+var placeOn = "none"
+var height = 0
 
 var object_point
 
@@ -20,7 +23,7 @@ func _ready():
 func _process(delta):
 	level = get_node("/root/main/level")
 	cursor_pos = Vector3(ScrenPointToRay())
-	cursor_pos.y = 0
+	cursor_pos.y = height
 	
 	#This Snaps the Objects Position to a grid
 	cursor_pos.x = stepify(cursor_pos.x, 2)
@@ -34,15 +37,18 @@ func _process(delta):
 	object_point = WhatObject()
 	
 	if(object_point.has("position")):
-		if(Global.edit_mode and Global.can_place and object_point.collider.name == "floor"):
-			preview_item.set_visible(true)
-			delete_item.set_visible(false)
-			preview_item.global_translation = cursor_pos
-		elif(Global.edit_mode and Global.can_place or "object" in object_point.collider.name):
-			preview_item.set_visible(false)
-			delete_item.set_visible(true)
-			cursor_pos.y = 2
-			delete_item.global_translation = cursor_pos
+		if(Global.edit_mode and Global.can_place):
+			for i in placeOn:
+				if (i in object_point.collider.name):
+					preview_item.set_visible(true)
+					delete_item.set_visible(false)
+					preview_item.global_translation = cursor_pos
+					break
+				else:
+					preview_item.set_visible(false)
+					delete_item.set_visible(true)
+					cursor_pos.y = 4
+					delete_item.global_translation = cursor_pos	
 		if !Global.edit_mode:
 			preview_item.set_visible(false)
 			delete_item.set_visible(false)
@@ -63,20 +69,13 @@ func _process(delta):
 			
 		#Checks for Input
 		if(Global.edit_mode and Global.can_place and Input.is_action_just_pressed("mb_left") and current_item != null):
-			#	for n in preview_level.get_children():
-			#		preview_level.remove_child(n)
-			#		n.queue_free()
 			var new_item = current_item.instance() 
 			if (new_item != null):
-				if (object_point.collider.name == "floor"):
-					level.add_child(new_item)
-					new_item.owner = level
-					new_item.global_translation = cursor_pos
-				elif (object_point.collider.name.substr(0,13) == "@object_table" or object_point.collider.name == "object_table"):
-					level.add_child(new_item)
-					new_item.owner = level
-					new_item.global_translation = cursor_pos
-					new_item.global_translation.y = 1
+				for i in placeOn:
+					if (i in object_point.collider.name):
+						level.add_child(new_item)
+						new_item.owner = level
+						new_item.global_translation = cursor_pos
 		pass
 	
 

@@ -169,6 +169,7 @@ shape = SubResource( 13 )
 [node name="Camera" type="Camera" parent="Editor_Camera"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 32, 0 )
 projection = 1
+current = true
 size = 25.0
 
 [node name="preview" parent="." instance=ExtResource( 1 )]
@@ -178,6 +179,9 @@ visible = false
 
 [node name="Editor_Object" type="Spatial" parent="."]
 script = ExtResource( 7 )
+level = NodePath("../level")
+preview_item = NodePath("../preview")
+delete_item = NodePath("../delete")
 
 [connection signal="mouse_entered" from="play" to="play" method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="play" to="play" method="_on_play_mouse_exited"]

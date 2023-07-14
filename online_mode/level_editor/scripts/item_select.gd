@@ -1,7 +1,7 @@
 extends Button
 
 export(PackedScene) var this_scene
-export(String) var placeOn
+export( Array, String ) var placeOn
 export(float) var height
 onready var object_cursor = get_node("/root/main/Editor_Object")
 
@@ -16,6 +16,8 @@ func _item_clicked(event):
 	if(event is InputEvent):
 		if(event.is_action_pressed("mb_left")):
 			object_cursor.current_item = this_scene
+			object_cursor.placeOn = placeOn
+			object_cursor.height = height * 0.0625
 			#cursor_sprite.texture = texture
 		
 	pass
