@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://global/GUI/inventory/sprites/x_pressed.png" type="Texture" id=1]
 [ext_resource path="res://global/GUI/inventory/sprites/x_hover.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://ui/settings.gd" type="Script" id=8]
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://ui/scale_control.gd" type="Script" id=10]
+[ext_resource path="res://ui/exitBtn.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -38,10 +39,10 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -72.0
-margin_top = -29.0
+margin_top = -57.0
 margin_right = 72.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( 72, 41 )
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 72, 57 )
 mouse_filter = 1
 texture = ExtResource( 5 )
 patch_margin_left = 10
@@ -224,6 +225,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="exit" type="NinePatchRect" parent="settings/setting list"]
+margin_top = 64.0
+margin_right = 126.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 30 )
+texture = ExtResource( 4 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exitBtn" type="Button" parent="settings/setting list/exit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 43.0
+margin_top = 5.0
+margin_right = -43.0
+margin_bottom = -5.0
+rect_pivot_offset = Vector2( 104, 20 )
+text = "Exit"
+script = ExtResource( 11 )
+
 [connection signal="pressed" from="settings/close" to="." method="_on_close_pressed"]
 [connection signal="gui_input" from="settings/setting list/scale/HSlider" to="." method="_on_scale_slider_gui_input"]
 [connection signal="toggled" from="settings/setting list/fullscreen/CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="pressed" from="settings/setting list/exit/exitBtn" to="settings/setting list/exit/exitBtn" method="_on_exitBtn_pressed"]

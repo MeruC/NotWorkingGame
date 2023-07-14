@@ -57,6 +57,7 @@ rect_pivot_offset = Vector2( 0, 20 )
 text = "Play"
 script = ExtResource( 11 )
 ui = NodePath("../UI")
+inventory = NodePath("../level/inventory/ui")
 playerSpawn = ExtResource( 3 )
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -162,10 +163,6 @@ depth = 128.0
 material = ExtResource( 9 )
 
 [node name="inventory" parent="level" instance=ExtResource( 14 )]
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="ui" parent="level/inventory" index="1"]
 visible = false

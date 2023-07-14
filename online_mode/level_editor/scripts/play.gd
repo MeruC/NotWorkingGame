@@ -2,6 +2,7 @@ extends Scale_Control
 
 var player
 export( NodePath ) onready var ui = get_node(ui) as CanvasLayer
+export( NodePath ) onready var inventory = get_node(inventory) as CanvasLayer
 onready var main = $".."
 
 export(PackedScene) var playerSpawn
@@ -19,6 +20,7 @@ func _on_play_pressed():
 		player.can_move = true
 		player.set_visible(true)
 		ui.set_visible(false)
+		inventory.set_visible(true)
 		Global.edit_mode=false
 	elif(Global.edit_mode==false):
 		get_parent().remove_child(player)
@@ -28,6 +30,7 @@ func _on_play_pressed():
 		player.can_move = false
 		player.set_visible(false)
 		ui.set_visible(true)
+		inventory.set_visible(false)
 		Global.edit_mode=true
 	pass # Replace with function body.
 
