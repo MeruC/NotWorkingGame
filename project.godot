@@ -59,7 +59,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://global/items/item.gd"
 }, {
-"base": "NinePatchRect",
+"base": "Scale_Control",
 "class": "Item_Info",
 "language": "GDScript",
 "path": "res://global/items/item_info.gd"
@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/scale_control.gd"
 }, {
-"base": "Scale_Control",
+"base": "ColorRect",
 "class": "Split_Stack",
 "language": "GDScript",
 "path": "res://ui/split_stack.gd"
@@ -124,13 +124,14 @@ ResourceManager="*res://managers/resource_manager.gd"
 
 [display]
 
-window/size/width=960
-window/size/height=540
+window/size/width=1280
+window/size/height=720
+window/size/fullscreen=true
 window/size/always_on_top=true
 window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

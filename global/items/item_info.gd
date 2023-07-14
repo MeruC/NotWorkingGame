@@ -1,4 +1,4 @@
-class_name Item_Info extends NinePatchRect
+class_name Item_Info extends Scale_Control
 
 export( NodePath ) onready var item_name = get_node( item_name ) as Label
 export( NodePath ) onready var line_container = get_node( line_container ) as Control
@@ -17,7 +17,7 @@ func display( slot : Inventory_Slot ):
 		c.queue_free()
 	
 	rect_size.x = 0
-	rect_global_position = slot.rect_size + slot.rect_global_position
+	rect_global_position = ( slot.rect_size * SettingsManager.scale ) + slot.rect_global_position
 	item_name.text = slot.item.item_name
 	var line_type = Item_Info_Line.new( type_names[ slot.item.equipment_type ], "normal" )
 	line_container.add_child( line_type )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://global/GUI/inventory/sprites/x_pressed.png" type="Texture" id=1]
 [ext_resource path="res://global/GUI/inventory/sprites/x_hover.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://global/GUI/inventory/sprites/x_normal.png" type="Texture" id=7]
 [ext_resource path="res://ui/split_stack.gd" type="Script" id=8]
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://ui/scale_control.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -25,6 +26,7 @@ font_data = ExtResource( 9 )
 [node name="split stack" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 512, 300 )
 color = Color( 0, 0, 0, 0.592157 )
 script = ExtResource( 8 )
 qty_slider = NodePath("main panel/scale/quantity_slider")
@@ -40,6 +42,7 @@ margin_left = -72.0
 margin_top = -29.0
 margin_right = 72.0
 margin_bottom = 21.0
+rect_pivot_offset = Vector2( 72, 25 )
 mouse_filter = 1
 texture = ExtResource( 5 )
 patch_margin_left = 10
@@ -48,6 +51,7 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -91,9 +95,6 @@ texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 1 )
 texture_hover = ExtResource( 2 )
 texture_disabled = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="scale" type="NinePatchRect" parent="main panel"]
 margin_left = 9.0

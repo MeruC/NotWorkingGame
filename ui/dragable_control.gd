@@ -2,41 +2,36 @@ class_name Dragable_Control extends Scale_Control
 
 export ( int ) var safe_zone = 30
 
-var screen_size : Vector2
 var dragging : bool = false
 var offset : Vector2
 
 func _ready():
-	connect( "gui_input", self, "_on_gui_input" )
-	screen_size = get_viewport().get_visible_rect().size
+	get_viewport().connect( "size_changed", self, "_on_size_changed" )
 
-
-func _process( delta ):
-	if dragging:
-		set_pos( get_viewport().get_mouse_position() - offset )
+func _input( event ):
+	if event is InputEventMouseMotion and dragging:
+		set_pos( event.position - offset )
 
 
 func set_scale( value ):
 	.set_scale( value )
-	
-	#set_pos( rect_position )
+	set_pos( rect_position )
 
 
 func set_pos( pos ):
 	var scaled_size = rect_size * scale
+	var screen_size = get_viewport().get_visible_rect().size
 	pos.x = clamp( pos.x, -scaled_size.x + safe_zone, screen_size.x - safe_zone )
 	pos.y = clamp( pos.y, -scaled_size.y + safe_zone, screen_size.y - safe_zone )
-	print(screen_size)
 	rect_position = pos
 
-func _on_gui_input( event : InputEvent ):
-	if ! dragging and event.is_action_pressed( "mb_left" ):
-		var mouse_pos = get_viewport().get_mouse_position()
-		offset = mouse_pos - rect_position
-		dragging = true
-		get_tree().set_input_as_handled()
+
+func _gui_input( event : InputEvent ):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+		offset = event.global_position - rect_position
+		dragging = event.pressed
 		raise()
-	
-	if dragging and event.is_action_released( "mb_left" ):
-		dragging = false
-		get_tree().set_input_as_handled()
+
+
+func _on_size_changed():
+	set_pos( rect_position )

@@ -46,10 +46,10 @@ playerSpawn = ExtResource( 3 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Item_Select" parent="UI" instance=ExtResource( 4 )]
-margin_left = 675.0
-margin_top = 6.0
-margin_right = 715.0
-margin_bottom = 48.0
+margin_left = 739.0
+margin_top = 5.0
+margin_right = 779.0
+margin_bottom = 47.0
 
 [node name="Save" type="Button" parent="UI"]
 margin_left = 950.0

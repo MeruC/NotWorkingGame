@@ -4,7 +4,7 @@ var fullscreen setget set_fullscreen
 var scale setget set_scale
 
 func _ready():
-	scale = 1
+	scale = 2
 	fullscreen = OS.window_fullscreen
 	
 func set_fullscreen(value):

@@ -1,4 +1,4 @@
-class_name Split_Stack extends Scale_Control
+class_name Split_Stack extends ColorRect
 
 signal stack_splitted
 
