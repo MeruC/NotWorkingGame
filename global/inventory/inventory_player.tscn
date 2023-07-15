@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://global/inventory/inventory_player.gd" type="Script" id=1]
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=2]
@@ -21,6 +21,10 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=2]
 size = 8
 font_data = ExtResource( 2 )
+
+[sub_resource type="CylinderShape" id=3]
+height = 2.8
+radius = 0.66515
 
 [node name="inventory_player" type="NinePatchRect"]
 anchor_left = 0.5
@@ -207,4 +211,6 @@ margin_bottom = 154.0
 inventory_name = "Left Pocket"
 size = 5
 
-[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0354198 )
+shape = SubResource( 3 )

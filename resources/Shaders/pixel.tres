@@ -24,4 +24,4 @@ void fragment()
 [resource]
 render_priority = 1
 shader = SubResource( 19 )
-shader_param/pixelSize = 2
+shader_param/pixelSize = 4

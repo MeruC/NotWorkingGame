@@ -1,6 +1,6 @@
 extends Chest
 
-export( int ) var number_of_items
+export(int) var number_of_items
 
 func set_items():
 	for nb in number_of_items:

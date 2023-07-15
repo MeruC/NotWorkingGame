@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resources/Sprites/Items/cube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/scripts/TabContainer.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://global/objects/server.tscn" type="PackedScene" id=12]
 [ext_resource path="res://global/objects/printer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://global/objects/chest.tscn" type="PackedScene" id=14]
+[ext_resource path="res://global/objects/chest_rng.tscn" type="PackedScene" id=15]
 
 [node name="Item_Select" type="Control"]
 margin_right = 40.0
@@ -77,11 +78,23 @@ __meta__ = {
 this_scene = ExtResource( 14 )
 placeOn = [ "floor" ]
 
-[node name="ball" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="chest_rng" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
 margin_left = 52.0
 margin_top = 24.0
 margin_right = 131.0
 margin_bottom = 44.0
+rect_scale = Vector2( 1, 1 )
+text = "ChestRNG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+this_scene = ExtResource( 15 )
+placeOn = [ "floor" ]
+
+[node name="ball" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_top = 48.0
+margin_right = 48.0
+margin_bottom = 68.0
 text = "BALL"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -89,8 +102,9 @@ __meta__ = {
 placeOn = [ "floor" ]
 
 [node name="table" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+margin_left = 52.0
 margin_top = 48.0
-margin_right = 48.0
+margin_right = 131.0
 margin_bottom = 68.0
 text = "table"
 __meta__ = {

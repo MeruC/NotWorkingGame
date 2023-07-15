@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mobile_controls/joystick/virtual_joystick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mobile_controls/textures/e.png" type="Texture" id=3]
+[ext_resource path="res://mobile_controls/textures/lclick.png" type="Texture" id=4]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="interact" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 992, 633 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 3 )
+action = "interact"
+
+[node name="Lclick" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 1094, 634 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 4 )
+action = "mb_left"
+
+[node name="Virtual joystick" parent="." instance=ExtResource( 2 )]
+margin_left = 103.0
+margin_top = -217.0
+margin_right = 303.0
+margin_bottom = -17.0
+action_left = "left"
+action_right = "right"
+action_up = "up"
+action_down = "down"

@@ -19,6 +19,18 @@ func _ready():
 	$"../level/environment".owner = level
 	pass
 	
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed():
+		if (Global.edit_mode and Global.can_place and current_item != null):
+			var new_item = current_item.instance() 
+			if (new_item != null):
+				for i in placeOn:
+					if (i in object_point.collider.name):
+						level.add_child(new_item)
+						new_item.owner = level
+						new_item.global_translation = cursor_pos
+			
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	level = get_node("/root/main/level")
@@ -68,14 +80,7 @@ func _process(delta):
 			pass
 			
 		#Checks for Input
-		if(Global.edit_mode and Global.can_place and Input.is_action_just_pressed("mb_left") and current_item != null):
-			var new_item = current_item.instance() 
-			if (new_item != null):
-				for i in placeOn:
-					if (i in object_point.collider.name):
-						level.add_child(new_item)
-						new_item.owner = level
-						new_item.global_translation = cursor_pos
+
 		pass
 	
 
