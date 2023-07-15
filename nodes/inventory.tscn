@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://global/inventory/inventory_player.tscn" type="PackedScene" id=2]
@@ -8,9 +8,7 @@
 [ext_resource path="res://nodes/settings.tscn" type="PackedScene" id=6]
 [ext_resource path="res://global/inventory/split_stack.tscn" type="PackedScene" id=7]
 [ext_resource path="res://managers/inventory/inventory_manager.gd" type="Script" id=8]
-[ext_resource path="res://chest.gd" type="Script" id=9]
 [ext_resource path="res://invRes/ui_container.gd" type="Script" id=10]
-[ext_resource path="res://chest_rng.gd" type="Script" id=11]
 [ext_resource path="res://invRes/scale_control.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
@@ -34,14 +32,6 @@ item_info = NodePath("../../ui/ui_container/item_info")
 split_stack = NodePath("../../ui/split stack")
 
 [node name="ui" type="CanvasLayer" parent="."]
-
-[node name="item_void" type="Control" parent="ui"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="ui_container" type="Control" parent="ui"]
 anchor_right = 1.0
@@ -135,32 +125,6 @@ rect_pivot_offset = Vector2( 104, 20 )
 text = "Exit"
 script = ExtResource( 12 )
 
-[node name="chests" type="Control" parent="ui/ui_container/buttons"]
-margin_right = 119.0
-margin_bottom = 45.0
-script = ExtResource( 12 )
-
-[node name="chest" type="Button" parent="ui/ui_container/buttons/chests"]
-anchor_right = 1.0
-margin_bottom = 20.0
-text = "Chest"
-script = ExtResource( 9 )
-size = 9
-inventory_name = "Chest"
-items = [ "gold_coin", "crystal", "magic_orb", "iron_sword", "chestplate", "helmet" ]
-
-[node name="randomChest" type="Button" parent="ui/ui_container/buttons/chests"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -20.0
-text = "Random Chest"
-script = ExtResource( 11 )
-size = 15
-inventory_name = "Random Chest"
-items = [ "gold_coin", "stone_brick", "wood", "crystal" ]
-number_of_items = 10
-
 [node name="split stack" parent="ui" instance=ExtResource( 7 )]
 visible = false
 rect_pivot_offset = Vector2( 640, 360 )
@@ -172,7 +136,5 @@ mouse_filter = 2
 visible = false
 
 [connection signal="pressed" from="ui/ui_container/buttons/exit" to="ui/ui_container" method="_on_exit_pressed"]
-[connection signal="pressed" from="ui/ui_container/buttons/chests/chest" to="ui/ui_container/buttons/chests/chest" method="_on_chest_pressed"]
-[connection signal="pressed" from="ui/ui_container/buttons/chests/randomChest" to="ui/ui_container/buttons/chests/randomChest" method="_on_chest_pressed"]
 
 [editable path="ui/settings"]

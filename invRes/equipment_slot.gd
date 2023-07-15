@@ -7,14 +7,17 @@ export ( Game_Enums.EQUIPMENT_TYPE ) var type
 func _ready():
 	placeholder.texture = ItemManager.get_placeholder( type )
 
-func set_item( new_item ):
-	.set_item( new_item )
-	placeholder.hide()
+func try_put_item( new_item : Item ) -> bool:
+	return new_item.equipment_type == type and .try_put_item( new_item )
 
-func pick_item():
-	.pick_item()
-	placeholder.show()
 
-func put_item( new_item ):
-	.put_item( new_item )
-	placeholder.hide()
+func put_item( new_item : Item ) -> Item:
+	if new_item:
+		if new_item.equipment_type != type:
+			return new_item
+		
+		placeholder.hide()
+	else:
+		placeholder.show()
+	
+	return .put_item( new_item )

@@ -20,6 +20,11 @@ onready var walk_animation = $AnimationPlayer
 onready var idle = $Pivot/CSGSphere
 onready var walk = $Pivot/walk
 
+export( NodePath ) onready var interact_zone = get_node( interact_zone ) as Area
+export( NodePath ) onready var interact_labels = get_node( interact_labels ) as Control
+
+var current_interactable
+
 func _physics_process(delta: float) -> void:
 	var input_vector = get_input_vector()
 	var direction = get_direction(input_vector)
@@ -38,6 +43,13 @@ func _process(delta):
 		idle.set_visible(false)
 		walk.set_visible(true)	
 		walk_animation.current_animation = "player_walk"
+		
+	if not current_interactable:
+		var overlapping_area = interact_zone.get_overlapping_areas()
+		
+		if overlapping_area.size() > 0 and overlapping_area[ 0 ].has_method("interact"):
+			current_interactable = overlapping_area[ 0 ]
+			interact_labels.display(current_interactable)
 
 
 #Getting The Input
@@ -69,3 +81,16 @@ func apply_friction(direction, delta):
 func _on_Player_visibility_changed():
 	player.global_translation = start_pos
 	pass # Replace with function body.
+
+#Interactions
+func _input( event ):
+	if event.is_action_pressed("interact") and current_interactable:
+		current_interactable.interact()
+
+func _on_InteractionArea_area_exited(area):
+	if current_interactable == area:
+		if current_interactable.has_method( "out_of_range" ):
+			current_interactable.out_of_range()
+		
+		interact_labels.hide()
+		current_interactable = null

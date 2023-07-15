@@ -9,6 +9,7 @@ export( NodePath ) onready var title = get_node( title ) as Label
 export( NodePath ) onready var slot_container = get_node( slot_container ) as Control
 
 var slots : Array = []
+var is_open = false
 
 func _ready():
 	for s in slots:
@@ -31,8 +32,10 @@ func set_inventory_size( value ):
 
 func add_item( item ):
 	for s in slots:
-		if not s.item:
-			s.set_item( item )
-			return
-
+		if s.try_put_item( item ):
+			item = s.put_item( item )
+			
+			if not item:
+				return null
+	return item
 

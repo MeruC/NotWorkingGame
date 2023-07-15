@@ -5,4 +5,5 @@ export( NodePath ) onready var inventory_left = get_node( inventory_left ) as In
 export(NodePath) onready var equipment = get_node(equipment) as Inventory
 
 func _ready():
-	pass
+	var inventories = [ equipment, inventory_left, inventory_right ]
+	SignalManager.emit_signal( "player_inventory_ready", inventories )

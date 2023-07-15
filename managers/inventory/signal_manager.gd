@@ -1,9 +1,13 @@
 extends Node
 
-#Inventory
-signal inventory_opened
-signal inventory_ready
+# Inventory
+signal inventory_opened(inventory)
+signal inventory_closed(inventory)
+signal inventory_ready(inventory)
+signal player_inventory_ready(inventories)
 
-#UI
-signal ui_scale_changed
+# Interactables
+signal item_picked(item, sender)
 
+# UI
+signal ui_scale_changed(value)
