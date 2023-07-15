@@ -1,7 +1,7 @@
 extends Control
 
-onready var width = get_node("/root/level_create/w")
-onready var depth = get_node("/root/level_create/d")
+onready var width = get_node("/root/level_create/size/w")
+onready var depth = get_node("/root/level_create/size/d")
 
 var cur_w = 10
 var cur_d = 10
