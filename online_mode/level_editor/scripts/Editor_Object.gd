@@ -20,7 +20,7 @@ func _ready():
 	pass
 	
 func _input(event):
-	if event is InputEventMouseButton and event.is_pressed():
+	if event is InputEventScreenTouch:
 		if (Global.edit_mode and Global.can_place and current_item != null):
 			var new_item = current_item.instance() 
 			if (new_item != null):
@@ -29,7 +29,15 @@ func _input(event):
 						level.add_child(new_item)
 						new_item.owner = level
 						new_item.global_translation = cursor_pos
-			
+	if event is InputEventMouseButton:
+		if (event.is_pressed() and Global.edit_mode and Global.can_place and current_item != null):
+			var new_item = current_item.instance() 
+			if (new_item != null):
+				for i in placeOn:
+					if (i in object_point.collider.name):
+						level.add_child(new_item)
+						new_item.owner = level
+						new_item.global_translation = cursor_pos
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -47,7 +55,7 @@ func _process(delta):
 	#print(cursor_pos)
 	
 	object_point = WhatObject()
-	
+		
 	if(object_point.has("position")):
 		if(Global.edit_mode and Global.can_place):
 			for i in placeOn:
@@ -66,7 +74,7 @@ func _process(delta):
 			delete_item.set_visible(false)
 			
 		if (Input.is_action_just_pressed("mb_left")):
-			print(object_point.collider.name)
+			print(object_point)
 			pass
 			
 		if (Global.edit_mode and Input.is_action_just_pressed("rotate") and "object" in object_point.collider.name):
@@ -87,7 +95,6 @@ func _process(delta):
 #Fires a ray to check for cursor 3D location
 func ScrenPointToRay():
 	var spaceState = get_world().direct_space_state
-	
 	var mousePos = get_viewport().get_mouse_position()
 	var camera = get_tree().root.get_camera()
 	var rayOrigin = camera.project_ray_origin(mousePos)

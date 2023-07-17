@@ -4,6 +4,7 @@ export(PackedScene) var this_scene
 export( Array, String ) var placeOn
 export(float) var height
 onready var object_cursor = get_node("/root/main/Editor_Object")
+onready var cursor = get_node("/root/main/mobile_controls/cursor")
 
 #onready var cursor_sprite = object_cursor.get_node("Sprite")
 
@@ -13,14 +14,11 @@ func _ready():
 
 
 func _item_clicked(event):
-	if(event is InputEvent):
-		if(event.is_action_pressed("mb_left")):
-			object_cursor.current_item = this_scene
-			object_cursor.placeOn = placeOn
-			object_cursor.height = height * 0.0625
-			#cursor_sprite.texture = texture
-		
-	pass
+	if event is InputEventMouseButton:
+		object_cursor.current_item = this_scene
+		object_cursor.placeOn = placeOn
+		object_cursor.height = height * 0.0625
+		if (Global.curOS == "Android"): get_viewport().warp_mouse(get_viewport_rect().size / 2.0)
 
 func _on_item_texture_mouse_entered():
 	Global.can_place = false

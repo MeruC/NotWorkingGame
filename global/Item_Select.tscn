@@ -17,8 +17,8 @@
 [ext_resource path="res://global/objects/chest_rng.tscn" type="PackedScene" id=15]
 
 [node name="Item_Select" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="TabContainer" type="TabContainer" parent="."]
 margin_right = 196.0
@@ -234,3 +234,7 @@ height = 15.0
 
 [connection signal="mouse_entered" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_entered"]
 [connection signal="mouse_exited" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_exited"]
+[connection signal="mouse_entered" from="TabContainer/Furniture/ScrollContainer" to="TabContainer" method="_on_ScrollContainer_mouse_entered"]
+[connection signal="mouse_exited" from="TabContainer/Furniture/ScrollContainer" to="TabContainer" method="_on_ScrollContainer_mouse_exited"]
+[connection signal="mouse_entered" from="TabContainer/Devices/ScrollContainer" to="TabContainer" method="_on_ScrollContainer_mouse_entered"]
+[connection signal="mouse_exited" from="TabContainer/Devices/ScrollContainer" to="TabContainer" method="_on_ScrollContainer_mouse_exited"]

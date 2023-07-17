@@ -12,3 +12,11 @@ func _on_TabContainer_mouse_exited():
 	Global.can_place = true
 	print(Global.can_place)
 	pass # Replace with function body.
+
+
+func _on_ScrollContainer_mouse_entered():
+	Global.can_place = false
+
+
+func _on_ScrollContainer_mouse_exited():
+	Global.can_place = true

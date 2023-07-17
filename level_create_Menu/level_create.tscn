@@ -22,6 +22,7 @@ __meta__ = {
 }
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 script = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]

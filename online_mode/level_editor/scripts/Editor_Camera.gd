@@ -46,7 +46,3 @@ func apply_movement(input_vector, direction, delta):
 func apply_friction(direction, delta):
 	if direction == Vector3.ZERO:
 		velocity = velocity.move_toward(Vector3.ZERO, friction * delta)
-
-func _on_Tween_tween_completed(object, key):
-	t = false
-	pass # Replace with function body.

@@ -195,7 +195,7 @@ level = NodePath("../level")
 preview_item = NodePath("../preview")
 delete_item = NodePath("../delete")
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 16 )]
+[node name="mobile_controls" parent="." instance=ExtResource( 16 )]
 
 [connection signal="mouse_entered" from="play" to="play" method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="play" to="play" method="_on_play_mouse_exited"]
@@ -206,6 +206,7 @@ delete_item = NodePath("../delete")
 [connection signal="pressed" from="UI/editor/file/Load" to="UI/editor/FileDialog" method="_on_Load_pressed"]
 [connection signal="pressed" from="UI/editor/file/Save" to="UI/editor/FileDialog" method="_on_Save_pressed"]
 
+[editable path="UI/editor/Item_Select"]
 [editable path="UI/settings"]
 [editable path="UI/settings/settings"]
 [editable path="level/environment"]

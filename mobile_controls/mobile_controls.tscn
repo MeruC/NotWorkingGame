@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://mobile_controls/textures/cursor.png" type="Texture" id=1]
 [ext_resource path="res://mobile_controls/joystick/virtual_joystick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://mobile_controls/textures/e.png" type="Texture" id=3]
 [ext_resource path="res://mobile_controls/textures/lclick.png" type="Texture" id=4]
+[ext_resource path="res://mobile_controls/mobile_controls.gd" type="Script" id=5]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="mobile_controls" type="CanvasLayer"]
+script = ExtResource( 5 )
 
 [node name="interact" type="TouchScreenButton" parent="."]
 visible = false
@@ -31,3 +34,8 @@ action_left = "left"
 action_right = "right"
 action_up = "up"
 action_down = "down"
+
+[node name="cursor" type="Sprite" parent="."]
+position = Vector2( 701, 321 )
+texture = ExtResource( 1 )
+offset = Vector2( 16, 16 )
