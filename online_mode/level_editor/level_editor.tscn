@@ -10,12 +10,12 @@
 [ext_resource path="res://online_mode/level_editor/scripts/FileDialog.gd" type="Script" id=8]
 [ext_resource path="res://resources/Materials/grid.tres" type="Material" id=9]
 [ext_resource path="res://icon.png" type="Texture" id=10]
-[ext_resource path="res://online_mode/level_editor/scripts/play.gd" type="Script" id=11]
 [ext_resource path="res://online_mode/level_editor/scripts/level_editor.gd" type="Script" id=12]
 [ext_resource path="res://resources/Shaders/pixel.tres" type="Material" id=13]
 [ext_resource path="res://nodes/inventory.tscn" type="PackedScene" id=14]
 [ext_resource path="res://nodes/settings.tscn" type="PackedScene" id=15]
 [ext_resource path="res://mobile_controls/mobile_controls.tscn" type="PackedScene" id=16]
+[ext_resource path="res://online_mode/level_editor/scripts/modes.gd" type="Script" id=17]
 [ext_resource path="res://invRes/scale_control.gd" type="Script" id=19]
 
 [sub_resource type="CameraTexture" id=14]
@@ -42,20 +42,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="play" type="Button" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 12.0
-margin_top = -29.0
-margin_right = 56.0
-margin_bottom = -9.0
-rect_pivot_offset = Vector2( 0, 20 )
-text = "Play"
-script = ExtResource( 11 )
-ui = NodePath("../UI")
-inventory = NodePath("../level/inventory/ui")
-playerSpawn = ExtResource( 3 )
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="editor" type="Control" parent="UI"]
@@ -66,6 +52,9 @@ margin_top = 11.0
 margin_right = -13.0
 margin_bottom = -11.0
 mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Item_Select" parent="UI/editor" instance=ExtResource( 4 )]
 margin_left = 12.0
@@ -73,9 +62,11 @@ margin_top = 8.0
 margin_right = 52.0
 margin_bottom = 50.0
 script = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FileDialog" type="FileDialog" parent="UI/editor"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -122,6 +113,57 @@ rect_pivot_offset = Vector2( 119, 20 )
 text = "Save"
 icon = SubResource( 14 )
 
+[node name="modes" type="HBoxContainer" parent="UI/editor"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 211.0
+rect_pivot_offset = Vector2( 0, 40 )
+custom_constants/separation = 8
+script = ExtResource( 17 )
+main = NodePath("../../..")
+current = NodePath("current_mode")
+ui = NodePath("../..")
+inventory = NodePath("../../../level/inventory/ui")
+mobile_controls = NodePath("../../../level/mobile_controls")
+playerSpawn = ExtResource( 3 )
+
+[node name="play" type="Button" parent="UI/editor/modes"]
+margin_right = 38.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 65, 40 )
+text = "Play"
+
+[node name="place" type="Button" parent="UI/editor/modes"]
+margin_left = 46.0
+margin_right = 92.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 65, 40 )
+text = "Place"
+
+[node name="rotate" type="Button" parent="UI/editor/modes"]
+margin_left = 100.0
+margin_right = 153.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 34, 40 )
+text = "Rotate"
+
+[node name="remove" type="Button" parent="UI/editor/modes"]
+margin_left = 161.0
+margin_right = 225.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 40 )
+text = "Remove"
+
+[node name="current_mode" type="Label" parent="UI/editor/modes"]
+margin_left = 233.0
+margin_top = 13.0
+margin_right = 328.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 40 )
+text = "Current Mode: "
+valign = 1
+
 [node name="settings" parent="UI" instance=ExtResource( 15 )]
 mouse_filter = 2
 
@@ -156,19 +198,46 @@ height = 10.0
 depth = 128.0
 material = ExtResource( 9 )
 
+[node name="mobile_controls" parent="level" instance=ExtResource( 16 )]
+visible = false
+
 [node name="inventory" parent="level" instance=ExtResource( 14 )]
 
+[node name="ui" parent="level/inventory" index="1"]
+visible = false
+
+[node name="container" type="Control" parent="level/inventory/ui" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 11.0
+margin_right = -10.0
+margin_bottom = -11.0
+
+[node name="edit" type="Button" parent="level/inventory/ui/container"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 36.0
+rect_pivot_offset = Vector2( 0, 40 )
+text = "Edit"
+script = ExtResource( 19 )
+
 [node name="inventory_player" parent="level/inventory/ui/ui_container/windows" index="1"]
-margin_left = -2.742
-margin_top = 98.816
-margin_right = 141.258
-margin_bottom = 272.816
+margin_left = 4.258
+margin_top = -134.184
+margin_right = 148.258
+margin_bottom = 39.816
 
 [node name="Label" parent="level/inventory/ui/ui_container/buttons" index="0"]
-margin_left = 1057.0
-margin_top = -572.0
-margin_right = 1254.0
-margin_bottom = -517.0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -197.0
+margin_top = -27.5
+margin_right = 0.0
+margin_bottom = 27.5
 rect_pivot_offset = Vector2( 196, 25 )
 
 [node name="Editor_Camera" type="KinematicBody" parent="."]
@@ -195,16 +264,26 @@ level = NodePath("../level")
 preview_item = NodePath("../preview")
 delete_item = NodePath("../delete")
 
-[node name="mobile_controls" parent="." instance=ExtResource( 16 )]
-
-[connection signal="mouse_entered" from="play" to="play" method="_on_play_mouse_entered"]
-[connection signal="mouse_exited" from="play" to="play" method="_on_play_mouse_exited"]
-[connection signal="pressed" from="play" to="play" method="_on_play_pressed"]
 [connection signal="confirmed" from="UI/editor/FileDialog" to="UI/editor/FileDialog" method="_on_FileDialog_confirmed"]
 [connection signal="popup_hide" from="UI/editor/FileDialog" to="UI/editor/FileDialog" method="_on_FileDialog_popup_hide"]
 [connection signal="pressed" from="UI/editor/file/New" to="UI/editor/FileDialog" method="_on_New_pressed"]
 [connection signal="pressed" from="UI/editor/file/Load" to="UI/editor/FileDialog" method="_on_Load_pressed"]
 [connection signal="pressed" from="UI/editor/file/Save" to="UI/editor/FileDialog" method="_on_Save_pressed"]
+[connection signal="mouse_entered" from="UI/editor/modes/play" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/modes/play" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="pressed" from="UI/editor/modes/play" to="UI/editor/modes" method="_on_play_pressed"]
+[connection signal="mouse_entered" from="UI/editor/modes/place" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/modes/place" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="pressed" from="UI/editor/modes/place" to="UI/editor/modes" method="_on_place_pressed"]
+[connection signal="mouse_entered" from="UI/editor/modes/rotate" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/modes/rotate" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="pressed" from="UI/editor/modes/rotate" to="UI/editor/modes" method="_on_rotate_pressed"]
+[connection signal="mouse_entered" from="UI/editor/modes/remove" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/modes/remove" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="pressed" from="UI/editor/modes/remove" to="UI/editor/modes" method="_on_remove_pressed"]
+[connection signal="mouse_entered" from="level/inventory/ui/container/edit" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="level/inventory/ui/container/edit" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="pressed" from="level/inventory/ui/container/edit" to="UI/editor/modes" method="_on_play_pressed"]
 
 [editable path="UI/editor/Item_Select"]
 [editable path="UI/settings"]

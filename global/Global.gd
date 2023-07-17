@@ -12,3 +12,5 @@ var curOS = OS.get_name()
 
 func _ready():
 	print(curOS)
+	
+var editor_mode = "place"

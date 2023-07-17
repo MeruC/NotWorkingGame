@@ -12,7 +12,6 @@ var velocity := Vector3.ZERO
 
 var start_pos = Vector3(0, .5, 0)
 
-var can_move = false
 var is_moving = false
 
 onready var walk_animation = $AnimationPlayer
@@ -55,9 +54,8 @@ func _process(delta):
 #Getting The Input
 func get_input_vector():
 	var input_vector := Vector3.ZERO
-	if(can_move):
-		input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-		input_vector.z = Input.get_action_strength("down") - Input.get_action_strength("up")
+	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	input_vector.z = Input.get_action_strength("down") - Input.get_action_strength("up")
 	return input_vector.normalized() if input_vector.length() > 1 else input_vector
 
 #Getting the Camera Facing Direction

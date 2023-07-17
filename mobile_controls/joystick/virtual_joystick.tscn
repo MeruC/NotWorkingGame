@@ -12,10 +12,8 @@ margin_left = 50.0
 margin_top = -250.0
 margin_right = 250.0
 margin_bottom = -50.0
+rect_pivot_offset = Vector2( 0, 200 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Base" type="TextureRect" parent="."]
 anchor_left = 0.5

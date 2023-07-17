@@ -36,6 +36,7 @@ action_up = "up"
 action_down = "down"
 
 [node name="cursor" type="Sprite" parent="."]
+visible = false
 position = Vector2( 701, 321 )
 texture = ExtResource( 1 )
 offset = Vector2( 16, 16 )

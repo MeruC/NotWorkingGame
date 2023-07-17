@@ -2,7 +2,7 @@ extends FileDialog
 
 onready var level = get_node("/root/main/level")
 onready var ui = get_node("/root/main/UI")
-onready var play = get_node("/root/main/play")
+onready var play = get_node("/root/main/UI/editor/modes/play")
 onready var main = get_node("/root/main")
 
 func refresh():
