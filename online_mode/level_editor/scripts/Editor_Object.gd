@@ -1,11 +1,15 @@
 extends Spatial
 
 export( NodePath ) onready var level = get_node(level) as Spatial
-export( NodePath ) onready var preview_item = get_node(preview_item) as StaticBody
-export( NodePath ) onready var delete_item = get_node(delete_item) as StaticBody
+export( NodePath ) onready var preview_parent = get_node(preview_parent) as Spatial
+export( NodePath ) onready var place_preview = get_node(place_preview) as StaticBody
+export( NodePath ) onready var remove_preview = get_node(remove_preview) as StaticBody
+export( NodePath ) onready var rotate_preview = get_node(rotate_preview) as StaticBody
+export( NodePath ) onready var no_sign = get_node(no_sign) as StaticBody
 
 var current_item 
 var cursor_pos := Vector3.ZERO
+var object_pos
 var current_object
 
 var placeOn = "none"
@@ -21,77 +25,103 @@ func _ready():
 	
 func _input(event):
 	if event is InputEventScreenTouch:
-		if (Global.edit_mode and Global.can_place and current_item != null):
-			var new_item = current_item.instance() 
-			if (new_item != null):
-				for i in placeOn:
-					if (i in object_point.collider.name):
-						level.add_child(new_item)
-						new_item.owner = level
-						new_item.global_translation = cursor_pos
-	if event is InputEventMouseButton:
-		if (event.is_pressed() and Global.edit_mode and Global.can_place and current_item != null):
-			var new_item = current_item.instance() 
-			if (new_item != null):
-				for i in placeOn:
-					if (i in object_point.collider.name):
-						level.add_child(new_item)
-						new_item.owner = level
-						new_item.global_translation = cursor_pos
+		match(Global.editor_mode):
+			"place":
+				placeObject()
+			"rotate":
+				rotateObject()
+			"remove":
+				removeObject()
+	if event is InputEventMouseButton and event.is_pressed():
+		match(Global.editor_mode):
+			"place":
+				placeObject()
+			"rotate":
+				rotateObject()
+			"remove":
+				removeObject()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	level = get_node("/root/main/level")
 	cursor_pos = Vector3(ScrenPointToRay())
-	cursor_pos.y = height
+	cursor_pos.y = 0
 	
 	#This Snaps the Objects Position to a grid
 	cursor_pos.x = stepify(cursor_pos.x, 2)
 	cursor_pos.z = stepify(cursor_pos.z, 2)
 	
-	var object_pos = cursor_pos
-	
-	#DEBUG, POSITION CHECK
-	#print(cursor_pos)
-	
+	object_pos = cursor_pos
+
 	object_point = WhatObject()
-		
-	if(object_point.has("position")):
-		if(Global.edit_mode and Global.can_place):
+	
+	preview_parent.set_visible(false)
+	no_sign.set_visible(true)
+	
+	#Preview
+	match(Global.editor_mode):
+		"place":
+			previewCursor()
+			place_preview.set_visible(true)
+			rotate_preview.set_visible(false)
+			remove_preview.set_visible(false)
 			for i in placeOn:
 				if (i in object_point.collider.name):
-					preview_item.set_visible(true)
-					delete_item.set_visible(false)
-					preview_item.global_translation = cursor_pos
+					preview_parent.set_visible(true)
+					no_sign.set_visible(false)
 					break
-				else:
-					preview_item.set_visible(false)
-					delete_item.set_visible(true)
-					cursor_pos.y = 4
-					delete_item.global_translation = cursor_pos	
-		if !Global.edit_mode:
-			preview_item.set_visible(false)
-			delete_item.set_visible(false)
-			
+		"rotate":
+			previewCursor()
+			place_preview.set_visible(false)
+			rotate_preview.set_visible(true)
+			remove_preview.set_visible(false)
+			if ("object" in object_point.collider.name):
+				preview_parent.set_visible(true)
+				no_sign.set_visible(false)
+		"remove":
+			previewCursor()
+			place_preview.set_visible(false)
+			rotate_preview.set_visible(false)
+			remove_preview.set_visible(true)
+			if ("object" in object_point.collider.name):
+				preview_parent.set_visible(true)
+				no_sign.set_visible(false)
+	
+	if(object_point.has("position")):	
 		if (Input.is_action_just_pressed("mb_left")):
 			print(object_point)
 			pass
-			
-		if (Global.edit_mode and Input.is_action_just_pressed("rotate") and "object" in object_point.collider.name):
-			current_object = level.get_node(object_point.collider.name)
-			current_object.rotate(Vector3(0,1,0),-(PI/2))
-			pass
-			
-		if (Global.edit_mode and Input.is_action_just_pressed("mb_right") and "object" in object_point.collider.name):
-			current_object = level.get_node(object_point.collider.name)
-			current_object.queue_free()
-			pass
-			
-		#Checks for Input
-
 		pass
 	
-
+func previewCursor():
+	if(object_point.has("position")):
+		preview_parent.global_translation = cursor_pos
+		preview_parent.global_translation.y = 10.0
+		no_sign.global_translation = cursor_pos
+		no_sign.global_translation.y = 10.0
+				
+func placeObject():
+	cursor_pos.y = 0
+	if !("floor" in object_point.collider.name): cursor_pos.y = height
+	if (Global.can_place and current_item != null):
+		var new_item = current_item.instance() 
+		if (new_item != null):
+			for i in placeOn:
+				if (i in object_point.collider.name):
+					level.add_child(new_item)
+					new_item.owner = level
+					new_item.global_translation = cursor_pos
+	
+func rotateObject():
+	if ("object" in object_point.collider.name):
+		current_object = level.get_node(object_point.collider.name)
+		current_object.rotate(Vector3(0,1,0),-(PI/2))
+	
+func removeObject():
+	if ("object" in object_point.collider.name):
+		current_object = level.get_node(object_point.collider.name)
+		current_object.queue_free()
+	
 #Fires a ray to check for cursor 3D location
 func ScrenPointToRay():
 	var spaceState = get_world().direct_space_state
