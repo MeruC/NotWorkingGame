@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://resources/Sprites/rotate.png" type="Texture" id=1]
 [ext_resource path="res://mobile_controls/joystick/virtual_joystick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mobile_controls/textures/e.png" type="Texture" id=3]
 
 [node name="mobile_controls" type="CanvasLayer"]
 
@@ -28,3 +29,10 @@ scale = Vector2( 3.34375, 3.28125 )
 normal = ExtResource( 1 )
 pressed = ExtResource( 1 )
 action = "camera_rotate_right"
+
+[node name="E" type="TouchScreenButton" parent="."]
+position = Vector2( 1151, 572 )
+scale = Vector2( 3.34375, 3.28125 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 3 )
+action = "interact"
