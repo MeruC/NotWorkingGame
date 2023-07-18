@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://global/objects/place.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/EditorPremade/environment.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://online_mode/level_editor/scripts/modes.gd" type="Script" id=17]
 [ext_resource path="res://global/objects/no-sign.tscn" type="PackedScene" id=18]
 [ext_resource path="res://invRes/scale_control.gd" type="Script" id=19]
+[ext_resource path="res://mobile_controls/joystick/virtual_joystick.tscn" type="PackedScene" id=20]
+[ext_resource path="res://online_mode/level_editor/move.gd" type="Script" id=21]
 
 [sub_resource type="CameraTexture" id=14]
 
@@ -83,12 +85,13 @@ script = ExtResource( 8 )
 
 [node name="file" type="Control" parent="UI/editor"]
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = -119.0
-margin_top = -70.0
-rect_pivot_offset = Vector2( 119, 70 )
+margin_top = -35.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 119, 35 )
 script = ExtResource( 19 )
 
 [node name="New" type="Button" parent="UI/editor/file"]
@@ -131,6 +134,7 @@ mobile_controls = NodePath("../../../level/mobile_controls")
 joystick = NodePath("../../../level/mobile_controls/Virtual joystick")
 previews = NodePath("../../../previews")
 no_sign = NodePath("../../../no-sign")
+item_select = NodePath("../Item_Select")
 playerSpawn = ExtResource( 3 )
 
 [node name="play" type="Button" parent="UI/editor/modes"]
@@ -169,6 +173,90 @@ rect_pivot_offset = Vector2( 0, 40 )
 text = "Current Mode: "
 valign = 1
 
+[node name="move" type="Control" parent="UI/editor"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -179.0
+margin_top = -113.0
+rect_pivot_offset = Vector2( 50, 50 )
+script = ExtResource( 21 )
+
+[node name="up" type="Button" parent="UI/editor/move"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -55.0
+margin_right = 25.0
+margin_bottom = -5.0
+rect_pivot_offset = Vector2( 65, 40 )
+text = "Up"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="down" type="Button" parent="UI/editor/move"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = 2.0
+margin_right = 25.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 65, 40 )
+text = "Down"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="left" type="Button" parent="UI/editor/move"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -82.0
+margin_top = -25.0
+margin_right = -32.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 65, 40 )
+text = "Left"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="right" type="Button" parent="UI/editor/move"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -25.0
+margin_right = 82.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 65, 40 )
+text = "Right"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Virtual joystick" parent="UI/editor" instance=ExtResource( 20 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 12.0
+margin_top = 9.0
+margin_right = 212.0
+margin_bottom = 209.0
+rect_pivot_offset = Vector2( 0, 100 )
+action_left = "left"
+action_right = "right"
+action_up = "up"
+action_down = "down"
+
 [node name="settings" parent="UI" instance=ExtResource( 15 )]
 mouse_filter = 2
 
@@ -177,6 +265,15 @@ visible = false
 
 [node name="Tween" type="Tween" parent="."]
 playback_process_mode = 0
+
+[node name="play" type="Button" parent="."]
+visible = false
+margin_left = 978.0
+margin_top = 441.0
+margin_right = 1311.0
+margin_bottom = 750.0
+rect_pivot_offset = Vector2( 65, 40 )
+text = "Play"
 
 [node name="level" type="Spatial" parent="."]
 
@@ -206,7 +303,10 @@ material = ExtResource( 9 )
 [node name="mobile_controls" parent="level" instance=ExtResource( 16 )]
 visible = false
 
-[node name="Virtual joystick" parent="level/mobile_controls" index="2"]
+[node name="Virtual joystick" parent="level/mobile_controls" index="0"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 use_input_actions = false
 
 [node name="inventory" parent="level" instance=ExtResource( 14 )]
@@ -301,6 +401,17 @@ no_sign = NodePath("../no-sign")
 [connection signal="mouse_entered" from="UI/editor/modes/remove" to="UI/editor/modes" method="_on_modes_mouse_entered"]
 [connection signal="mouse_exited" from="UI/editor/modes/remove" to="UI/editor/modes" method="_on_modes_mouse_exited"]
 [connection signal="pressed" from="UI/editor/modes/remove" to="UI/editor/modes" method="_on_remove_pressed"]
+[connection signal="mouse_entered" from="UI/editor/move/up" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/move/up" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="mouse_entered" from="UI/editor/move/down" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/move/down" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="mouse_entered" from="UI/editor/move/left" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/move/left" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="mouse_entered" from="UI/editor/move/right" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/move/right" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="mouse_entered" from="play" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="play" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="pressed" from="play" to="UI/editor/modes" method="_on_play_pressed"]
 [connection signal="mouse_entered" from="level/inventory/ui/container/edit" to="UI/editor/modes" method="_on_modes_mouse_entered"]
 [connection signal="mouse_exited" from="level/inventory/ui/container/edit" to="UI/editor/modes" method="_on_modes_mouse_exited"]
 [connection signal="pressed" from="level/inventory/ui/container/edit" to="UI/editor/modes" method="_on_play_pressed"]
@@ -312,3 +423,4 @@ no_sign = NodePath("../no-sign")
 [editable path="level/mobile_controls"]
 [editable path="level/inventory"]
 [editable path="level/inventory/ui/settings"]
+[editable path="previews/place"]

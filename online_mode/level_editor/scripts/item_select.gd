@@ -14,6 +14,7 @@ func _ready():
 
 func _item_clicked(event):
 	if event is InputEventMouseButton:
+		Global.can_place = false
 		object_cursor.current_item = this_scene
 		object_cursor.placeOn = placeOn
 		object_cursor.height = height * 0.0625

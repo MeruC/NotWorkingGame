@@ -12,7 +12,6 @@ margin_left = 50.0
 margin_top = -250.0
 margin_right = 250.0
 margin_bottom = -50.0
-rect_pivot_offset = Vector2( 0, 200 )
 script = ExtResource( 3 )
 
 [node name="Base" type="TextureRect" parent="."]
@@ -31,9 +30,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( 1 )
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tip" type="TextureRect" parent="Base"]
 anchor_left = 0.5
@@ -50,7 +46,10 @@ rect_pivot_offset = Vector2( 50, 50 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( 2 )
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Base" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Base" to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Base/Tip" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Base/Tip" to="." method="_on_mouse_exited"]

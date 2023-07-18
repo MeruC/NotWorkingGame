@@ -10,6 +10,7 @@ export( NodePath ) onready var mobile_controls = get_node(mobile_controls) as Ca
 export( NodePath ) onready var joystick = get_node(joystick) as Control
 export( NodePath ) onready var previews = get_node(previews) as Spatial
 export( NodePath ) onready var no_sign = get_node(no_sign) as StaticBody
+export( NodePath ) onready var item_select = get_node(item_select) as Control
 
 export(PackedScene) var playerSpawn
 var last_mode = "place"
@@ -41,14 +42,17 @@ func _process(delta):
 
 func _on_place_pressed():
 	Global.editor_mode = "place"
+	item_select.set_visible(true)
 
 
 func _on_rotate_pressed():
 	Global.editor_mode = "rotate"
+	item_select.set_visible(false)
 
 
 func _on_remove_pressed():
 	Global.editor_mode = "remove"
+	item_select.set_visible(false)
 
 func _on_play_pressed():
 	if(Global.editor_mode != "play"):

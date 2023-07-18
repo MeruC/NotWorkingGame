@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[sub_resource type="SpatialMaterial" id=2]
+[ext_resource path="res://resources/Sprites/rotate.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
 flags_unshaded = true
-albedo_color = Color( 0, 0.196078, 1, 0.392157 )
+albedo_color = Color( 0.6, 0.85098, 1, 0.392157 )
 
 [node name="rotate" type="StaticBody"]
 input_ray_pickable = false
@@ -13,4 +15,8 @@ transform = Transform( 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.0089529, 0 )
 
 [node name="CSGBox" type="CSGBox" parent="CollisionShape2D"]
 transform = Transform( 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 )
-material = SubResource( 2 )
+material = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 6.26937, 0, 0, 0, 0, 0, 0, -6.26937, -2.74043e-07, 0, 0.0352705, 0 )
+texture = ExtResource( 1 )

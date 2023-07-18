@@ -159,3 +159,14 @@ func _reset():
 			Input.action_release(action_down)
 		if Input.is_action_pressed(action_up) or Input.is_action_just_pressed(action_up):
 			Input.action_release(action_up)
+
+
+
+func _on_mouse_entered():
+	Global.can_place = false
+	print(Global.can_place)
+
+
+func _on_mouse_exited():
+	Global.can_place = true
+	print(Global.can_place)

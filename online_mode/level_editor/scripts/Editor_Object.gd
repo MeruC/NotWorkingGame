@@ -8,14 +8,18 @@ export( NodePath ) onready var rotate_preview = get_node(rotate_preview) as Stat
 export( NodePath ) onready var no_sign = get_node(no_sign) as StaticBody
 
 var current_item 
+var preview_item
 var cursor_pos := Vector3.ZERO
-var object_pos
+var object_pos = cursor_pos
 var current_object
+var touch_pos := Vector2.ZERO
 
 var placeOn = "none"
 var height = 0
 
 var object_point
+
+var in_action = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,15 +28,20 @@ func _ready():
 	pass
 	
 func _input(event):
+	
 	if event is InputEventScreenTouch:
+		touch_pos.x = stepify(event.position.x, 2)
+		touch_pos.y = stepify(event.position.y, 2)
 		match(Global.editor_mode):
 			"place":
 				placeObject()
 			"rotate":
-				rotateObject()
+				if !in_action:
+					rotateObject()
 			"remove":
-				removeObject()
-	if event is InputEventMouseButton and event.is_pressed():
+				if !in_action:
+					removeObject()
+	if event is InputEventMouseButton and event.is_pressed() and Global.curOS != "Android":
 		match(Global.editor_mode):
 			"place":
 				placeObject()
@@ -50,13 +59,12 @@ func _process(delta):
 	#This Snaps the Objects Position to a grid
 	cursor_pos.x = stepify(cursor_pos.x, 2)
 	cursor_pos.z = stepify(cursor_pos.z, 2)
-	
-	object_pos = cursor_pos
 
 	object_point = WhatObject()
 	
-	preview_parent.set_visible(false)
-	no_sign.set_visible(true)
+	if(Global.editor_mode != "play"):
+		preview_parent.set_visible(false)
+		no_sign.set_visible(true)
 	
 	#Preview
 	match(Global.editor_mode):
@@ -90,8 +98,7 @@ func _process(delta):
 	if(object_point.has("position")):	
 		if (Input.is_action_just_pressed("mb_left")):
 			print(object_point)
-			pass
-		pass
+			print(object_pos)
 	
 func previewCursor():
 	if(object_point.has("position")):
@@ -114,13 +121,19 @@ func placeObject():
 	
 func rotateObject():
 	if ("object" in object_point.collider.name):
+		in_action = true
 		current_object = level.get_node(object_point.collider.name)
 		current_object.rotate(Vector3(0,1,0),-(PI/2))
+		yield(get_tree().create_timer(0.1),"timeout")
+		in_action = false
 	
 func removeObject():
 	if ("object" in object_point.collider.name):
+		in_action = true
 		current_object = level.get_node(object_point.collider.name)
 		current_object.queue_free()
+		yield(get_tree().create_timer(0.1),"timeout")
+		in_action = false
 	
 #Fires a ray to check for cursor 3D location
 func ScrenPointToRay():

@@ -1,29 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://mobile_controls/textures/cursor.png" type="Texture" id=1]
+[ext_resource path="res://resources/Sprites/rotate.png" type="Texture" id=1]
 [ext_resource path="res://mobile_controls/joystick/virtual_joystick.tscn" type="PackedScene" id=2]
-[ext_resource path="res://mobile_controls/textures/e.png" type="Texture" id=3]
-[ext_resource path="res://mobile_controls/textures/lclick.png" type="Texture" id=4]
-[ext_resource path="res://mobile_controls/mobile_controls.gd" type="Script" id=5]
 
 [node name="mobile_controls" type="CanvasLayer"]
-script = ExtResource( 5 )
-
-[node name="interact" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2( 992, 633 )
-scale = Vector2( 2, 2 )
-normal = ExtResource( 3 )
-pressed = ExtResource( 3 )
-action = "interact"
-
-[node name="Lclick" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2( 1094, 634 )
-scale = Vector2( 2, 2 )
-normal = ExtResource( 4 )
-pressed = ExtResource( 4 )
-action = "mb_left"
 
 [node name="Virtual joystick" parent="." instance=ExtResource( 2 )]
 margin_left = 103.0
@@ -35,8 +15,16 @@ action_right = "right"
 action_up = "up"
 action_down = "down"
 
-[node name="cursor" type="Sprite" parent="."]
-visible = false
-position = Vector2( 701, 321 )
-texture = ExtResource( 1 )
-offset = Vector2( 16, 16 )
+[node name="camLeft" type="TouchScreenButton" parent="."]
+position = Vector2( 876, 570 )
+scale = Vector2( 3.34375, 3.28125 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 1 )
+action = "camera_rotate_left"
+
+[node name="camRight" type="TouchScreenButton" parent="."]
+position = Vector2( 1013, 570 )
+scale = Vector2( 3.34375, 3.28125 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 1 )
+action = "camera_rotate_right"

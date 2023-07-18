@@ -8,9 +8,9 @@ albedo_color = Color( 0, 1, 0, 0.392157 )
 [node name="place" type="StaticBody"]
 input_ray_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape" parent="."]
+[node name="place" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.0089529, 0 )
 
-[node name="CSGBox" type="CSGBox" parent="CollisionShape2D"]
+[node name="place2" type="CSGBox" parent="place"]
 transform = Transform( 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 )
 material = SubResource( 2 )

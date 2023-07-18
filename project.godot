@@ -127,6 +127,7 @@ ItemManager="*res://managers/inventory/item_manager.gd"
 SignalManager="*res://managers/inventory/signal_manager.gd"
 SettingsManager="*res://managers/inventory/settings_manager.gd"
 ResourceManager="*res://managers/inventory/resource_manager.gd"
+InputManager="*res://InputManager.gd"
 
 [display]
 
@@ -147,6 +148,7 @@ enabled=PoolStringArray(  )
 import=false
 "on to"=false
 stretch=false
+point=false
 
 [gui]
 
