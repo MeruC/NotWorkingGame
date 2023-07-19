@@ -9,7 +9,7 @@
 albedo_texture = ExtResource( 2 )
 
 [node name="object_tower" type="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00218761, -0.00467908, 0.00425696 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00218761, -0.00467908, 0.00425696 )
 
 [node name="CollisionShape2D" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/Models/Materials/router/cisco model 900.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://resources/Models/Materials/router/cisco model 900.png" type="Texture" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[node name="object_ciscomodel900" type="StaticBody"]
+
+[node name="CollisionShape2D" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="CollisionShape2D"]
+transform = Transform( -0.479, 0, -4.18755e-08, 0, 0.479, 0, 4.18755e-08, 0, -0.479, 0, -0.991861, 0 )
+mesh = ExtResource( 1 )
+material = SubResource( 2 )
+
+[node name="port1" type="Label3D" parent="CollisionShape2D/CSGMesh"]
+transform = Transform( -0.999998, 0, -8.74226e-08, 0, 0.999998, 0, 8.74226e-08, 0, -0.999998, 0.133354, 0.129519, -1.30894 )
+text = "1"
+
+[node name="port2" type="Label3D" parent="CollisionShape2D/CSGMesh"]
+transform = Transform( -0.999998, 0, -8.74226e-08, 0, 0.999998, 0, 8.74226e-08, 0, -0.999998, -0.15357, 0.130431, -1.30894 )
+text = "2"
+
+[node name="port3" type="Label3D" parent="CollisionShape2D/CSGMesh"]
+transform = Transform( -0.999998, 0, -8.74226e-08, 0, 0.999998, 0, 8.74226e-08, 0, -0.999998, -0.451981, 0.122442, -1.30894 )
+text = "3"
+
+[node name="port4" type="Label3D" parent="CollisionShape2D/CSGMesh"]
+transform = Transform( -0.999998, 0, -8.74226e-08, 0, 0.999998, 0, 8.74226e-08, 0, -0.999998, -0.760774, 0.122442, -1.30894 )
+text = "4"
+
+[node name="routerName2" type="Label3D" parent="CollisionShape2D/CSGMesh"]
+transform = Transform( -0.999999, 0, -8.74226e-08, 0, 0.999999, 0, 8.74226e-08, 0, -0.999999, -0.410761, 0.591968, -1.30894 )
+text = "Cisco "
+
+[node name="usb" type="Label3D" parent="CollisionShape2D/CSGMesh"]
+transform = Transform( -0.999998, 0, -8.74225e-08, 0, 0.999998, 0, 8.74225e-08, 0, -0.999998, 0.397778, 0.23909, -1.30894 )
+pixel_size = 0.005
+text = "usb"
+
+[node name="on" type="Label3D" parent="CollisionShape2D/CSGMesh"]
+transform = Transform( -0.999997, 0, -8.74224e-08, 0, 0.999997, 0, 8.74224e-08, 0, -0.999997, 1.18496, 0.226188, -1.30894 )
+pixel_size = 0.005
+text = "On"
+
+[node name="off" type="Label3D" parent="CollisionShape2D/CSGMesh"]
+transform = Transform( -0.999997, 0, -8.74224e-08, 0, 0.999997, 0, 8.74224e-08, 0, -0.999997, 1.18496, 0.411471, -1.30894 )
+pixel_size = 0.005
+text = "Off"
