@@ -37,7 +37,8 @@ func _input(event):
 			"rotate":
 				rotateObject()
 			"remove":
-				removeObject()
+				if !in_action:
+					removeObject()
 	if event is InputEventMouseButton and event.is_pressed() and Global.curOS != "Android":
 		match(Global.editor_mode):
 			"place":
