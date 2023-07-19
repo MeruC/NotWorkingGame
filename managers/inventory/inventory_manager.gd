@@ -27,6 +27,7 @@ func _on_inventory_ready( inventory ):
 func _input( event : InputEvent ):
 	if event is InputEventMouseMotion and item_in_hand:
 		item_in_hand.rect_position = ( event.position - item_offset ) / SettingsManager.scale
+		
 
 func _on_mouse_entered_slot( slot ):
 	if slot.item:
@@ -41,6 +42,7 @@ func _on_gui_input_slot( event : InputEvent, slot : Inventory_Slot ):
 			_on_stack_splitted( slot, 1 )
 		else:
 			split_stack.display( slot )
+		pass
 	elif event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 		var had_empty_hand = item_in_hand == null
 		

@@ -5,12 +5,13 @@ export( NodePath ) onready var current = get_node(current) as Label
 
 var player
 export( NodePath ) onready var ui = get_node(ui) as CanvasLayer
-export( NodePath ) onready var inventory = get_node(inventory) as CanvasLayer
-export( NodePath ) onready var mobile_controls = get_node(mobile_controls) as CanvasLayer
-export( NodePath ) onready var joystick = get_node(joystick) as Control
+var inventory
+var mobile_controls
+var joystick
 export( NodePath ) onready var previews = get_node(previews) as Spatial
 export( NodePath ) onready var no_sign = get_node(no_sign) as StaticBody
 export( NodePath ) onready var item_select = get_node(item_select) as Control
+export( NodePath ) onready var other_ui = get_node(other_ui) as Control
 
 export(PackedScene) var playerSpawn
 var last_mode = "place"
@@ -55,6 +56,9 @@ func _on_remove_pressed():
 	item_select.set_visible(false)
 
 func _on_play_pressed():
+	inventory = main.get_node("level/inventory/ui")
+	mobile_controls = main.get_node("level/mobile_controls")
+	joystick = main.get_node("level/mobile_controls/joystick")
 	if(Global.editor_mode != "play"):
 		#Editor Mode
 		last_mode = Global.editor_mode
@@ -71,6 +75,7 @@ func _on_play_pressed():
 		main.get_node("Player/Camera/Camera").current=true
 		
 		#Changing UI
+		other_ui.set_visible(true)
 		ui.set_visible(false)
 		inventory.set_visible(true)
 		mobile_controls.set_visible(true)
@@ -80,14 +85,15 @@ func _on_play_pressed():
 	elif(Global.editor_mode == "play"):
 		#Editor Mode
 		Global.editor_mode = last_mode
-		#Deleting pLayer
-		get_parent().remove_child(player)
+		#Deleting player
+		main.remove_child(player)
 		player.queue_free()
 		
 		#Changing Camera
 		main.get_node("Editor_Camera/Camera").current=true
 		
 		#Changing UI
+		other_ui.set_visible(false)
 		ui.set_visible(true)
 		inventory.set_visible(false)
 		mobile_controls.set_visible(false)

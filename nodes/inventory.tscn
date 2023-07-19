@@ -32,6 +32,7 @@ item_info = NodePath("../../ui/ui_container/item_info")
 split_stack = NodePath("../../ui/split stack")
 
 [node name="ui" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ui_container" type="Control" parent="ui"]
 anchor_right = 1.0

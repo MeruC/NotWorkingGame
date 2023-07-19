@@ -6,7 +6,7 @@
 
 [node name="mobile_controls" type="CanvasLayer"]
 
-[node name="Virtual joystick" parent="." instance=ExtResource( 2 )]
+[node name="joystick" parent="." instance=ExtResource( 2 )]
 margin_left = 103.0
 margin_top = -217.0
 margin_right = 303.0

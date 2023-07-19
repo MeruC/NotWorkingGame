@@ -44,6 +44,61 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://invRes/hotbar_slot.gd"
 }, {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenDrag",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventMultiScreenDrag.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenLongPress",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventMultiScreenLongPress.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenSwipe",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventMultiScreenSwipe.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventMultiScreenTap",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventMultiScreenTap.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventScreenPinch",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventScreenPinch.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventScreenTwist",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventScreenTwist.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenDrag",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventSingleScreenDrag.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenLongPress",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventSingleScreenLongPress.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenSwipe",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventSingleScreenSwipe.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenTap",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventSingleScreenTap.gd"
+}, {
+"base": "InputEventAction",
+"class": "InputEventSingleScreenTouch",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/CustomInputEvents/InputEventSingleScreenTouch.gd"
+}, {
 "base": "NinePatchRect",
 "class": "Inventory",
 "language": "GDScript",
@@ -68,6 +123,11 @@ _global_script_classes=[ {
 "class": "Item_Info_Line",
 "language": "GDScript",
 "path": "res://invRes/item_stat_line.gd"
+}, {
+"base": "InputEventAction",
+"class": "RawGesture",
+"language": "GDScript",
+"path": "res://GDTIM-v2_1_2/RawGesture.gd"
 }, {
 "base": "Node",
 "class": "Resource_Manager",
@@ -102,11 +162,23 @@ _global_script_class_icons={
 "Game_Enums": "",
 "Hotbar": "",
 "Hotbar_Slot": "",
+"InputEventMultiScreenDrag": "",
+"InputEventMultiScreenLongPress": "",
+"InputEventMultiScreenSwipe": "",
+"InputEventMultiScreenTap": "",
+"InputEventScreenPinch": "",
+"InputEventScreenTwist": "",
+"InputEventSingleScreenDrag": "",
+"InputEventSingleScreenLongPress": "",
+"InputEventSingleScreenSwipe": "",
+"InputEventSingleScreenTap": "",
+"InputEventSingleScreenTouch": "",
 "Inventory": "",
 "Inventory_Slot": "",
 "Item": "",
 "Item_Info": "",
 "Item_Info_Line": "",
+"RawGesture": "",
 "Resource_Manager": "",
 "Scale_Control": "",
 "Split_Stack": "",
@@ -127,7 +199,7 @@ ItemManager="*res://managers/inventory/item_manager.gd"
 SignalManager="*res://managers/inventory/signal_manager.gd"
 SettingsManager="*res://managers/inventory/settings_manager.gd"
 ResourceManager="*res://managers/inventory/resource_manager.gd"
-InputManager="*res://InputManager.gd"
+InputManager="*res://GDTIM-v2_1_2/InputManager.gd"
 
 [display]
 
