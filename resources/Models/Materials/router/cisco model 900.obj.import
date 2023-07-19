@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/cisco model 900.obj-031f4bf146cffa1b878569cd88293508.mesh"
+
+[deps]
+
+files=[ "res://.import/cisco model 900.obj-031f4bf146cffa1b878569cd88293508.mesh" ]
+
+source_file="res://resources/Models/Materials/router/cisco model 900.obj"
+dest_files=[ "res://.import/cisco model 900.obj-031f4bf146cffa1b878569cd88293508.mesh", "res://.import/cisco model 900.obj-031f4bf146cffa1b878569cd88293508.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
