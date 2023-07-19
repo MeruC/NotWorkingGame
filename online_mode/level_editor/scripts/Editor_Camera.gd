@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 #Getting The Input
 func get_input_vector():
 	var input_vector := Vector3.ZERO
-	if(Global.editor_mode != "play"):
+	if(Global.editor_mode != "play" and Global.editor_mode != "rotating"):
 		input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 		input_vector.z = Input.get_action_strength("down") - Input.get_action_strength("up")
 	return input_vector.normalized() if input_vector.length() > 1 else input_vector

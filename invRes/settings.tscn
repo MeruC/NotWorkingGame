@@ -12,7 +12,6 @@
 [ext_resource path="res://invRes/scale_control.gd" type="Script" id=10]
 [ext_resource path="res://invRes/exitBtn.gd" type="Script" id=11]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 14
 font_data = ExtResource( 9 )

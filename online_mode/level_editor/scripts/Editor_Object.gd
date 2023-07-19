@@ -6,6 +6,8 @@ export( NodePath ) onready var place_preview = get_node(place_preview) as Static
 export( NodePath ) onready var remove_preview = get_node(remove_preview) as StaticBody
 export( NodePath ) onready var rotate_preview = get_node(rotate_preview) as StaticBody
 export( NodePath ) onready var no_sign = get_node(no_sign) as StaticBody
+export( NodePath ) onready var rotate_object = get_node(rotate_object) as Control
+export( NodePath ) onready var editor_camera = get_node(editor_camera) as KinematicBody
 
 var current_item 
 var preview_item
@@ -28,19 +30,14 @@ func _ready():
 	pass
 	
 func _input(event):
-	
 	if event is InputEventScreenTouch:
-		touch_pos.x = stepify(event.position.x, 2)
-		touch_pos.y = stepify(event.position.y, 2)
 		match(Global.editor_mode):
 			"place":
 				placeObject()
 			"rotate":
-				if !in_action:
-					rotateObject()
+				rotateObject()
 			"remove":
-				if !in_action:
-					removeObject()
+				removeObject()
 	if event is InputEventMouseButton and event.is_pressed() and Global.curOS != "Android":
 		match(Global.editor_mode):
 			"place":
@@ -52,6 +49,10 @@ func _input(event):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Global.can_place:
+		$"../UI/editor/modes/current_mode2".text = "can_place"
+	else:
+		$"../UI/editor/modes/current_mode2".text = "no_place"
 	level = get_node("/root/main/level")
 	cursor_pos = Vector3(ScrenPointToRay())
 	cursor_pos.y = 0
@@ -94,6 +95,12 @@ func _process(delta):
 			if ("object" in object_point.collider.name):
 				preview_parent.set_visible(true)
 				no_sign.set_visible(false)
+		"rotating":
+			preview_parent.set_visible(true)
+			place_preview.set_visible(false)
+			rotate_preview.set_visible(true)
+			remove_preview.set_visible(false)
+			no_sign.set_visible(false)
 	
 	if(object_point.has("position")):	
 		if (Input.is_action_just_pressed("mb_left")):
@@ -121,11 +128,12 @@ func placeObject():
 	
 func rotateObject():
 	if ("object" in object_point.collider.name):
-		in_action = true
 		current_object = level.get_node(object_point.collider.name)
-		current_object.rotate(Vector3(0,1,0),-(PI/2))
-		yield(get_tree().create_timer(0.1),"timeout")
-		in_action = false
+		rotate_object.current_object = current_object
+		Global.editor_mode = "rotating"
+		editor_camera.global_translation.x = cursor_pos.x
+		editor_camera.global_translation.z = cursor_pos.z
+		rotate_object.set_visible(true)
 	
 func removeObject():
 	if ("object" in object_point.collider.name):

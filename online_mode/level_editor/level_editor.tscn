@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://global/objects/place.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/EditorPremade/environment.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://invRes/scale_control.gd" type="Script" id=19]
 [ext_resource path="res://mobile_controls/joystick/virtual_joystick.tscn" type="PackedScene" id=20]
 [ext_resource path="res://online_mode/level_editor/move.gd" type="Script" id=21]
+[ext_resource path="res://resources/Sprites/rotate.png" type="Texture" id=22]
+[ext_resource path="res://online_mode/level_editor/rotate.gd" type="Script" id=23]
 
 [sub_resource type="CameraTexture" id=14]
 
@@ -59,6 +61,32 @@ mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="rotate" type="Control" parent="UI/editor"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 44.0
+margin_top = -31.0
+margin_right = 92.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 31 )
+script = ExtResource( 23 )
+
+[node name="rotate" type="Button" parent="UI/editor/rotate"]
+anchor_right = 1.0
+margin_bottom = 20.0
+icon = ExtResource( 22 )
+icon_align = 1
+
+[node name="done" type="Button" parent="UI/editor/rotate"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -20.0
+text = "Done"
 
 [node name="Item_Select" parent="UI/editor" instance=ExtResource( 4 )]
 margin_left = 12.0
@@ -169,6 +197,15 @@ text = "Remove"
 margin_left = 233.0
 margin_top = 13.0
 margin_right = 328.0
+margin_bottom = 27.0
+rect_pivot_offset = Vector2( 0, 40 )
+text = "Current Mode: "
+valign = 1
+
+[node name="current_mode2" type="Label" parent="UI/editor/modes"]
+margin_left = 336.0
+margin_top = 13.0
+margin_right = 431.0
 margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 40 )
 text = "Current Mode: "
@@ -352,7 +389,11 @@ place_preview = NodePath("../previews/place")
 remove_preview = NodePath("../previews/remove")
 rotate_preview = NodePath("../previews/rotate")
 no_sign = NodePath("../no-sign")
+rotate_object = NodePath("../UI/editor/rotate")
+editor_camera = NodePath("../Editor_Camera")
 
+[connection signal="pressed" from="UI/editor/rotate/rotate" to="UI/editor/rotate" method="_on_rotate_pressed"]
+[connection signal="pressed" from="UI/editor/rotate/done" to="UI/editor/rotate" method="_on_done_pressed"]
 [connection signal="confirmed" from="UI/editor/FileDialog" to="UI/editor/FileDialog" method="_on_FileDialog_confirmed"]
 [connection signal="popup_hide" from="UI/editor/FileDialog" to="UI/editor/FileDialog" method="_on_FileDialog_popup_hide"]
 [connection signal="pressed" from="UI/editor/file/New" to="UI/editor/FileDialog" method="_on_New_pressed"]
@@ -388,4 +429,3 @@ no_sign = NodePath("../no-sign")
 [editable path="UI/settings/settings"]
 [editable path="level/environment"]
 [editable path="level/mobile_controls"]
-[editable path="previews/place"]
