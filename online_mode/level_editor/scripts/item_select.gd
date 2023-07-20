@@ -14,20 +14,14 @@ func _ready():
 
 func _item_clicked(event):
 	if event is InputEventMouseButton:
-		Global.can_place = false
+		object_cursor.current_item_name = self.text
 		object_cursor.current_item = this_scene
 		object_cursor.placeOn = placeOn
 		object_cursor.height = height * 0.0625
-		if (Global.curOS == "Android"): 
-			get_viewport().warp_mouse(get_viewport_rect().size / 2.0)
-			yield(get_tree().create_timer(0.2), "timeout")
-			Global.can_place = true
 
 func _on_item_texture_mouse_entered():
-	Global.can_place = false
-	print(Global.can_place)
+	pass
 
 
 func _on_item_texture_mouse_exited():
-	Global.can_place = true
-	print(Global.can_place)
+	pass

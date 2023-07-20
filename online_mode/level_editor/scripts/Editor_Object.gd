@@ -15,6 +15,7 @@ var cursor_pos := Vector3.ZERO
 var object_pos = cursor_pos
 var current_object
 var touch_pos := Vector2.ZERO
+var current_item_name := "Null"
 
 var placeOn = "none"
 var height = 0
@@ -30,6 +31,12 @@ func _ready():
 	pass
 	
 func _input(event):
+	cursor_pos = Vector3(ScrenPointToRay())
+	cursor_pos.y = 0
+	
+	#This Snaps the Objects Position to a grid
+	cursor_pos.x = stepify(cursor_pos.x, 2)
+	cursor_pos.z = stepify(cursor_pos.z, 2)
 	if event is InputEventScreenTouch:
 		match(Global.editor_mode):
 			"place":
@@ -55,12 +62,6 @@ func _process(delta):
 	else:
 		$"../UI/editor/modes/current_mode2".text = "no_place"
 	level = get_node("/root/main/level")
-	cursor_pos = Vector3(ScrenPointToRay())
-	cursor_pos.y = 0
-	
-	#This Snaps the Objects Position to a grid
-	cursor_pos.x = stepify(cursor_pos.x, 2)
-	cursor_pos.z = stepify(cursor_pos.z, 2)
 
 	object_point = WhatObject()
 	
@@ -102,6 +103,12 @@ func _process(delta):
 			rotate_preview.set_visible(true)
 			remove_preview.set_visible(false)
 			no_sign.set_visible(false)
+		"menu":
+			preview_parent.set_visible(false)
+			place_preview.set_visible(false)
+			rotate_preview.set_visible(false)
+			remove_preview.set_visible(false)
+			no_sign.set_visible(false)
 	
 	if(object_point.has("position")):	
 		if (Input.is_action_just_pressed("mb_left")):
@@ -118,7 +125,7 @@ func previewCursor():
 func placeObject():
 	cursor_pos.y = 0
 	if !("floor" in object_point.collider.name): cursor_pos.y = height
-	if (Global.can_place and current_item != null):
+	if (Global.can_place and current_item != null and object_point != null):
 		var new_item = current_item.instance() 
 		if (new_item != null):
 			for i in placeOn:

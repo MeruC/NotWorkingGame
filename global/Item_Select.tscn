@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/Sprites/Items/cube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/scripts/TabContainer.gd" type="Script" id=2]
@@ -15,15 +15,23 @@
 [ext_resource path="res://global/objects/printer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://global/objects/chest.tscn" type="PackedScene" id=14]
 [ext_resource path="res://global/objects/chest_rng.tscn" type="PackedScene" id=15]
+[ext_resource path="res://global/Item_Select.gd" type="Script" id=16]
 
 [node name="Item_Select" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
+margin_right = -960.0
+margin_bottom = -420.0
+rect_pivot_offset = Vector2( 160, 150 )
+script = ExtResource( 16 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
-margin_right = 196.0
-margin_bottom = 129.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -156.0
+margin_right = 156.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 156, 100 )
 script = ExtResource( 2 )
 
 [node name="Furniture" type="Tabs" parent="TabContainer"]
@@ -233,9 +241,34 @@ this_scene = ExtResource( 13 )
 placeOn = [ "object_table" ]
 height = 15.0
 
+[node name="Done" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+rect_pivot_offset = Vector2( 50, 25 )
+text = "DONE"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = 54.0
+margin_right = 76.0
+margin_bottom = 98.0
+text = "Currently Selected: Null"
+align = 1
+valign = 1
+
 [connection signal="mouse_entered" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_entered"]
 [connection signal="mouse_exited" from="TabContainer" to="TabContainer" method="_on_TabContainer_mouse_exited"]
 [connection signal="mouse_entered" from="TabContainer/Furniture/ScrollContainer" to="TabContainer" method="_on_ScrollContainer_mouse_entered"]
 [connection signal="mouse_exited" from="TabContainer/Furniture/ScrollContainer" to="TabContainer" method="_on_ScrollContainer_mouse_exited"]
 [connection signal="mouse_entered" from="TabContainer/Devices/ScrollContainer" to="TabContainer" method="_on_ScrollContainer_mouse_entered"]
 [connection signal="mouse_exited" from="TabContainer/Devices/ScrollContainer" to="TabContainer" method="_on_ScrollContainer_mouse_exited"]
+[connection signal="pressed" from="Done" to="." method="_on_Done_pressed"]

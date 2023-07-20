@@ -4,6 +4,7 @@ extends Node
 var filesystem_shown = false
 var edit_mode = true
 var can_place = true
+var just_onMenu = false
 
 var w = 10
 var d = 10

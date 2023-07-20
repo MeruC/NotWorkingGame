@@ -7,5 +7,6 @@ func _on_rotate_pressed():
 
 
 func _on_done_pressed():
+	yield(get_tree().create_timer(0.2),"timeout")
 	Global.editor_mode = "rotate"
 	set_visible(false)

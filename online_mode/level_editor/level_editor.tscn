@@ -1,9 +1,9 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://global/objects/place.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/EditorPremade/environment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://global/player/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://global/Item_Select.tscn" type="PackedScene" id=4]
+[ext_resource path="res://online_mode/level_editor/Item_Select_Menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://global/objects/remove.tscn" type="PackedScene" id=5]
 [ext_resource path="res://online_mode/level_editor/scripts/Editor_Camera.gd" type="Script" id=6]
 [ext_resource path="res://online_mode/level_editor/scripts/Editor_Object.gd" type="Script" id=7]
@@ -23,6 +23,7 @@
 [ext_resource path="res://online_mode/level_editor/move.gd" type="Script" id=21]
 [ext_resource path="res://resources/Sprites/rotate.png" type="Texture" id=22]
 [ext_resource path="res://online_mode/level_editor/rotate.gd" type="Script" id=23]
+[ext_resource path="res://online_mode/level_editor/place.gd" type="Script" id=24]
 
 [sub_resource type="CameraTexture" id=14]
 
@@ -88,16 +89,6 @@ anchor_bottom = 1.0
 margin_top = -20.0
 text = "Done"
 
-[node name="Item_Select" parent="UI/editor" instance=ExtResource( 4 )]
-margin_left = 12.0
-margin_top = 8.0
-margin_right = 52.0
-margin_bottom = 50.0
-script = ExtResource( 19 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="FileDialog" type="FileDialog" parent="UI/editor"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -162,7 +153,7 @@ current = NodePath("current_mode")
 ui = NodePath("../..")
 previews = NodePath("../../../previews")
 no_sign = NodePath("../../../no-sign")
-item_select = NodePath("../Item_Select")
+item_select = NodePath("../place")
 other_ui = NodePath("../../../other_ui")
 playerSpawn = ExtResource( 3 )
 
@@ -296,10 +287,35 @@ action_right = "right"
 action_up = "up"
 action_down = "down"
 
-[node name="settings" parent="UI" instance=ExtResource( 15 )]
+[node name="place" type="Control" parent="UI/editor"]
+margin_right = 87.0
+margin_bottom = 52.0
+script = ExtResource( 24 )
+objects_btn = NodePath("objects")
+current = NodePath("current_obj")
+objects_menu = NodePath("../../container/Item_Select_Menu")
+
+[node name="objects" type="Button" parent="UI/editor/place"]
+anchor_right = 1.0
+margin_bottom = 33.0
+text = "OBJECTS"
+
+[node name="current_obj" type="Label" parent="UI/editor/place"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+margin_right = 64.0
+text = "Currently Selected: Null"
+valign = 1
+
+[node name="container" parent="UI" instance=ExtResource( 15 )]
 mouse_filter = 2
 
-[node name="settings" parent="UI/settings" index="1"]
+[node name="settings" parent="UI/container" index="1"]
+visible = false
+
+[node name="Item_Select_Menu" parent="UI/container" instance=ExtResource( 4 )]
 visible = false
 
 [node name="Tween" type="Tween" parent="."]
@@ -379,7 +395,6 @@ visible = false
 visible = false
 
 [node name="no-sign" parent="." instance=ExtResource( 18 )]
-visible = false
 
 [node name="Editor_Object" type="Spatial" parent="."]
 script = ExtResource( 7 )
@@ -419,13 +434,14 @@ editor_camera = NodePath("../Editor_Camera")
 [connection signal="mouse_exited" from="UI/editor/move/left" to="UI/editor/modes" method="_on_modes_mouse_exited"]
 [connection signal="mouse_entered" from="UI/editor/move/right" to="UI/editor/modes" method="_on_modes_mouse_entered"]
 [connection signal="mouse_exited" from="UI/editor/move/right" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="gui_input" from="UI/editor/Virtual joystick" to="UI/editor/Virtual joystick" method="_on_Virtual_joystick_gui_input"]
+[connection signal="pressed" from="UI/editor/place/objects" to="UI/editor/place" method="_on_objects_pressed"]
 [connection signal="mouse_entered" from="other_ui/edit" to="UI/editor/modes" method="_on_modes_mouse_entered"]
 [connection signal="mouse_exited" from="other_ui/edit" to="UI/editor/modes" method="_on_modes_mouse_exited"]
 [connection signal="pressed" from="other_ui/edit" to="UI/editor/modes" method="_on_play_pressed"]
 
-[editable path="UI/editor/Item_Select"]
 [editable path="UI/editor/Virtual joystick"]
-[editable path="UI/settings"]
-[editable path="UI/settings/settings"]
+[editable path="UI/container"]
+[editable path="UI/container/settings"]
 [editable path="level/environment"]
 [editable path="level/mobile_controls"]
