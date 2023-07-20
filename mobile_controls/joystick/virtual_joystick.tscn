@@ -46,10 +46,3 @@ rect_pivot_offset = Vector2( 50, 50 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( 2 )
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Base" to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Base" to="." method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Base/Tip" to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Base/Tip" to="." method="_on_mouse_exited"]

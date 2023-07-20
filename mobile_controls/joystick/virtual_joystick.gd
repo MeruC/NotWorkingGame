@@ -2,6 +2,8 @@ class_name VirtualJoystick
 
 extends Control
 
+var justMoved = false
+
 # https://github.com/MarcoFazioRandom/Virtual-Joystick-Godot
 
 #### EXPORTED VARIABLE ####
@@ -161,5 +163,11 @@ func _reset():
 			Input.action_release(action_up)
 
 func _on_Virtual_joystick_gui_input(event):
-	Global.can_place = false
+	Global.is_usingJoystick = true
+	justMoved = true
 	print(Global.can_place)
+
+func _process(delta):
+	if justMoved:
+		Global.is_usingJoystick = false
+		pass

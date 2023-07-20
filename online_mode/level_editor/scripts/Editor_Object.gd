@@ -16,11 +16,13 @@ var object_pos = cursor_pos
 var current_object
 var touch_pos := Vector2.ZERO
 var current_item_name := "Null"
+var is_on_table = false
 
 var placeOn = "none"
 var height = 0
 
 var object_point
+var object_point2
 
 var in_action = false
 
@@ -37,6 +39,8 @@ func _input(event):
 	#This Snaps the Objects Position to a grid
 	cursor_pos.x = stepify(cursor_pos.x, 2)
 	cursor_pos.z = stepify(cursor_pos.z, 2)
+	
+	object_point = WhatObject()
 	if event is InputEventScreenTouch:
 		match(Global.editor_mode):
 			"place":
@@ -62,13 +66,12 @@ func _process(delta):
 	else:
 		$"../UI/editor/modes/current_mode2".text = "no_place"
 	level = get_node("/root/main/level")
-
-	object_point = WhatObject()
 	
 	if(Global.editor_mode != "play"):
 		preview_parent.set_visible(false)
 		no_sign.set_visible(true)
 	
+	object_point2 = WhatObject()
 	#Preview
 	match(Global.editor_mode):
 		"place":
@@ -77,7 +80,7 @@ func _process(delta):
 			rotate_preview.set_visible(false)
 			remove_preview.set_visible(false)
 			for i in placeOn:
-				if (i in object_point.collider.name):
+				if (i in object_point2.collider.name):
 					preview_parent.set_visible(true)
 					no_sign.set_visible(false)
 					break
@@ -86,7 +89,7 @@ func _process(delta):
 			place_preview.set_visible(false)
 			rotate_preview.set_visible(true)
 			remove_preview.set_visible(false)
-			if ("object" in object_point.collider.name):
+			if ("object" in object_point2.collider.name):
 				preview_parent.set_visible(true)
 				no_sign.set_visible(false)
 		"remove":
@@ -94,7 +97,7 @@ func _process(delta):
 			place_preview.set_visible(false)
 			rotate_preview.set_visible(false)
 			remove_preview.set_visible(true)
-			if ("object" in object_point.collider.name):
+			if ("object" in object_point2.collider.name):
 				preview_parent.set_visible(true)
 				no_sign.set_visible(false)
 		"rotating":
@@ -110,13 +113,13 @@ func _process(delta):
 			remove_preview.set_visible(false)
 			no_sign.set_visible(false)
 	
-	if(object_point.has("position")):	
+	if(object_point2.has("position")):	
 		if (Input.is_action_just_pressed("mb_left")):
 			print(object_point)
 			print(object_pos)
 	
 func previewCursor():
-	if(object_point.has("position")):
+	if(object_point2.has("position")):
 		preview_parent.global_translation = cursor_pos
 		preview_parent.global_translation.y = 10.0
 		no_sign.global_translation = cursor_pos
@@ -125,7 +128,7 @@ func previewCursor():
 func placeObject():
 	cursor_pos.y = 0
 	if !("floor" in object_point.collider.name): cursor_pos.y = height
-	if (Global.can_place and current_item != null and object_point != null):
+	if (Global.can_place and !Global.is_usingJoystick and current_item != null and object_point != null):
 		var new_item = current_item.instance() 
 		if (new_item != null):
 			for i in placeOn:
@@ -135,7 +138,7 @@ func placeObject():
 					new_item.global_translation = cursor_pos
 	
 func rotateObject():
-	if ("object" in object_point.collider.name):
+	if ("object" in object_point.collider.name and !Global.is_usingJoystick):
 		current_object = level.get_node(object_point.collider.name)
 		rotate_object.current_object = current_object
 		Global.editor_mode = "rotating"
@@ -144,7 +147,7 @@ func rotateObject():
 		rotate_object.set_visible(true)
 	
 func removeObject():
-	if ("object" in object_point.collider.name):
+	if ("object" in object_point.collider.name and !Global.is_usingJoystick):
 		in_action = true
 		current_object = level.get_node(object_point.collider.name)
 		current_object.queue_free()

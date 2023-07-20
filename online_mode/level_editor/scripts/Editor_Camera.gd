@@ -45,5 +45,4 @@ func apply_movement(input_vector, direction, delta):
 #Friction Physics
 func apply_friction(direction, delta):
 	if direction == Vector3.ZERO:
-		Global.can_place = true
 		velocity = velocity.move_toward(Vector3.ZERO, friction * delta)

@@ -44,6 +44,8 @@ func _process(delta):
 func _on_place_pressed():
 	Global.editor_mode = "place"
 	item_select.set_visible(true)
+	yield(get_tree().create_timer(0.2),"timeout")
+	Global.can_place = true
 
 
 func _on_rotate_pressed():

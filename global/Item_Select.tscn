@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://resources/Sprites/Items/cube.tscn" type="PackedScene" id=1]
+[ext_resource path="res://global/objects/ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/scripts/TabContainer.gd" type="Script" id=2]
-[ext_resource path="res://resources/Sprites/Items/ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://global/objects/floor_item.tscn" type="PackedScene" id=4]
 [ext_resource path="res://global/objects/computer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://global/objects/huaweiRouter.tscn" type="PackedScene" id=6]
@@ -16,6 +15,8 @@
 [ext_resource path="res://global/objects/chest.tscn" type="PackedScene" id=14]
 [ext_resource path="res://global/objects/chest_rng.tscn" type="PackedScene" id=15]
 [ext_resource path="res://global/Item_Select.gd" type="Script" id=16]
+[ext_resource path="res://online_mode/level_editor/EditorPremade/item_btn.tscn" type="PackedScene" id=17]
+[ext_resource path="res://global/objects/cube.tscn" type="PackedScene" id=18]
 
 [node name="Item_Select" type="Control"]
 anchor_right = 1.0
@@ -47,78 +48,58 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Furniture/ScrollContainer"]
-margin_right = 131.0
+margin_right = 132.0
 margin_bottom = 68.0
 custom_constants/vseparation = 4
 custom_constants/hseparation = 4
 columns = 2
 
-[node name="cube" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
+[node name="cube" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_right = 48.0
 margin_bottom = 20.0
-rect_scale = Vector2( 1, 1 )
-text = "CUBE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Cube"
+this_scene = ExtResource( 18 )
 placeOn = [ "floor" ]
 
-[node name="floor_item" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
+[node name="floor_item" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_left = 52.0
-margin_right = 131.0
+margin_right = 132.0
 margin_bottom = 20.0
-rect_scale = Vector2( 1, 1 )
 text = "Floor Item"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 this_scene = ExtResource( 4 )
 placeOn = [ "floor" ]
 
-[node name="chest" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
+[node name="chest" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_top = 24.0
 margin_right = 48.0
 margin_bottom = 44.0
-rect_scale = Vector2( 1, 1 )
 text = "Chest"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 this_scene = ExtResource( 14 )
 placeOn = [ "floor" ]
 
-[node name="chest_rng" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 1 )]
+[node name="chest_rng" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_left = 52.0
 margin_top = 24.0
-margin_right = 131.0
+margin_right = 132.0
 margin_bottom = 44.0
-rect_scale = Vector2( 1, 1 )
-text = "ChestRNG"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Chest RNG"
 this_scene = ExtResource( 15 )
 placeOn = [ "floor" ]
 
-[node name="ball" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="ball" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_top = 48.0
 margin_right = 48.0
 margin_bottom = 68.0
-text = "BALL"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Ball"
+this_scene = ExtResource( 1 )
 placeOn = [ "floor" ]
 
-[node name="table" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="table" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_left = 52.0
 margin_top = 48.0
-margin_right = 131.0
+margin_right = 132.0
 margin_bottom = 68.0
-text = "table"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Table"
 this_scene = ExtResource( 8 )
 placeOn = [ "floor" ]
 
@@ -136,107 +117,82 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Devices/ScrollContainer"]
-margin_right = 184.0
+margin_right = 204.0
 margin_bottom = 92.0
 grow_horizontal = 0
 custom_constants/vseparation = 4
 custom_constants/hseparation = 4
 columns = 2
 
-[node name="pc_tower" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="pc_tower" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_right = 92.0
 margin_bottom = 20.0
 text = "PC Tower"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 this_scene = ExtResource( 5 )
-placeOn = [ "object_table", "floor" ]
+placeOn = [ "floor", "object_table" ]
 height = 15.0
 
-[node name="huawei" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="huawei" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_left = 96.0
-margin_right = 184.0
+margin_right = 204.0
 margin_bottom = 20.0
-text = "Huawei"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Huawei Router"
 this_scene = ExtResource( 6 )
 placeOn = [ "object_table" ]
 height = 15.0
 
-[node name="computer" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="computer" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_top = 24.0
 margin_right = 92.0
 margin_bottom = 44.0
 text = "Computer"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 this_scene = ExtResource( 7 )
 placeOn = [ "object_table" ]
 height = 15.0
 
-[node name="generic_router" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="generic_router" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_left = 96.0
 margin_top = 24.0
-margin_right = 184.0
+margin_right = 204.0
 margin_bottom = 44.0
-text = "Gen. Router"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Generic Router"
 this_scene = ExtResource( 9 )
 placeOn = [ "object_table" ]
 height = 15.0
 
-[node name="cisco_router" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="cisco_router" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_top = 48.0
 margin_right = 92.0
 margin_bottom = 68.0
 text = "Cisco Router"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 this_scene = ExtResource( 10 )
 placeOn = [ "object_table" ]
 height = 15.0
 
-[node name="generic_switch" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="generic_switch" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_left = 96.0
 margin_top = 48.0
-margin_right = 184.0
+margin_right = 204.0
 margin_bottom = 68.0
-text = "Gen. Switch"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Generic Switch"
 this_scene = ExtResource( 11 )
 placeOn = [ "object_table" ]
 height = 15.0
 
-[node name="server" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="server" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_top = 72.0
 margin_right = 92.0
 margin_bottom = 92.0
 text = "Server"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 this_scene = ExtResource( 12 )
-placeOn = [ "object_table" ]
-height = 15.0
+placeOn = [ "floor" ]
 
-[node name="printer" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 3 )]
+[node name="printer" parent="TabContainer/Devices/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_left = 96.0
 margin_top = 72.0
-margin_right = 184.0
+margin_right = 204.0
 margin_bottom = 92.0
 text = "Printer"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 this_scene = ExtResource( 13 )
 placeOn = [ "object_table" ]
 height = 15.0

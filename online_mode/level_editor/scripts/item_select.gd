@@ -18,10 +18,3 @@ func _item_clicked(event):
 		object_cursor.current_item = this_scene
 		object_cursor.placeOn = placeOn
 		object_cursor.height = height * 0.0625
-
-func _on_item_texture_mouse_entered():
-	pass
-
-
-func _on_item_texture_mouse_exited():
-	pass
