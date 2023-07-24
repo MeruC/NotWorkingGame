@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://treasure_chest.gd" type="Script" id=1]
+[ext_resource path="res://global/objects/chest.tscn" type="PackedScene" id=2]
+
+[node name="object_chest" instance=ExtResource( 2 )]
+
+[node name="interaction_area" parent="." index="2"]
+script = ExtResource( 1 )
+size = 10
+inventory_name = "Treasure Chest"
+items = [  ]

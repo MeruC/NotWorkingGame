@@ -1,21 +1,17 @@
 class_name Base_stat extends Resource
 
 var stat_ranges = []
-var scale : float
+var scale : float = 0
 
-func _init( data, value ):
-	scale = value
-	
+func _init( data ):
 	for stat_range in data:
 		stat_ranges.append( Stat_Range.new( stat_range ) )
 
-func get_lines():
-	var lines = []
+func set_info( item_info ):
+	item_info.add_splitter()
 	
 	for stat_range in stat_ranges:
-		var stat_info = ResourceManager.stat_info[ stat_range.stat ]
+		var display = ResourceManager.stat_info[ stat_range.stat ].display
 		var value = stat_range.get_value( scale, stat_range.stat )
-		var text = stat_info.display.replace( "#", str( value ) )
-		lines.append( Item_Info_Line.new( text, "normal" ) )
-	
-	return lines
+		var text = display % value
+		item_info.add_line( Item_Info_Line.new( text, Game_Enums.RARITY.NORMAL ) )

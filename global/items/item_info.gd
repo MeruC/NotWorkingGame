@@ -18,32 +18,31 @@ func display( slot : Inventory_Slot ):
 	
 	rect_size.x = 0
 	rect_global_position = ( slot.rect_size * SettingsManager.scale ) + slot.rect_global_position
-	item_name.text = slot.item.item_name
-	var line_type = Item_Info_Line.new( type_names[ slot.item.equipment_type ], "normal" )
+	item_name.text = slot.item.get_name()
+	var rarity_name = Game_Enums.RARITY.keys()[ slot.item.rarity ].capitalize()
+	var line_type = Item_Info_Line.new( rarity_name + "   " + type_names[ slot.item.equipment_type ], slot.item.rarity )
 	line_container.add_child( line_type )
 	
-	var components = slot.item.components
-	
-	if components.has( "base_stats" ):
-		line_container.add_child( ResourceManager.tscn.splitter.instance() )
-		var base_stat_lines = components.base_stats.get_lines()
-		
-		for line in base_stat_lines:
-			line_container.add_child( line )
+	for c in slot.item.components.values():
+		c.set_info( self )
 	
 	show()
-	
 	yield( get_tree(), "idle_frame" )
 	
 	var max_width = 0
 	var height = 0
 	for c in line_container.get_children():
-		height += c.rect_size.y + 3
+		height += c.rect_size.y + 2
 		if c.rect_size.x > max_width:
 			max_width = c.rect_size.x
 	rect_size = Vector2( max_width + 30, height + 8 )
 
 
+func add_line( line ):
+	line_container.add_child( line )
+
+func add_splitter():
+	add_line( ResourceManager.tscn.splitter.instance() )
 
 
 

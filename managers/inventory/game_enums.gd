@@ -22,3 +22,15 @@ enum STAT {
 	DEFENCE,
 	BONUS_EXPERIENCE,
 }
+
+enum RARITY {
+	NORMAL,
+	MAGIC,
+	RARE,
+	UNIQUE,
+}
+
+enum AFFIX_TYPE {
+	PREFIX,
+	SUFFIX
+}

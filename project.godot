@@ -10,6 +10,26 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "Affix",
+"language": "GDScript",
+"path": "res://global/items/affix.gd"
+}, {
+"base": "Resource",
+"class": "Affix_Group",
+"language": "GDScript",
+"path": "res://global/items/affix_group.gd"
+}, {
+"base": "Resource",
+"class": "Affix_Item",
+"language": "GDScript",
+"path": "res://global/items/affix_item.gd"
+}, {
+"base": "Resource",
+"class": "Affix_Item_List",
+"language": "GDScript",
+"path": "res://global/items/affix_item_list.gd"
+}, {
+"base": "Resource",
 "class": "Base_stat",
 "language": "GDScript",
 "path": "res://global/items/base_stat.gd"
@@ -59,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://global/items/item.gd"
 }, {
+"base": "Resource",
+"class": "Item_Affix_List",
+"language": "GDScript",
+"path": "res://global/items/item_affix_list.gd"
+}, {
 "base": "Scale_Control",
 "class": "Item_Info",
 "language": "GDScript",
@@ -68,6 +93,11 @@ _global_script_classes=[ {
 "class": "Item_Info_Line",
 "language": "GDScript",
 "path": "res://invRes/item_stat_line.gd"
+}, {
+"base": "Resource",
+"class": "Item_Unique_Stats",
+"language": "GDScript",
+"path": "res://global/items/item_unique_stats.gd"
 }, {
 "base": "Node",
 "class": "Resource_Manager",
@@ -89,12 +119,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://global/items/stat_range.gd"
 }, {
+"base": "Resource",
+"class": "Stat_Scale",
+"language": "GDScript",
+"path": "res://global/items/stat_scale.gd"
+}, {
 "base": "Control",
 "class": "VirtualJoystick",
 "language": "GDScript",
 "path": "res://mobile_controls/joystick/virtual_joystick.gd"
 } ]
 _global_script_class_icons={
+"Affix": "",
+"Affix_Group": "",
+"Affix_Item": "",
+"Affix_Item_List": "",
 "Base_stat": "",
 "Chest": "",
 "Dragable_Control": "",
@@ -105,12 +144,15 @@ _global_script_class_icons={
 "Inventory": "",
 "Inventory_Slot": "",
 "Item": "",
+"Item_Affix_List": "",
 "Item_Info": "",
 "Item_Info_Line": "",
+"Item_Unique_Stats": "",
 "Resource_Manager": "",
 "Scale_Control": "",
 "Split_Stack": "",
 "Stat_Range": "",
+"Stat_Scale": "",
 "VirtualJoystick": ""
 }
 

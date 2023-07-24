@@ -6,6 +6,7 @@
 	},
 	"crystal": {
 		"name": "Crystal",
+		"rarity": "RARE",
 		"stack_size": 20,
 		"level": 1
 	},
@@ -91,6 +92,22 @@
 			"stat": "REGENERATION",
 			"minimum": 1,
 			"maximum": 3
-		}]
+		}],
+		"unique": {
+			"name": "Crystal Orb of Gortyk",
+			"stats": [{
+				"stat": "INTELLIGENCE",
+				"minimum": 25,
+				"maximum": 25
+			},{
+				"stat": "REGENERATION",
+				"minimum": 5,
+				"maximum": 10
+			},{
+				"stat": "LIFE_POINT",
+				"minimum": 20,
+				"maximum": 40
+			}]
+		}
 	}
 }
