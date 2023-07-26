@@ -72,6 +72,7 @@ func _process(delta):
 		no_sign.set_visible(true)
 	
 	object_point2 = WhatObject()
+	
 	#Preview
 	match(Global.editor_mode):
 		"place":

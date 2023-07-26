@@ -9,5 +9,5 @@
 script = ExtResource( 2 )
 size = 10
 inventory_name = "ChestRNG"
-items = [ "gold_coin", "wood", "wood", "helmet", "iron_sword", "wood", "shield", "stone_brick", "tshirt", "wooden_sword" ]
+items = [ "big_healing_potion", "big_healing_potion", "big_healing_potion", "big_healing_potion" ]
 number_of_items = 10

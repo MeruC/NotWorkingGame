@@ -7,6 +7,6 @@ func set_items():
 		var item = ItemManager.get_item( items[ randi() % items.size() ] )
 		
 		if item.equipment_type != Game_Enums.EQUIPMENT_TYPE.NONE:
-			ItemManager.generate_rarity( item, 100 )
+			ItemManager.generate_random_rarity( item, 100 )
 		
 		inventory.add_item( item )

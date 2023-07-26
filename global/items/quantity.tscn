@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/font/font_8.tres" type="DynamicFont" id=1]
+[ext_resource path="res://global/items/quantity.gd" type="Script" id=2]
+
+[node name="quantity" type="Label"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 0.686275 )
+custom_fonts/font = ExtResource( 1 )
+text = "4"
+script = ExtResource( 2 )

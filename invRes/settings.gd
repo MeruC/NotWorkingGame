@@ -13,6 +13,7 @@ func _ready():
 	lbl_cur.text = "%s" % scale_slider.value
 	
 func _on_close_pressed():
+	Global.editor_mode = Global.e_mode_history
 	hide()
 
 

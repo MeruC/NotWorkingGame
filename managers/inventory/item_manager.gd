@@ -8,11 +8,29 @@ var items = {}
 var rare_names = {}
 var affix_groups = {}
 
+var equipment_names = {
+	Game_Enums.EQUIPMENT_TYPE.HEAD: "Head",
+	Game_Enums.EQUIPMENT_TYPE.CHEST: "Armor",
+	Game_Enums.EQUIPMENT_TYPE.OFFHAND: "Offhand",
+	Game_Enums.EQUIPMENT_TYPE.MAIN_HAND: "Weapon"
+}
+
+var type_names = {
+	Game_Enums.ITEM_TYPE.CONSUMABLE: "Consumable",
+	Game_Enums.ITEM_TYPE.CURRENCY: "Currency",
+	Game_Enums.ITEM_TYPE.MATERIAL: "Material",
+}
+
 onready var placeholders = {
 	Game_Enums.EQUIPMENT_TYPE.HEAD : preload("res://global/inventory/sprites/placeholder_head.png"),
 	Game_Enums.EQUIPMENT_TYPE.CHEST : preload("res://global/inventory/sprites/placeholder_chest.png"),
 	Game_Enums.EQUIPMENT_TYPE.MAIN_HAND : preload("res://global/inventory/sprites/placeholder_main_hand.png"),
 	Game_Enums.EQUIPMENT_TYPE.OFFHAND : preload("res://global/inventory/sprites/placeholder_offhand.png"),
+}
+
+var usable = {
+	"healing": preload("res://global/items/usable/item_healing.gd"),
+	"upgrade": preload("res://global/items/usable/item_upgrade.gd"),
 }
 
 func _init():
@@ -50,27 +68,41 @@ func get_placeholder( id ):
 func rng_generate_rarity( ilvl ) -> Item:
 	var valid_items_key = []
 	for i in items:
-		if items[ i ].has( "type" ) and ilvl >= items[ i ].level and Game_Enums.EQUIPMENT_TYPE[ items[ i ].type ] != Game_Enums.EQUIPMENT_TYPE.NONE:
+		if items[ i ].has( "type" ) and ilvl >= items[ i ].level and Game_Enums.ITEM_TYPE[ items[ i ].type ] == Game_Enums.ITEM_TYPE.EQUIPMENT:
 			valid_items_key.append( i )
 	var item = get_item( valid_items_key[ randi() % valid_items_key.size() ] )
-	return generate_rarity( item, ilvl )
+	return generate_random_rarity( item, ilvl )
 
-
-func generate_rarity( item, ilvl ) -> Item:
+func generate_random_rarity( item, ilvl ):
 	item.components.base_stats.scale = randf()
 	
 	# Get random rarity
-	var number_of_affixes = 0
+	var rarity = Game_Enums.RARITY.NORMAL
 	var rng = randf()
-	if rng >= 0.99 and item.unique_data: # 1%
+	if rng >= 0 and item.unique_data: # 1%
+		rarity = Game_Enums.RARITY.UNIQUE
+	elif rng >= 0.9: # 9%
+		rarity = Game_Enums.RARITY.RARE
+	elif rng >= 0.6: # 30%
+		rarity = Game_Enums.RARITY.MAGIC
+	
+	generate_rarity( item, ilvl, rarity )
+	return item
+
+
+func generate_rarity( item, ilvl, rarity ) -> Item:
+	item.rarity = rarity
+	var number_of_affixes = 0
+	
+	if rarity == Game_Enums.RARITY.UNIQUE:
 		item.rarity = Game_Enums.RARITY.UNIQUE
 		roll_unique( item )
 		return item
-	elif rng >= 0.9: # 9%
+	elif rarity == Game_Enums.RARITY.RARE:
 		item.rarity = Game_Enums.RARITY.RARE
 		number_of_affixes = ( randi() % 3 ) + 3
 		set_rare_name( item )
-	elif rng >= 0.6: # 30%
+	elif rarity == Game_Enums.RARITY.MAGIC:
 		item.rarity = Game_Enums.RARITY.MAGIC
 		number_of_affixes = ( randi() % 2 ) + 1
 	else:
@@ -142,3 +174,22 @@ func roll_unique( item ):
 	
 	item.item_name = item.unique_data.name
 	item.components[ "unique_stats" ] = Item_Unique_Stats.new( item.unique_data.stats, scales )
+	if item.unique_data.has( "usable" ):
+		set_usable( item, item.unique_data )
+
+func get_usable( data_usable, item ):
+	return usable[ data_usable.type ].new( data_usable.data, item )
+
+func set_usable( item, data ):
+	item.components[ "usable" ] = get_usable( data.usable, item )
+	item.add_child( item.components.usable )
+
+func get_type_name( item ):
+	if item.type == Game_Enums.ITEM_TYPE.EQUIPMENT:
+		return equipment_names[ item.equipment_type ]
+	else:
+		return type_names[ item.type ]
+
+
+
+

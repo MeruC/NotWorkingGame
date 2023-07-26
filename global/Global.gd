@@ -16,3 +16,4 @@ func _ready():
 	print(curOS)
 	
 var editor_mode = "place"
+var e_mode_history = "place"

@@ -42,6 +42,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
+player_inventory = NodePath("windows/inventory_player")
 
 [node name="windows" type="Control" parent="ui/ui_container"]
 anchor_right = 1.0

@@ -62,7 +62,7 @@ _global_script_classes=[ {
 "base": "Inventory_Slot",
 "class": "Hotbar_Slot",
 "language": "GDScript",
-"path": "res://invRes/hotbar_slot.gd"
+"path": "res://global/inventory/hotbar_slot.gd"
 }, {
 "base": "NinePatchRect",
 "class": "Inventory",
@@ -84,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://global/items/item_affix_list.gd"
 }, {
+"base": "Item_Usable",
+"class": "Item_Healing",
+"language": "GDScript",
+"path": "res://global/items/usable/item_healing.gd"
+}, {
 "base": "Scale_Control",
 "class": "Item_Info",
 "language": "GDScript",
@@ -98,6 +103,16 @@ _global_script_classes=[ {
 "class": "Item_Unique_Stats",
 "language": "GDScript",
 "path": "res://global/items/item_unique_stats.gd"
+}, {
+"base": "Item_Usable",
+"class": "Item_Upgrade",
+"language": "GDScript",
+"path": "res://global/items/usable/item_upgrade.gd"
+}, {
+"base": "Node",
+"class": "Item_Usable",
+"language": "GDScript",
+"path": "res://global/items/item_usable.gd"
 }, {
 "base": "Node",
 "class": "Resource_Manager",
@@ -145,9 +160,12 @@ _global_script_class_icons={
 "Inventory_Slot": "",
 "Item": "",
 "Item_Affix_List": "",
+"Item_Healing": "",
 "Item_Info": "",
 "Item_Info_Line": "",
 "Item_Unique_Stats": "",
+"Item_Upgrade": "",
+"Item_Usable": "",
 "Resource_Manager": "",
 "Scale_Control": "",
 "Split_Stack": "",
@@ -169,6 +187,11 @@ ItemManager="*res://managers/inventory/item_manager.gd"
 SignalManager="*res://managers/inventory/signal_manager.gd"
 SettingsManager="*res://managers/inventory/settings_manager.gd"
 ResourceManager="*res://managers/inventory/resource_manager.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
