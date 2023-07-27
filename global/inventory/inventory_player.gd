@@ -1,8 +1,8 @@
-extends Dragable_Control
+extends Window
 
 export( NodePath ) onready var inventory_right = get_node( inventory_right ) as Inventory
 export( NodePath ) onready var inventory_left = get_node( inventory_left ) as Inventory
-export(NodePath) onready var equipment = get_node(equipment) as Inventory
+export( NodePath ) onready var equipment = get_node( equipment ) as Inventory
 
 func _ready():
 	var inventories = [ equipment, inventory_left, inventory_right ]
@@ -35,6 +35,3 @@ func _on_upgrade_item():
 	valid_items.shuffle()
 	ItemManager.generate_rarity( valid_items[ 0 ], valid_items[ 0 ].level, valid_items[ 0 ].rarity + 1 )
 	content_changed()
-
-func _on_close_pressed():
-	hide()

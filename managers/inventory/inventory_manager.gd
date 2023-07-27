@@ -42,7 +42,6 @@ func _on_gui_input_slot( event : InputEvent, slot : Inventory_Slot ):
 			_on_stack_splitted( slot, 1 )
 		else:
 			split_stack.display( slot )
-		pass
 	elif event is InputEventMouseButton and event.pressed:
 		if event.button_index == BUTTON_LEFT:
 			var had_empty_hand = item_in_hand == null
@@ -62,6 +61,11 @@ func _on_gui_input_slot( event : InputEvent, slot : Inventory_Slot ):
 		
 		elif event.button_index == BUTTON_RIGHT and slot.item and slot.item.components.has( "usable" ):
 			slot.item.components.usable.use()
+	
+	if slot.item:
+		slot.emit_signal( "mouse_entered" )
+	else:
+		slot.emit_signal( "mouse_exited" )
 
 
 func set_hand_position( pos ):
