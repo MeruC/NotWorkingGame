@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/lake1.obj-cf36650ef362a1b6f31e4273bbc7b4aa.mesh"
+
+[deps]
+
+files=[ "res://.import/lake1.obj-cf36650ef362a1b6f31e4273bbc7b4aa.mesh" ]
+
+source_file="res://resources/Map/lake1.obj"
+dest_files=[ "res://.import/lake1.obj-cf36650ef362a1b6f31e4273bbc7b4aa.mesh", "res://.import/lake1.obj-cf36650ef362a1b6f31e4273bbc7b4aa.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

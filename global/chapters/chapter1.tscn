@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://resources/tiles.tres" type="MeshLibrary" id=1]
+
+[node name="world1" type="Spatial"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 3.2, 3.2, 3.2 )
+data = {
+"cells": PoolIntArray( 131072, 0, 1048589, 131073, 0, 4, 131074, 0, 1441802, 131072, 1, 0, 131073, 1, 13, 131074, 1, 13, 196606, 1, 655373, 196607, 1, 13, 131072, 2, 1048589, 131072, 3, 1048589, 131072, 65535, 1048589, 131073, 65535, 1441802, 131074, 65535, 1441802 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 2, 0 )
+}
