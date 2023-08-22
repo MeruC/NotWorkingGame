@@ -1,8 +1,8 @@
 {
 	"gold_coin": {
-		"name": "Gold Coin",
-		"type": "CURRENCY",
-		"stack_size": 3,
+		"name": "TEST ITEM",
+		"type": "PLACEHOLDER",
+		"stack_size": 16,
 		"level": 1
 	},
 	"crystal": {

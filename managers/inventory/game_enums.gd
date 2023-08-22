@@ -3,6 +3,7 @@ class_name Game_Enums
 enum ITEM_TYPE {
 	MATERIAL,
 	CURRENCY,
+	PLACEHOLDER,
 	CONSUMABLE,
 	EQUIPMENT,
 }

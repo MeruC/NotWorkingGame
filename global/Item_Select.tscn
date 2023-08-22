@@ -49,22 +49,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Furniture/ScrollContainer"]
-margin_right = 151.0
-margin_bottom = 92.0
+margin_right = 131.0
+margin_bottom = 68.0
 custom_constants/vseparation = 4
 custom_constants/hseparation = 4
 columns = 2
 
 [node name="cube" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_right = 67.0
+margin_right = 48.0
 margin_bottom = 20.0
 text = "Cube"
 this_scene = ExtResource( 18 )
 placeOn = [ "floor" ]
 
 [node name="floor_item" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_left = 71.0
-margin_right = 151.0
+margin_left = 52.0
+margin_right = 131.0
 margin_bottom = 20.0
 text = "Floor Item"
 this_scene = ExtResource( 4 )
@@ -72,13 +72,14 @@ placeOn = [ "floor" ]
 
 [node name="chest" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_top = 24.0
-margin_right = 67.0
+margin_right = 48.0
 margin_bottom = 44.0
 text = "Chest"
 this_scene = ExtResource( 14 )
 placeOn = [ "floor" ]
 
 [node name="chest_rng" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
+visible = false
 margin_left = 71.0
 margin_top = 24.0
 margin_right = 151.0
@@ -88,26 +89,27 @@ this_scene = ExtResource( 15 )
 placeOn = [ "floor" ]
 
 [node name="ball" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_top = 48.0
-margin_right = 67.0
-margin_bottom = 68.0
+margin_left = 52.0
+margin_top = 24.0
+margin_right = 131.0
+margin_bottom = 44.0
 text = "Ball"
 this_scene = ExtResource( 1 )
 placeOn = [ "floor" ]
 
 [node name="table" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_left = 71.0
 margin_top = 48.0
-margin_right = 151.0
+margin_right = 48.0
 margin_bottom = 68.0
 text = "Table"
 this_scene = ExtResource( 8 )
 placeOn = [ "floor" ]
 
 [node name="treasure" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_top = 72.0
-margin_right = 67.0
-margin_bottom = 92.0
+margin_left = 52.0
+margin_top = 48.0
+margin_right = 131.0
+margin_bottom = 68.0
 text = "Treasure"
 this_scene = ExtResource( 3 )
 placeOn = [ "floor" ]
