@@ -4,6 +4,10 @@
 
 [node name="world1" type="Spatial"]
 
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.692978, 0.510403, -0.509185, -0.0437805, 0.734749, 0.676924, 0.719628, -0.446802, 0.531511, 0, 0, 0 )
+shadow_enabled = true
+
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 1 )
 cell_size = Vector3( 3.2, 3.2, 3.2 )
