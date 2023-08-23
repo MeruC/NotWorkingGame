@@ -1,5 +1,7 @@
 extends KinematicBody
 
+#something
+
 #NodeReferences
 onready var camera = $Camera
 onready var player: KinematicBody = $"."
