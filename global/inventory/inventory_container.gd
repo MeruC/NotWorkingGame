@@ -12,7 +12,7 @@ func _ready():
 func close():
 	for i in current_inventories:
 		inventory_container.remove_child( i )
-		i.open()
+		i.close()
 	
 	current_inventories = []
 	hide()

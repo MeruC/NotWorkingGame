@@ -124,7 +124,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://invRes/scale_control.gd"
 }, {
-"base": "ColorRect",
+"base": "Scale_Control",
 "class": "Split_Stack",
 "language": "GDScript",
 "path": "res://invRes/split_stack.gd"
@@ -199,6 +199,7 @@ ItemManager="*res://managers/inventory/item_manager.gd"
 SignalManager="*res://managers/inventory/signal_manager.gd"
 SettingsManager="*res://managers/inventory/settings_manager.gd"
 ResourceManager="*res://managers/inventory/resource_manager.gd"
+InventoryManager="*res://managers/inventory/inventory_manager.tscn"
 
 [debug]
 

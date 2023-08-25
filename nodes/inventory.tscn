@@ -1,13 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://global/inventory/inventory_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://invRes/hotbar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://global/items/item_info.tscn" type="PackedScene" id=4]
 [ext_resource path="res://global/inventory/inventory_container.tscn" type="PackedScene" id=5]
 [ext_resource path="res://nodes/settings.tscn" type="PackedScene" id=6]
-[ext_resource path="res://global/inventory/split_stack.tscn" type="PackedScene" id=7]
-[ext_resource path="res://managers/inventory/inventory_manager.gd" type="Script" id=8]
 [ext_resource path="res://invRes/ui_container.gd" type="Script" id=10]
 [ext_resource path="res://invRes/scale_control.gd" type="Script" id=12]
 
@@ -22,14 +19,6 @@ mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="managers" type="Node2D" parent="."]
-
-[node name="inventory_manager" type="Node2D" parent="managers"]
-script = ExtResource( 8 )
-item_in_hand_node = NodePath("../../ui/ui_container/item_in_hand")
-item_info = NodePath("../../ui/ui_container/item_info")
-split_stack = NodePath("../../ui/split stack")
 
 [node name="ui" type="CanvasLayer" parent="."]
 visible = false
@@ -73,20 +62,6 @@ margin_top = -109.0
 margin_right = -487.0
 margin_bottom = -9.0
 
-[node name="item_in_hand" type="Control" parent="ui/ui_container"]
-mouse_filter = 2
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="item_info" parent="ui/ui_container" instance=ExtResource( 4 )]
-visible = false
-margin_left = 551.5
-margin_top = 324.5
-margin_right = 634.5
-margin_bottom = 351.5
-
 [node name="buttons" type="Control" parent="ui/ui_container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -122,10 +97,6 @@ margin_top = -20.0
 rect_pivot_offset = Vector2( 104, 20 )
 text = "Exit"
 script = ExtResource( 12 )
-
-[node name="split stack" parent="ui" instance=ExtResource( 7 )]
-visible = false
-rect_pivot_offset = Vector2( 640, 360 )
 
 [node name="settings" parent="ui" instance=ExtResource( 6 )]
 mouse_filter = 2

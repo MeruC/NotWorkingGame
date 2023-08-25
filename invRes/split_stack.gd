@@ -1,10 +1,11 @@
-class_name Split_Stack extends ColorRect
+class_name Split_Stack extends Scale_Control
 
 signal stack_splitted
 
 export ( NodePath ) onready var qty_slider = get_node( qty_slider ) as HSlider
 export ( NodePath ) onready var lbl_original = get_node( lbl_original ) as Label
 export ( NodePath ) onready var lbl_new = get_node( lbl_new ) as Label
+export ( NodePath ) onready var popup = get_node( popup ) as Popup
 
 var quantity
 var new_quantity
@@ -19,6 +20,7 @@ func display( slot ):
 	qty_slider.value = int( round( quantity / 2 ) )
 	set_labels()
 	show()
+	popup.popup()
 
 func set_labels():
 	lbl_original.text = str( qty_slider.value )
@@ -28,10 +30,12 @@ func set_labels():
 func _on_close_pressed():
 	hide()
 
-func _on_quantity_slider_value_changed(value):
+func _on_quantity_slider_value_changed( _value ):
 	set_labels()
-
 
 func _on_btn_split_pressed():
 	emit_signal( "stack_splitted", inventory_slot, new_quantity )
 	hide()
+
+func _on_split_stack_hide():
+	popup.hide()
