@@ -1,42 +1,52 @@
-{
+[
   {
+    "name": "file1",
     "type": "data",
     "content": "A text document containing a list of names and ages."
   },
   {
-    "type": "information",
+    "name": "file2",
+    "type": "info",
     "content": "A report summarizing the average age of the individuals in the list."
   },
   {
+    "name": "file3",
     "type": "data",
     "content": "A collection of raw sensor readings from a weather station."
   },
   {
-    "type": "information",
+    "name": "file4",
+    "type": "info",
     "content": "A weather forecast for the upcoming week based on the sensor data."
   },
   {
+    "name": "file5",
     "type": "data",
     "content": "A spreadsheet with numbers representing sales figures for different products."
   },
   {
-    "type": "information",
+    "name": "file6",
+    "type": "info",
     "content": "A chart illustrating the sales trends and identifying the top-selling products."
   },
   {
+    "name": "file7",
     "type": "data",
     "content": "A series of stock market prices for a particular company."
   },
   {
-    "type": "information",
+    "name": "file8",
+    "type": "info",
     "content": "A series of stock market prices for a particular company."
   },
   {
+    "name": "file9",
     "type": "data",
     "content": "An image file containing pixel values."
   },
   {
-    "type": "information",
+    "name": "file10",
+    "type": "info",
     "content": "A photo album with labeled images depicting various landmarks around the world."
   }
-}
+]

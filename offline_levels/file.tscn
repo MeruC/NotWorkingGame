@@ -19,14 +19,12 @@ __meta__ = {
 }
 
 [node name="file_area" type="Area2D" parent="."]
-scale = Vector2( 1, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="file_area"]
 position = Vector2( 7.62939e-06, 0.164375 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true

@@ -27,9 +27,11 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			if (folderType == type and onFolder):
 				get_parent().get_node("manager").score += 1
 				print(get_parent().get_node("manager").score)
+				$"../score".text = str(get_parent().get_node("manager").score)
 				get_parent().get_node("manager").spawn_new()
 				queue_free()
 			elif (onFolder):
 				queue_free()
 				print(get_parent().get_node("manager").score)
+				$"../score".text = str(get_parent().get_node("manager").score)
 				get_parent().get_node("manager").spawn_new()
