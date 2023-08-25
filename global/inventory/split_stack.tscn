@@ -29,19 +29,25 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 512, 300 )
 color = Color( 0, 0, 0, 0.592157 )
 script = ExtResource( 8 )
-qty_slider = NodePath("main panel/scale/quantity_slider")
-lbl_original = NodePath("main panel/scale/original_qty")
-lbl_new = NodePath("main panel/scale/new_qty")
+qty_slider = NodePath("Popup/main panel/scale/quantity_slider")
+lbl_original = NodePath("Popup/main panel/scale/original_qty")
+lbl_new = NodePath("Popup/main panel/scale/new_qty")
+popup = NodePath("Popup")
 
-[node name="main panel" type="NinePatchRect" parent="."]
+[node name="Popup" type="Popup" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="main panel" type="NinePatchRect" parent="Popup"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -72.0
-margin_top = -29.0
+margin_top = -25.0
 margin_right = 72.0
-margin_bottom = 21.0
+margin_bottom = 25.0
 rect_pivot_offset = Vector2( 72, 25 )
 mouse_filter = 1
 texture = ExtResource( 5 )
@@ -52,11 +58,8 @@ patch_margin_bottom = 10
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="title" type="NinePatchRect" parent="main panel"]
+[node name="title" type="NinePatchRect" parent="Popup/main panel"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -40.0
@@ -73,7 +76,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="main panel/title"]
+[node name="Label" type="Label" parent="Popup/main panel/title"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 4.0
@@ -86,7 +89,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="close" type="TextureButton" parent="main panel"]
+[node name="close" type="TextureButton" parent="Popup/main panel"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -9.0
@@ -96,7 +99,7 @@ texture_pressed = ExtResource( 1 )
 texture_hover = ExtResource( 2 )
 texture_disabled = ExtResource( 6 )
 
-[node name="scale" type="NinePatchRect" parent="main panel"]
+[node name="scale" type="NinePatchRect" parent="Popup/main panel"]
 margin_left = 9.0
 margin_top = 10.0
 margin_right = 135.0
@@ -111,7 +114,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="main panel/scale"]
+[node name="Label" type="Label" parent="Popup/main panel/scale"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -32.0
@@ -127,7 +130,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="original_qty" type="Label" parent="main panel/scale"]
+[node name="original_qty" type="Label" parent="Popup/main panel/scale"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -56.0
@@ -142,7 +145,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="new_qty" type="Label" parent="main panel/scale"]
+[node name="new_qty" type="Label" parent="Popup/main panel/scale"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 23.0
@@ -158,7 +161,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quantity_slider" type="HSlider" parent="main panel/scale"]
+[node name="quantity_slider" type="HSlider" parent="Popup/main panel/scale"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -174,7 +177,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_split" type="Button" parent="main panel"]
+[node name="btn_split" type="Button" parent="Popup/main panel"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -189,6 +192,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="main panel/close" to="." method="_on_close_pressed"]
-[connection signal="value_changed" from="main panel/scale/quantity_slider" to="." method="_on_quantity_slider_value_changed"]
-[connection signal="pressed" from="main panel/btn_split" to="." method="_on_btn_split_pressed"]
+[connection signal="hide" from="." to="." method="_on_split_stack_hide"]
+[connection signal="pressed" from="Popup/main panel/close" to="." method="_on_close_pressed"]
+[connection signal="value_changed" from="Popup/main panel/scale/quantity_slider" to="." method="_on_quantity_slider_value_changed"]
+[connection signal="pressed" from="Popup/main panel/btn_split" to="." method="_on_btn_split_pressed"]
