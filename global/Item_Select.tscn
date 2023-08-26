@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://global/objects/ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/scripts/TabContainer.gd" type="Script" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://global/Item_Select.gd" type="Script" id=16]
 [ext_resource path="res://online_mode/level_editor/EditorPremade/item_btn.tscn" type="PackedScene" id=17]
 [ext_resource path="res://global/objects/cube.tscn" type="PackedScene" id=18]
+[ext_resource path="res://global/objects/worktable.tscn" type="PackedScene" id=19]
 
 [node name="Item_Select" type="Control"]
 anchor_right = 1.0
@@ -49,22 +50,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Furniture/ScrollContainer"]
-margin_right = 131.0
-margin_bottom = 68.0
+margin_right = 154.0
+margin_bottom = 92.0
 custom_constants/vseparation = 4
 custom_constants/hseparation = 4
 columns = 2
 
 [node name="cube" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_right = 48.0
+margin_right = 67.0
 margin_bottom = 20.0
 text = "Cube"
 this_scene = ExtResource( 18 )
 placeOn = [ "floor" ]
 
 [node name="floor_item" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_left = 52.0
-margin_right = 131.0
+margin_left = 71.0
+margin_right = 154.0
 margin_bottom = 20.0
 text = "Floor Item"
 this_scene = ExtResource( 4 )
@@ -72,10 +73,19 @@ placeOn = [ "floor" ]
 
 [node name="chest" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
 margin_top = 24.0
-margin_right = 48.0
+margin_right = 67.0
 margin_bottom = 44.0
 text = "Chest"
 this_scene = ExtResource( 14 )
+placeOn = [ "floor" ]
+
+[node name="worktable" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
+margin_left = 71.0
+margin_top = 24.0
+margin_right = 154.0
+margin_bottom = 44.0
+text = "Work Table"
+this_scene = ExtResource( 19 )
 placeOn = [ "floor" ]
 
 [node name="chest_rng" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
@@ -89,27 +99,26 @@ this_scene = ExtResource( 15 )
 placeOn = [ "floor" ]
 
 [node name="ball" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_left = 52.0
-margin_top = 24.0
-margin_right = 131.0
-margin_bottom = 44.0
+margin_top = 48.0
+margin_right = 67.0
+margin_bottom = 68.0
 text = "Ball"
 this_scene = ExtResource( 1 )
 placeOn = [ "floor" ]
 
 [node name="table" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
+margin_left = 71.0
 margin_top = 48.0
-margin_right = 48.0
+margin_right = 154.0
 margin_bottom = 68.0
 text = "Table"
 this_scene = ExtResource( 8 )
 placeOn = [ "floor" ]
 
 [node name="treasure" parent="TabContainer/Furniture/ScrollContainer/GridContainer" instance=ExtResource( 17 )]
-margin_left = 52.0
-margin_top = 48.0
-margin_right = 131.0
-margin_bottom = 68.0
+margin_top = 72.0
+margin_right = 67.0
+margin_bottom = 92.0
 text = "Treasure"
 this_scene = ExtResource( 3 )
 placeOn = [ "floor" ]

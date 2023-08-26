@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/discussion_background.png-9072e392424039ac8b76f6b1722c3fbc.stex"
+path="res://.import/rock.png-eb5e832864254d55b9a2f18e18a1c87b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://offline_levels/level2/level2_discussion/discussion_background.png"
-dest_files=[ "res://.import/discussion_background.png-9072e392424039ac8b76f6b1722c3fbc.stex" ]
+source_file="res://global/items/sprites/rock.png"
+dest_files=[ "res://.import/rock.png-eb5e832864254d55b9a2f18e18a1c87b.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

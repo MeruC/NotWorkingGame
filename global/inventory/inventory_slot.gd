@@ -6,7 +6,7 @@ export( NodePath ) onready var item_container = get_node( item_container ) as Co
 
 var item : Item
 var ready = false
-var is_on_player
+var groups : Array = []
 
 func _ready():
 	ready = true
@@ -25,8 +25,11 @@ func set_item( new_item ):
 	
 	item = new_item
 
+func accept_item( new_item ) -> bool:
+	return new_item and not item
+
 func try_put_item( new_item : Item ) -> bool:
-	return new_item and not item or ( item.id == new_item.id and item.quantity < item.stack_size )
+	return accept_item( new_item ) or ( item.id == new_item.id and item.quantity < item.stack_size )
 
 func put_item( new_item : Item ) -> Item:
 	# If we are trying to place an item
@@ -78,6 +81,9 @@ func remove_item_child():
 
 func remove_item():
 	put_item( null )
+
+func add_group( group_id ):
+	groups.append( group_id )
 
 func _on_item_container_visibility_changed():
 	emit_signal( "mouse_exited" )

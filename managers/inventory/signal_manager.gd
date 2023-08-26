@@ -4,13 +4,14 @@ extends Node
 signal inventory_opened( inventory )
 signal inventory_closed( inventory )
 signal inventory_ready( inventory )
-signal player_inventory_ready( inventories )
 signal item_dropped( item )
 signal upgrade_item()
-signal has_upgradable_item( value )
+signal inventory_group_content_changed( groups )
 
 # Interactables
 signal item_picked( item, sender )
+signal crafting_opened( crafting_list_id )
+signal crafting_out_of_range()
 
 # UI
 signal ui_scale_changed( value )

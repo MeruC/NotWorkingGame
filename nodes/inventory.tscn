@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://global/inventory/inventory_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://invRes/hotbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://invRes/crafting_list.tscn" type="PackedScene" id=4]
 [ext_resource path="res://global/inventory/inventory_container.tscn" type="PackedScene" id=5]
 [ext_resource path="res://nodes/settings.tscn" type="PackedScene" id=6]
 [ext_resource path="res://invRes/ui_container.gd" type="Script" id=10]
@@ -61,6 +62,8 @@ margin_left = -631.0
 margin_top = -109.0
 margin_right = -487.0
 margin_bottom = -9.0
+
+[node name="crafting_list" parent="ui/ui_container/windows" instance=ExtResource( 4 )]
 
 [node name="buttons" type="Control" parent="ui/ui_container"]
 anchor_right = 1.0

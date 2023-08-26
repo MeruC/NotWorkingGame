@@ -35,3 +35,7 @@ func add_line( line ):
 
 func add_splitter():
 	add_line( ResourceManager.tscn.splitter.instance() )
+
+
+
+

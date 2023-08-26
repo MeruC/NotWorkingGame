@@ -18,7 +18,7 @@ var item : Item
 func _init( data, parent_item ):
 	item = parent_item
 	set_data( data )
-	item.connect( "item_placed_in_player_inventory", self, "_on_item_placed_in_player_inventory" )
+	SignalManager.connect( "inventory_group_content_changed", self, "_on_inventory_group_content_changed" )
 
 func _process( delta ):
 	if is_in_cooldown:
@@ -37,7 +37,7 @@ func set_can_use( value ):
 	emit_signal( "can_use_changed", get_can_use() )
 
 func get_can_use():
-	return ( can_use or can_always_use ) and item.item_slot and item.item_slot.is_on_player
+	return ( can_use or can_always_use ) and item.item_slot and item.item_slot.groups.has( "player" )
 
 func use():
 	if get_can_use() and not is_in_cooldown:
@@ -59,8 +59,9 @@ func get_cooldown_instance():
 	cooldown_node.set_data( self )
 	return cooldown_node
 
-func _on_item_placed_in_player_inventory( _value ):
-	emit_signal( "can_use_changed", get_can_use() )
+func _on_inventory_group_content_changed( groups ):
+	if groups.has( "player" ):
+		emit_signal( "can_use_changed", get_can_use() )
 
 func get_use_text():
 	pass
@@ -71,8 +72,3 @@ func set_info( item_info ):
 	item_info.add_line( Item_Info_Line.new( get_use_text(), item.rarity ) )
 	item_info.add_line( Item_Info_Line.new( "Condition:", Game_Enums.RARITY.NORMAL ) )
 	item_info.add_line( Item_Info_Line.new( condition, item.rarity ) )
-
-
-
-
-

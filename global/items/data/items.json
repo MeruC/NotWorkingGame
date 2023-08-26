@@ -1,8 +1,8 @@
 {
 	"gold_coin": {
-		"name": "TEST ITEM",
-		"type": "PLACEHOLDER",
-		"stack_size": 16,
+		"name": "Gold Coin",
+		"type": "CURRENCY",
+		"stack_size": 3,
 		"level": 1
 	},
 	"crystal": {
@@ -16,6 +16,18 @@
 		"name": "Wood",
 		"type": "MATERIAL",
 		"stack_size": 10,
+		"level": 1
+	},
+	"plank": {
+		"name": "Plank",
+		"type": "MATERIAL",
+		"stack_size": 20,
+		"level": 1
+	},
+	"rock": {
+		"name": "Rock",
+		"type": "MATERIAL",
+		"stack_size": 5,
 		"level": 1
 	},
 	"stone_brick": {

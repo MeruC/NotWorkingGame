@@ -64,7 +64,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://global/inventory/hotbar_slot.gd"
 }, {
-"base": "Control",
+"base": "PanelContainer",
+"class": "InnerPanel",
+"language": "GDScript",
+"path": "res://invRes/inner_panel.gd"
+}, {
+"base": "InnerPanel",
 "class": "Inventory",
 "language": "GDScript",
 "path": "res://global/inventory/inventory.gd"
@@ -124,7 +129,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://invRes/scale_control.gd"
 }, {
-"base": "ColorRect",
+"base": "Scale_Control",
 "class": "Split_Stack",
 "language": "GDScript",
 "path": "res://invRes/split_stack.gd"
@@ -161,6 +166,7 @@ _global_script_class_icons={
 "Game_Enums": "",
 "Hotbar": "",
 "Hotbar_Slot": "",
+"InnerPanel": "",
 "Inventory": "",
 "Inventory_Slot": "",
 "Item": "",

@@ -61,6 +61,17 @@ func _ready():
 func get_item( id : String ):
 	return Item.new( id, items[ id ] )
 
+func get_items( items_data : Array ):
+	var items_array = []
+	for item_data in items_data:
+		items_array.append( get_item_from_data( item_data ) )
+	return items_array
+
+func get_item_from_data( item_data ):
+	var item = get_item( item_data.id )
+	item.quantity = item_data.quantity
+	return item
+
 func get_placeholder( id ):
 	return placeholders[ id ]
 
@@ -190,7 +201,3 @@ func get_type_name( item ):
 		return equipment_names[ item.equipment_type ]
 	else:
 		return type_names[ item.type ]
-
-
-
-

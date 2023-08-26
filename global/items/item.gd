@@ -1,6 +1,6 @@
 class_name Item extends TextureRect
 
-signal item_placed_in_player_inventory( is_on_player )
+signal placed_in_inventory()
 signal quantity_changed( quantity )
 signal depleted()
 
@@ -73,8 +73,11 @@ func get_name():
 
 func set_slot( value ):
 	item_slot = value
-	emit_signal( "item_placed_in_player_inventory", item_slot.is_on_player if item_slot else false )
+	emit_signal( "placed_in_inventory" )
 
 func destroy():
 	if item_slot:
 		item_slot.remove_item()
+
+func get_data():
+	return { "id": id, "quantity": quantity }
