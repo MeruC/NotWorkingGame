@@ -139,11 +139,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://global/items/stat_scale.gd"
 }, {
-"base": "Reference",
-"class": "TextDatabase",
-"language": "GDScript",
-"path": "res://offline_levels/TextDatabase.gd"
-}, {
 "base": "Control",
 "class": "VirtualJoystick",
 "language": "GDScript",
@@ -181,7 +176,6 @@ _global_script_class_icons={
 "Split_Stack": "",
 "Stat_Range": "",
 "Stat_Scale": "",
-"TextDatabase": "",
 "VirtualJoystick": "",
 "Window": ""
 }

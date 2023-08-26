@@ -2,7 +2,7 @@ extends Node2D
 
 export(PackedScene) var this_scene
 var score = 0
-var json_file = "res://offline_levels/json/tester.json"
+var json_file = "res://offline_levels/json/level1_questions.json"
 var json_data = ""
 
 func _ready():

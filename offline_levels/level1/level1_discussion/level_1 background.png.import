@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/level_1 background.png-40362fcc7ebfdabef4973f4f744f5e25.stex"
+path="res://.import/level_1 background.png-65a8a3995218c9999f14ee458de97c3b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://offline_levels/level1_discussion/level_1 background.png"
-dest_files=[ "res://.import/level_1 background.png-40362fcc7ebfdabef4973f4f744f5e25.stex" ]
+source_file="res://offline_levels/level1/level1_discussion/level_1 background.png"
+dest_files=[ "res://.import/level_1 background.png-65a8a3995218c9999f14ee458de97c3b.stex" ]
 
 [params]
 

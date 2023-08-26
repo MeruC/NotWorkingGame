@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://offline_levels/level2/letter_click.gd" type="Script" id=2]
+
+[node name="letter" type="Button"]
+margin_left = 413.0
+margin_top = 441.0
+margin_right = 493.0
+margin_bottom = 521.0
+rect_pivot_offset = Vector2( -185, -102 )
+custom_fonts/font = ExtResource( 1 )
+text = "A"
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

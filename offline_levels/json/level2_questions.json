@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "scrambled": "IYONNCZRNIHATOS",
+    "clue": "Think of being the conductor of a digital orchestra, making sure every instrument plays in perfect harmony.",
+    "answer": "SYNCHRONIZATION"
+  },
+  {
+    "id": 1,
+    "scrambled": "IAGLGNSIN",
+    "clue": "Imagine you're sending out digital 'waves' like a lighthouse, making sure devices understand each other's messages.",
+    "answer": "SIGNALING"
+  },
+  {
+    "id": 2,
+    "scrambled": "AGITFIECNNR",
+    "clue": "Picture translating languages for gadgets – turning their digital 'talk' into a language they can all understand.",
+    "answer": "INTERFACING"
+  },
+  {
+    "id": 3,
+    "scrambled": "CEEORVYR",
+    "clue": "Digital hero fixing chaos.",
+    "answer": "RECOVERY"
+  },
+  {
+    "id": 4,
+    "scrambled": "OROTCTPIEN",
+    "clue": "Guarding data's journey.",
+    "answer": "PROTECTION"
+  }
+]

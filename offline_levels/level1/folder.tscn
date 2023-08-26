@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://offline_mode_Asset/level_1/data_folder.png" type="Texture" id=1]
-[ext_resource path="res://offline_levels/folder.gd" type="Script" id=2]
+[ext_resource path="res://offline_levels/level1/folder.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 79.8666, 61.0629 )
