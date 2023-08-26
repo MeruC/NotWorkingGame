@@ -40,10 +40,10 @@ align = 3
 autowrap = true
 
 [node name="title" type="Label" parent="CanvasLayer/NinePatchRect"]
-margin_left = 344.0
-margin_top = 139.0
-margin_right = 948.0
-margin_bottom = 452.0
+margin_left = 332.0
+margin_top = 129.0
+margin_right = 936.0
+margin_bottom = 463.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "aaaaaaaaaaaaaa"

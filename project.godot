@@ -124,7 +124,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://invRes/scale_control.gd"
 }, {
-"base": "Scale_Control",
+"base": "ColorRect",
 "class": "Split_Stack",
 "language": "GDScript",
 "path": "res://invRes/split_stack.gd"
