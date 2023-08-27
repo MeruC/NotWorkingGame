@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://offline_levels/level1_discussion/level_1 background.png" type="Texture" id=1]
+[ext_resource path="res://offline_levels/level1/level1_discussion/level_1 background.png" type="Texture" id=1]
 [ext_resource path="res://dialogbox.gd" type="Script" id=2]
 [ext_resource path="res://resources/font/sev7cyr.ttf" type="DynamicFontData" id=3]
 
@@ -12,7 +12,7 @@ size = 51
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[node name="level1_discussion" type="Control"]
+[node name="level1_discussion" type="Node2D"]
 
 [node name="manager" type="Node2D" parent="."]
 script = ExtResource( 2 )
