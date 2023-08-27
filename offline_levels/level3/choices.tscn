@@ -1,3 +1,84 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="choices" type="Node2D"]
+[ext_resource path="res://offline_mode_Asset/level_3/network_cable.png" type="Texture" id=1]
+[ext_resource path="res://offline_levels/level3/texture_script.gd" type="Script" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+export (String) var choice
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_choice1_pressed():
+	choice = $choices_container/choice1/image_holder.content
+	print(choice)
+	pass # Replace with function body.
+
+
+func _on_choice2_pressed():
+	choice = $choices_container/choice2/image_holder.content
+	print(choice)
+	pass # Replace with function body.
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="choices_container" type="GridContainer" parent="."]
+margin_left = 242.0
+margin_top = 410.0
+margin_right = 1042.0
+margin_bottom = 660.0
+rect_min_size = Vector2( 700, 250 )
+rect_clip_content = true
+custom_constants/hseparation = 300
+columns = 2
+
+[node name="choice1" type="Button" parent="choices_container"]
+margin_right = 250.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="image_holder" type="TextureRect" parent="choices_container/choice1"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 246.0
+margin_bottom = 246.0
+rect_min_size = Vector2( 240, 240 )
+texture = ExtResource( 1 )
+expand = true
+script = ExtResource( 3 )
+
+[node name="choice2" type="Button" parent="choices_container"]
+margin_left = 550.0
+margin_right = 800.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 250, 250 )
+
+[node name="image_holder" type="TextureRect" parent="choices_container/choice2"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 246.0
+margin_bottom = 246.0
+rect_min_size = Vector2( 240, 240 )
+texture = ExtResource( 1 )
+expand = true
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="choices_container/choice1" to="." method="_on_choice1_pressed"]
+[connection signal="pressed" from="choices_container/choice2" to="." method="_on_choice2_pressed"]

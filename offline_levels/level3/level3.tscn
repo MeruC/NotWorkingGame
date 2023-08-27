@@ -1,3 +1,58 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://offline_levels/level3/manager.gd" type="Script" id=1]
+[ext_resource path="res://offline_levels/level3/choices.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+font_data = ExtResource( 3 )
 
 [node name="level3" type="Node2D"]
+script = ExtResource( 1 )
+choice_scene = ExtResource( 2 )
+
+[node name="score_board" type="Label" parent="."]
+margin_left = 51.0
+margin_top = 31.0
+margin_right = 351.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 300, 50 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Score:     / 5"
+autowrap = true
+
+[node name="score" type="Label" parent="."]
+margin_left = 195.0
+margin_top = 32.0
+margin_right = 235.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 40, 50 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "0"
+autowrap = true
+
+[node name="clue" type="Label" parent="."]
+margin_left = 151.0
+margin_top = 125.0
+margin_right = 1151.0
+margin_bottom = 325.0
+rect_min_size = Vector2( 1000, 150 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "CLUE"
+autowrap = true
+
+[node name="choices" parent="." instance=ExtResource( 2 )]
+script = null
+
+[connection signal="pressed" from="choices/choices_container/choice1" to="." method="_on_choice1_pressed"]
+[connection signal="pressed" from="choices/choices_container/choice2" to="." method="_on_choice2_pressed"]
+
+[editable path="choices"]
