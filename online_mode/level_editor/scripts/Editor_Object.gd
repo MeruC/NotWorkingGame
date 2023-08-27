@@ -129,11 +129,11 @@ func previewCursor():
 func placeObject():
 	cursor_pos.y = 0
 	if !("floor" in object_point.collider.name): cursor_pos.y = height
-	if (Global.can_place and !Global.is_usingJoystick and current_item != null and object_point != null):
-		var new_item = current_item.instance() 
-		if (new_item != null):
-			for i in placeOn:
-				if (i in object_point.collider.name):
+	for i in placeOn:
+		if (i in object_point.collider.name):
+			if (Global.can_place and !Global.is_usingJoystick and current_item != null and object_point != null):
+				var new_item = current_item.instance() 
+				if (new_item != null):
 					level.add_child(new_item)
 					new_item.owner = level
 					new_item.global_translation = cursor_pos

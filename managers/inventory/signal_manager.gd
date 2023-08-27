@@ -9,7 +9,6 @@ signal upgrade_item()
 signal inventory_group_content_changed( groups )
 
 # Interactables
-signal item_picked( item, sender )
 signal crafting_opened( crafting_list_id )
 signal crafting_out_of_range()
 

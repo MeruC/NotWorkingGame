@@ -14,6 +14,10 @@ func _ready():
 	if item:
 		item_container.add_child( item )
 		item.item_slot = self
+	
+	connect( "mouse_entered", InventoryManager, "_on_mouse_entered_slot", [ self ] )
+	connect( "mouse_exited", InventoryManager, "_on_mouse_exited_slot" )
+	connect( "gui_input", InventoryManager, "_on_gui_input_slot", [ self ] )
 
 func set_item( new_item ):
 	if not new_item:
@@ -22,8 +26,8 @@ func set_item( new_item ):
 	elif ready:
 		item_container.add_child( new_item )
 		new_item.item_slot = self
-	
 	item = new_item
+	emit_signal( "item_changed" )
 
 func accept_item( new_item ) -> bool:
 	return new_item and not item
@@ -42,7 +46,6 @@ func put_item( new_item : Item ) -> Item:
 		set_item( null )
 	
 	# Return an item or null
-	emit_signal( "item_changed" )
 	return new_item
 
 
@@ -54,7 +57,6 @@ func has_new_item( new_item ):
 	# simply place the item in the empty slot
 	else:
 		set_item( new_item )
-		emit_signal( "item_changed" )
 		return null
 
 
@@ -63,14 +65,13 @@ func has_both_item( new_item ):
 	if can_stack( new_item ):
 		var remainder = item.add_item_quantity( new_item.quantity )
 		new_item.quantity = remainder
-	
+		emit_signal( "item_changed" )
 	# swap the item in hand with the one in the slot
 	else:
 		var temp_item = item
 		remove_item_child()
 		set_item( new_item )
 		new_item = temp_item
-	
 	return new_item if new_item.quantity > 0 else null
 
 func can_stack( new_item ) -> bool:
@@ -80,7 +81,8 @@ func remove_item_child():
 	item_container.remove_child( item )
 
 func remove_item():
-	put_item( null )
+	var old_item = put_item( null )
+	if old_item: old_item.queue_free()
 
 func add_group( group_id ):
 	groups.append( group_id )

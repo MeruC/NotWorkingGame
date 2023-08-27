@@ -139,6 +139,16 @@ rect_pivot_offset = Vector2( 119, 20 )
 text = "Save"
 icon = SubResource( 14 )
 
+[node name="Orphan" type="Button" parent="UI/editor/file"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 6.0
+margin_bottom = 26.0
+rect_pivot_offset = Vector2( 119, 20 )
+text = "Orphan"
+icon = SubResource( 14 )
+
 [node name="modes" type="HBoxContainer" parent="UI/editor"]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -414,6 +424,7 @@ editor_camera = NodePath("../Editor_Camera")
 [connection signal="pressed" from="UI/editor/file/New" to="UI/editor/FileDialog" method="_on_New_pressed"]
 [connection signal="pressed" from="UI/editor/file/Load" to="UI/editor/FileDialog" method="_on_Load_pressed"]
 [connection signal="pressed" from="UI/editor/file/Save" to="UI/editor/FileDialog" method="_on_Save_pressed"]
+[connection signal="pressed" from="UI/editor/file/Orphan" to="UI/editor/FileDialog" method="_on_Orphan_pressed"]
 [connection signal="mouse_entered" from="UI/editor/modes/play" to="UI/editor/modes" method="_on_modes_mouse_entered"]
 [connection signal="mouse_exited" from="UI/editor/modes/play" to="UI/editor/modes" method="_on_modes_mouse_exited"]
 [connection signal="pressed" from="UI/editor/modes/play" to="UI/editor/modes" method="_on_play_pressed"]

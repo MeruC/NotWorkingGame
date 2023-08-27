@@ -40,7 +40,9 @@ var tscn = {
 	"cooldown": preload("res://global/items/usable/cooldown.tscn"),
 	"quantity": preload("res://global/items/quantity.tscn"),
 	"crafting_option": preload( "res://invRes/crafting_option.tscn" ),
-	"item_quantity": preload( "res://invRes/item_quantity.tscn" )
+	"item_quantity": preload( "res://invRes/item_quantity.tscn" ),
+	"inventory_slot": preload( "res://global/inventory/inventory_slot.tscn" ),
+	"inventory": preload( "res://global/inventory/inventory.tscn" )
 }
 
 var stat_info = {}

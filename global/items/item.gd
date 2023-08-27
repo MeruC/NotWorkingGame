@@ -17,9 +17,11 @@ var unique_data = null
 
 var lbl_quantity
 var item_slot setget set_slot
+var item_data
 
 func _init( item_id, data ):
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	item_data = data
 	id = item_id
 	item_name = data.name
 	level = data.level
@@ -31,15 +33,16 @@ func _init( item_id, data ):
 	if data.has( "stack_size" ): stack_size = data.stack_size
 	if data.has( "base_stats" ): components[ "base_stats" ] = Base_stat.new( data.base_stats )
 	if data.has( "unique" ): unique_data = data[ "unique" ]
-	if data.has( "usable" ):
-		components[ "usable" ] = ItemManager.get_usable( data.usable, self )
-		add_child( components.usable )
 
 
 func _ready():
 	lbl_quantity = ResourceManager.get_instance( "quantity" )
 	add_child( lbl_quantity )
 	lbl_quantity.quantity = quantity
+	
+	if item_data.has( "usable" ):
+		components[ "usable" ] = ItemManager.get_usable( item_data.usable, self )
+		add_child( components.usable )
 
 func set_quantity( value ):
 	quantity = value
@@ -78,6 +81,26 @@ func set_slot( value ):
 func destroy():
 	if item_slot:
 		item_slot.remove_item()
+	else:
+		queue_free()
 
 func get_data():
-	return { "id": id, "quantity": quantity }
+	var data = {
+		"id" : id,
+		"item_name" : item_name,
+		"rarity" : rarity,
+		"quantity": quantity,
+		"components": {}
+	}
+	
+	for c in components:
+		if components[ c ].has_method( "get_data" ):
+			data.components[ c ] = components[ c ].get_data()
+	return data
+
+func get_stat( stat ):
+	var total = 0
+	for c in components:
+		if components[ c ].has_method( "get_stat" ):
+			total += components[ c ].get_stat( stat )
+	return total

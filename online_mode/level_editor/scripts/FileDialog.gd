@@ -81,3 +81,8 @@ func _on_Load_mouse_exited():
 
 func _on_New_pressed():
 	new_level()
+
+
+func _on_Orphan_pressed():
+	 print_stray_nodes()
+
