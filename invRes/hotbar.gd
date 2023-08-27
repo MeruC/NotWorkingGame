@@ -8,8 +8,7 @@ var slots : Array = []
 
 func _ready():
 	for s in size:
-		var slot = ResourceManager.tscn.hotbar_slot.instance()
+		var slot = ResourceManager.get_instance( "hotbar_slot" )
 		slot.key = str( s + 1 )
 		slot_container.add_child( slot )
 		slots.append( slot )
-	SignalManager.emit_signal( "inventory_ready", self )

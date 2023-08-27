@@ -8,20 +8,17 @@ var inventory : Inventory
 var action = "open"
 var object_name = "Chest"
 
-func _init():
-	inventory = preload("res://global/inventory/inventory.tscn").instance()
-
 func _ready():
+	inventory = ResourceManager.get_instance( "inventory" )
 	object_name = inventory_name
 	inventory.size = size
 	inventory.inventory_name = inventory_name
 	set_items()
-
+	InventoryManager.add_hidden_node( inventory )
 
 func set_items():
 	for i in items:
 		inventory.add_item( ItemManager.get_item( i ) )
-
 
 func interact():
 	SignalManager.emit_signal( "inventory_opened", inventory )

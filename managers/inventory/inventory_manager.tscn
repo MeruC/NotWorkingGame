@@ -18,7 +18,15 @@ margin_bottom = 8.0
 script = ExtResource( 4 )
 item_in_hand_node = NodePath("item_in_hand")
 item_info = NodePath("item_info")
+item_void = NodePath("item_void")
 split_stack = NodePath("split stack")
+hidden_nodes = NodePath("hidden_nodes")
+
+[node name="hidden_nodes" type="Control" parent="."]
+margin_left = 5000.0
+margin_top = 5000.0
+margin_right = 5040.0
+margin_bottom = 5040.0
 
 [node name="item_in_hand" type="Control" parent="."]
 mouse_filter = 2
@@ -38,3 +46,9 @@ custom_styles/panel = SubResource( 2 )
 [node name="split stack" parent="." instance=ExtResource( 1 )]
 visible = false
 rect_pivot_offset = Vector2( 640, 360 )
+
+[node name="item_void" type="Control" parent="."]
+margin_left = -78.0
+margin_top = -78.0
+margin_right = -38.0
+margin_bottom = -38.0

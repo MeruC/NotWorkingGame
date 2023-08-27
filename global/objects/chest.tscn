@@ -25,7 +25,7 @@ collision_mask = 8
 script = ExtResource( 2 )
 size = 5
 inventory_name = "Chest"
-items = [ "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin" ]
+items = [ "gold_coin", "gold_coin", "gold_coin", "gold_coin", "gold_coin" ]
 
 [node name="CollisionShape2" type="CollisionShape" parent="interaction_area"]
 transform = Transform( 1.04306, 0, 0, 0, 1.04306, 0, 0, 0, 1.04306, 0, 1, 0 )

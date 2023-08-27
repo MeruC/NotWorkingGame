@@ -64,6 +64,7 @@ margin_right = -487.0
 margin_bottom = -9.0
 
 [node name="crafting_list" parent="ui/ui_container/windows" instance=ExtResource( 4 )]
+visible = false
 
 [node name="buttons" type="Control" parent="ui/ui_container"]
 anchor_right = 1.0
