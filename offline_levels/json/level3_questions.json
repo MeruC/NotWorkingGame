@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "question": "Just like roads connect places, they link devices within a network, ensuring a smooth flow of information.",
+    "incorrect": "network_card",
+    "answer": "network_cable"
+  },
+  {
+    "id": 1,
+    "question": "Plays a crucial role in providing resources and services to clients.",
+    "incorrect": "network_modem",
+    "answer": "network_server"
+  },
+  {
+    "id": 2,
+    "question": "Safeguard against unauthorized access and potential threats.",
+    "incorrect": "network_cable",
+    "answer": "network_firewall"
+  },
+  {
+    "id": 3,
+    "question": "They analyze data's journey and make split-second decisions on the best path for data packets to travel between devices",
+    "incorrect": "network_server",
+    "answer": "network_router"
+  },
+  {
+    "id": 4,
+    "question": "They act like traffic controllers within local networks, directing data precisely to its intended device, minimizing congestion, and optimizing overall network performance.",
+    "incorrect": "network_card",
+    "answer": "network_switch"
+  }
+]

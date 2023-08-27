@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://offline_levels/level_2/level2_discussion/discussion_background.png" type="Texture" id=1]
-[ext_resource path="res://offline_levels/level_2/level2_discussion/level2_discussion.gd" type="Script" id=2]
+[ext_resource path="res://offline_levels/level2/level2_discussion/discussion_background.png" type="Texture" id=1]
+[ext_resource path="res://offline_levels/level2/level2_discussion/level2_discussion.gd" type="Script" id=2]
 [ext_resource path="res://resources/font/sev7cyr.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
