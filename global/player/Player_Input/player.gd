@@ -12,6 +12,8 @@ export var acceleration = 70
 export var friction = 60
 var velocity := Vector3.ZERO
 
+export( Resource ) var player_data
+
 var start_pos = Vector3(0, .5, 0)
 
 var is_moving = false
@@ -32,7 +34,8 @@ func _physics_process(delta: float) -> void:
 	apply_friction(direction, delta)
 	apply_movement(input_vector, direction, delta)
 	velocity = move_and_slide(velocity, Vector3.UP)
-	
+	#if player_data:
+	#	player_data.global_position = player.global_translation
 	
 func _process(delta):
 	if velocity.x == 0 and velocity.z == 0:

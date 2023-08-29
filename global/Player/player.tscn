@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://resources/Models/Player/Walk/1.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://global/player/Player_Input/player.gd" type="Script" id=2]
@@ -7,7 +7,14 @@
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://resources/Models/Player/Idle/1.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://global/player/interact.gd" type="Script" id=7]
+[ext_resource path="res://data/player_data.gd" type="Script" id=8]
 [ext_resource path="res://resources/Models/Player/Walk/6.obj" type="ArrayMesh" id=11]
+
+[sub_resource type="Resource" id=23]
+script = ExtResource( 8 )
+global_position = Vector3( 0, 0, 0 )
+inventories = {
+}
 
 [sub_resource type="CylinderShape" id=19]
 height = 2.8
@@ -141,6 +148,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.445, 0 )
 collision_layer = 9
 collision_mask = 9
 script = ExtResource( 2 )
+player_data = SubResource( 23 )
 interact_zone = NodePath("InteractionArea")
 interact_labels = NodePath("interact")
 

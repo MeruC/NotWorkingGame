@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://invRes/equipment_slot.gd"
 }, {
+"base": "Resource",
+"class": "Game_Data",
+"language": "GDScript",
+"path": "res://data/game_data.gd"
+}, {
 "base": "Reference",
 "class": "Game_Enums",
 "language": "GDScript",
@@ -119,6 +124,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://global/items/item_usable.gd"
 }, {
+"base": "Resource",
+"class": "Player_Data",
+"language": "GDScript",
+"path": "res://data/player_data.gd"
+}, {
 "base": "Node",
 "class": "Resource_Manager",
 "language": "GDScript",
@@ -128,6 +138,11 @@ _global_script_classes=[ {
 "class": "Scale_Control",
 "language": "GDScript",
 "path": "res://invRes/scale_control.gd"
+}, {
+"base": "Resource",
+"class": "Settings_Data",
+"language": "GDScript",
+"path": "res://data/settings_data.gd"
 }, {
 "base": "Scale_Control",
 "class": "Split_Stack",
@@ -163,6 +178,7 @@ _global_script_class_icons={
 "Chest": "",
 "Dragable_Control": "",
 "Equipment_Slot": "",
+"Game_Data": "",
 "Game_Enums": "",
 "Hotbar": "",
 "Hotbar_Slot": "",
@@ -177,8 +193,10 @@ _global_script_class_icons={
 "Item_Unique_Stats": "",
 "Item_Upgrade": "",
 "Item_Usable": "",
+"Player_Data": "",
 "Resource_Manager": "",
 "Scale_Control": "",
+"Settings_Data": "",
 "Split_Stack": "",
 "Stat_Range": "",
 "Stat_Scale": "",
@@ -200,6 +218,7 @@ SignalManager="*res://managers/inventory/signal_manager.gd"
 SettingsManager="*res://managers/inventory/settings_manager.gd"
 ResourceManager="*res://managers/inventory/resource_manager.gd"
 InventoryManager="*res://managers/inventory/inventory_manager.tscn"
+SaveManager="*res://managers/save_manager.gd"
 
 [debug]
 

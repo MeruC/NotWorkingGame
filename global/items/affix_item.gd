@@ -15,3 +15,10 @@ func set_info( item_info, rarity ):
 		var value = round( lerp( stat_range.minimum, stat_range.maximum, scale ) )
 		var text = display % value
 		item_info.add_line( Item_Info_Line.new( text, rarity ) )
+
+func get_data():
+	return {
+		"affix_group": affix_group.id,
+		"affix": affix.id,
+		"scale": scale
+	}

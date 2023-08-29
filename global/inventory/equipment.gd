@@ -14,3 +14,9 @@ func _ready():
 
 func set_inventory_size( value ):
 	size = value
+
+func get_stat( stat ):
+	var total = 0
+	for slot in slots:
+		total += slot.get_stat( stat )
+	return total

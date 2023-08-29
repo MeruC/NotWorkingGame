@@ -1,8 +1,8 @@
 extends Node
 
-const ITEM_PATH = "res://global/items/data/items.json"
-const AFFIXES_PATH = "res://global/items/data/affixes.json"
-const RARE_NAMES_PATH = "res://global/items/data/rare_names.json"
+const ITEM_PATH = "res://data/json/items.json"
+const AFFIXES_PATH = "res://data/json/affixes.json"
+const RARE_NAMES_PATH = "res://data/json/rare_names.json"
 
 var items = {}
 var rare_names = {}
@@ -70,6 +70,12 @@ func get_items( items_data : Array ):
 func get_item_from_data( item_data ):
 	var item = get_item( item_data.id )
 	item.quantity = item_data.quantity
+	if item_data.has( "item_name" ): item.item_name = item_data.item_name 
+	if item_data.has( "rarity" ): item.rarity = item_data.rarity
+	if item_data.has( "components" ):
+		if item_data.components.has( "base_stats" ): item.components.base_stats.scale = item_data.components.base_stats
+		if item_data.components.has( "affix_list" ): item.components.affix_list = Item_Affix_List.new( item_data.components.affix_list, item.rarity )
+		if item_data.components.has( "unique_stats" ): set_unique( item, item_data.components.unique_stats )
 	return item
 
 func get_placeholder( id ):
@@ -183,7 +189,9 @@ func roll_unique( item ):
 	var scales = []
 	for s in item.unique_data.stats:
 		scales.append( randf() )
+	set_unique( item, scales )
 	
+func set_unique( item, scales ):
 	item.item_name = item.unique_data.name
 	item.components[ "unique_stats" ] = Item_Unique_Stats.new( item.unique_data.stats, scales )
 	if item.unique_data.has( "usable" ):

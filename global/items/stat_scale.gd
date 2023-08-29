@@ -12,3 +12,6 @@ func set_info( item_info, color_id ):
 	var value = stat_range.get_value( scale, stat_range.stat )
 	var text = display % value
 	item_info.add_line( Item_Info_Line.new( text, color_id ) )
+
+func get_stat( stat ):
+	return stat_range.get_value( scale, stat )

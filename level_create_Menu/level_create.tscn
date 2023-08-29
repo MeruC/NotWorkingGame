@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://invRes/scale_control.gd" type="Script" id=1]
 [ext_resource path="res://level_create_Menu/level_create.gd" type="Script" id=2]
 [ext_resource path="res://resources/Sprites/welcome_screen.png" type="Texture" id=3]
+[ext_resource path="res://nodes/settings.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends ParallaxBackground
@@ -121,7 +122,15 @@ margin_bottom = 18.0
 rect_pivot_offset = Vector2( 53, 17 )
 text = "Inventory Test"
 
+[node name="container" parent="." instance=ExtResource( 4 )]
+mouse_filter = 2
+
+[node name="split stack" parent="container" index="1"]
+visible = false
+
 [connection signal="value_changed" from="size/w" to="." method="_on_w_value_changed"]
 [connection signal="value_changed" from="size/d" to="." method="_on_d_value_changed"]
 [connection signal="pressed" from="buttons/create" to="." method="_on_create_pressed"]
 [connection signal="pressed" from="buttons/inventory test" to="." method="_on_inventory_test_pressed"]
+
+[editable path="container"]

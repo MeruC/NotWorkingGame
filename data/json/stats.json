@@ -1,19 +1,31 @@
 {
     "VITALITY": {
         "name":"Vitality",
-        "display":"+%s to Vitality"
+        "display":"+%s to Vitality",
+        "affected_by":{
+            "ALL_STATS": 1
+        }
     },
 	"STRENGTH": {
         "name":"Strength",
-        "display":"+%s to Strength"
+        "display":"+%s to Strength",
+        "affected_by":{
+            "ALL_STATS": 1
+        }
     },
     "INTELLIGENCE": {
         "name":"Intelligence",
-        "display":"+%s to Intelligence"
+        "display":"+%s to Intelligence",
+        "affected_by":{
+            "ALL_STATS": 1
+        }
     },
     "DEXTERITY": {
         "name":"Dexterity",
-        "display":"+%s to Dexterity"
+        "display":"+%s to Dexterity",
+        "affected_by":{
+            "ALL_STATS": 1
+        }
     },
     "LUCK": {
         "name":"Luck",
@@ -46,5 +58,12 @@
     "BONUS_EXPERIENCE": {
         "name":"Bonus Experience",
         "display":"+%s%% Bonus Experience"
+    },
+    "MOVE_SPEED": {
+        "name":"Move Speed",
+        "display":"+%s to your movement speed",
+        "affected_by":{
+            "DEXTERITY": 10
+        }
     }
 }

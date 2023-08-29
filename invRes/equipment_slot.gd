@@ -24,3 +24,6 @@ func put_item( new_item : Item ) -> Item:
 		placeholder.show()
 	
 	return .put_item( new_item )
+
+func get_stat( stat ):
+	return item.get_stat( stat ) if item else 0

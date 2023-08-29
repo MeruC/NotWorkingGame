@@ -1,7 +1,7 @@
 class_name Resource_Manager extends Node
 
-const STAT_PATH = "res://global/items/data/stats.json"
-const RECIPE_PATH = "res://global/items/data/recipes.json"
+const STAT_PATH = "res://data/json/stats.json"
+const RECIPE_PATH = "res://data/json/recipes.json"
 
 var sprites = {
 	"chestplate": preload("res://global/items/sprites/chestplate.png"),

@@ -15,3 +15,12 @@ func set_info( item_info ):
 		var value = stat_range.get_value( scale, stat_range.stat )
 		var text = display % value
 		item_info.add_line( Item_Info_Line.new( text, Game_Enums.RARITY.NORMAL ) )
+
+func get_data() -> float:
+	return scale
+
+func get_stat( stat ):
+	var total = 0
+	for stat_range in stat_ranges:
+		total += stat_range.get_value( scale, stat )
+	return total

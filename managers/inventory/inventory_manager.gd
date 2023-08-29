@@ -154,7 +154,3 @@ func _on_gui_input_slot( event : InputEvent, slot : Inventory_Slot ):
 
 func _on_inventory_content_changed( groups ):
 	SignalManager.emit_signal( "inventory_group_content_changed", groups )
-
-
-
-
