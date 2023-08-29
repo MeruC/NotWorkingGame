@@ -31,7 +31,47 @@ func update_dialog():
 		var title = json_data[size]["title"]
 		var content = json_data[size]["content"]
 		$"../CanvasLayer/dialog".text = content
-		$"../CanvasLayer/title".text = title
+		$"../AnimationPlayer/title".text = title
+		if size == 1:
+			$"../AnimationPlayer/4".visible = true
+			$"../AnimationPlayer".play("picture_animation")
+			$"../AnimationPlayer".play("title_animation")
+		elif size == 2:
+			$"../AnimationPlayer/1".visible = true
+			$"../AnimationPlayer/4".visible = false
+			$"../AnimationPlayer".play("picture_animation")
+		elif size == 3:
+			$"../AnimationPlayer/1".visible = false
+			$"../AnimationPlayer/5".visible = true
+			$"../AnimationPlayer".play("picture_animation")
+		elif size == 4:
+			$"../AnimationPlayer/5".visible = false
+			$"../AnimationPlayer/3".visible = true
+			$"../AnimationPlayer".play("picture_animation")
+		elif size == 5:
+			$"../AnimationPlayer/3".visible = false
+			$"../AnimationPlayer/6".visible = true
+			$"../AnimationPlayer".play("picture_animation")
+		elif size == 6:
+			$"../AnimationPlayer/6".visible = false
+			$"../AnimationPlayer/2".visible = true
+			$"../AnimationPlayer".play("picture_animation")
+		elif size == 7:
+			$"../AnimationPlayer/1".visible = false 
+			$"../AnimationPlayer/2".visible = false 
+			$"../AnimationPlayer/3".visible = false 
+			$"../AnimationPlayer/4".visible = false  
+			$"../AnimationPlayer/5".visible = false 
+			$"../AnimationPlayer".play_backwards("title_animation")
+		else:
+			$"../AnimationPlayer/1".visible = false 
+			$"../AnimationPlayer/2".visible = false 
+			$"../AnimationPlayer/3".visible = false 
+			$"../AnimationPlayer/4".visible = false  
+			$"../AnimationPlayer/5".visible = false 
+			
+			
+			
 	else:
 		print("Dialog ended.")
 

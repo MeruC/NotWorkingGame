@@ -11,6 +11,11 @@
 size = 22
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=1]
+size = 51
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
 [sub_resource type="Animation" id=3]
 resource_name = "file_animation"
 tracks/0/type = "value"
@@ -50,7 +55,7 @@ tracks/2/keys = {
 "values": [ Vector2( 805, 333 ), Vector2( 635, 334 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer/title:rect_position")
+tracks/3/path = NodePath("../CanvasLayer/NinePatchRect/title:rect_position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -101,11 +106,6 @@ tracks/2/keys = {
 "values": [ Vector2( 635, 334 ), Vector2( 684, 333 ) ]
 }
 
-[sub_resource type="DynamicFont" id=1]
-size = 51
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
-
 [node name="level1_discussion" type="Node2D"]
 
 [node name="manager" type="Node2D" parent="."]
@@ -133,13 +133,7 @@ text = "Dialog here"
 align = 3
 autowrap = true
 
-[node name="example1" type="Node2D" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="example1"]
-anims/file_animation = SubResource( 3 )
-anims/name_animation = SubResource( 4 )
-
-[node name="title" type="Label" parent="example1/AnimationPlayer"]
+[node name="title" type="Label" parent="CanvasLayer/NinePatchRect"]
 margin_left = 326.0
 margin_top = 226.0
 margin_right = 953.0
@@ -151,26 +145,32 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="example1" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="example1"]
+anims/file_animation = SubResource( 3 )
+anims/name_animation = SubResource( 4 )
+
 [node name="file" type="TextureRect" parent="example1/AnimationPlayer"]
 visible = false
-margin_left = 561.0
-margin_top = 157.0
-margin_right = 692.001
-margin_bottom = 297.0
+margin_left = 555.0
+margin_top = 262.0
+margin_right = 686.001
+margin_bottom = 402.0
 texture = ExtResource( 5 )
 
 [node name="name" type="TextureRect" parent="example1/AnimationPlayer"]
 visible = false
-margin_left = 346.0
-margin_top = 309.0
-margin_right = 515.0
-margin_bottom = 363.0
+margin_left = 436.0
+margin_top = 301.0
+margin_right = 605.0
+margin_bottom = 355.0
 texture = ExtResource( 4 )
 
 [node name="age" type="TextureRect" parent="example1/AnimationPlayer"]
 visible = false
-margin_left = 805.0
-margin_top = 333.0
-margin_right = 899.0
-margin_bottom = 425.0
+margin_left = 635.0
+margin_top = 334.0
+margin_right = 729.0
+margin_bottom = 426.0
 texture = ExtResource( 6 )

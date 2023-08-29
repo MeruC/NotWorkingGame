@@ -32,7 +32,8 @@ func update_dialog():
 		var title = json_data[size]["title"]
 		var content = json_data[size]["content"]
 		$"../CanvasLayer/NinePatchRect/dialog".text = content
-		$"../example1/AnimationPlayer/title".text = title
+		$"../example1/AnimationPlayer/title"
+		$"../CanvasLayer/NinePatchRect/title".text = title
 		if size == 2:
 			$"../example1/AnimationPlayer/file".visible = true
 			$"../example1/AnimationPlayer/name".visible = true
