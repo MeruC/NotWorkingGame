@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "question": "Mr. Villanueva needs to connect all the computers in their office building. Which network type would be most suitable?",
+    "answer": "LAN"
+  },
+  {
+    "id": 1,
+    "question": "ABC company has offices in different countries, and they need to video conference regularly. Which network type suits this need?",
+    "answer": "WAN"
+  },
+  {
+    "id": 2,
+    "question": "Your university has campuses spread across the city, and you need to share research data between them. What network type should you use?",
+    "answer": "MAN"
+  },
+  {
+    "id": 3,
+    "question": "Niccolo wants to play multiplayer games with his friends who live in their neighborhood. What type of network would work best?",
+    "answer": "LAN"
+  },
+  {
+    "id": 4,
+    "question": "Your city's emergency services need to communicate quickly during a crisis. Which network type would they rely on?",
+    "answer": "MAN"
+  }
+]
