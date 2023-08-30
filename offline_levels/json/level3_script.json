@@ -1,30 +1,108 @@
 [
     {
         "title": "Discussion: Navigating Network Components",
-        "dialog": "Think of these components as the building blocks that enable seamless communication, data sharing, and resource allocation. Each component has its own role, contributing to the efficient functioning of networks."
+        "channel":"0",
+        "dialog": "Think of these components as the building blocks that enable seamless communication, data sharing, and resource allocation."
     },
     {
-        "title": "Navigating Network Components",
-        "dialog": "This passage outlines essential components in computer networks. Servers act as data repositories, responding to client requests for information."
+        "title":"Discussion: Navigating Network Components",
+        "channel":"0",
+        "dialog":"Each component has its own role, contributing to the efficient functioning of networks."
     },
     {
-        "title": "Navigating Network Components",
-        "dialog": "Clients encompass devices like computers and smartphones that seek data, while routers guide data packets along efficient paths, and switches optimize local data distribution."
+        "title":"Instruction:",
+        "channel":"0",
+        "dialog":"Click the button to change the channel"
     },
     {
-        "title": "Navigating Network Components",
-        "dialog": "Firewalls ensure security by monitoring and controlling incoming and outgoing data, while modems translate digital data to analog signals, facilitating connection over telephone or cable lines."
+        "title":"Servers",
+        "channel":"1",
+        "dialog": "Imagine servers as the powerhouses of the network. They resemble libraries of information storing and managing data"
     },
     {
-        "title":"Navigating Network Components",
-        "dialog":"Access points expand wireless coverage, network cables establish data routes, and Network Interface Cards enable device communication by interpreting network languages,"
+        "title":"Servers",
+        "channel":"1",
+        "dialog":"while distributing it to connected devices on demand. Servers play a crucial role in providing resources and services to clients"
     },
     {
-        "title":"Navigating Network Components",
-        "dialog":"thus forming the building blocks of seamless network functionality."
+        "title":"Clients",
+        "channel":"2",
+        "dialog":"Visualize clients as curious explorers navigating the network. These are the devices – like computers, smartphones, and tablets – that seek and request data and services from servers."
     },
     {
-        "title": "Now Challenge Yourself",
-        "dialog": "By grasping the roles of these components, you're equipped with a fundamental understanding of how networks operate. Now, let's put your knowledge to the test in the Network Components Picture Quiz!"
+        "title":"Routers",
+        "channel":"3",
+        "dialog":"Picture routers as skillful traffic directors. They analyze data's journey and make split-second decisions on the best path for data packets to travel between devices"
+    },
+    {
+        "title":"Routers",
+        "channel":"3",
+        "dialog":"This ensures efficient and reliable communication."
+    },
+    {
+        "title":"Switches",
+        "channel":"4",
+        "dialog":"Envision switches as intelligent connectors. They act like traffic controllers within local networks,"
+    },
+    {
+        "title":"Switches",
+        "channel":"4",
+        "dialog":"directing data precisely to its intended device, minimizing congestion, and optimizing overall network performance."
+    },
+    {
+        "title":"Firewalls",
+        "channel":"5",
+        "dialog": "Think of firewalls as vigilant guards protecting your digital realm. They stand watch at the entry and exit points of the network"
+    },
+    {
+        "title":"Firewalls",
+        "channel":"5",
+        "dialog": " monitoring incoming and outgoing data traffic. Firewalls safeguard against unauthorized access and potential threats."
+    },
+    {
+        "title":"Modems",
+        "channel":"6",
+        "dialog":"Imagine modems as translators bridging the gap between digital and analog worlds. They convert your digital data Imagine modems as translators bridging the gap between digital and analog worlds. They convert your digital data "
+    },
+    {
+        "title":"Modems",
+        "channel":"6",
+        "dialog":"into signals that can travel over telephone or cable lines, connecting your devices to the network."
+    },
+    {
+        "title":"Access Points",
+        "channel":"7",
+        "dialog":"Visualize access points as bridges to wireless freedom. They enable wireless devices to connect to a wired network,"
+    },
+    {
+        "title":"Access Points",
+        "channel":"7",
+        "dialog":"extending connectivity and coverage to different corners of your digital landscape."
+    },
+    {
+        "title":"Network Cables",
+        "channel":"8",
+        "dialog":"Picture network cables as the highways data travels on. Just like roads connect places, network cables link devices within a network, ensuring a smooth flow of information."
+    },
+    {
+        "title":"Network Interface Cards (NICs)",
+        "channel":"9",
+        "dialog":"Picture NICs as the communicators. They're like your network's language interpreters, allowing devices to connect and communicate, whether through wired or wireless means."
+    },
+    {
+        "title":"Cloud Infrastructure",
+        "channel":"10",
+        "dialog":"Think of cloud infrastructure as a virtual universe of resources. It's a vast network of servers, storage, and services accessible via the internet"
+    },
+    {
+        "title":"Cloud Infrastructure",
+        "channel":"10",
+        "dialog":"Cloud infrastructure empowers remote data storage and computing, revolutionizing the way we access information"
+    },
+    {
+        "title":"Challenge Yourself!",
+        "channel":"Well done!",
+        "dialog":"By grasping the roles of these components, you're equipped with a fundamental understanding of how networks operate. Now, let's put your knowledge to the test in the Network Components Picture Quiz!"
     }
+    
 ]
