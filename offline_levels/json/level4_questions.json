@@ -2,26 +2,36 @@
   {
     "id": 0,
     "question": "Mr. Villanueva needs to connect all the computers in their office building. Which network type would be most suitable?",
-    "answer": "LAN"
+    "answer": "LAN",
+    "if_correct": "Good job! A Local Area Network (LAN) is ideal for connecting devices within a limited geographic area, such as an office building. LANs provide high-speed connections for sharing resources like printers and files.",
+    "if_wrong": "The network type you chose is incorrect. The office computers experience slow data sharing and limited connectivity."
   },
   {
     "id": 1,
     "question": "ABC company has offices in different countries, and they need to video conference regularly. Which network type suits this need?",
-    "answer": "WAN"
+    "answer": "WAN",
+    "if_correct": "Well done! For connecting offices across different countries, a Wide Area Network (WAN) is necessary. WANs facilitate communication over long distances, making international video conferencing possible.",
+    "if_wrong": "The network type you selected isn't quite right. The video conferences experience delays and poor quality due to the long distances."
   },
   {
     "id": 2,
     "question": "Your university has campuses spread across the city, and you need to share research data between them. What network type should you use?",
-    "answer": "MAN"
+    "answer": "MAN",
+    "if_correct": "Excellent choice! A Metropolitan Area Network (MAN) is designed for connecting larger areas like a city. MANs provide higher data rates than WANs and are suitable for sharing resources between multiple locations within a city.",
+    "if_wrong": "That's not the most suitable network type. Your data sharing experiences bottlenecks, leading to slower communication between campuses."
   },
   {
     "id": 3,
     "question": "Niccolo wants to play multiplayer games with his friends who live in their neighborhood. What type of network would work best?",
-    "answer": "LAN"
+    "answer": "LAN",
+    "if_correct": "Great job! For gaming with friends in close proximity, a Local Area Network (LAN) is most appropriate. LANs provide low-latency connections, which are crucial for real-time multiplayer gaming.",
+    "if_wrong": "The network type you picked isn't the best choice. Your multiplayer games suffer from lag and disrupted gameplay due to distant connections."
   },
   {
     "id": 4,
     "question": "Your city's emergency services need to communicate quickly during a crisis. Which network type would they rely on?",
-    "answer": "MAN"
+    "answer": "MAN",
+    "if_correct": "Fantastic! Metropolitan Area Networks (MANs) could be used by emergency services to quickly communicate within a city during a crisis, ensuring efficient communication and coordination.",
+    "if_wrong": "That's not the ideal network type for this situation. Delays in communication compromise the emergency services' ability to respond swiftly to crises."
   }
 ]

@@ -3,6 +3,5 @@
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 12
-outline_size = 1
+size = 70
 font_data = ExtResource( 1 )

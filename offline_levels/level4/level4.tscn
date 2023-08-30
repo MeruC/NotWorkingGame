@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=2]
-[ext_resource path="res://offline_levels/manager.gd" type="Script" id=3]
+[ext_resource path="res://offline_levels/level4/manager.gd" type="Script" id=3]
+[ext_resource path="res://offline_levels/level4/popup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://offline_levels/level4/game_over.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -80,6 +82,22 @@ rect_min_size = Vector2( 200, 200 )
 custom_fonts/font = ExtResource( 2 )
 text = "WAN"
 
+[node name="popup_layer" type="CanvasLayer" parent="."]
+
+[node name="popup" parent="popup_layer" instance=ExtResource( 4 )]
+visible = false
+
+[node name="explaination" parent="popup_layer/popup/main_popup" index="1"]
+valign = 1
+
+[node name="game_over" parent="popup_layer" instance=ExtResource( 5 )]
+visible = false
+
 [connection signal="pressed" from="button_container/lan_button" to="." method="_on_lan_button_pressed"]
 [connection signal="pressed" from="button_container/man_button" to="." method="_on_man_button_pressed"]
 [connection signal="pressed" from="button_container/wan_button" to="." method="_on_wan_button_pressed"]
+[connection signal="pressed" from="popup_layer/popup/tap" to="." method="_on_tap_pressed"]
+[connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="." method="_on_retry_pressed"]
+
+[editable path="popup_layer/popup"]
+[editable path="popup_layer/game_over"]
