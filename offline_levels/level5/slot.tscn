@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://offline_levels/level5/slot.gd" type="Script" id=2]
+
+[node name="slot" type="TextureRect"]
+margin_right = 360.0
+margin_bottom = 66.667
+rect_min_size = Vector2( 360, 66.667 )
+expand = true
+script = ExtResource( 2 )
+type = "slot"
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 350, 50 )
+mouse_filter = 2

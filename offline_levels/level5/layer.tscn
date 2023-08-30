@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://offline_levels/level5/layer.gd" type="Script" id=2]
+
+[node name="layer" type="TextureRect"]
+margin_right = 360.0
+margin_bottom = 66.667
+rect_min_size = Vector2( 360, 66.667 )
+expand = true
+script = ExtResource( 2 )
+type = "layer"
+
+[connection signal="gui_input" from="." to="." method="_on_layer_gui_input"]

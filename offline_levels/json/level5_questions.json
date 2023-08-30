@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "layer_name": "physical_layer",
+    "content": "Transmits raw bit stream over the physical medium."
+  },
+  {
+    "id": 1,
+    "layer_name": "data_link_layer",
+    "content": "Defines the format of data on the network."
+  },
+  {
+    "id": 2,
+    "layer_name": "network_layer",
+    "content": "Decides which physical path that data will take."
+  },
+  {
+    "id": 3,
+    "layer_name": "transport_layer",
+    "content": "Transmits data using transmission protocols including TCP and UDP"
+  },
+  {
+    "id": 4,
+    "layer_name": "session_layer",
+    "content": "Establishes, maintains, and terminates connections between devices."
+  },
+  {
+    "id": 5,
+    "layer_name": "presentation_layer",
+    "content": "Ensures that data is in usable format and is where data encryption occurs."
+  },
+  {
+    "id": 6,
+    "layer_name": "application_layer",
+    "content": "Provides network services directly to end-users and applications."
+  }
+]

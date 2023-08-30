@@ -65,6 +65,7 @@ margin_bottom = 162.5
 rect_min_size = Vector2( 600, 225 )
 custom_fonts/font = SubResource( 3 )
 text = "SAMPLE TEXT"
+valign = 1
 autowrap = true
 
 [node name="command" type="Label" parent="main_popup"]

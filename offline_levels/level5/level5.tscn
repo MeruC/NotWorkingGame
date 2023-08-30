@@ -1,0 +1,149 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://offline_levels/level5/layer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://offline_mode_Asset/level_5/application_layer.png" type="Texture" id=2]
+[ext_resource path="res://offline_mode_Asset/level_5/physical_layer.png" type="Texture" id=3]
+[ext_resource path="res://offline_mode_Asset/level_5/network_layer.png" type="Texture" id=4]
+[ext_resource path="res://offline_mode_Asset/level_5/transport_layer.png" type="Texture" id=5]
+[ext_resource path="res://offline_mode_Asset/level_5/session_layer.png" type="Texture" id=6]
+[ext_resource path="res://offline_mode_Asset/level_5/presentation_layer.png" type="Texture" id=7]
+[ext_resource path="res://offline_mode_Asset/level_5/data_link_layer.png" type="Texture" id=8]
+[ext_resource path="res://offline_levels/level5/slot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://offline_levels/level5/manager.gd" type="Script" id=10]
+[ext_resource path="res://offline_levels/game_over.tscn" type="PackedScene" id=11]
+[ext_resource path="res://offline_levels/level4/popup.tscn" type="PackedScene" id=12]
+
+[node name="level5" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="slot_container" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 858.0
+margin_top = 44.0
+margin_right = 1218.0
+margin_bottom = 566.0
+custom_constants/vseparation = 10
+
+[node name="slot7" parent="slot_container" instance=ExtResource( 9 )]
+
+[node name="slot6" parent="slot_container" instance=ExtResource( 9 )]
+margin_top = 76.0
+margin_bottom = 142.667
+
+[node name="slot5" parent="slot_container" instance=ExtResource( 9 )]
+margin_top = 152.0
+margin_bottom = 218.667
+
+[node name="slot4" parent="slot_container" instance=ExtResource( 9 )]
+margin_top = 228.0
+margin_bottom = 294.667
+
+[node name="slot3" parent="slot_container" instance=ExtResource( 9 )]
+margin_top = 304.0
+margin_bottom = 370.667
+
+[node name="slot2" parent="slot_container" instance=ExtResource( 9 )]
+margin_top = 380.0
+margin_bottom = 446.667
+
+[node name="slot1" parent="slot_container" instance=ExtResource( 9 )]
+margin_top = 456.0
+margin_bottom = 522.667
+
+[node name="button_container" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 917.0
+margin_top = 590.0
+margin_right = 1167.0
+margin_bottom = 690.0
+custom_constants/hseparation = 50
+columns = 2
+
+[node name="reload" type="Button" parent="button_container"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+text = "RELOAD"
+
+[node name="submit" type="Button" parent="button_container"]
+margin_left = 150.0
+margin_right = 250.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+text = "SUBMIT"
+
+[node name="layer1" parent="." instance=ExtResource( 1 )]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 410.0
+margin_bottom = 116.667
+texture = ExtResource( 3 )
+id = "0"
+
+[node name="layer2" parent="." instance=ExtResource( 1 )]
+margin_left = 450.0
+margin_top = 50.0
+margin_right = 810.0
+margin_bottom = 116.667
+texture = ExtResource( 8 )
+id = "1"
+
+[node name="layer3" parent="." instance=ExtResource( 1 )]
+margin_left = 50.0
+margin_top = 250.0
+margin_right = 410.0
+margin_bottom = 316.667
+texture = ExtResource( 4 )
+id = "2"
+
+[node name="layer4" parent="." instance=ExtResource( 1 )]
+margin_left = 450.0
+margin_top = 250.0
+margin_right = 810.0
+margin_bottom = 316.667
+texture = ExtResource( 5 )
+id = "3"
+
+[node name="layer5" parent="." instance=ExtResource( 1 )]
+margin_left = 50.0
+margin_top = 450.0
+margin_right = 410.0
+margin_bottom = 516.667
+texture = ExtResource( 6 )
+id = "4"
+
+[node name="layer6" parent="." instance=ExtResource( 1 )]
+margin_left = 450.0
+margin_top = 450.0
+margin_right = 810.0
+margin_bottom = 516.667
+texture = ExtResource( 7 )
+id = "5"
+
+[node name="layer7" parent="." instance=ExtResource( 1 )]
+margin_left = 254.0
+margin_top = 575.0
+margin_right = 614.0
+margin_bottom = 641.667
+texture = ExtResource( 2 )
+id = "6"
+
+[node name="popup_layer" type="CanvasLayer" parent="."]
+
+[node name="game_over" parent="popup_layer" instance=ExtResource( 11 )]
+visible = false
+
+[node name="popup" parent="popup_layer" instance=ExtResource( 12 )]
+visible = false
+
+[connection signal="pressed" from="button_container/reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="button_container/submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="popup_layer/popup/tap" to="." method="_on_tap_pressed"]
+
+[editable path="popup_layer/game_over"]
+[editable path="popup_layer/popup"]

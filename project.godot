@@ -218,7 +218,6 @@ SignalManager="*res://managers/inventory/signal_manager.gd"
 SettingsManager="*res://managers/inventory/settings_manager.gd"
 ResourceManager="*res://managers/inventory/resource_manager.gd"
 InventoryManager="*res://managers/inventory/inventory_manager.tscn"
-SaveManager="*res://managers/save_manager.gd"
 
 [debug]
 
