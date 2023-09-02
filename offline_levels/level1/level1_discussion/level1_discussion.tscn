@@ -174,7 +174,3 @@ margin_top = 334.0
 margin_right = 729.0
 margin_bottom = 426.0
 texture = ExtResource( 6 )
-
-[node name="TextTimer" type="Timer" parent="."]
-
-[connection signal="timeout" from="TextTimer" to="manager" method="_on_TextTimer_timeout"]

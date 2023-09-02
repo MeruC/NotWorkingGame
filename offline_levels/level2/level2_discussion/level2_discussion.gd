@@ -47,8 +47,9 @@ func update_dialog():
 		
 		$"../AnimationPlayer/title".text = title
 		if size == 1:
-			$"../AnimationPlayer/4".visible = true
 			$"../AnimationPlayer".play("picture_animation")
+			$"../AnimationPlayer/4".visible = true
+		elif size == 0:
 			$"../AnimationPlayer".play("title_animation")
 		elif size == 2:
 			$"../AnimationPlayer/1".visible = true
