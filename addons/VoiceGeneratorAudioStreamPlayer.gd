@@ -4,7 +4,7 @@ signal finished_phrase
 
 var _phrase: String = ""
 var _phrase_pos: int = 0
-var _phrase_wait: float = -4
+var _phrase_wait: float = -1
 
 var _original_pitch_scale: float
 var _punctuations: Dictionary = {
