@@ -1,76 +1,21 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://offline_levels/level2/level2_discussion/discussion_background.png" type="Texture" id=1]
 [ext_resource path="res://offline_levels/level2/level2_discussion/level2_discussion.gd" type="Script" id=2]
 [ext_resource path="res://resources/font/sev7cyr.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://offline_levels/level2/level2_discussion/4.png" type="Texture" id=4]
 [ext_resource path="res://offline_levels/level2/level2_discussion/2.png" type="Texture" id=5]
 [ext_resource path="res://offline_levels/level2/level2_discussion/3.png" type="Texture" id=6]
 [ext_resource path="res://offline_levels/level2/level2_discussion/1.png" type="Texture" id=7]
 [ext_resource path="res://offline_levels/level2/level2_discussion/6.png" type="Texture" id=8]
 [ext_resource path="res://offline_levels/level2/level2_discussion/5.png" type="Texture" id=9]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export41.png" type="Texture" id=10]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export56.png" type="Texture" id=12]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export53.png" type="Texture" id=13]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export57.png" type="Texture" id=14]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export50.png" type="Texture" id=15]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export42.png" type="Texture" id=16]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export46.png" type="Texture" id=17]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export54.png" type="Texture" id=18]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export10.png" type="Texture" id=19]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export62.png" type="Texture" id=20]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export60.png" type="Texture" id=21]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export49.png" type="Texture" id=22]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export63.png" type="Texture" id=23]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export58.png" type="Texture" id=24]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export59.png" type="Texture" id=25]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export61.png" type="Texture" id=26]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export6.png" type="Texture" id=27]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export4.png" type="Texture" id=28]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export9.png" type="Texture" id=29]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export43.png" type="Texture" id=30]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export47.png" type="Texture" id=31]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export48.png" type="Texture" id=32]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export51.png" type="Texture" id=33]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export55.png" type="Texture" id=34]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export52.png" type="Texture" id=35]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export40.png" type="Texture" id=36]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export5.png" type="Texture" id=37]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export45.png" type="Texture" id=38]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export8.png" type="Texture" id=39]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export2.png" type="Texture" id=40]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export39.png" type="Texture" id=41]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export64.png" type="Texture" id=42]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export67.png" type="Texture" id=43]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export72.png" type="Texture" id=44]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export71.png" type="Texture" id=45]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export73.png" type="Texture" id=46]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export68.png" type="Texture" id=47]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export38.png" type="Texture" id=48]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export3.png" type="Texture" id=49]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export33.png" type="Texture" id=50]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export65.png" type="Texture" id=51]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export66.png" type="Texture" id=52]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export35.png" type="Texture" id=53]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export69.png" type="Texture" id=54]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export34.png" type="Texture" id=55]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export37.png" type="Texture" id=56]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export32.png" type="Texture" id=57]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export44.png" type="Texture" id=58]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export70.png" type="Texture" id=59]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export31.png" type="Texture" id=60]
-[ext_resource path="res://offline_levels/level2/level2_discussion/car_animation/car-export36.png" type="Texture" id=61]
 
 [sub_resource type="DynamicFont" id=2]
 size = 22
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "car_animation"
-length = 4.0
-
 [sub_resource type="Animation" id=3]
 resource_name = "picture_animation"
-length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/1:rect_position")
 tracks/0/interp = 1
@@ -167,18 +112,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Vector2( 0.00936417, 0.0122941 ), Vector2( 0.0406981, 0.0544926 ) ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("AnimationPlayer/4:texture")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 49 ), ExtResource( 28 ), ExtResource( 37 ), ExtResource( 27 ), ExtResource( 39 ), ExtResource( 29 ), ExtResource( 19 ), ExtResource( 60 ), ExtResource( 57 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 61 ), ExtResource( 56 ), ExtResource( 48 ), ExtResource( 41 ), ExtResource( 36 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 30 ), ExtResource( 58 ), ExtResource( 38 ), ExtResource( 17 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 34 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 42 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 43 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 59 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 46 ) ]
-}
 
 [sub_resource type="Animation" id=4]
 resource_name = "title_animation"
@@ -223,7 +156,6 @@ text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/car_animation = SubResource( 5 )
 anims/picture_animation = SubResource( 3 )
 anims/title_animation = SubResource( 4 )
 
@@ -241,28 +173,28 @@ autowrap = true
 
 [node name="1" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 478.0
-margin_top = 178.0
-margin_right = 1149.0
-margin_bottom = 550.001
+margin_left = 482.0
+margin_top = 272.0
+margin_right = 1153.0
+margin_bottom = 644.001
 rect_scale = Vector2( 0.461747, 0.446264 )
 texture = ExtResource( 7 )
 
 [node name="2" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 707.0
+margin_left = 532.0
 margin_top = 293.0
-margin_right = 1507.0
+margin_right = 1332.0
 margin_bottom = 917.0
 rect_scale = Vector2( 0.278231, 0.282524 )
 texture = ExtResource( 5 )
 
 [node name="3" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 355.0
-margin_top = 271.0
-margin_right = 1955.0
-margin_bottom = 1338.0
+margin_left = 514.0
+margin_top = 277.0
+margin_right = 2114.0
+margin_bottom = 1344.0
 rect_scale = Vector2( 0.148327, 0.146714 )
 texture = ExtResource( 6 )
 
@@ -272,23 +204,23 @@ margin_left = 511.0
 margin_top = 262.0
 margin_right = 2431.0
 margin_bottom = 1342.0
-rect_scale = Vector2( 0.00952068, 0.00585423 )
-texture = ExtResource( 39 )
+rect_scale = Vector2( 0.123307, 0.165836 )
+texture = ExtResource( 4 )
 
 [node name="5" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 366.0
-margin_top = 245.0
-margin_right = 2286.0
-margin_bottom = 1325.0
-rect_scale = Vector2( 0.0120923, 0.0183473 )
+margin_left = 496.0
+margin_top = 237.0
+margin_right = 2416.0
+margin_bottom = 1317.0
+rect_scale = Vector2( 0.157017, 0.215427 )
 texture = ExtResource( 8 )
 
 [node name="6" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 341.0
-margin_top = 271.0
-margin_right = 7253.0
-margin_bottom = 3727.0
-rect_scale = Vector2( 0.00936417, 0.0122941 )
+margin_left = 486.0
+margin_top = 270.0
+margin_right = 7398.0
+margin_bottom = 3726.0
+rect_scale = Vector2( 0.0406981, 0.0544926 )
 texture = ExtResource( 9 )
