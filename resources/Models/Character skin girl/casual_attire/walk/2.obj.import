@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/2.obj-b7c9982a1ae29c4c591bdac82e5c480f.mesh"
+
+[deps]
+
+files=[ "res://.import/2.obj-b7c9982a1ae29c4c591bdac82e5c480f.mesh" ]
+
+source_file="res://resources/Models/Character skin girl/casual_attire/walk/2.obj"
+dest_files=[ "res://.import/2.obj-b7c9982a1ae29c4c591bdac82e5c480f.mesh", "res://.import/2.obj-b7c9982a1ae29c4c591bdac82e5c480f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

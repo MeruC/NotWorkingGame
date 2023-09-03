@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://offline_levels/level3/channels/tv frame_1.png" type="Texture" id=1]
 [ext_resource path="res://resources/font/sev7cyr.ttf" type="DynamicFontData" id=2]
@@ -14,6 +14,16 @@
 [ext_resource path="res://offline_levels/level3/channels/tv frame_8.png" type="Texture" id=12]
 [ext_resource path="res://offline_levels/level3/channels/tv frame_9.png" type="Texture" id=13]
 [ext_resource path="res://offline_levels/level3/channels/tv frame_10.png" type="Texture" id=14]
+[ext_resource path="res://offline_levels/level3/gif_asset/server.png" type="Texture" id=15]
+[ext_resource path="res://offline_levels/level3/gif_asset/client.png" type="Texture" id=16]
+[ext_resource path="res://offline_levels/level3/gif_asset/router.png" type="Texture" id=17]
+[ext_resource path="res://offline_levels/level3/gif_asset/switches.png" type="Texture" id=18]
+[ext_resource path="res://offline_levels/level3/gif_asset/firewall.png" type="Texture" id=19]
+[ext_resource path="res://offline_levels/level3/gif_asset/modem.png" type="Texture" id=20]
+[ext_resource path="res://offline_levels/level3/gif_asset/access_point.png" type="Texture" id=21]
+[ext_resource path="res://offline_levels/level3/gif_asset/network cables.png" type="Texture" id=22]
+[ext_resource path="res://offline_levels/level3/gif_asset/Nic.png" type="Texture" id=23]
+[ext_resource path="res://offline_levels/level3/gif_asset/cloud_Infrastructure.png" type="Texture" id=24]
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
@@ -44,6 +54,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "channel 1"
+length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("../CanvasLayer/NinePatchRect:texture")
 tracks/0/interp = 1
@@ -80,6 +91,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 82, 281 ), Vector2( 143, 162 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer/server:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00959231, 0.00945635 ), Vector2( 0.522782, 0.386525 ) ]
+}
 
 [sub_resource type="Animation" id=15]
 resource_name = "channel 10"
@@ -106,6 +129,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/cloud_infrastructure:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0094339, 0.0981595 ), Vector2( 1.33585, 1 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -134,6 +169,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false, true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/client:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00517257, 0.0162038 ), Vector2( 0.591724, 0.743056 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "channel 3"
@@ -160,6 +207,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/router:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0284927, 0.0110294 ), Vector2( 0.719669, 0.477941 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -188,6 +247,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false, true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/switch:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0275001, 0.0635964 ), Vector2( 1.145, 1.34211 ) ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "channel 5"
@@ -214,6 +285,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/firewall:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0182928, 0.037931 ), Vector2( 1.21748, 1.12069 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -242,6 +325,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false, true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/modem:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0115063, 0.212733 ), Vector2( 0.893305, 0.923913 ) ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "channel 7"
@@ -268,6 +363,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/access_point:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0392751, 0.109091 ), Vector2( 2.42296, 1.43182 ) ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -296,6 +403,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false, true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/network_cable:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00843329, 0.0580736 ), Vector2( 0.497463, 0.615318 ) ]
+}
 
 [sub_resource type="Animation" id=14]
 resource_name = "channel 9"
@@ -322,6 +441,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/NIC:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0122973, 0.0416666 ), Vector2( 0.681486, 0.688596 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -363,6 +494,123 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 
+[sub_resource type="Animation" id=16]
+resource_name = "server_animation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../AnimationPlayer/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "server_animation"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/server:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/client:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/router:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer/switch:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimationPlayer/firewall:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 4 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationPlayer/modem:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimationPlayer/access_point:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AnimationPlayer/cloud_infrastructure:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
 [node name="level3_discussion" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -373,7 +621,7 @@ layer = -10
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 margin_right = 1284.0
 margin_bottom = 713.0
-texture = ExtResource( 6 )
+texture = ExtResource( 12 )
 
 [node name="title" type="Label" parent="CanvasLayer"]
 margin_left = 59.0
@@ -391,15 +639,15 @@ autowrap = true
 margin_left = 82.0
 margin_top = 281.0
 margin_right = 1002.0
-margin_bottom = 680.0
+margin_bottom = 679.997
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "this os the dialog"
 align = 3
 autowrap = true
+percent_visible = -0.0666667
 
 [node name="channel" type="Label" parent="CanvasLayer"]
-visible = false
 margin_left = 1062.0
 margin_top = 70.0
 margin_right = 1295.0
@@ -427,3 +675,76 @@ anims/channel = SubResource( 10 )
 "anims/channel 8" = SubResource( 13 )
 "anims/channel 9" = SubResource( 14 )
 anims/ending_animation = SubResource( 5 )
+anims/server_animation = SubResource( 16 )
+
+[node name="server" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 632, 470.5 )
+scale = Vector2( 0.00959231, 0.00945635 )
+texture = ExtResource( 15 )
+hframes = 5
+
+[node name="client" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 627.5, 468.5 )
+scale = Vector2( 0.00517257, 0.0162038 )
+texture = ExtResource( 16 )
+hframes = 3
+
+[node name="router" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 629.75, 505 )
+scale = Vector2( 0.719669, 0.477941 )
+texture = ExtResource( 17 )
+hframes = 5
+
+[node name="switch" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 549, 479 )
+scale = Vector2( 0.0275001, 0.0635964 )
+texture = ExtResource( 18 )
+hframes = 4
+
+[node name="firewall" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 573.5, 474.5 )
+scale = Vector2( 0.0182928, 0.037931 )
+texture = ExtResource( 19 )
+hframes = 5
+
+[node name="modem" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 514, 482.25 )
+scale = Vector2( 0.893305, 0.923913 )
+texture = ExtResource( 20 )
+hframes = 11
+
+[node name="access_point" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 560, 479.5 )
+scale = Vector2( 0.0392751, 0.109091 )
+texture = ExtResource( 21 )
+hframes = 2
+
+[node name="network_cable" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 524.454, 485.881 )
+rotation = -1.57908
+scale = Vector2( 0.00843329, 0.0580736 )
+texture = ExtResource( 22 )
+
+[node name="NIC" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 610.813, 480 )
+scale = Vector2( 0.0122973, 0.0416666 )
+texture = ExtResource( 23 )
+
+[node name="cloud_infrastructure" type="Sprite" parent="level3_manager/AnimationPlayer"]
+visible = false
+position = Vector2( 594, 474 )
+scale = Vector2( 1.33585, 1 )
+texture = ExtResource( 24 )
+hframes = 8
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="level3_manager"]
+anims/server_animation = SubResource( 17 )

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/1.obj-e5e9119f46512ebb859a47ae56d88add.mesh"
+
+[deps]
+
+files=[ "res://.import/1.obj-e5e9119f46512ebb859a47ae56d88add.mesh" ]
+
+source_file="res://resources/Models/Character skin boy/blue_shirt/walk/1.obj"
+dest_files=[ "res://.import/1.obj-e5e9119f46512ebb859a47ae56d88add.mesh", "res://.import/1.obj-e5e9119f46512ebb859a47ae56d88add.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

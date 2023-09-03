@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/idle.obj-a4138b4670b806536100b505da0a6f9a.mesh"
+
+[deps]
+
+files=[ "res://.import/idle.obj-a4138b4670b806536100b505da0a6f9a.mesh" ]
+
+source_file="res://resources/Models/Character skin boy/cict_shirt/idle/idle.obj"
+dest_files=[ "res://.import/idle.obj-a4138b4670b806536100b505da0a6f9a.mesh", "res://.import/idle.obj-a4138b4670b806536100b505da0a6f9a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

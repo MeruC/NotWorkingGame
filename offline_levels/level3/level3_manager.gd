@@ -50,25 +50,53 @@ func update_dialog():
 		$"../CanvasLayer/channel".text = channel
 		if size == 3:
 			$AnimationPlayer.play("channel 1")
+			$AnimationPlayer/server.visible = true
+			$AnimationPlayer2.play("server_animation")
 		elif size == 5:
+			$AnimationPlayer/server.visible = false
+			$AnimationPlayer/client.visible = true
 			$AnimationPlayer.play("channel 2")
+			$AnimationPlayer2.play("server_animation")
 		elif size == 6:
+			$AnimationPlayer/client.visible = false
+			$AnimationPlayer/router.visible = true
 			$AnimationPlayer.play("channel 3")
+			$AnimationPlayer2.play("server_animation")
 		elif size == 8:
+			$AnimationPlayer/router.visible = false	
+			$AnimationPlayer/switch.visible = true
 			$AnimationPlayer.play("channel 4")
+			$AnimationPlayer2.play("server_animation")
 		elif size == 10:
+			$AnimationPlayer/switch.visible = false
+			$AnimationPlayer/firewall.visible = true
 			$AnimationPlayer.play("channel 5")
+			$AnimationPlayer2.play("server_animation")
 		elif size == 12:
+			$AnimationPlayer/firewall.visible = false
+			$AnimationPlayer/modem.visible = true
 			$AnimationPlayer.play("channel 6")
+			$AnimationPlayer2.play("server_animation")
 		elif size == 14:
+			$AnimationPlayer/modem.visible = false
+			$AnimationPlayer/access_point.visible = true
+			$AnimationPlayer2.play("server_animation")
 			$AnimationPlayer.play("channel 7")
 		elif size == 16:
+			$AnimationPlayer/access_point.visible = false
+			$AnimationPlayer/network_cable.visible = true
 			$AnimationPlayer.play("channel 8")
 		elif size == 17:
+			$AnimationPlayer/network_cable.visible = false
+			$AnimationPlayer/NIC.visible = true
 			$AnimationPlayer.play("channel 9")
 		elif size == 18:
+			$AnimationPlayer/NIC.visible = false
+			$AnimationPlayer/cloud_infrastructure.visible = true
+			$AnimationPlayer2.play("server_animation")
 			$AnimationPlayer.play("channel 10")
 		elif size == 20:
+			$AnimationPlayer/cloud_infrastructure.visible = false
 			$AnimationPlayer.play("ending_animation")
 
 			
