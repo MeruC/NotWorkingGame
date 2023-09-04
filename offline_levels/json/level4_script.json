@@ -1,0 +1,46 @@
+[
+    {
+        "title": "Network Types",
+        "dialog": "Welcome to a new level where we delve into the intriguing world of network types! In this level, we'll dive into three main network types: LAN, MAN, and WAN"
+    },
+    {
+        "title": "Network Types",
+        "dialog": "These types are like different paths for data to travel, and knowing their distinctions will help you move around the online world with more confidence"
+    },
+    {
+        "title": "Local Area Network (LAN)",
+        "dialog": "It's a network confined to a limited geographical area, like a home, office building, or school campus."
+    },
+    {
+        "title": "Local Area Network (LAN)",
+        "dialog": " LANs excel at high-speed communication within this confined space, enabling devices to share resources like printers, files, and games seamlessly."
+    },
+    {
+        "title": "Metropolitan Area Network (MAN)",
+        "dialog": "Zoom out a little, and you'll encounter the MAN, a network that stretches across a city or a large campus. Picture this as the broader urban area connecting various LANs."
+    },
+    {
+        "title": "Metropolitan Area Network (MAN)",
+        "dialog": "MANs provide faster data rates compared to WANs and are ideal for institutions with multiple campuses that need to communicate swiftly and efficiently."
+    },
+    {
+        "title": "Wide Area Network (WAN)",
+        "dialog": "Take your imagination to a global scale, and you're in the territory of WANs. These networks cover vast distances, linking LANs and MANs across cities, countries, and continents."
+    },
+    {
+        "title": "Wide Area Network (WAN)",
+        "dialog": "WANs are the backbone of global communication, connecting people and businesses worldwide."
+    },
+    {
+        "title": "Wide Area Network (WAN)",
+        "dialog": "Whether you're video conferencing with colleagues on another continent or browsing a website hosted far away, WANs make it possible."
+    },
+    {
+        "title": "Now you are ready for the next challenge!",
+        "dialog": "You've now unveiled the distinctive landscapes of LAN, MAN, and WAN. As you journey through this level, you'll encounter scenarios where you'll need to match"
+    },
+    {
+        "title": "Now you are ready for the next challenge!",
+        "dialog": "the right network type to different situations. This understanding will not only deepen your grasp of networking but also empower you to make informed choices in a digitally connected world."
+    }
+]
