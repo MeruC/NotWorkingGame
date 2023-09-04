@@ -1,0 +1,38 @@
+[
+    {
+        "title": "The Open Systems Interconnection (OSI) Model",
+        "dialog": "Welcome! In this level we are diving into the OSI Model's layers. Each layer plays a specific role in data communication,"
+    },
+    {
+        "title": "The Open Systems Interconnection (OSI) Model",
+        "dialog": "like a team working together to build a network. Let's uncover the essence of each layer."
+    },
+    {
+        "title": "Physical Layer",
+        "dialog": "Transmits raw bit stream over the physical medium."
+    },
+    {
+        "title": "Data Link Layer",
+        "dialog": "Defines the format of data on the network."
+    },
+    {
+        "title": "Network Layer",
+        "dialog": "Decides which physical path that data will take."
+    },
+    {
+        "title": "Transport Layer",
+        "dialog": "Transmits data using transmission protocols including TCP and UDP"
+    },
+    {
+        "title": "Session Layer",
+        "dialog": "Establishes, maintains, and terminates connections between devices."
+    },
+    {
+        "title": "Presentation Layer",
+        "dialog": "Ensures that data is in usable format and is where data encryption occurs."
+    },
+    {
+        "title": "Application Layer",
+        "dialog": "Provides network services directly to end-users and applications."
+    }
+]
