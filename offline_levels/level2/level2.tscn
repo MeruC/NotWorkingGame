@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://offline_levels/level2/letter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://offline_levels/level2/manager.gd" type="Script" id=3]
 [ext_resource path="res://offline_levels/level2/blank.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=5]
+[ext_resource path="res://offline_levels/game_over.tscn" type="PackedScene" id=6]
+[ext_resource path="res://offline_levels/instructions.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -13,6 +15,37 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 50
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "animation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
 
 [node name="level2" type="Node2D"]
 
@@ -31,248 +64,17 @@ autowrap = true
 script = ExtResource( 3 )
 letter_scene = ExtResource( 2 )
 blank_scene = ExtResource( 4 )
-
-[node name="blank_container" type="GridContainer" parent="."]
-margin_left = 45.0
-margin_top = 100.0
-margin_right = 1240.0
-margin_bottom = 180.0
-rect_clip_content = true
-custom_constants/hseparation = 5
-columns = 15
-
-[node name="blank" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 75.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank2" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 80.0
-margin_top = 0.0
-margin_right = 155.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank3" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 160.0
-margin_top = 0.0
-margin_right = 235.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank4" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 240.0
-margin_top = 0.0
-margin_right = 315.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank5" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 320.0
-margin_top = 0.0
-margin_right = 395.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank6" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 400.0
-margin_top = 0.0
-margin_right = 475.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank7" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 480.0
-margin_top = 0.0
-margin_right = 555.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank8" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 560.0
-margin_top = 0.0
-margin_right = 635.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank9" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 640.0
-margin_top = 0.0
-margin_right = 715.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank10" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 720.0
-margin_top = 0.0
-margin_right = 795.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank11" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 800.0
-margin_top = 0.0
-margin_right = 875.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank12" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 880.0
-margin_top = 0.0
-margin_right = 955.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank13" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 960.0
-margin_top = 0.0
-margin_right = 1035.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank14" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 1040.0
-margin_top = 0.0
-margin_right = 1115.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="blank15" parent="blank_container" instance=ExtResource( 4 )]
-margin_left = 1120.0
-margin_top = 0.0
-margin_right = 1195.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-text = "_"
-
-[node name="letter_container" type="GridContainer" parent="."]
-margin_left = 45.0
-margin_top = 500.0
-margin_right = 1240.0
-margin_bottom = 580.0
-custom_constants/hseparation = 5
-columns = 15
-
-[node name="letter1" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 75.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter2" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 80.0
-margin_top = 0.0
-margin_right = 155.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter3" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 160.0
-margin_top = 0.0
-margin_right = 235.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter4" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 240.0
-margin_top = 0.0
-margin_right = 315.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter5" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 320.0
-margin_top = 0.0
-margin_right = 395.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter6" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 400.0
-margin_top = 0.0
-margin_right = 475.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter7" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 480.0
-margin_top = 0.0
-margin_right = 555.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter8" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 560.0
-margin_top = 0.0
-margin_right = 635.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter9" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 640.0
-margin_top = 0.0
-margin_right = 715.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter10" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 720.0
-margin_top = 0.0
-margin_right = 795.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter11" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 800.0
-margin_top = 0.0
-margin_right = 875.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter12" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 880.0
-margin_top = 0.0
-margin_right = 955.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter13" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 960.0
-margin_top = 0.0
-margin_right = 1035.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter14" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 1040.0
-margin_top = 0.0
-margin_right = 1115.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
-
-[node name="letter15" parent="letter_container" instance=ExtResource( 2 )]
-margin_left = 1120.0
-margin_top = 0.0
-margin_right = 1195.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 75, 75 )
+clue_label = NodePath("../clue")
+score_label = NodePath("../score")
+letter_container = NodePath("../letter_CenterContainer/letter_container")
+blank_container = NodePath("../blank_CenterContainer/blank_container")
+submit_button = NodePath("../submit")
+popup_score_label = NodePath("../popup_layer/game_over/main_popup/score")
+game_over_popup = NodePath("../popup_layer/game_over")
+popup_next_button = NodePath("../popup_layer/game_over/main_popup/GridContainer/next")
+popup_indicator_label = NodePath("../popup_layer/game_over/main_popup/indicator")
+instructions_popup = NodePath("../popup_layer/instructions")
+instructions_sprite = NodePath("../popup_layer/instructions/main_popup/AnimationPlayer/Sprite")
 
 [node name="submit" type="Button" parent="."]
 margin_left = 725.0
@@ -281,6 +83,7 @@ margin_right = 1025.0
 margin_bottom = 682.0
 rect_min_size = Vector2( 300, 63 )
 custom_fonts/font = ExtResource( 5 )
+disabled = true
 text = "SUBMIT"
 
 [node name="clear" type="Button" parent="."]
@@ -314,5 +117,329 @@ custom_fonts/font = SubResource( 2 )
 text = "0"
 autowrap = true
 
+[node name="letter_CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 500.0
+margin_right = 1280.0
+margin_bottom = 575.0
+
+[node name="letter_container" type="GridContainer" parent="letter_CenterContainer"]
+margin_left = 42.0
+margin_right = 1237.0
+margin_bottom = 75.0
+custom_constants/hseparation = 5
+columns = 15
+
+[node name="letter1" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 75.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter2" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 80.0
+margin_top = 0.0
+margin_right = 155.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter3" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 160.0
+margin_top = 0.0
+margin_right = 235.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter4" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 240.0
+margin_top = 0.0
+margin_right = 315.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter5" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 320.0
+margin_top = 0.0
+margin_right = 395.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter6" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 400.0
+margin_top = 0.0
+margin_right = 475.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter7" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 480.0
+margin_top = 0.0
+margin_right = 555.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter8" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 560.0
+margin_top = 0.0
+margin_right = 635.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter9" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 640.0
+margin_top = 0.0
+margin_right = 715.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter10" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 720.0
+margin_top = 0.0
+margin_right = 795.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter11" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 800.0
+margin_top = 0.0
+margin_right = 875.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter12" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 880.0
+margin_top = 0.0
+margin_right = 955.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter13" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 960.0
+margin_top = 0.0
+margin_right = 1035.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter14" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 1040.0
+margin_top = 0.0
+margin_right = 1115.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="letter15" parent="letter_CenterContainer/letter_container" instance=ExtResource( 2 )]
+margin_left = 1120.0
+margin_top = 0.0
+margin_right = 1195.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+blank_container = NodePath("../../../blank_CenterContainer/blank_container")
+submit_button = NodePath("../../../submit")
+
+[node name="blank_CenterContainer" type="CenterContainer" parent="."]
+margin_top = 125.0
+margin_right = 1280.0
+margin_bottom = 200.0
+
+[node name="blank_container" type="GridContainer" parent="blank_CenterContainer"]
+margin_left = 42.0
+margin_right = 1237.0
+margin_bottom = 75.0
+rect_clip_content = true
+custom_constants/hseparation = 5
+columns = 15
+
+[node name="blank" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 75.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank2" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 80.0
+margin_top = 0.0
+margin_right = 155.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank3" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 160.0
+margin_top = 0.0
+margin_right = 235.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank4" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 240.0
+margin_top = 0.0
+margin_right = 315.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank5" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 320.0
+margin_top = 0.0
+margin_right = 395.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank6" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 400.0
+margin_top = 0.0
+margin_right = 475.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank7" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 480.0
+margin_top = 0.0
+margin_right = 555.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank8" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 560.0
+margin_top = 0.0
+margin_right = 635.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank9" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 640.0
+margin_top = 0.0
+margin_right = 715.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank10" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 720.0
+margin_top = 0.0
+margin_right = 795.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank11" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 800.0
+margin_top = 0.0
+margin_right = 875.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank12" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 880.0
+margin_top = 0.0
+margin_right = 955.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank13" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 960.0
+margin_top = 0.0
+margin_right = 1035.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank14" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 1040.0
+margin_top = 0.0
+margin_right = 1115.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="blank15" parent="blank_CenterContainer/blank_container" instance=ExtResource( 4 )]
+margin_left = 1120.0
+margin_top = 0.0
+margin_right = 1195.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 75, 75 )
+text = "_"
+letter_container = NodePath("../../../letter_CenterContainer/letter_container")
+
+[node name="popup_layer" type="CanvasLayer" parent="."]
+
+[node name="game_over" parent="popup_layer" instance=ExtResource( 6 )]
+visible = false
+
+[node name="instructions" parent="popup_layer" instance=ExtResource( 7 )]
+
+[node name="content" parent="popup_layer/instructions/main_popup" index="1"]
+margin_bottom = 30.0
+rect_min_size = Vector2( 900, 230 )
+text = "To solve this level,  unscramble the jumbled letters to unveil the answer that corresponds to the provided clue. You can simply tap on a letter to supply it to an empty space and form the correct word. Use your word-solving skills to conquer the challenge and move forward in the game. Best of luck!"
+
+[node name="AnimationPlayer" parent="popup_layer/instructions/main_popup" index="2"]
+playback_speed = 0.25
+anims/RESET = SubResource( 3 )
+anims/animation = SubResource( 4 )
+
+[node name="Sprite" parent="popup_layer/instructions/main_popup/AnimationPlayer" index="0"]
+visible = false
+frame = 0
+
 [connection signal="pressed" from="submit" to="manager" method="_on_submit_pressed"]
 [connection signal="pressed" from="clear" to="manager" method="_on_clear_pressed"]
+[connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="manager" method="_on_retry_pressed"]
+[connection signal="pressed" from="popup_layer/instructions/tap" to="manager" method="_on_tap_pressed"]
+
+[editable path="popup_layer/game_over"]
+[editable path="popup_layer/instructions"]

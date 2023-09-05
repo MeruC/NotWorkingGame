@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://offline_levels/level3/manager.gd" type="Script" id=1]
 [ext_resource path="res://offline_levels/level3/choices.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://offline_levels/instructions.tscn" type="PackedScene" id=4]
+[ext_resource path="res://offline_levels/game_over.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -12,9 +14,52 @@ font_data = ExtResource( 3 )
 size = 45
 font_data = ExtResource( 3 )
 
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "animation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
 [node name="level3" type="Node2D"]
 script = ExtResource( 1 )
 choice_scene = ExtResource( 2 )
+clue_label = NodePath("clue")
+score_label = NodePath("score")
+choice1 = NodePath("choices/choices_container/choice1/image_holder")
+choice2 = NodePath("choices/choices_container/choice2/image_holder")
+choices = NodePath("choices")
+popup_score_label = NodePath("popup_layer/game_over/main_popup/score")
+game_over_popup = NodePath("popup_layer/game_over")
+popup_next_button = NodePath("popup_layer/game_over/main_popup/GridContainer/next")
+popup_indicator_label = NodePath("popup_layer/game_over/main_popup/indicator")
+animation_player = NodePath("popup_layer/instructions/main_popup/AnimationPlayer")
+instructions_popup = NodePath("popup_layer/instructions")
+instructions_sprite = NodePath("popup_layer/instructions/main_popup/AnimationPlayer/Sprite")
 
 [node name="score_board" type="Label" parent="."]
 margin_left = 51.0
@@ -52,7 +97,32 @@ autowrap = true
 [node name="choices" parent="." instance=ExtResource( 2 )]
 script = null
 
+[node name="popup_layer" type="CanvasLayer" parent="."]
+
+[node name="game_over" parent="popup_layer" instance=ExtResource( 5 )]
+visible = false
+
+[node name="instructions" parent="popup_layer" instance=ExtResource( 4 )]
+
+[node name="content" parent="popup_layer/instructions/main_popup" index="1"]
+margin_bottom = 30.0
+rect_min_size = Vector2( 900, 230 )
+text = "Your task is to carefully examine the provided object definition and then select the image that best matches it. Simply tap on the image that you believe is the perfect fit for the given description. Make your choice wisely to advance in the game. Have fun and good luck!"
+
+[node name="AnimationPlayer" parent="popup_layer/instructions/main_popup" index="2"]
+playback_speed = 0.25
+anims/RESET = SubResource( 3 )
+anims/animation = SubResource( 4 )
+
+[node name="Sprite" parent="popup_layer/instructions/main_popup/AnimationPlayer" index="0"]
+visible = false
+frame = 0
+
 [connection signal="pressed" from="choices/choices_container/choice1" to="." method="_on_choice1_pressed"]
 [connection signal="pressed" from="choices/choices_container/choice2" to="." method="_on_choice2_pressed"]
+[connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="popup_layer/instructions/tap" to="." method="_on_tap_pressed"]
 
 [editable path="choices"]
+[editable path="popup_layer/game_over"]
+[editable path="popup_layer/instructions"]

@@ -48,5 +48,8 @@
     "name": "file10",
     "type": "info",
     "content": "A photo album with labeled images depicting various landmarks around the world."
+  },
+  {
+    "instructions": ""
   }
 ]

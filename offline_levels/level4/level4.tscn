@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://offline_levels/level4/manager.gd" type="Script" id=3]
 [ext_resource path="res://offline_levels/level4/popup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://offline_levels/game_over.tscn" type="PackedScene" id=5]
+[ext_resource path="res://offline_levels/instructions.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -14,8 +15,59 @@ font_data = ExtResource( 1 )
 size = 45
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 38
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "animation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
 [node name="level4" type="Node2D"]
 script = ExtResource( 3 )
+clue_label = NodePath("clue")
+score_label = NodePath("score")
+lan_button = NodePath("button_container/lan_button")
+man_button = NodePath("button_container/man_button")
+wan_button = NodePath("button_container/wan_button")
+button_container = NodePath("button_container")
+explanation_label = NodePath("popup_layer/popup/main_popup/explaination")
+logo_rect = NodePath("popup_layer/popup/main_popup/logo")
+popup_control = NodePath("popup_layer/popup")
+popup_score_label = NodePath("popup_layer/game_over/main_popup/score")
+game_over_popup = NodePath("popup_layer/game_over")
+popup_next_button = NodePath("popup_layer/game_over/main_popup/GridContainer/next")
+popup_indicator_label = NodePath("popup_layer/game_over/main_popup/indicator")
+animation_player = NodePath("popup_layer/instructions/main_popup/AnimationPlayer")
+instructions_popup = NodePath("popup_layer/instructions")
+instructions_sprite = NodePath("popup_layer/instructions/main_popup/AnimationPlayer/Sprite")
 
 [node name="score_board" type="Label" parent="."]
 margin_left = 51.0
@@ -87,17 +139,33 @@ text = "WAN"
 [node name="popup" parent="popup_layer" instance=ExtResource( 4 )]
 visible = false
 
-[node name="explaination" parent="popup_layer/popup/main_popup" index="1"]
-valign = 1
-
 [node name="game_over" parent="popup_layer" instance=ExtResource( 5 )]
 visible = false
+
+[node name="instructions" parent="popup_layer" instance=ExtResource( 6 )]
+
+[node name="content" parent="popup_layer/instructions/main_popup" index="1"]
+margin_bottom = 30.0
+rect_min_size = Vector2( 900, 230 )
+custom_fonts/font = SubResource( 5 )
+text = "You'll be presented with various scenarios, and your challenge is to choose the most appropriate area network type that fits each situation. If you're confident in your choice, simply tap the button corresponding to the selected area network type. Make strategic decisions to match the scenarios and network types correctly, and aim for a perfect score as you progress through the game. Best of luck!"
+
+[node name="AnimationPlayer" parent="popup_layer/instructions/main_popup" index="2"]
+playback_speed = 0.25
+anims/RESET = SubResource( 3 )
+anims/animation = SubResource( 4 )
+
+[node name="Sprite" parent="popup_layer/instructions/main_popup/AnimationPlayer" index="0"]
+visible = false
+frame = 0
 
 [connection signal="pressed" from="button_container/lan_button" to="." method="_on_lan_button_pressed"]
 [connection signal="pressed" from="button_container/man_button" to="." method="_on_man_button_pressed"]
 [connection signal="pressed" from="button_container/wan_button" to="." method="_on_wan_button_pressed"]
-[connection signal="pressed" from="popup_layer/popup/tap" to="." method="_on_tap_pressed"]
+[connection signal="pressed" from="popup_layer/popup/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="popup_layer/instructions/tap" to="." method="_on_tap_pressed"]
 
 [editable path="popup_layer/popup"]
 [editable path="popup_layer/game_over"]
+[editable path="popup_layer/instructions"]

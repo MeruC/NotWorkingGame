@@ -1,6 +1,7 @@
 extends Button
 
 var letter 
+export(NodePath) onready var letter_container = get_node(letter_container) as GridContainer 
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -20,7 +21,7 @@ func _ready():
 func _on_blank1_pressed():
 	letter = self.text
 	self.text = "_"
-	for child in $"../../letter_container".get_children():
+	for child in letter_container.get_children():
 		if child.text == letter:
 			if child.disabled == true:
 				child.disabled = false
