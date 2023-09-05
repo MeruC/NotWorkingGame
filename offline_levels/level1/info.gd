@@ -19,7 +19,7 @@ func followMouse():
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+	if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed):
 		if event.pressed:
 			selected = true
 		else:

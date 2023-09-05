@@ -1,0 +1,404 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://resources/font/sev7cyr.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://offline_levels/level4/level4_discussion/tv_frame/tv frame_with cat.png" type="Texture" id=2]
+[ext_resource path="res://offline_levels/level4/level4_discussion/level4_manager.gd" type="Script" id=3]
+[ext_resource path="res://offline_levels/level4/level4_discussion/gif_asset/LAN.png" type="Texture" id=4]
+[ext_resource path="res://offline_levels/level4/level4_discussion/gif_asset/MAN.png" type="Texture" id=5]
+[ext_resource path="res://offline_levels/level4/level4_discussion/gif_asset/WAN.png" type="Texture" id=6]
+[ext_resource path="res://offline_levels/level4/level4_discussion/tv_frame/tv frame_2.png" type="Texture" id=7]
+[ext_resource path="res://offline_levels/level4/level4_discussion/tv_frame/tv frame_1.png" type="Texture" id=8]
+[ext_resource path="res://offline_levels/level4/level4_discussion/tv_frame/tv frame_3.png" type="Texture" id=9]
+[ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=11]
+size = 51
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 51
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 78
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "channel_1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/NinePatchRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/channel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/LAN:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0805919, 0.11574 ), Vector2( 2.16776, 2.28148 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "channel_2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/NinePatchRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ), ExtResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/channel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/MAN:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.108889, 0.0393939 ), Vector2( 1.34222, 0.951515 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "channel_3"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/NinePatchRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/channel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/WAN:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0466667, 0.0133333 ), Vector2( 1.12917, 0.901667 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "ending_animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 127, 105 ), Vector2( 80, 208 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/dialog:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 184, 176 ), Vector2( 77, 311 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/dialog:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/channel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/well_done:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "lan_animation"
+
+[sub_resource type="Animation" id=3]
+resource_name = "level4_animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 137, 305 ), Vector2( 127, 105 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/dialog:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 184, 518 ), Vector2( 184, 176 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/dialog:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/title:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/channel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "illustration_animation"
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/LAN:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/MAN:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/WAN:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[node name="level4_discussion" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+margin_right = 1277.0
+margin_bottom = 715.0
+texture = ExtResource( 2 )
+
+[node name="well_done" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 786.0
+margin_top = 577.0
+margin_right = 999.0
+margin_bottom = 616.0
+rect_rotation = -14.8823
+custom_colors/font_color = Color( 0, 1, 0.278431, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Well done !"
+align = 1
+valign = 1
+
+[node name="title" type="Label" parent="CanvasLayer"]
+margin_left = 127.0
+margin_top = 105.0
+margin_right = 1119.0
+margin_bottom = 234.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "title"
+align = 1
+valign = 3
+autowrap = true
+
+[node name="dialog" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 184.0
+margin_top = 176.0
+margin_right = 1027.0
+margin_bottom = 492.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "dialog here"
+autowrap = true
+
+[node name="MAN" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 597, 483 )
+scale = Vector2( 0.30669, 0.185679 )
+texture = ExtResource( 5 )
+hframes = 3
+
+[node name="LAN" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 580.5, 482 )
+scale = Vector2( 0.192826, 0.232199 )
+texture = ExtResource( 4 )
+hframes = 11
+
+[node name="WAN" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 553.75, 491.25 )
+scale = Vector2( 0.197639, 0.137226 )
+texture = ExtResource( 6 )
+hframes = 11
+
+[node name="channel" type="Label" parent="CanvasLayer"]
+margin_left = 1083.0
+margin_top = 81.0
+margin_right = 1212.0
+margin_bottom = 168.0
+custom_colors/font_color = Color( 0, 1, 0.278431, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "TV"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/channel_1 = SubResource( 8 )
+anims/channel_2 = SubResource( 9 )
+anims/channel_3 = SubResource( 10 )
+anims/ending_animation = SubResource( 6 )
+anims/lan_animation = SubResource( 4 )
+anims/level4_animation = SubResource( 3 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/illustration_animation = SubResource( 5 )
