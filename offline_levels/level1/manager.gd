@@ -104,3 +104,7 @@ func _on_retry_pressed():
 func _on_tap_pressed():
 	instructions_popup.visible = false
 	instructions_sprite.visible = false
+
+
+func _on_restart_pressed():
+	get_tree().change_scene(level1_scene)

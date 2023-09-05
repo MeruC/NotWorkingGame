@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=2]
 [ext_resource path="res://offline_levels/level4/manager.gd" type="Script" id=3]
 [ext_resource path="res://offline_levels/level4/popup.tscn" type="PackedScene" id=4]
-[ext_resource path="res://offline_levels/game_over.tscn" type="PackedScene" id=5]
-[ext_resource path="res://offline_levels/instructions.tscn" type="PackedScene" id=6]
+[ext_resource path="res://offline_levels/general_scenes/game_over.tscn" type="PackedScene" id=5]
+[ext_resource path="res://offline_levels/general_scenes/instructions.tscn" type="PackedScene" id=6]
+[ext_resource path="res://offline_levels/general_scenes/pause.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -136,6 +137,8 @@ text = "WAN"
 
 [node name="popup_layer" type="CanvasLayer" parent="."]
 
+[node name="pause" parent="popup_layer" instance=ExtResource( 7 )]
+
 [node name="popup" parent="popup_layer" instance=ExtResource( 4 )]
 visible = false
 
@@ -162,10 +165,12 @@ frame = 0
 [connection signal="pressed" from="button_container/lan_button" to="." method="_on_lan_button_pressed"]
 [connection signal="pressed" from="button_container/man_button" to="." method="_on_man_button_pressed"]
 [connection signal="pressed" from="button_container/wan_button" to="." method="_on_wan_button_pressed"]
+[connection signal="pressed" from="popup_layer/pause/pause_popup/main_popup/GridContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="popup_layer/popup/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="popup_layer/instructions/tap" to="." method="_on_tap_pressed"]
 
+[editable path="popup_layer/pause"]
 [editable path="popup_layer/popup"]
 [editable path="popup_layer/game_over"]
 [editable path="popup_layer/instructions"]

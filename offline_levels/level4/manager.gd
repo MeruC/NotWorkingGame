@@ -5,6 +5,7 @@ var json_file = "res://offline_levels/json/level4_questions.json"
 var json_data = ""
 var i
 var answer
+var level4_scene = "res://offline_levels/level4/level4.tscn"
 
 export(NodePath) onready var clue_label = get_node(clue_label) as Label
 export(NodePath) onready var score_label = get_node(score_label) as Label
@@ -141,7 +142,7 @@ func _on_tap_pressed():
 
 
 func _on_retry_pressed():
-	get_tree().change_scene("res://offline_levels/level4/level4.tscn")
+	get_tree().change_scene(level4_scene)
 
 
 
@@ -157,3 +158,7 @@ func _on_continue_pressed():
 	
 		popup_score_label.text = "Your Score: " + score_label.text + " / 5"
 		game_over_popup.visible = true
+
+
+func _on_restart_pressed():
+	get_tree().change_scene(level4_scene)

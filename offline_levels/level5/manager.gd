@@ -1,5 +1,7 @@
 extends Node2D
 
+var level5_scene = "res://offline_levels/level5/level5.tscn"
+
 export(NodePath) onready var layer1 = get_node(layer1) as TextureRect
 export(NodePath) onready var layer2 = get_node(layer2) as TextureRect
 export(NodePath) onready var layer3 = get_node(layer3) as TextureRect
@@ -96,15 +98,17 @@ func _on_submit_pressed():
 
 func _on_reload_pressed():
 	var current_scene_path = get_tree().current_scene
-	get_tree().change_scene("res://offline_levels/level5/level5.tscn")
-	pass # Replace with function body.
+	get_tree().change_scene(level5_scene)
 
 
 func _on_retry_pressed():
-	get_tree().change_scene("res://offline_levels/level5/level5.tscn")
-	pass # Replace with function body.
+	get_tree().change_scene(level5_scene)
 
 
 func _on_tap_pressed():
 	instructions_popup.visible = false
 	instructions_sprite.visible = false
+
+
+func _on_restart_pressed():
+	get_tree().change_scene(level5_scene)

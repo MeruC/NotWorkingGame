@@ -190,3 +190,7 @@ func _on_retry_pressed():
 #	clue_label.queue_free()
 #	choices.queue_free()
 ##
+
+
+func _on_restart_pressed():
+	get_tree().change_scene(level3_scene)

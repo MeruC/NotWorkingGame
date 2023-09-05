@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://offline_levels/level5/layer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://offline_mode_Asset/level_5/application_layer.png" type="Texture" id=2]
@@ -10,9 +10,10 @@
 [ext_resource path="res://offline_mode_Asset/level_5/data_link_layer.png" type="Texture" id=8]
 [ext_resource path="res://offline_levels/level5/slot.tscn" type="PackedScene" id=9]
 [ext_resource path="res://offline_levels/level5/manager.gd" type="Script" id=10]
-[ext_resource path="res://offline_levels/game_over.tscn" type="PackedScene" id=11]
-[ext_resource path="res://offline_levels/instructions.tscn" type="PackedScene" id=12]
+[ext_resource path="res://offline_levels/general_scenes/game_over.tscn" type="PackedScene" id=11]
+[ext_resource path="res://offline_levels/general_scenes/instructions.tscn" type="PackedScene" id=12]
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://offline_levels/general_scenes/pause.tscn" type="PackedScene" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -192,6 +193,18 @@ id = "6"
 
 [node name="popup_layer" type="CanvasLayer" parent="."]
 
+[node name="pause" parent="popup_layer" instance=ExtResource( 14 )]
+
+[node name="pause_button" parent="popup_layer/pause" index="0"]
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = -25.0
+
 [node name="game_over" parent="popup_layer" instance=ExtResource( 11 )]
 visible = false
 
@@ -214,8 +227,10 @@ frame = 0
 
 [connection signal="pressed" from="button_container/reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="button_container/submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="popup_layer/pause/pause_popup/main_popup/GridContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="popup_layer/instructions/tap" to="." method="_on_tap_pressed"]
 
+[editable path="popup_layer/pause"]
 [editable path="popup_layer/game_over"]
 [editable path="popup_layer/instructions"]

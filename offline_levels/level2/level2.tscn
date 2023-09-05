@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://offline_levels/level2/letter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://offline_levels/level2/manager.gd" type="Script" id=3]
 [ext_resource path="res://offline_levels/level2/blank.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=5]
-[ext_resource path="res://offline_levels/game_over.tscn" type="PackedScene" id=6]
-[ext_resource path="res://offline_levels/instructions.tscn" type="PackedScene" id=7]
+[ext_resource path="res://offline_levels/general_scenes/game_over.tscn" type="PackedScene" id=6]
+[ext_resource path="res://offline_levels/general_scenes/instructions.tscn" type="PackedScene" id=7]
+[ext_resource path="res://offline_levels/general_scenes/pause.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -268,9 +269,9 @@ blank_container = NodePath("../../../blank_CenterContainer/blank_container")
 submit_button = NodePath("../../../submit")
 
 [node name="blank_CenterContainer" type="CenterContainer" parent="."]
-margin_top = 125.0
+margin_top = 135.0
 margin_right = 1280.0
-margin_bottom = 200.0
+margin_bottom = 210.0
 
 [node name="blank_container" type="GridContainer" parent="blank_CenterContainer"]
 margin_left = 42.0
@@ -417,6 +418,8 @@ letter_container = NodePath("../../../letter_CenterContainer/letter_container")
 
 [node name="popup_layer" type="CanvasLayer" parent="."]
 
+[node name="pause" parent="popup_layer" instance=ExtResource( 8 )]
+
 [node name="game_over" parent="popup_layer" instance=ExtResource( 6 )]
 visible = false
 
@@ -438,8 +441,10 @@ frame = 0
 
 [connection signal="pressed" from="submit" to="manager" method="_on_submit_pressed"]
 [connection signal="pressed" from="clear" to="manager" method="_on_clear_pressed"]
+[connection signal="pressed" from="popup_layer/pause/pause_popup/main_popup/GridContainer/restart" to="manager" method="_on_restart_pressed"]
 [connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="manager" method="_on_retry_pressed"]
 [connection signal="pressed" from="popup_layer/instructions/tap" to="manager" method="_on_tap_pressed"]
 
+[editable path="popup_layer/pause"]
 [editable path="popup_layer/game_over"]
 [editable path="popup_layer/instructions"]

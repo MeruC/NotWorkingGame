@@ -137,3 +137,7 @@ func _on_tap_pressed():
 
 func _on_retry_pressed():
 	get_tree().change_scene(level2_scene)
+
+
+func _on_restart_pressed():
+	get_tree().change_scene(level2_scene)
