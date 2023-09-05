@@ -3,7 +3,6 @@ extends Window
 export ( NodePath ) onready var recipe_list = get_node( recipe_list ) as VBoxContainer
 
 func _ready():
-	#display( ResourceManager.get_recipes( "tier1" ))
 	SignalManager.connect( "crafting_opened", self, "_on_crafting_opened" )
 	SignalManager.connect( "crafting_out_of_range", self, "_on_crafting_out_of_range" )
 
@@ -20,8 +19,14 @@ func display( recipes ):
 	show()
 	rect_size = Vector2( 140, 0 )
 
+func close():
+	.close()
+	InventoryManager.is_shop_open = false
+
 func _on_crafting_opened( list_id ):
 	display( ResourceManager.get_recipes( list_id ) )
+	if list_id == "shop":
+		InventoryManager.is_shop_open = true
 
 func _on_crafting_out_of_range():
-	hide()
+	close()
