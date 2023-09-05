@@ -125,9 +125,6 @@ text = "Inventory Test"
 [node name="container" parent="." instance=ExtResource( 4 )]
 mouse_filter = 2
 
-[node name="split stack" parent="container" index="1"]
-visible = false
-
 [connection signal="value_changed" from="size/w" to="." method="_on_w_value_changed"]
 [connection signal="value_changed" from="size/d" to="." method="_on_d_value_changed"]
 [connection signal="pressed" from="buttons/create" to="." method="_on_create_pressed"]

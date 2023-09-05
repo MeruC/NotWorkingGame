@@ -6,12 +6,14 @@ export( NodePath ) onready var item_info = get_node( item_info ) as Control
 export( NodePath ) onready var item_void = get_node( item_void ) as Control
 export( NodePath ) onready var split_stack = get_node( split_stack ) as Split_Stack
 export( NodePath ) onready var hidden_nodes = get_node( hidden_nodes ) as Control
+export( NodePath ) onready var item_menu = get_node( item_menu ) as Control
 
 ## Variables ##
 var inventory_groups : Dictionary = {}
 var inventories : Array = []
 var item_in_hand : Item = null
 var item_offset = Vector2.ZERO
+var is_shop_open = false
 
 ## Built-in ##
 func _ready():
@@ -104,6 +106,7 @@ func _on_stack_splitted( slot, new_quantity ):
 	item_in_hand = new_item
 	item_in_hand_node.add_child( item_in_hand )
 	set_hand_position( slot.rect_global_position )
+
 func _on_inventory_ready( inventory ):
 	inventories.append( inventory )
 
@@ -144,6 +147,8 @@ func _on_gui_input_slot( event : InputEvent, slot : Inventory_Slot ):
 			
 			set_hand_position( event.global_position )
 		
+		elif event.button_index == BUTTON_RIGHT and slot.item:
+			item_menu.display( slot )
 		elif event.button_index == BUTTON_RIGHT and slot.item and slot.item.components.has( "usable" ):
 			slot.item.components.usable.use()
 	
@@ -154,3 +159,7 @@ func _on_gui_input_slot( event : InputEvent, slot : Inventory_Slot ):
 
 func _on_inventory_content_changed( groups ):
 	SignalManager.emit_signal( "inventory_group_content_changed", groups )
+
+
+
+
