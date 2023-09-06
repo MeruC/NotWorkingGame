@@ -22,6 +22,7 @@ __meta__ = {
 }
 
 [node name="ui" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
 
 [node name="ui_container" type="Control" parent="ui"]
@@ -47,6 +48,7 @@ __meta__ = {
 }
 
 [node name="hotbar" parent="ui/ui_container/windows" instance=ExtResource( 3 )]
+visible = false
 rect_pivot_offset = Vector2( 63, 32 )
 size = 5
 

@@ -102,3 +102,8 @@ func _on_play_pressed():
 		joystick.use_input_actions = false
 		previews.set_visible(true)
 		no_sign.set_visible(true)
+
+
+func _on_select_pressed():
+	Global.editor_mode = "select"
+	item_select.set_visible(false)

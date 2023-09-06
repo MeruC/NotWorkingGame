@@ -16,7 +16,7 @@ func _on_pc_opened():
 	joystick = get_node("mobile_controls/joystick")
 	#player = main.get_node("Player")
 	
-	inventory.set_visible(false)
+	#inventory.set_visible(false)
 	mobile_controls.set_visible(false)
 	joystick.use_input_actions = false
 	
@@ -26,6 +26,6 @@ func _on_pc_closed():
 	joystick = get_node("mobile_controls/joystick")
 	#player = main.get_node("Player")
 	
-	inventory.set_visible(true)
+	#inventory.set_visible(true)
 	mobile_controls.set_visible(true)
 	joystick.use_input_actions = true

@@ -7,6 +7,7 @@
 [ext_resource path="res://invRes/scale_control.gd" type="Script" id=7]
 
 [node name="inventory_manager" type="CanvasLayer"]
+layer = 3
 script = ExtResource( 4 )
 item_in_hand_node = NodePath("item_in_hand")
 item_info = NodePath("item_info")

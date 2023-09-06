@@ -50,6 +50,8 @@ func _input(event):
 			"remove":
 				if !in_action:
 					removeObject()
+			"select":
+				selectObject()
 	if event is InputEventMouseButton and event.is_pressed() and Global.curOS != "Android":
 		match(Global.editor_mode):
 			"place":
@@ -58,13 +60,15 @@ func _input(event):
 				rotateObject()
 			"remove":
 				removeObject()
+			"select":
+				selectObject()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Global.can_place:
-		$"../UI/editor/modes/current_mode2".text = "can_place"
-	else:
-		$"../UI/editor/modes/current_mode2".text = "no_place"
+	#if Global.can_place:
+	#	$"../UI/editor/modes/current_mode2".text = "can_place"
+	#else:
+	#	$"../UI/editor/modes/current_mode2".text = "no_place"
 	level = get_node("/root/main/level")
 	
 	if(Global.editor_mode != "play"):
@@ -101,7 +105,7 @@ func _process(delta):
 			if ("object" in object_point2.collider.name):
 				preview_parent.set_visible(true)
 				no_sign.set_visible(false)
-		"rotating":
+		"in_action":
 			preview_parent.set_visible(true)
 			place_preview.set_visible(false)
 			rotate_preview.set_visible(true)
@@ -142,7 +146,7 @@ func rotateObject():
 	if ("object" in object_point.collider.name and !Global.is_usingJoystick):
 		current_object = level.get_node(object_point.collider.name)
 		rotate_object.current_object = current_object
-		Global.editor_mode = "rotating"
+		Global.editor_mode = "in_action"
 		editor_camera.global_translation.x = cursor_pos.x
 		editor_camera.global_translation.z = cursor_pos.z
 		rotate_object.set_visible(true)
@@ -155,6 +159,15 @@ func removeObject():
 		yield(get_tree().create_timer(0.1),"timeout")
 		in_action = false
 	
+func selectObject():
+	if ("object" in object_point.collider.name and !Global.is_usingJoystick):
+		current_object = level.get_node(object_point.collider.name)
+		Global.editor_mode = "in_action"
+		editor_camera.global_translation.x = cursor_pos.x
+		editor_camera.global_translation.z = cursor_pos.z
+		if("tower" in object_point.collider.name):
+			print("Yes")
+		
 #Fires a ray to check for cursor 3D location
 func ScrenPointToRay():
 	var spaceState = get_world().direct_space_state

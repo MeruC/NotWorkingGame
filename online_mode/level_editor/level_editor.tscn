@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://global/objects/place.tscn" type="PackedScene" id=1]
 [ext_resource path="res://online_mode/level_editor/EditorPremade/environment.tscn" type="PackedScene" id=2]
@@ -25,7 +25,6 @@
 [ext_resource path="res://online_mode/level_editor/rotate.gd" type="Script" id=23]
 [ext_resource path="res://online_mode/level_editor/place.gd" type="Script" id=24]
 [ext_resource path="res://online_mode/level_editor/level_script.gd" type="Script" id=25]
-[ext_resource path="res://global/objects/monitor.tscn" type="PackedScene" id=26]
 
 [sub_resource type="CameraTexture" id=14]
 
@@ -182,33 +181,31 @@ margin_bottom = 40.0
 rect_pivot_offset = Vector2( 65, 40 )
 text = "Place"
 
-[node name="rotate" type="Button" parent="UI/editor/modes"]
+[node name="select" type="Button" parent="UI/editor/modes"]
 margin_left = 100.0
-margin_right = 153.0
+margin_right = 151.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 65, 40 )
+text = "Select"
+
+[node name="rotate" type="Button" parent="UI/editor/modes"]
+margin_left = 159.0
+margin_right = 212.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 34, 40 )
 text = "Rotate"
 
 [node name="remove" type="Button" parent="UI/editor/modes"]
-margin_left = 161.0
-margin_right = 225.0
+margin_left = 220.0
+margin_right = 284.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 40 )
 text = "Remove"
 
 [node name="current_mode" type="Label" parent="UI/editor/modes"]
-margin_left = 233.0
+margin_left = 292.0
 margin_top = 13.0
-margin_right = 328.0
-margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 40 )
-text = "Current Mode: "
-valign = 1
-
-[node name="current_mode2" type="Label" parent="UI/editor/modes"]
-margin_left = 336.0
-margin_top = 13.0
-margin_right = 431.0
+margin_right = 387.0
 margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 40 )
 text = "Current Mode: "
@@ -341,9 +338,6 @@ material = ExtResource( 9 )
 
 [node name="environment" parent="level" instance=ExtResource( 2 )]
 
-[node name="object_monitor" parent="level/environment" instance=ExtResource( 26 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.09642, 0, -4.88154 )
-
 [node name="wall" type="CSGBox" parent="level"]
 use_collision = true
 width = 138.0
@@ -434,6 +428,9 @@ editor_camera = NodePath("../Editor_Camera")
 [connection signal="mouse_entered" from="UI/editor/modes/place" to="UI/editor/modes" method="_on_modes_mouse_entered"]
 [connection signal="mouse_exited" from="UI/editor/modes/place" to="UI/editor/modes" method="_on_modes_mouse_exited"]
 [connection signal="pressed" from="UI/editor/modes/place" to="UI/editor/modes" method="_on_place_pressed"]
+[connection signal="mouse_entered" from="UI/editor/modes/select" to="UI/editor/modes" method="_on_modes_mouse_entered"]
+[connection signal="mouse_exited" from="UI/editor/modes/select" to="UI/editor/modes" method="_on_modes_mouse_exited"]
+[connection signal="pressed" from="UI/editor/modes/select" to="UI/editor/modes" method="_on_select_pressed"]
 [connection signal="mouse_entered" from="UI/editor/modes/rotate" to="UI/editor/modes" method="_on_modes_mouse_entered"]
 [connection signal="mouse_exited" from="UI/editor/modes/rotate" to="UI/editor/modes" method="_on_modes_mouse_exited"]
 [connection signal="pressed" from="UI/editor/modes/rotate" to="UI/editor/modes" method="_on_rotate_pressed"]
