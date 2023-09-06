@@ -57,54 +57,54 @@ func update_dialog():
 		
 		$"../CanvasLayer/title".text = title
 		$"../CanvasLayer/channel".text = channel
-		if size == 3:
+		if size == 4:
 			$AnimationPlayer.play("channel 1")
 			$AnimationPlayer/server.visible = true
 			$AnimationPlayer2.play("server_animation")
-		elif size == 5:
+		elif size == 6:
 			$AnimationPlayer/server.visible = false
 			$AnimationPlayer/client.visible = true
 			$AnimationPlayer.play("channel 2")
 			$AnimationPlayer2.play("server_animation")
-		elif size == 6:
+		elif size == 7:
 			$AnimationPlayer/client.visible = false
 			$AnimationPlayer/router.visible = true
 			$AnimationPlayer.play("channel 3")
 			$AnimationPlayer2.play("server_animation")
-		elif size == 8:
+		elif size == 9:
 			$AnimationPlayer/router.visible = false	
 			$AnimationPlayer/switch.visible = true
 			$AnimationPlayer.play("channel 4")
 			$AnimationPlayer2.play("server_animation")
-		elif size == 10:
+		elif size == 11:
 			$AnimationPlayer/switch.visible = false
 			$AnimationPlayer/firewall.visible = true
 			$AnimationPlayer.play("channel 5")
 			$AnimationPlayer2.play("server_animation")
-		elif size == 12:
+		elif size == 13:
 			$AnimationPlayer/firewall.visible = false
 			$AnimationPlayer/modem.visible = true
 			$AnimationPlayer.play("channel 6")
 			$AnimationPlayer2.play("server_animation")
-		elif size == 14:
+		elif size == 15:
 			$AnimationPlayer/modem.visible = false
 			$AnimationPlayer/access_point.visible = true
 			$AnimationPlayer2.play("server_animation")
 			$AnimationPlayer.play("channel 7")
-		elif size == 16:
+		elif size == 17:
 			$AnimationPlayer/access_point.visible = false
 			$AnimationPlayer/network_cable.visible = true
 			$AnimationPlayer.play("channel 8")
-		elif size == 17:
+		elif size == 18:
 			$AnimationPlayer/network_cable.visible = false
 			$AnimationPlayer/NIC.visible = true
 			$AnimationPlayer.play("channel 9")
-		elif size == 18:
+		elif size == 19:
 			$AnimationPlayer/NIC.visible = false
 			$AnimationPlayer/cloud_infrastructure.visible = true
 			$AnimationPlayer2.play("server_animation")
 			$AnimationPlayer.play("channel 10")
-		elif size == 20:
+		elif size == 21:
 			$AnimationPlayer/cloud_infrastructure.visible = false
 			$AnimationPlayer.play("ending_animation")
 

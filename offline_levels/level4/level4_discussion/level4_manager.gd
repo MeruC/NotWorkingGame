@@ -62,21 +62,23 @@ func update_dialog():
 		$CanvasLayer/channel.text = channel
 		if size == 0:
 			$AnimationPlayer.play("level4_animation")
-		if size == 2:
+		if size == 1:
+			$AnimationPlayer.play("level4_animation")
+		if size == 3:
 			$AnimationPlayer.play("channel_1")
 			$AnimationPlayer2.play("illustration_animation")
 			$CanvasLayer/LAN.visible = true
-		if size == 4:
+		if size == 5:
 			$CanvasLayer/LAN.visible = false
 			$CanvasLayer/MAN.visible = true
 			$AnimationPlayer.play("channel_2")
 			$AnimationPlayer2.play("illustration_animation")
-		if size == 6:
+		if size == 7:
 			$CanvasLayer/MAN.visible = false
 			$CanvasLayer/WAN.visible = true
 			$AnimationPlayer.play("channel_3")
 			$AnimationPlayer2.play("illustration_animation")
-		if size == 9:
+		if size == 10:
 			$CanvasLayer/WAN.visible = false
 			$AnimationPlayer.play("ending_animation")
 	else:

@@ -46,23 +46,23 @@ func update_dialog():
 		$CanvasLayer/NinePatchRect/title.text = title
 		if size == 0:
 			$AnimationPlayer.play("introduction")
-		if size == 2:
+		if size == 3:
 			$CanvasLayer/osi_layer.visible = true
 			$AnimationPlayer.play("physical_layer")
-		if size == 3:
-			$AnimationPlayer.play("datalink_layer")
 		if size == 4:
-			$AnimationPlayer.play("network_layer")
+			$AnimationPlayer.play("datalink_layer")
 		if size == 5:
-			$AnimationPlayer.play("transport_layer")
+			$AnimationPlayer.play("network_layer")
 		if size == 6:
-			$AnimationPlayer.play("session_layer")
+			$AnimationPlayer.play("transport_layer")
 		if size == 7:
-			$AnimationPlayer.play("presentation_layer")
+			$AnimationPlayer.play("session_layer")
 		if size == 8:
-			$AnimationPlayer.play("application_layer")
+			$AnimationPlayer.play("presentation_layer")
 		if size == 9:
-			$AnimationPlayer.play("osi_laayer")
+			$AnimationPlayer.play("application_layer")
 		if size == 10:
+			$AnimationPlayer.play("osi_laayer")
+		if size == 11:
 			$CanvasLayer/osi_layer.visible = false
 			$AnimationPlayer.play("ending")

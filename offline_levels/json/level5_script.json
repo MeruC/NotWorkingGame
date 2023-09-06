@@ -1,5 +1,9 @@
 [
     {
+        "title": "Are you ready to learn?",
+        "dialog": "Tap the screen to start."
+    },
+    {
         "title": "The Open Systems Interconnection (OSI) Model",
         "dialog": "Welcome! In this level we are diving into the OSI Model's layers. Each layer plays a specific role in data communication,"
     },

@@ -65,18 +65,18 @@ func update_dialog():
 		
 		VoiceGen.read(dialog.text)
 		
-		if size == 2:
+		if size == 3:
 			
 			$"../example1/AnimationPlayer/file".visible = true
 			$"../example1/AnimationPlayer/name".visible = true
 			$"../example1/AnimationPlayer/age".visible = true
 			$"../example1/AnimationPlayer".play("file_animation")
 			
-		if size == 3:
+		if size == 4:
 			
 			$"../example1/AnimationPlayer".play("name_animation")
 			
-		if size == 4:
+		if size == 5:
 			
 			$"../example1/AnimationPlayer".play_backwards("file_animation")
 			$"../example1/AnimationPlayer/file".visible = false

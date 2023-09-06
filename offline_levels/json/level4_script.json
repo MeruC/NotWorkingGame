@@ -1,5 +1,10 @@
 [
     {
+        "title": "Are you ready to learn?",
+        "dialog": "Tap the screen to start.",
+        "channel": "TV"
+    },
+    {
         "title": "Network Types",
         "dialog": "Welcome to a new level where we delve into the intriguing world of network types! In this level, we'll dive into three main network types: LAN, MAN, and WAN",
         "channel": "TV"

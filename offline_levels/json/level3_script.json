@@ -1,5 +1,10 @@
 [
     {
+        "title": "Are you ready to learn?",
+        "channel": "0",
+        "dialog": "Tap the screen to start."
+    },
+    {
         "title": "Discussion: Navigating Network Components",
         "channel":"0",
         "dialog": "Think of these components as the building blocks that enable seamless communication, data sharing, and resource allocation."

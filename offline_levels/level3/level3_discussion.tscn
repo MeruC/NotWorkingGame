@@ -621,7 +621,7 @@ layer = -10
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 margin_right = 1284.0
 margin_bottom = 713.0
-texture = ExtResource( 12 )
+texture = ExtResource( 6 )
 
 [node name="title" type="Label" parent="CanvasLayer"]
 margin_left = 59.0
@@ -645,6 +645,7 @@ custom_fonts/font = SubResource( 19 )
 text = "this os the dialog"
 align = 3
 autowrap = true
+percent_visible = -0.0666667
 
 [node name="channel" type="Label" parent="CanvasLayer"]
 margin_left = 1062.0
