@@ -10,7 +10,7 @@
 [ext_resource path="res://offline_levels/level2/level2_discussion/6.png" type="Texture" id=8]
 [ext_resource path="res://offline_levels/level2/level2_discussion/5.png" type="Texture" id=9]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 22
 font_data = ExtResource( 3 )
 
@@ -128,7 +128,7 @@ tracks/0/keys = {
 "values": [ Vector2( 344, 149 ), Vector2( 344, 41 ) ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=6]
 size = 50
 font_data = ExtResource( 3 )
 
@@ -151,7 +151,7 @@ margin_top = 579.0
 margin_right = 918.0
 margin_bottom = 659.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 autowrap = true
 
@@ -165,7 +165,7 @@ margin_top = 149.0
 margin_right = 938.0
 margin_bottom = 443.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
 text = "aaaa"
 align = 1
 valign = 1

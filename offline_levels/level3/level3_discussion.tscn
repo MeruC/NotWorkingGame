@@ -25,15 +25,15 @@
 [ext_resource path="res://offline_levels/level3/gif_asset/Nic.png" type="Texture" id=23]
 [ext_resource path="res://offline_levels/level3/gif_asset/cloud_Infrastructure.png" type="Texture" id=24]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=18]
 size = 51
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=19]
 size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=20]
 size = 78
 font_data = ExtResource( 3 )
 
@@ -629,7 +629,7 @@ margin_top = 75.0
 margin_right = 1207.0
 margin_bottom = 223.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 18 )
 text = "thiis is the title"
 align = 1
 valign = 3
@@ -641,7 +641,7 @@ margin_top = 281.0
 margin_right = 1002.0
 margin_bottom = 679.997
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 19 )
 text = "this os the dialog"
 align = 3
 autowrap = true
@@ -652,7 +652,7 @@ margin_top = 70.0
 margin_right = 1295.0
 margin_bottom = 129.0
 custom_colors/font_color = Color( 0, 1, 0.278431, 1 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 20 )
 text = "0"
 align = 1
 valign = 3

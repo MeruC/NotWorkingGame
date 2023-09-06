@@ -1,0 +1,252 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://offline_levels/level5/level5_discussion/level5_discussion.gd" type="Script" id=1]
+[ext_resource path="res://resources/font/sev7cyr.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/background.png" type="Texture" id=3]
+[ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/Physical Layer.png" type="Texture" id=4]
+[ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/Data link Layer.png" type="Texture" id=5]
+[ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/network layer.png" type="Texture" id=6]
+[ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/transport layer.png" type="Texture" id=7]
+[ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/session layer.png" type="Texture" id=8]
+[ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/presentation layer.png" type="Texture" id=9]
+[ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/application layer.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=7]
+size = 51
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "application_layer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/application_layer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00399738, 0.122367 ), Vector2( 0.366422, 0.25677 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "datalink_layer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/datalink_layer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00199867, 0.0119107 ), Vector2( 0.421053, 0.240722 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "network_layer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/network_layer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.011992, 0.0100301 ), Vector2( 0.429714, 0.244734 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "opening"
+tracks/0/type = "value"
+tracks/0/path = NodePath("NinePatchRect/title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 249, 190 ), Vector2( 248, 59 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NinePatchRect/dialog:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "physical_layer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("NinePatchRect/dialog:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 249, 178 ), Vector2( 248, 115 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/physical_layer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0113359, 0.0110729 ), Vector2( 0.341772, 0.239719 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "presentation_layer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/presentation_layer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00399734, 0.0150451 ), Vector2( 0.362425, 0.250752 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "session_layer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/session_layer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00716183, 0.0835005 ), Vector2( 0.361592, 0.241976 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "transport_layer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/transport_layer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.00599599, 0.0892678 ), Vector2( 0.392405, 0.244734 ) ]
+}
+
+[node name="level5_discussion" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+margin_right = 1280.0
+margin_bottom = 721.0
+texture = ExtResource( 3 )
+
+[node name="title" type="Label" parent="CanvasLayer/NinePatchRect"]
+margin_left = 247.0
+margin_top = 190.0
+margin_right = 1050.0
+margin_bottom = 267.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "aaaaaaaaaaaaaaaa"
+align = 1
+autowrap = true
+
+[node name="dialog" type="Label" parent="CanvasLayer/NinePatchRect"]
+visible = false
+margin_left = 249.0
+margin_top = 178.0
+margin_right = 1055.0
+margin_bottom = 312.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "aaaaaa"
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+anims/application_layer = SubResource( 11 )
+anims/datalink_layer = SubResource( 5 )
+anims/network_layer = SubResource( 6 )
+anims/opening = SubResource( 3 )
+anims/physical_layer = SubResource( 4 )
+anims/presentation_layer = SubResource( 12 )
+anims/session_layer = SubResource( 10 )
+anims/transport_layer = SubResource( 9 )
+
+[node name="physical_layer" type="Sprite" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+position = Vector2( 630.5, 265.5 )
+scale = Vector2( 0.0113359, 0.0110729 )
+texture = ExtResource( 4 )
+
+[node name="datalink_layer" type="Sprite" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+position = Vector2( 700, 265 )
+scale = Vector2( 0.00199867, 0.0119107 )
+texture = ExtResource( 5 )
+
+[node name="network_layer" type="Sprite" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+position = Vector2( 696.5, 264 )
+scale = Vector2( 0.011992, 0.0100301 )
+texture = ExtResource( 6 )
+
+[node name="transport_layer" type="Sprite" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+position = Vector2( 668.5, 264 )
+scale = Vector2( 0.392405, 0.244734 )
+texture = ExtResource( 7 )
+
+[node name="session_layer" type="Sprite" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+position = Vector2( 659.625, 263.375 )
+scale = Vector2( 0.361592, 0.241976 )
+texture = ExtResource( 8 )
+
+[node name="presentation_layer" type="Sprite" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+position = Vector2( 659, 256 )
+scale = Vector2( 0.362425, 0.250752 )
+texture = ExtResource( 9 )
+
+[node name="application_layer" type="Sprite" parent="CanvasLayer/AnimationPlayer"]
+visible = false
+position = Vector2( 659, 257 )
+scale = Vector2( 0.00399738, 0.122367 )
+texture = ExtResource( 10 )

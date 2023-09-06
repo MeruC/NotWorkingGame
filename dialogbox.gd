@@ -39,7 +39,15 @@ func _process(_delta):
 			click = 0
 			size += 1
 			update_dialog()
-
+			
+func _input(event):
+	if event is InputEventScreenTouch and event.pressed:
+		click += 1
+		$"../CanvasLayer/NinePatchRect/dialog".visible_characters = total_character
+		if click == 2:
+			click = 0
+			size += 1
+			update_dialog()
 
 func update_dialog():
 		
