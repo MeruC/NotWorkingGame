@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://resources/Models/Materials/computer/monitor-3-screen.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://resources/Models/Materials/computer/monitor-3-screen.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://resources/Models/Materials/computer/parts-2-keyboard.png" type="Texture" id=4]
 [ext_resource path="res://resources/Models/Materials/computer/parts-1-mouse.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://resources/Models/Materials/computer/parts-1-mouse.png" type="Texture" id=6]
+[ext_resource path="res://global/objects/scripts/pc.gd" type="Script" id=7]
+[ext_resource path="res://global/objects/scripts/pc_ui.gd" type="Script" id=8]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -18,8 +20,50 @@ albedo_texture = ExtResource( 4 )
 [sub_resource type="SpatialMaterial" id=4]
 albedo_texture = ExtResource( 6 )
 
+[sub_resource type="BoxShape" id=6]
+
 [node name="object_monitor" type="StaticBody"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="ui" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource( 8 )
+
+[node name="mode" type="CanvasLayer" parent="ui"]
+
+[node name="ColorRect" type="ColorRect" parent="ui"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.705882 )
+
+[node name="holder" type="Control" parent="ui/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 26.0
+margin_top = 21.0
+margin_right = -26.0
+margin_bottom = -21.0
+
+[node name="group" type="Control" parent="ui/ColorRect/holder"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -52.5
+margin_top = -40.0
+margin_right = 52.5
+
+[node name="Button" type="Button" parent="ui/ColorRect/holder/group"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -63.0
+text = "Turn On"
+
+[node name="Exit" type="Button" parent="ui/ColorRect/holder/group"]
+anchor_bottom = 1.0
+margin_right = 35.0
+text = "Exit"
 
 [node name="CollisionShape2D" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -39,3 +83,17 @@ material = SubResource( 3 )
 transform = Transform( 0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, -0.75, -1, -0.625 )
 mesh = ExtResource( 5 )
 material = SubResource( 4 )
+
+[node name="interaction_area" type="Area" parent="."]
+transform = Transform( 1.04329, 0, 0, 0, 1.04329, 0, 0, 0, 1.04329, 0, 0, 0 )
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 7 )
+pc_name = "PC"
+ui = NodePath("../ui")
+
+[node name="CollisionShape2" type="CollisionShape" parent="interaction_area"]
+transform = Transform( 1.04306, 0, 0, 0, 1.04306, 0, 0, 0, 1.04306, 0, 1, 0 )
+shape = SubResource( 6 )
+
+[connection signal="pressed" from="ui/ColorRect/holder/group/Exit" to="ui" method="_on_Exit_pressed"]

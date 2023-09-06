@@ -14,6 +14,8 @@ signal crafting_out_of_range()
 
 # UI
 signal ui_scale_changed( value )
+signal pc_opened()
+signal pc_closed()
 
 # Player
 signal player_life_changed( life, max_life )
