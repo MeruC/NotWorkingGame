@@ -44,44 +44,25 @@ func update_dialog():
 		total_character = content.length()
 		$CanvasLayer/NinePatchRect/dialog.visible_characters = 0
 		$CanvasLayer/NinePatchRect/title.text = title
-		
 		if size == 0:
-			$CanvasLayer/AnimationPlayer.play("opening")
+			$AnimationPlayer.play("introduction")
+		if size == 2:
+			$CanvasLayer/osi_layer.visible = true
+			$AnimationPlayer.play("physical_layer")
 		if size == 3:
-			$CanvasLayer/AnimationPlayer/physical_layer.visible = true
-			$CanvasLayer/AnimationPlayer.play("physical_layer")
+			$AnimationPlayer.play("datalink_layer")
 		if size == 4:
-			$CanvasLayer/AnimationPlayer/physical_layer.visible = false
-			$CanvasLayer/AnimationPlayer.play("opening")
+			$AnimationPlayer.play("network_layer")
 		if size == 5:
-			$CanvasLayer/AnimationPlayer/physical_layer.visible = false
-			$CanvasLayer/AnimationPlayer/datalink_layer.visible = true
-			$CanvasLayer/AnimationPlayer.play("datalink_layer")
+			$AnimationPlayer.play("transport_layer")
 		if size == 6:
-			$CanvasLayer/AnimationPlayer/datalink_layer.visible = false
+			$AnimationPlayer.play("session_layer")
 		if size == 7:
-			$CanvasLayer/AnimationPlayer/network_layer.visible = true
-			$CanvasLayer/AnimationPlayer.play("network_layer")
+			$AnimationPlayer.play("presentation_layer")
 		if size == 8:
-			$CanvasLayer/AnimationPlayer/network_layer.visible = false
+			$AnimationPlayer.play("application_layer")
 		if size == 9:
-			$CanvasLayer/AnimationPlayer/transport_layer.visible = true
-			$CanvasLayer/AnimationPlayer.play("transport_layer")
+			$AnimationPlayer.play("osi_laayer")
 		if size == 10:
-			$CanvasLayer/AnimationPlayer/transport_layer.visible = false
-		if size == 11:
-			$CanvasLayer/AnimationPlayer/session_layer.visible = true
-			$CanvasLayer/AnimationPlayer.play("session_layer")
-		if size == 12:
-			$CanvasLayer/AnimationPlayer/session_layer.visible = false
-		if size == 13:
-			$CanvasLayer/AnimationPlayer/presentation_layer.visible = true
-			$CanvasLayer/AnimationPlayer.play("presentation_layer")
-		if size == 14:
-			$CanvasLayer/AnimationPlayer/presentation_layer.visible = false
-		if size == 15:
-			$CanvasLayer/AnimationPlayer/application_layer.visible = true
-			$CanvasLayer/AnimationPlayer.play("application_layer")
-		if size == 16:
-			$CanvasLayer/AnimationPlayer/application_layer.visible = false
-			$CanvasLayer/AnimationPlayer.play("opening")
+			$CanvasLayer/osi_layer.visible = false
+			$AnimationPlayer.play("ending")

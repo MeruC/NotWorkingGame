@@ -12,56 +12,32 @@
         "dialog": "Transmits raw bit stream over the physical medium."
     },
     {
-        "title": "Physical Layer",
-        "dialog": "Illustration:"
-    },
-    {
         "title": "Data Link Layer",
         "dialog": "Defines the format of data on the network."
-    },
-    {
-        "title": "Data Link Layer",
-        "dialog": "Illustration:"
     },
     {
         "title": "Network Layer",
         "dialog": "Decides which physical path that data will take."
     },
     {
-        "title": "Network Layer",
-        "dialog": "Illustration:"
-    },
-    {
         "title": "Transport Layer",
         "dialog": "Transmits data using transmission protocols including TCP and UDP"
-    },
-    {
-        "title": "Transport Layer",
-        "dialog": "Illustration:"
     },
     {
         "title": "Session Layer",
         "dialog": "Establishes, maintains, and terminates connections between devices."
     },
     {
-        "title": "Session Layer",
-        "dialog": "Illustration:"
-    },
-    {
         "title": "Presentation Layer",
         "dialog": "Ensures that data is in usable format and is where data encryption occurs."
-    },
-    {
-        "title": "Presentation Layer",
-        "dialog": "Illustration:"
     },
     {
         "title": "Application Layer",
         "dialog": "Provides network services directly to end-users and applications."
     },
     {
-        "title": "Application Layer",
-        "dialog": "Illustration:"
+        "title": "OSI Layers",
+        "dialog": ""
     },
     {
         "title": "Now challenge yourself!",
