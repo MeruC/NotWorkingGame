@@ -6,6 +6,7 @@ var textSpeed = 1
 var total_character = 0
 var click = 0
 var size = 0
+var game_scene = "res://offline_levels/level5/level5.tscn"
 
 func _ready():
 	var file = File.new()
@@ -85,3 +86,5 @@ func update_dialog():
 		if size == 16:
 			$CanvasLayer/AnimationPlayer/application_layer.visible = false
 			$CanvasLayer/AnimationPlayer.play("opening")
+	else:
+		get_tree().change_scene(game_scene)

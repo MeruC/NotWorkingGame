@@ -8,6 +8,7 @@ var json_data = []
 var textSpeed = 1
 var total_character = 0
 var click = 0
+var game_scene = "res://offline_levels/level1/level_1.tscn"
 
 var size = 0
 
@@ -82,6 +83,7 @@ func update_dialog():
 			$"../example1/AnimationPlayer/name".visible = false
 			$"../example1/AnimationPlayer/age".visible = false
 	else:
+		get_tree().change_scene(game_scene)
 		print("Dialog ended.")
 
 	# You can also return json_data here if needed

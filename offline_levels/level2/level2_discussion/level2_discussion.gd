@@ -6,6 +6,7 @@ var textSpeed = 1
 var total_character = 0
 var click = 0
 var size = 0
+var game_scene = "res://offline_levels/level2/level2.tscn"
 
 func _ready():
 	var file = File.new()
@@ -96,5 +97,5 @@ func update_dialog():
 			
 	else:
 		print("Dialog ended.")
-
+		get_tree().change_scene(game_scene)
 	# You can also return json_data here if needed
