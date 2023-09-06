@@ -1,5 +1,8 @@
 extends Node2D
 
+export( NodePath ) onready var VoiceGen = get_node( VoiceGen ) as AudioStreamPlayer
+export( NodePath ) onready var dialog = get_node( dialog ) as Label
+
 var json_file = "res://offline_levels/json/level5_script.json"
 var json_data = []
 var textSpeed = 1
@@ -8,6 +11,7 @@ var click = 0
 var size = 0
 
 func _ready():
+	VoiceGen.pitch_scale = 1.5
 	var file = File.new()
 	if file.open(json_file, File.READ) == OK:
 		var json_content = file.get_as_text()
@@ -44,6 +48,7 @@ func update_dialog():
 		total_character = content.length()
 		$CanvasLayer/NinePatchRect/dialog.visible_characters = 0
 		$CanvasLayer/NinePatchRect/title.text = title
+		VoiceGen.read(dialog.text)
 		if size == 0:
 			$AnimationPlayer.play("introduction")
 		if size == 3:

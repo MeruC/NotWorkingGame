@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://offline_levels/level2/level2_discussion/discussion_background.png" type="Texture" id=1]
 [ext_resource path="res://offline_levels/level2/level2_discussion/level2_discussion.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://offline_levels/level2/level2_discussion/1.png" type="Texture" id=7]
 [ext_resource path="res://offline_levels/level2/level2_discussion/6.png" type="Texture" id=8]
 [ext_resource path="res://offline_levels/level2/level2_discussion/5.png" type="Texture" id=9]
+[ext_resource path="res://addons/VoiceGeneratorAudioStreamPlayer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=5]
 size = 22
@@ -136,6 +137,8 @@ font_data = ExtResource( 3 )
 
 [node name="Manager" type="Node2D" parent="."]
 script = ExtResource( 2 )
+VoiceGen = NodePath("../VoiceGeneratorAudioStreamPlayer")
+dialog = NodePath("../CanvasLayer/dialog")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
@@ -224,3 +227,5 @@ margin_right = 7398.0
 margin_bottom = 3726.0
 rect_scale = Vector2( 0.0406981, 0.0544926 )
 texture = ExtResource( 9 )
+
+[node name="VoiceGeneratorAudioStreamPlayer" parent="." instance=ExtResource( 10 )]

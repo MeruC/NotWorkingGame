@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://offline_levels/level5/level5_discussion/level5_discussion.gd" type="Script" id=1]
 [ext_resource path="res://resources/font/sev7cyr.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/background.png" type="Texture" id=3]
 [ext_resource path="res://offline_levels/level5/level5_discussion/gif_asset/osi_layer.png" type="Texture" id=4]
+[ext_resource path="res://addons/VoiceGeneratorAudioStreamPlayer.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=7]
 size = 51
@@ -242,6 +243,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
+VoiceGen = NodePath("VoiceGeneratorAudioStreamPlayer")
+dialog = NodePath("CanvasLayer/NinePatchRect/dialog")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -291,3 +294,5 @@ anims/physical_layer = SubResource( 10 )
 anims/presentation_layer = SubResource( 16 )
 anims/session_layer = SubResource( 14 )
 anims/transport_layer = SubResource( 13 )
+
+[node name="VoiceGeneratorAudioStreamPlayer" parent="." instance=ExtResource( 5 )]
