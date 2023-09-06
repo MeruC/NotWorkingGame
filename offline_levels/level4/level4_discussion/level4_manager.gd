@@ -6,6 +6,7 @@ var textSpeed = 1
 var total_character = 0
 var click = 0
 var size = 0
+var game_scene = "res://offline_levels/level4/level4.tscn"
 
 func _ready():
 	$CanvasLayer/well_done.visible == false
@@ -78,6 +79,7 @@ func update_dialog():
 		if size == 9:
 			$CanvasLayer/WAN.visible = false
 			$AnimationPlayer.play("ending_animation")
-		
-
+	else:
+		get_tree().change_scene(game_scene)
+	
 	# You can also return json_data here if needed
