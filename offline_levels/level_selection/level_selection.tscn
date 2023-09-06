@@ -1,0 +1,228 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://offline_levels/level_selection/direct.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="level_selection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="level_container" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -235.0
+margin_right = 450.0
+margin_bottom = 315.0
+custom_constants/vseparation = 50
+custom_constants/hseparation = 100
+columns = 5
+
+[node name="level1" type="Button" parent="level_container"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+
+[node name="level2" type="Button" parent="level_container"]
+margin_left = 200.0
+margin_right = 300.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+text = "2"
+
+[node name="level3" type="Button" parent="level_container"]
+margin_left = 400.0
+margin_right = 500.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+text = "3"
+
+[node name="level4" type="Button" parent="level_container"]
+margin_left = 600.0
+margin_right = 700.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+text = "4"
+
+[node name="level5" type="Button" parent="level_container"]
+margin_left = 800.0
+margin_right = 900.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+text = "5"
+
+[node name="level6" type="Button" parent="level_container"]
+margin_top = 150.0
+margin_right = 100.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "6"
+
+[node name="level7" type="Button" parent="level_container"]
+margin_left = 200.0
+margin_top = 150.0
+margin_right = 300.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "7"
+
+[node name="level8" type="Button" parent="level_container"]
+margin_left = 400.0
+margin_top = 150.0
+margin_right = 500.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "8"
+
+[node name="level9" type="Button" parent="level_container"]
+margin_left = 600.0
+margin_top = 150.0
+margin_right = 700.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "9"
+
+[node name="level10" type="Button" parent="level_container"]
+margin_left = 800.0
+margin_top = 150.0
+margin_right = 900.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "10"
+
+[node name="level11" type="Button" parent="level_container"]
+margin_top = 300.0
+margin_right = 100.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "11"
+
+[node name="level12" type="Button" parent="level_container"]
+margin_left = 200.0
+margin_top = 300.0
+margin_right = 300.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "12"
+
+[node name="level13" type="Button" parent="level_container"]
+margin_left = 400.0
+margin_top = 300.0
+margin_right = 500.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "13"
+
+[node name="level14" type="Button" parent="level_container"]
+margin_left = 600.0
+margin_top = 300.0
+margin_right = 700.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "14"
+
+[node name="level15" type="Button" parent="level_container"]
+margin_left = 800.0
+margin_top = 300.0
+margin_right = 900.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "15"
+
+[node name="level16" type="Button" parent="level_container"]
+margin_top = 450.0
+margin_right = 100.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "16"
+
+[node name="level17" type="Button" parent="level_container"]
+margin_left = 200.0
+margin_top = 450.0
+margin_right = 300.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "17"
+
+[node name="level18" type="Button" parent="level_container"]
+margin_left = 400.0
+margin_top = 450.0
+margin_right = 500.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "18"
+
+[node name="level19" type="Button" parent="level_container"]
+margin_left = 600.0
+margin_top = 450.0
+margin_right = 700.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "19"
+
+[node name="level20" type="Button" parent="level_container"]
+margin_left = 800.0
+margin_top = 450.0
+margin_right = 900.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "20"
+
+[node name="back_button" type="Button" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 145.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 1 )
+text = "BACK"
+
+[connection signal="pressed" from="level_container/level1" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="level_container/level2" to="." method="_on_level2_pressed"]
+[connection signal="pressed" from="level_container/level3" to="." method="_on_level3_pressed"]
+[connection signal="pressed" from="level_container/level4" to="." method="_on_level4_pressed"]
+[connection signal="pressed" from="level_container/level5" to="." method="_on_level5_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

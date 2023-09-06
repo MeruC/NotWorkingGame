@@ -25,5 +25,6 @@ text = "Settings"
 script = ExtResource( 3 )
 
 [node name="split stack" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [connection signal="pressed" from="settingsBtn" to="." method="_on_settingsBtn_pressed"]

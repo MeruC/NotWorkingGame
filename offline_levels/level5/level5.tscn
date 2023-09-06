@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://offline_levels/level5/layer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://offline_mode_Asset/level_5/application_layer.png" type="Texture" id=2]
@@ -10,11 +10,70 @@
 [ext_resource path="res://offline_mode_Asset/level_5/data_link_layer.png" type="Texture" id=8]
 [ext_resource path="res://offline_levels/level5/slot.tscn" type="PackedScene" id=9]
 [ext_resource path="res://offline_levels/level5/manager.gd" type="Script" id=10]
-[ext_resource path="res://offline_levels/game_over.tscn" type="PackedScene" id=11]
-[ext_resource path="res://offline_levels/level4/popup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://offline_levels/general_scenes/game_over.tscn" type="PackedScene" id=11]
+[ext_resource path="res://offline_levels/general_scenes/instructions.tscn" type="PackedScene" id=12]
+[ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://offline_levels/general_scenes/pause.tscn" type="PackedScene" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 38
+font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "animation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
 
 [node name="level5" type="Node2D"]
 script = ExtResource( 10 )
+layer1 = NodePath("layer1")
+layer2 = NodePath("layer2")
+layer3 = NodePath("layer3")
+layer4 = NodePath("layer4")
+layer5 = NodePath("layer5")
+layer6 = NodePath("layer6")
+layer7 = NodePath("layer7")
+slot1 = NodePath("slot_container/slot1")
+slot2 = NodePath("slot_container/slot2")
+slot3 = NodePath("slot_container/slot3")
+slot4 = NodePath("slot_container/slot4")
+slot5 = NodePath("slot_container/slot5")
+slot6 = NodePath("slot_container/slot6")
+slot7 = NodePath("slot_container/slot7")
+slot_container = NodePath("slot_container")
+popup_score_label = NodePath("popup_layer/game_over/main_popup/score")
+game_over_popup = NodePath("popup_layer/game_over")
+popup_next_button = NodePath("popup_layer/game_over/main_popup/GridContainer/next")
+popup_indicator_label = NodePath("popup_layer/game_over/main_popup/indicator")
+animation_player = NodePath("popup_layer/instructions/main_popup/AnimationPlayer")
+instructions_popup = NodePath("popup_layer/instructions")
+instructions_sprite = NodePath("popup_layer/instructions/main_popup/AnimationPlayer/Sprite")
 
 [node name="slot_container" type="GridContainer" parent="."]
 anchor_left = 0.5
@@ -134,16 +193,44 @@ id = "6"
 
 [node name="popup_layer" type="CanvasLayer" parent="."]
 
+[node name="pause" parent="popup_layer" instance=ExtResource( 14 )]
+
+[node name="pause_button" parent="popup_layer/pause" index="0"]
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = -100.0
+margin_right = 100.0
+margin_bottom = -25.0
+
 [node name="game_over" parent="popup_layer" instance=ExtResource( 11 )]
 visible = false
 
-[node name="popup" parent="popup_layer" instance=ExtResource( 12 )]
+[node name="instructions" parent="popup_layer" instance=ExtResource( 12 )]
+
+[node name="content" parent="popup_layer/instructions/main_popup" index="1"]
+margin_bottom = 30.0
+rect_min_size = Vector2( 900, 230 )
+custom_fonts/font = SubResource( 1 )
+text = "You'll be challenged to arrange the layers of the OSI model in the correct order. To do this, simply tap and hold on a layer, then drag it to the corresponding slot. Start from the bottom layer as the 1st layer and work your way up to the top layer, placing each layer in its correct position. Use your knowledge of the OSI model to solve this puzzle and proceed further in the game. Good luck!"
+
+[node name="AnimationPlayer" parent="popup_layer/instructions/main_popup" index="2"]
+playback_speed = 0.25
+anims/RESET = SubResource( 2 )
+anims/animation = SubResource( 3 )
+
+[node name="Sprite" parent="popup_layer/instructions/main_popup/AnimationPlayer" index="0"]
 visible = false
+frame = 0
 
 [connection signal="pressed" from="button_container/reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="button_container/submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="popup_layer/pause/pause_popup/main_popup/GridContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="popup_layer/popup/tap" to="." method="_on_tap_pressed"]
+[connection signal="pressed" from="popup_layer/instructions/tap" to="." method="_on_tap_pressed"]
 
+[editable path="popup_layer/pause"]
 [editable path="popup_layer/game_over"]
-[editable path="popup_layer/popup"]
+[editable path="popup_layer/instructions"]

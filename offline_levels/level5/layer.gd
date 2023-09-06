@@ -42,8 +42,4 @@ func _on_layer_gui_input(event):
 		else:
 			print("Failed to open JSON file.")
 		
-		var content = json_data[int(id)]["content"]
-		$"../popup_layer/popup/main_popup/logo".texture = load("res://offline_mode_Asset/level_5/info.png")
-		$"../popup_layer/popup/main_popup/explaination".text = content
-		$"../popup_layer/popup".visible = true
 		

@@ -87,5 +87,14 @@ func remove_item():
 func add_group( group_id ):
 	groups.append( group_id )
 
+func drop_item():
+	var old_item = item
+	set_item( null )
+	SignalManager.emit_signal( "item_dropped", old_item )
+
+func sell_item():
+	remove_item()
+	InventoryManager.add_items( [ ItemManager.get_item( "gold_coin" ) ], "player" )
+
 func _on_item_container_visibility_changed():
 	emit_signal( "mouse_exited" )

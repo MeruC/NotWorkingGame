@@ -12,5 +12,11 @@ rect_pivot_offset = Vector2( -185, -102 )
 custom_fonts/font = ExtResource( 1 )
 text = "A"
 script = ExtResource( 2 )
+blank_container = NodePath("GridContainer")
+submit_button = NodePath(".")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]

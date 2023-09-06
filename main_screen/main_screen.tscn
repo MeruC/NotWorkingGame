@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://main_screen/direct.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 2 )
+
+[node name="main_screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="profile_button" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 155.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 135, 50 )
+custom_fonts/font = SubResource( 1 )
+disabled = true
+text = "User Profile"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -530.0
+margin_top = -275.0
+margin_right = -80.0
+margin_bottom = 275.0
+custom_constants/vseparation = 50
+
+[node name="offline_button" type="Button" parent="GridContainer"]
+margin_right = 450.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 450, 100 )
+custom_fonts/font = ExtResource( 1 )
+text = "Offline Mode"
+
+[node name="online_button" type="Button" parent="GridContainer"]
+margin_top = 150.0
+margin_right = 450.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 450, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "Online Mode"
+
+[node name="encyclopedia_button" type="Button" parent="GridContainer"]
+margin_top = 300.0
+margin_right = 450.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 450, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "Encyclopedia"
+
+[node name="settings_button" type="Button" parent="GridContainer"]
+margin_top = 450.0
+margin_right = 450.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 450, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "Settings"
+
+[connection signal="pressed" from="GridContainer/offline_button" to="." method="_on_offline_button_pressed"]
