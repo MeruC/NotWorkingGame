@@ -441,10 +441,12 @@ frame = 0
 
 [connection signal="pressed" from="submit" to="manager" method="_on_submit_pressed"]
 [connection signal="pressed" from="clear" to="manager" method="_on_clear_pressed"]
-[connection signal="pressed" from="popup_layer/pause/pause_popup/main_popup/GridContainer/restart" to="manager" method="_on_restart_pressed"]
+[connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/home" to="manager" method="_on_home_pressed"]
 [connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="manager" method="_on_retry_pressed"]
+[connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/next" to="manager" method="_on_next_pressed"]
 [connection signal="pressed" from="popup_layer/instructions/tap" to="manager" method="_on_tap_pressed"]
 
 [editable path="popup_layer/pause"]
+[editable path="popup_layer/pause/pause_popup"]
 [editable path="popup_layer/game_over"]
 [editable path="popup_layer/instructions"]

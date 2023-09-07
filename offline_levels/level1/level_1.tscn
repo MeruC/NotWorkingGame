@@ -11,10 +11,6 @@
 [ext_resource path="res://offline_levels/general_scenes/instructions.tscn" type="PackedScene" id=9]
 [ext_resource path="res://offline_levels/general_scenes/pause.tscn" type="PackedScene" id=10]
 
-[sub_resource type="DynamicFont" id=1]
-size = 50
-font_data = ExtResource( 5 )
-
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
@@ -30,7 +26,32 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 5 )
+
 [node name="main" type="Node2D"]
+
+[node name="popup_layer" type="CanvasLayer" parent="."]
+
+[node name="pause" parent="popup_layer" instance=ExtResource( 10 )]
+
+[node name="game_over" parent="popup_layer" instance=ExtResource( 8 )]
+visible = false
+
+[node name="instructions" parent="popup_layer" instance=ExtResource( 9 )]
+
+[node name="content" parent="popup_layer/instructions/main_popup" index="1"]
+margin_bottom = 30.0
+rect_min_size = Vector2( 900, 230 )
+text = "Simply tap and hold on the file icon. While holding, drag it towards the folder that you believe is the most suitable match for the file's content. Release your finger to drop the file into the chose folder. Make strategic choices to efficiently organize your files and progress through the game's challenges. Good luck!"
+
+[node name="AnimationPlayer" parent="popup_layer/instructions/main_popup" index="2"]
+playback_speed = 0.25
+anims/RESET = SubResource( 2 )
+
+[node name="Sprite" parent="popup_layer/instructions/main_popup/AnimationPlayer" index="0"]
+frame = 0
 
 [node name="DesktopBg" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
@@ -88,50 +109,31 @@ margin_bottom = 94.0
 rect_min_size = Vector2( 300, 50 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Score:     / 10"
+text = "Score:        / 10"
 autowrap = true
 
 [node name="score" type="Label" parent="."]
 margin_left = 195.0
 margin_top = 32.0
-margin_right = 235.0
+margin_right = 255.0
 margin_bottom = 82.0
-rect_min_size = Vector2( 40, 50 )
+rect_min_size = Vector2( 60, 50 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "0"
+text = "10"
 autowrap = true
 
 [node name="object" parent="." instance=ExtResource( 3 )]
 position = Vector2( 355, 492 )
 type = "data"
 
-[node name="popup_layer" type="CanvasLayer" parent="."]
-
-[node name="pause" parent="popup_layer" instance=ExtResource( 10 )]
-
-[node name="game_over" parent="popup_layer" instance=ExtResource( 8 )]
-visible = false
-
-[node name="instructions" parent="popup_layer" instance=ExtResource( 9 )]
-
-[node name="content" parent="popup_layer/instructions/main_popup" index="1"]
-margin_bottom = 30.0
-rect_min_size = Vector2( 900, 230 )
-text = "Simply tap and hold on the file icon. While holding, drag it towards the folder that you believe is the most suitable match for the file's content. Release your finger to drop the file into the chose folder. Make strategic choices to efficiently organize your files and progress through the game's challenges. Good luck!"
-
-[node name="AnimationPlayer" parent="popup_layer/instructions/main_popup" index="2"]
-playback_speed = 0.25
-anims/RESET = SubResource( 2 )
-
-[node name="Sprite" parent="popup_layer/instructions/main_popup/AnimationPlayer" index="0"]
-frame = 0
-
-[connection signal="pressed" from="popup_layer/pause/pause_popup/main_popup/GridContainer/restart" to="manager" method="_on_restart_pressed"]
+[connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/home" to="manager" method="_on_home_pressed"]
 [connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="manager" method="_on_retry_pressed"]
+[connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/next" to="manager" method="_on_next_pressed"]
 [connection signal="pressed" from="popup_layer/instructions/tap" to="manager" method="_on_tap_pressed"]
 
-[editable path="info_folder"]
 [editable path="popup_layer/pause"]
+[editable path="popup_layer/pause/pause_popup"]
 [editable path="popup_layer/game_over"]
 [editable path="popup_layer/instructions"]
+[editable path="info_folder"]

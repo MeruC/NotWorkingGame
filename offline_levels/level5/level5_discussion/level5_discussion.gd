@@ -9,6 +9,7 @@ var textSpeed = 1
 var total_character = 0
 var click = 0
 var size = 0
+var game_scene = "res://offline_levels/level5/level5.tscn"
 
 func _ready():
 	VoiceGen.pitch_scale = 1.5
@@ -71,3 +72,5 @@ func update_dialog():
 		if size == 11:
 			$CanvasLayer/osi_layer.visible = false
 			$AnimationPlayer.play("ending")
+	else:
+		get_tree().change_scene(game_scene)
