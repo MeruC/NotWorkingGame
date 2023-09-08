@@ -114,13 +114,15 @@ autowrap = true
 
 [node name="score" type="Label" parent="."]
 margin_left = 195.0
-margin_top = 32.0
+margin_top = 25.0
 margin_right = 255.0
-margin_bottom = 82.0
+margin_bottom = 75.0
 rect_min_size = Vector2( 60, 50 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "10"
+text = "0"
+align = 1
+valign = 1
 autowrap = true
 
 [node name="object" parent="." instance=ExtResource( 3 )]
