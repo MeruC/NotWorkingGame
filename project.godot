@@ -251,6 +251,7 @@ import=false
 "on to"=false
 stretch=false
 point=false
+screen=false
 
 [gui]
 

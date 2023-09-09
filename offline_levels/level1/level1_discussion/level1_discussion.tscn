@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://offline_levels/level1/level1_discussion/level_1 background.png" type="Texture" id=1]
 [ext_resource path="res://dialogbox.gd" type="Script" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://offline_levels/level1/level1_discussion/file.png" type="Texture" id=5]
 [ext_resource path="res://offline_levels/level1/level1_discussion/age.png" type="Texture" id=6]
 [ext_resource path="res://addons/VoiceGeneratorAudioStreamPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://offline_levels/level1/level1_discussion/level1_video.ogv" type="VideoStream" id=8]
+[ext_resource path="res://offline_levels/level1/level1_discussion/play_button.png" type="Texture" id=9]
+[ext_resource path="res://offline_levels/level1/level1_discussion/level1_video_page.png" type="Texture" id=10]
+[ext_resource path="res://offline_levels/level1/level1_discussion/cancel_button.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=2]
 size = 22
@@ -107,6 +111,48 @@ tracks/2/keys = {
 "values": [ Vector2( 635, 334 ), Vector2( 684, 333 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "video_payer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../play_button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "video_zoom"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../VideoPlayer:rect_min_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1280, 720 ), Vector2( 6090, 4000 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../VideoPlayer:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, -6 ) ]
+}
+
 [node name="level1_discussion" type="Node2D"]
 
 [node name="manager" type="Node2D" parent="."]
@@ -153,6 +199,8 @@ autowrap = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="example1"]
 anims/file_animation = SubResource( 3 )
 anims/name_animation = SubResource( 4 )
+anims/video_payer = SubResource( 5 )
+anims/video_zoom = SubResource( 6 )
 
 [node name="file" type="TextureRect" parent="example1/AnimationPlayer"]
 visible = false
@@ -178,8 +226,48 @@ margin_right = 899.0
 margin_bottom = 425.0
 texture = ExtResource( 6 )
 
-[node name="TextTimer" type="Timer" parent="."]
-
 [node name="VoiceGeneratorAudioStreamPlayer" parent="." instance=ExtResource( 7 )]
 
-[connection signal="timeout" from="TextTimer" to="manager" method="_on_TextTimer_timeout"]
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+process_priority = 1
+visible = false
+margin_left = -1.0
+margin_top = -6.0
+margin_right = 6266.0
+margin_bottom = 5962.0
+rect_min_size = Vector2( 6090, 4000 )
+rect_scale = Vector2( 0.203978, 0.122307 )
+stream = ExtResource( 8 )
+volume_db = -80.0
+autoplay = true
+
+[node name="video" type="Sprite" parent="."]
+visible = false
+position = Vector2( 652, 359 )
+scale = Vector2( 0.311377, 0.31203 )
+texture = ExtResource( 10 )
+
+[node name="play_button" type="Button" parent="."]
+visible = false
+margin_left = -209.0
+margin_top = -234.0
+margin_right = 798.0
+margin_bottom = 765.0
+rect_scale = Vector2( 0.0640303, 0.0672206 )
+rect_pivot_offset = Vector2( 896.614, 599.675 )
+icon = ExtResource( 9 )
+flat = true
+
+[node name="cancel_button" type="Button" parent="."]
+visible = false
+margin_left = 1199.0
+margin_top = 3.0
+margin_right = 1723.0
+margin_bottom = 521.0
+rect_scale = Vector2( 0.135841, 0.10579 )
+icon = ExtResource( 11 )
+flat = true
+
+[connection signal="finished" from="VideoPlayer" to="manager" method="_on_VideoPlayer_finished"]
+[connection signal="pressed" from="play_button" to="manager" method="_on_play_button_pressed"]
+[connection signal="pressed" from="cancel_button" to="manager" method="_on_cancel_button_pressed"]
