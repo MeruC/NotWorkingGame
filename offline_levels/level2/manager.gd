@@ -23,8 +23,11 @@ export(NodePath) onready var popup_indicator_label = get_node(popup_indicator_la
 # Instructions popup paths
 export(NodePath) onready var instructions_popup = get_node(instructions_popup) as Control
 export(NodePath) onready var instructions_sprite = get_node(instructions_sprite) as Sprite
-var level2_scene = "res://offline_levels/level2/level2.tscn"
 ##
+
+var home_scene = "res://main_screen/main_screen.tscn"
+var next_scene = "res://offline_levels/level3/level3_discussion.tscn"
+var level2_scene = "res://offline_levels/level2/level2.tscn"
 
 func _ready():
 	# To store JSON Contents into file variable
@@ -138,6 +141,8 @@ func _on_tap_pressed():
 func _on_retry_pressed():
 	get_tree().change_scene(level2_scene)
 
+func _on_home_pressed():
+	get_tree().change_scene(home_scene)
 
-func _on_restart_pressed():
-	get_tree().change_scene(level2_scene)
+func _on_next_pressed():
+	get_tree().change_scene(next_scene)

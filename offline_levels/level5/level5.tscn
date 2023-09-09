@@ -195,16 +195,6 @@ id = "6"
 
 [node name="pause" parent="popup_layer" instance=ExtResource( 14 )]
 
-[node name="pause_button" parent="popup_layer/pause" index="0"]
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-margin_left = 25.0
-margin_top = -100.0
-margin_right = 100.0
-margin_bottom = -25.0
-
 [node name="game_over" parent="popup_layer" instance=ExtResource( 11 )]
 visible = false
 
@@ -227,10 +217,10 @@ frame = 0
 
 [connection signal="pressed" from="button_container/reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="button_container/submit" to="." method="_on_submit_pressed"]
-[connection signal="pressed" from="popup_layer/pause/pause_popup/main_popup/GridContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="popup_layer/game_over/main_popup/GridContainer/retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="popup_layer/instructions/tap" to="." method="_on_tap_pressed"]
 
 [editable path="popup_layer/pause"]
+[editable path="popup_layer/pause/pause_popup"]
 [editable path="popup_layer/game_over"]
 [editable path="popup_layer/instructions"]

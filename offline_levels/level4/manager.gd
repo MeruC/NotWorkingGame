@@ -5,7 +5,6 @@ var json_file = "res://offline_levels/json/level4_questions.json"
 var json_data = ""
 var i
 var answer
-var level4_scene = "res://offline_levels/level4/level4.tscn"
 
 export(NodePath) onready var clue_label = get_node(clue_label) as Label
 export(NodePath) onready var score_label = get_node(score_label) as Label
@@ -33,6 +32,9 @@ export(NodePath) onready var instructions_popup = get_node(instructions_popup) a
 export(NodePath) onready var instructions_sprite = get_node(instructions_sprite) as Sprite
 ##
 
+var home_scene = "res://main_screen/main_screen.tscn"
+var next_scene = "res://offline_levels/level5/level5_discussion/level5_discussion.tscn"
+var level4_scene = "res://offline_levels/level4/level4.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -140,6 +142,12 @@ func _on_tap_pressed():
 	instructions_sprite.visible = false
 
 
+
+func _on_home_pressed():
+	get_tree().change_scene(home_scene)
+
+func _on_next_pressed():
+	get_tree().change_scene(next_scene)
 
 func _on_retry_pressed():
 	get_tree().change_scene(level4_scene)

@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://resources/font/font_8.tres" type="DynamicFont" id=2]
 [ext_resource path="res://offline_mode_Asset/level_1/tutorial.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=2]
@@ -14,6 +13,10 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "animation"
@@ -75,7 +78,7 @@ margin_left = -350.0
 margin_right = 350.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 700, 80 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "INSTRUCTIONS"
 align = 1
 valign = 1

@@ -25,6 +25,8 @@ export(NodePath) onready var instructions_popup = get_node(instructions_popup) a
 export(NodePath) onready var instructions_sprite = get_node(instructions_sprite) as Sprite
 ##
 
+var home_scene = "res://main_screen/main_screen.tscn"
+var next_scene = "res://offline_levels/level2/level2_discussion/level2_discussion.tscn"
 var level1_scene = "res://offline_levels/level1/level_1.tscn"
 
 func _ready():
@@ -100,11 +102,12 @@ func spawn_new():
 func _on_retry_pressed():
 	get_tree().change_scene(level1_scene)
 
+func _on_home_pressed():
+	get_tree().change_scene(home_scene)
+
+func _on_next_pressed():
+	get_tree().change_scene(next_scene)
 
 func _on_tap_pressed():
 	instructions_popup.visible = false
 	instructions_sprite.visible = false
-
-
-func _on_restart_pressed():
-	get_tree().change_scene(level1_scene)
