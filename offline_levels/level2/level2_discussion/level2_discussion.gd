@@ -2,6 +2,7 @@ extends Node2D
 
 export( NodePath ) onready var VoiceGen = get_node( VoiceGen ) as AudioStreamPlayer
 export( NodePath ) onready var dialog = get_node( dialog ) as Label
+
 var json_file = "res://offline_levels/json/level2_script.json"
 var json_data = []
 var textSpeed = 1
@@ -39,6 +40,7 @@ func _process(_delta):
 			size += 1
 			update_dialog()
 			
+		
 func _input(event):
 	if event is InputEventScreenTouch and event.pressed:
 		click += 1
@@ -60,46 +62,55 @@ func update_dialog():
 		$"../AnimationPlayer/title".text = title
 		VoiceGen.read(dialog.text)
 		if size == 1:
+				$"../AnimationPlayer".play("title_animation")
+		if size == 2:
 			$"../AnimationPlayer/4".visible = true
 			$"../AnimationPlayer".play("picture_animation")
-			$"../AnimationPlayer".play("title_animation")
-		elif size == 2:
+		elif size == 3:
 			$"../AnimationPlayer/1".visible = true
 			$"../AnimationPlayer/4".visible = false
 			$"../AnimationPlayer".play("picture_animation")
-		elif size == 3:
+		elif size == 4:
 			$"../AnimationPlayer/1".visible = false
 			$"../AnimationPlayer/5".visible = true
 			$"../AnimationPlayer".play("picture_animation")
-		elif size == 4:
+		elif size == 5:
 			$"../AnimationPlayer/5".visible = false
 			$"../AnimationPlayer/3".visible = true
 			$"../AnimationPlayer".play("picture_animation")
-		elif size == 5:
+		elif size == 6:
 			$"../AnimationPlayer/3".visible = false
 			$"../AnimationPlayer/6".visible = true
 			$"../AnimationPlayer".play("picture_animation")
-		elif size == 6:
+		elif size == 7:
 			$"../AnimationPlayer/6".visible = false
 			$"../AnimationPlayer/2".visible = true
 			$"../AnimationPlayer".play("picture_animation")
-		elif size == 7:
-			$"../AnimationPlayer/1".visible = false 
-			$"../AnimationPlayer/2".visible = false 
-			$"../AnimationPlayer/3".visible = false 
-			$"../AnimationPlayer/4".visible = false  
-			$"../AnimationPlayer/5".visible = false 
+		elif size == 8:
+			$"../AnimationPlayer/2".visible = false
+			$"../AnimationPlayer".play("video_zoom")
+			$"../video".visible = true
+			$"../CanvasLayer/dialog".visible = true
+		elif size == 9:
 			$"../AnimationPlayer".play_backwards("title_animation")
-		else:
+			$"../AnimationPlayer/title".visible = true
 			$"../AnimationPlayer/1".visible = false 
 			$"../AnimationPlayer/2".visible = false 
 			$"../AnimationPlayer/3".visible = false 
 			$"../AnimationPlayer/4".visible = false  
 			$"../AnimationPlayer/5".visible = false 
-			
-			
-			
+			$"../video".visible = false
+			$"../play".visible = false
+
 	else:
 		print("Dialog ended.")
 		get_tree().change_scene(game_scene)
 	# You can also return json_data here if needed
+
+
+func _on_play_pressed():
+	$"../AnimationPlayer/title".visible = false
+	$"../video_player".visible = true
+	$"../video".visible = false
+	$"../play".visible = false
+	click = 0

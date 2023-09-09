@@ -10,7 +10,7 @@
 [ext_resource path="res://offline_levels/level1/level1_discussion/level1_video.ogv" type="VideoStream" id=8]
 [ext_resource path="res://offline_levels/level1/level1_discussion/play_button.png" type="Texture" id=9]
 [ext_resource path="res://offline_levels/level1/level1_discussion/level1_video_page.png" type="Texture" id=10]
-[ext_resource path="res://offline_levels/level1/level1_discussion/cancel_button.png" type="Texture" id=11]
+[ext_resource path="res://offline_levels/video_player.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 22
@@ -128,30 +128,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "video_zoom"
-tracks/0/type = "value"
-tracks/0/path = NodePath("../VideoPlayer:rect_min_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1280, 720 ), Vector2( 6090, 4000 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../VideoPlayer:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -1, -6 ) ]
-}
 
 [node name="level1_discussion" type="Node2D"]
 
@@ -228,19 +204,6 @@ texture = ExtResource( 6 )
 
 [node name="VoiceGeneratorAudioStreamPlayer" parent="." instance=ExtResource( 7 )]
 
-[node name="VideoPlayer" type="VideoPlayer" parent="."]
-process_priority = 1
-visible = false
-margin_left = -1.0
-margin_top = -6.0
-margin_right = 6266.0
-margin_bottom = 5962.0
-rect_min_size = Vector2( 6090, 4000 )
-rect_scale = Vector2( 0.203978, 0.122307 )
-stream = ExtResource( 8 )
-volume_db = -80.0
-autoplay = true
-
 [node name="video" type="Sprite" parent="."]
 visible = false
 position = Vector2( 652, 359 )
@@ -249,25 +212,18 @@ texture = ExtResource( 10 )
 
 [node name="play_button" type="Button" parent="."]
 visible = false
-margin_left = -209.0
-margin_top = -234.0
-margin_right = 798.0
-margin_bottom = 765.0
+margin_left = -343.0
+margin_top = -284.0
+margin_right = 4499.0
+margin_bottom = 2200.0
 rect_scale = Vector2( 0.0640303, 0.0672206 )
 rect_pivot_offset = Vector2( 896.614, 599.675 )
 icon = ExtResource( 9 )
 flat = true
+icon_align = 1
 
-[node name="cancel_button" type="Button" parent="."]
+[node name="video_player" parent="." instance=ExtResource( 12 )]
 visible = false
-margin_left = 1199.0
-margin_top = 3.0
-margin_right = 1723.0
-margin_bottom = 521.0
-rect_scale = Vector2( 0.135841, 0.10579 )
-icon = ExtResource( 11 )
-flat = true
+stream = ExtResource( 8 )
 
-[connection signal="finished" from="VideoPlayer" to="manager" method="_on_VideoPlayer_finished"]
 [connection signal="pressed" from="play_button" to="manager" method="_on_play_button_pressed"]
-[connection signal="pressed" from="cancel_button" to="manager" method="_on_cancel_button_pressed"]

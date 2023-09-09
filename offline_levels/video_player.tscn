@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://offline_levels/level1/level1_discussion/play_button.png" type="Texture" id=2]
+[ext_resource path="res://offline_levels/level1/level1_discussion/cancel_button.png" type="Texture" id=3]
+[ext_resource path="res://video_player.gd" type="Script" id=4]
+
+[node name="video_player" type="VideoPlayer"]
+expand = false
+script = ExtResource( 4 )
+
+[node name="start_button" type="Button" parent="."]
+margin_top = 2.0
+margin_right = 11111.0
+margin_bottom = 6444.0
+rect_scale = Vector2( 0.115112, 0.110987 )
+icon = ExtResource( 2 )
+flat = true
+align = 0
+icon_align = 1
+
+[node name="cancel_button" type="Button" parent="."]
+margin_left = 1203.0
+margin_top = 1.0
+margin_right = 1727.0
+margin_bottom = 519.0
+rect_scale = Vector2( 0.139112, 0.140207 )
+icon = ExtResource( 3 )
+flat = true
+
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="cancel_button" to="." method="_on_cancel_button_pressed"]

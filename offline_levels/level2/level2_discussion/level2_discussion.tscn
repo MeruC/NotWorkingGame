@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://offline_levels/level2/level2_discussion/discussion_background.png" type="Texture" id=1]
 [ext_resource path="res://offline_levels/level2/level2_discussion/level2_discussion.gd" type="Script" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://offline_levels/level2/level2_discussion/6.png" type="Texture" id=8]
 [ext_resource path="res://offline_levels/level2/level2_discussion/5.png" type="Texture" id=9]
 [ext_resource path="res://addons/VoiceGeneratorAudioStreamPlayer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://offline_levels/video_player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://offline_levels/level2/level2_discussion/level2_video.ogv" type="VideoStream" id=12]
+[ext_resource path="res://offline_levels/level1/level1_discussion/play_button.png" type="Texture" id=13]
+[ext_resource path="res://offline_levels/level2/level2_discussion/videopage.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=5]
 size = 22
@@ -129,6 +133,33 @@ tracks/0/keys = {
 "values": [ Vector2( 344, 149 ), Vector2( 344, 41 ) ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "video_zoom"
+tracks/0/type = "value"
+tracks/0/path = NodePath("video:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0310622, 0.0247934 ), Vector2( 0.441884, 0.4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("play:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
 [sub_resource type="DynamicFont" id=6]
 size = 50
 font_data = ExtResource( 3 )
@@ -161,6 +192,7 @@ autowrap = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/picture_animation = SubResource( 3 )
 anims/title_animation = SubResource( 4 )
+anims/video_zoom = SubResource( 7 )
 
 [node name="title" type="Label" parent="AnimationPlayer"]
 margin_left = 344.0
@@ -176,28 +208,28 @@ autowrap = true
 
 [node name="1" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 482.0
-margin_top = 272.0
-margin_right = 1153.0
-margin_bottom = 644.001
+margin_left = 478.0
+margin_top = 178.0
+margin_right = 1149.0
+margin_bottom = 550.001
 rect_scale = Vector2( 0.461747, 0.446264 )
 texture = ExtResource( 7 )
 
 [node name="2" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 532.0
+margin_left = 707.0
 margin_top = 293.0
-margin_right = 1332.0
+margin_right = 1507.0
 margin_bottom = 917.0
 rect_scale = Vector2( 0.278231, 0.282524 )
 texture = ExtResource( 5 )
 
 [node name="3" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 514.0
-margin_top = 277.0
-margin_right = 2114.0
-margin_bottom = 1344.0
+margin_left = 355.0
+margin_top = 271.0
+margin_right = 1955.0
+margin_bottom = 1338.0
 rect_scale = Vector2( 0.148327, 0.146714 )
 texture = ExtResource( 6 )
 
@@ -207,25 +239,48 @@ margin_left = 511.0
 margin_top = 262.0
 margin_right = 2431.0
 margin_bottom = 1342.0
-rect_scale = Vector2( 0.123307, 0.165836 )
+rect_scale = Vector2( 0.00952068, 0.00585423 )
 texture = ExtResource( 4 )
 
 [node name="5" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 496.0
-margin_top = 237.0
-margin_right = 2416.0
-margin_bottom = 1317.0
-rect_scale = Vector2( 0.157017, 0.215427 )
+margin_left = 366.0
+margin_top = 245.0
+margin_right = 2286.0
+margin_bottom = 1325.0
+rect_scale = Vector2( 0.0120923, 0.0183473 )
 texture = ExtResource( 8 )
 
 [node name="6" type="TextureRect" parent="AnimationPlayer"]
 visible = false
-margin_left = 486.0
-margin_top = 270.0
-margin_right = 7398.0
-margin_bottom = 3726.0
-rect_scale = Vector2( 0.0406981, 0.0544926 )
+margin_left = 341.0
+margin_top = 271.0
+margin_right = 7253.0
+margin_bottom = 3727.0
+rect_scale = Vector2( 0.00936417, 0.0122941 )
 texture = ExtResource( 9 )
 
 [node name="VoiceGeneratorAudioStreamPlayer" parent="." instance=ExtResource( 10 )]
+
+[node name="video_player" parent="." instance=ExtResource( 11 )]
+visible = false
+stream = ExtResource( 12 )
+
+[node name="video" type="Sprite" parent="."]
+visible = false
+position = Vector2( 646.5, 338 )
+scale = Vector2( 0.0310622, 0.0247934 )
+texture = ExtResource( 14 )
+
+[node name="play" type="Button" parent="."]
+visible = false
+margin_left = 427.0
+margin_top = 217.0
+margin_right = 6233.0
+margin_bottom = 3496.0
+rect_scale = Vector2( 0.0754356, 0.0732041 )
+icon = ExtResource( 13 )
+flat = true
+icon_align = 1
+
+[connection signal="pressed" from="play" to="Manager" method="_on_play_pressed"]

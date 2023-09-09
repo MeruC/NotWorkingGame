@@ -15,7 +15,6 @@ var video_plyer: VideoPlayer
 var size = 0
 
 func _ready():
-	video_plyer = $"../VideoPlayer"
 	VoiceGen.pitch_scale = 1.5
 	var file = File.new()
 	if file.open(json_file, File.READ) == OK:
@@ -30,7 +29,6 @@ func _ready():
 		print("Failed to open JSON file.")
 	update_dialog()
 	
-	video_plyer.connect("finished", self, "_on_video_finished")
 	
 func _process(_delta):
 	if $"../CanvasLayer/NinePatchRect/dialog".visible_characters < total_character:
@@ -79,7 +77,6 @@ func update_dialog():
 			$"../example1/AnimationPlayer".play("file_animation")
 			
 		if size == 4:
-			
 			$"../example1/AnimationPlayer".play("name_animation")
 		if size == 5:
 			$"../video".visible = true
@@ -87,12 +84,11 @@ func update_dialog():
 			$"../example1/AnimationPlayer/file".visible = false
 			$"../example1/AnimationPlayer/name".visible = false
 			$"../example1/AnimationPlayer/age".visible = false
-			
 		if size == 6:
+			$"../CanvasLayer/NinePatchRect/title".visible = true
+			$"../CanvasLayer/NinePatchRect/dialog".visible = true
 			$"../play_button".visible = false
 			$"../video".visible = false
-			$"../cancel_button".visible = false
-			video_plyer.stop()
 			$"../example1/AnimationPlayer".play_backwards("file_animation")
 	else:
 		get_tree().change_scene(game_scene)
@@ -101,25 +97,8 @@ func update_dialog():
 	# You can also return json_data here if needed
 
 func _on_play_button_pressed():
-	$"../video".visible = false
-	$"../VideoPlayer".visible = true
-	$"../cancel_button".visible = true
-	video_plyer.play()
-	video_plyer.volume = 8
-	$"../example1/AnimationPlayer".play("video_zoom")
-	$"../play_button".visible = false
-	click =0
-		
-func _on_VideoPlayer_finished():
-		$"../VideoPlayer".visible = false
-		$"../video".visible = true
-		$"../play_button".visible = true
-
-func _on_cancel_button_pressed():
-		$"../VideoPlayer".visible = false
-		$"../video".visible = true
-		video_plyer.stop()
-		$"../play_button".visible = true
-		$"../cancel_button".visible = false
-		click =0
+	$"../video_player".visible = true
+	$"../CanvasLayer/NinePatchRect/title".visible = false
+	$"../CanvasLayer/NinePatchRect/dialog".visible = false
+	click = 0
 		
