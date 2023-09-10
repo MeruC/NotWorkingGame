@@ -47,7 +47,6 @@ margin_right = 450.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 450, 100 )
 custom_fonts/font = ExtResource( 1 )
-disabled = true
 text = "Online Mode"
 
 [node name="encyclopedia_button" type="Button" parent="GridContainer"]
@@ -69,3 +68,4 @@ disabled = true
 text = "Settings"
 
 [connection signal="pressed" from="GridContainer/offline_button" to="." method="_on_offline_button_pressed"]
+[connection signal="pressed" from="GridContainer/online_button" to="." method="_on_online_button_pressed"]
