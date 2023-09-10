@@ -1,0 +1,184 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://user_profile/change_icon.png" type="Texture" id=2]
+[ext_resource path="res://user_profile/yellow_bg.png" type="Texture" id=3]
+[ext_resource path="res://user_profile/white_bg.jpg" type="Texture" id=4]
+[ext_resource path="res://user_profile/podium.png" type="Texture" id=5]
+[ext_resource path="res://user_profile/character_formal.png" type="Texture" id=6]
+[ext_resource path="res://user_profile/orange_shirt.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="change_avatar" type="Node2D"]
+
+[node name="current_avatar_bg" type="TextureRect" parent="."]
+margin_left = 29.0
+margin_top = 56.0
+margin_right = 1229.0
+margin_bottom = 656.0
+rect_scale = Vector2( 0.547449, 1.01595 )
+texture = ExtResource( 4 )
+
+[node name="2_bg" type="TextureRect" parent="current_avatar_bg"]
+margin_left = -67.5862
+margin_top = -89.5713
+margin_right = 1119.41
+margin_bottom = 990.429
+rect_scale = Vector2( 1.15164, 0.691418 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+
+[node name="current_avatar" type="Label" parent="current_avatar_bg"]
+margin_left = 286.785
+margin_top = 66.9324
+margin_right = 928.785
+margin_bottom = 142.932
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Current Avatar"
+align = 1
+
+[node name="Label" type="Label" parent="current_avatar_bg"]
+margin_left = 363.504
+margin_top = 490.181
+margin_right = 847.504
+margin_bottom = 585.181
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "avatar name"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="select_avatar" type="TextureRect" parent="."]
+margin_left = 718.0
+margin_top = 124.0
+margin_right = 1918.0
+margin_bottom = 724.0
+rect_scale = Vector2( 0.439602, 0.822397 )
+texture = ExtResource( 4 )
+
+[node name="2_bg" type="TextureRect" parent="select_avatar"]
+modulate = Color( 0.996078, 1, 0.92549, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -75.068
+margin_top = -44.9905
+margin_right = -195.068
+margin_bottom = 435.01
+rect_scale = Vector2( 1.28752, 0.643076 )
+texture = ExtResource( 3 )
+
+[node name="right" type="Button" parent="select_avatar"]
+margin_left = 779.918
+margin_top = 245.624
+margin_right = 1303.92
+margin_bottom = 763.624
+rect_scale = Vector2( 0.45447, 0.203423 )
+icon = ExtResource( 2 )
+flat = true
+
+[node name="left" type="Button" parent="select_avatar"]
+margin_left = 408.107
+margin_top = 353.844
+margin_right = 932.107
+margin_bottom = 871.844
+rect_rotation = 179.743
+rect_scale = Vector2( 0.489264, 0.203329 )
+icon = ExtResource( 2 )
+flat = true
+
+[node name="border_bg" type="Sprite" parent="select_avatar"]
+position = Vector2( 609.688, -0.608032 )
+scale = Vector2( 0.672959, 0.129477 )
+texture = ExtResource( 3 )
+
+[node name="select_avatar_text" type="Label" parent="select_avatar"]
+margin_left = 383.922
+margin_top = -60.7979
+margin_right = 849.922
+margin_bottom = 62.2021
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Select Avatar"
+align = 1
+valign = 1
+
+[node name="avatar_name" type="Label" parent="select_avatar"]
+margin_left = 457.232
+margin_top = 104.572
+margin_right = 752.232
+margin_bottom = 150.572
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "avatar name"
+align = 1
+
+[node name="select_btn" type="Button" parent="select_avatar"]
+margin_left = 270.7
+margin_top = 545.965
+margin_right = 574.7
+margin_bottom = 597.965
+custom_fonts/font = SubResource( 4 )
+text = "Select"
+
+[node name="back_btn" type="Button" parent="select_avatar"]
+margin_left = 661.963
+margin_top = 547.181
+margin_right = 965.963
+margin_bottom = 599.181
+custom_fonts/font = SubResource( 5 )
+text = "Back"
+
+[node name="podium" type="TextureRect" parent="select_avatar"]
+margin_left = -1397.0
+margin_top = 139.0
+margin_right = 83.0
+margin_bottom = 1219.0
+rect_scale = Vector2( 0.795255, 0.546746 )
+texture = ExtResource( 5 )
+
+[node name="podium2" type="TextureRect" parent="select_avatar"]
+margin_left = 188.807
+margin_top = 245.624
+margin_right = 1668.81
+margin_bottom = 1325.62
+rect_scale = Vector2( 0.604873, 0.384259 )
+texture = ExtResource( 5 )
+
+[node name="orange_shirt" type="Sprite" parent="."]
+position = Vector2( 350, 365 )
+scale = Vector2( 0.631641, 0.70638 )
+texture = ExtResource( 7 )
+
+[node name="CharacterFormal2" type="Sprite" parent="."]
+position = Vector2( 989, 371 )
+scale = Vector2( 0.649023, 0.707903 )
+texture = ExtResource( 6 )

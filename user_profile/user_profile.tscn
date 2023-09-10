@@ -1,25 +1,39 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://user_profile/yellow_bg.png" type="Texture" id=2]
 [ext_resource path="res://user_profile/white_bg.jpg" type="Texture" id=3]
+[ext_resource path="res://user_profile/edit_icon.png" type="Texture" id=4]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=8]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=9]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=7]
+size = 200
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
 size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=4]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=11]
 size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=6]
@@ -41,7 +55,7 @@ margin_top = 3.0
 margin_right = 608.0
 margin_bottom = 147.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 8 )
 text = "User_name"
 align = 1
 valign = 1
@@ -52,8 +66,21 @@ margin_top = 98.0
 margin_right = 312.0
 margin_bottom = 123.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 9 )
 text = "rank:"
+
+[node name="edit_avatar" type="Button" parent="name_background"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 348.0
+margin_top = 586.0
+margin_right = 2053.0
+margin_bottom = 1104.0
+rect_scale = Vector2( 0.133652, 0.130285 )
+custom_fonts/font = SubResource( 7 )
+text = "Change avatar"
+icon = ExtResource( 4 )
+flat = true
+icon_align = 2
 
 [node name="skill_mastery_bg" type="NinePatchRect" parent="."]
 margin_left = 643.0
@@ -78,7 +105,7 @@ margin_top = 34.0
 margin_right = 464.0
 margin_bottom = 76.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 10 )
 text = "Knowledge Obtain"
 
 [node name="router_progress" type="ProgressBar" parent="skill_mastery_bg"]
@@ -97,7 +124,7 @@ margin_top = 164.0
 margin_right = 282.0
 margin_bottom = 194.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 11 )
 text = "Networking 1"
 
 [node name="term_progress" type="ProgressBar" parent="skill_mastery_bg"]
@@ -116,23 +143,23 @@ margin_top = 258.0
 margin_right = 280.0
 margin_bottom = 288.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 12 )
 text = "Networking 2"
 
 [node name="crowns" type="NinePatchRect" parent="."]
 margin_left = 645.0
 margin_top = 432.0
 margin_right = 1247.0
-margin_bottom = 510.0
+margin_bottom = 531.0
 texture = ExtResource( 3 )
 
 [node name="crowns" type="Label" parent="crowns"]
-margin_left = 10.0
-margin_top = 19.0
-margin_right = 374.0
-margin_bottom = 58.0
+margin_left = 12.0
+margin_top = 30.0
+margin_right = 376.0
+margin_bottom = 69.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 13 )
 text = "Crowns collected:"
 align = 1
 valign = 1
