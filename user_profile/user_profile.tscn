@@ -1,0 +1,156 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://user_profile/yellow_bg.png" type="Texture" id=2]
+[ext_resource path="res://user_profile/white_bg.jpg" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+font_data = ExtResource( 1 )
+
+[node name="user_profile" type="Node2D"]
+
+[node name="name_background" type="NinePatchRect" parent="."]
+margin_left = 24.0
+margin_top = 27.0
+margin_right = 604.0
+margin_bottom = 688.0
+texture = ExtResource( 3 )
+
+[node name="name" type="Label" parent="name_background"]
+margin_left = 28.0
+margin_top = 3.0
+margin_right = 608.0
+margin_bottom = 147.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "User_name"
+align = 1
+valign = 1
+
+[node name="rank" type="Label" parent="name_background"]
+margin_left = 249.0
+margin_top = 98.0
+margin_right = 312.0
+margin_bottom = 123.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "rank:"
+
+[node name="skill_mastery_bg" type="NinePatchRect" parent="."]
+margin_left = 643.0
+margin_top = 25.0
+margin_right = 1248.0
+margin_bottom = 413.0
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="skill_mastery_bg"]
+margin_left = 111.0
+margin_top = 1.0
+margin_right = 1286.0
+margin_bottom = 1087.0
+rect_scale = Vector2( 0.378001, 0.0935754 )
+text = "Skill Mastery"
+icon = ExtResource( 2 )
+flat = true
+
+[node name="Skill Mastery" type="Label" parent="skill_mastery_bg"]
+margin_left = 175.0
+margin_top = 34.0
+margin_right = 464.0
+margin_bottom = 76.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Knowledge Obtain"
+
+[node name="router_progress" type="ProgressBar" parent="skill_mastery_bg"]
+margin_left = 307.0
+margin_top = 153.0
+margin_right = 605.0
+margin_bottom = 202.0
+rect_scale = Vector2( 0.939163, 1.25023 )
+theme = SubResource( 4 )
+value = 30.0
+rounded = true
+
+[node name="router_skills" type="Label" parent="skill_mastery_bg"]
+margin_left = 12.0
+margin_top = 164.0
+margin_right = 282.0
+margin_bottom = 194.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Networking 1"
+
+[node name="term_progress" type="ProgressBar" parent="skill_mastery_bg"]
+margin_left = 308.0
+margin_top = 244.0
+margin_right = 606.0
+margin_bottom = 293.0
+rect_scale = Vector2( 0.927158, 1.26334 )
+theme = SubResource( 4 )
+value = 50.0
+rounded = true
+
+[node name="networking_term" type="Label" parent="skill_mastery_bg"]
+margin_left = 10.0
+margin_top = 258.0
+margin_right = 280.0
+margin_bottom = 288.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Networking 2"
+
+[node name="crowns" type="NinePatchRect" parent="."]
+margin_left = 645.0
+margin_top = 432.0
+margin_right = 1247.0
+margin_bottom = 510.0
+texture = ExtResource( 3 )
+
+[node name="crowns" type="Label" parent="crowns"]
+margin_left = 10.0
+margin_top = 19.0
+margin_right = 374.0
+margin_bottom = 58.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Crowns collected:"
+align = 1
+valign = 1
+
+[node name="logout_bg" type="NinePatchRect" parent="."]
+margin_left = 650.0
+margin_top = 552.0
+margin_right = 1247.0
+margin_bottom = 685.0
+texture = ExtResource( 3 )
+
+[node name="logout_btn" type="Button" parent="logout_bg"]
+self_modulate = Color( 0, 0, 0, 1 )
+light_mask = 514
+margin_left = 1.0
+margin_top = 5.0
+margin_right = 600.0
+margin_bottom = 126.0
+custom_fonts/font = SubResource( 6 )
+text = "Log out"
+flat = true
