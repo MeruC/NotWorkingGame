@@ -10,6 +10,7 @@ var total_character = 0
 var click = 0
 var size = 0
 var game_scene = "res://offline_levels/level2/level2.tscn"
+var touch = true
 
 func _ready():
 	VoiceGen.pitch_scale = 1.5
@@ -42,7 +43,7 @@ func _process(_delta):
 			
 		
 func _input(event):
-	if event is InputEventScreenTouch and event.pressed:
+	if touch and event is InputEventScreenTouch and event.pressed:
 		click += 1
 		$"../CanvasLayer/dialog".visible_characters = total_character
 		if click == 2:
@@ -61,44 +62,38 @@ func update_dialog():
 		
 		$"../AnimationPlayer/title".text = title
 		VoiceGen.read(dialog.text)
-		if size == 1:
-				$"../AnimationPlayer".play("title_animation")
+
 		if size == 2:
-			$"../AnimationPlayer/4".visible = true
-			$"../AnimationPlayer".play("picture_animation")
+			$"../AnimationPlayer".play("title_animation")
+			$"../AnimationPlayer/transmission".visible = true
+			$"../gif_player".play("transmission_system")
 		elif size == 3:
-			$"../AnimationPlayer/1".visible = true
-			$"../AnimationPlayer/4".visible = false
-			$"../AnimationPlayer".play("picture_animation")
+			$"../AnimationPlayer/translator".visible = true
+			$"../AnimationPlayer/transmission".visible = false
+			$"../gif_player".play("interfacing")
 		elif size == 4:
-			$"../AnimationPlayer/1".visible = false
-			$"../AnimationPlayer/5".visible = true
-			$"../AnimationPlayer".play("picture_animation")
+			$"../AnimationPlayer/translator".visible = false
+			$"../AnimationPlayer/synchronization".visible = true
+			$"../gif_player".play("synchronization")
 		elif size == 5:
-			$"../AnimationPlayer/5".visible = false
-			$"../AnimationPlayer/3".visible = true
-			$"../AnimationPlayer".play("picture_animation")
+			$"../AnimationPlayer/synchronization".visible = false
+			$"../AnimationPlayer/exchange_management".visible = true
+			$"../gif_player".play("exchange_management")
 		elif size == 6:
-			$"../AnimationPlayer/3".visible = false
-			$"../AnimationPlayer/6".visible = true
-			$"../AnimationPlayer".play("picture_animation")
+			$"../AnimationPlayer/exchange_management".visible = false
+			$"../AnimationPlayer/routing".visible = true
+			$"../gif_player".play("routing")
 		elif size == 7:
-			$"../AnimationPlayer/6".visible = false
-			$"../AnimationPlayer/2".visible = true
-			$"../AnimationPlayer".play("picture_animation")
+			$"../AnimationPlayer/routing".visible = false
+			$"../AnimationPlayer/data_security".visible = true
+			$"../gif_player".play("data_security")
 		elif size == 8:
-			$"../AnimationPlayer/2".visible = false
+			$"../AnimationPlayer/data_security".visible = false
 			$"../AnimationPlayer".play("video_zoom")
 			$"../video".visible = true
 			$"../CanvasLayer/dialog".visible = true
 		elif size == 9:
 			$"../AnimationPlayer".play_backwards("title_animation")
-			$"../AnimationPlayer/title".visible = true
-			$"../AnimationPlayer/1".visible = false 
-			$"../AnimationPlayer/2".visible = false 
-			$"../AnimationPlayer/3".visible = false 
-			$"../AnimationPlayer/4".visible = false  
-			$"../AnimationPlayer/5".visible = false 
 			$"../video".visible = false
 			$"../play".visible = false
 
@@ -107,10 +102,24 @@ func update_dialog():
 		get_tree().change_scene(game_scene)
 	# You can also return json_data here if needed
 
-
 func _on_play_pressed():
+	touch = false
 	$"../AnimationPlayer/title".visible = false
 	$"../video_player".visible = true
 	$"../video".visible = false
 	$"../play".visible = false
 	click = 0
+
+func _on_video_player_cancel():
+	touch = true
+	$"../AnimationPlayer/title".visible = true
+	$"../video_player".visible = false
+	$"../video".visible = true
+	$"../play".visible = true
+
+func _on_video_player_finish():
+	touch = true
+	$"../AnimationPlayer/title".visible = true
+	$"../video_player".visible = false
+	$"../video".visible = true
+	$"../play".visible = true

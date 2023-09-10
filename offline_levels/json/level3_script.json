@@ -105,6 +105,11 @@
         "dialog":"Cloud infrastructure empowers remote data storage and computing, revolutionizing the way we access information"
     },
     {
+        "title": "Varied Insights:",
+        "channel": "TV",
+        "dialog":"Tap the video to play."
+    },
+    {
         "title":"Challenge Yourself!",
         "channel":"Well done!",
         "dialog":"By grasping the roles of these components, you're equipped with a fundamental understanding of how networks operate. Now, let's put your knowledge to the test in the Network Components Picture Quiz!"

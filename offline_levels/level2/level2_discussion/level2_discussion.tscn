@@ -1,19 +1,19 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://offline_levels/level2/level2_discussion/discussion_background.png" type="Texture" id=1]
 [ext_resource path="res://offline_levels/level2/level2_discussion/level2_discussion.gd" type="Script" id=2]
 [ext_resource path="res://resources/font/sev7cyr.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://offline_levels/level2/level2_discussion/4.png" type="Texture" id=4]
-[ext_resource path="res://offline_levels/level2/level2_discussion/2.png" type="Texture" id=5]
-[ext_resource path="res://offline_levels/level2/level2_discussion/3.png" type="Texture" id=6]
-[ext_resource path="res://offline_levels/level2/level2_discussion/1.png" type="Texture" id=7]
-[ext_resource path="res://offline_levels/level2/level2_discussion/6.png" type="Texture" id=8]
-[ext_resource path="res://offline_levels/level2/level2_discussion/5.png" type="Texture" id=9]
+[ext_resource path="res://offline_levels/level2/level2_discussion/translator.png" type="Texture" id=4]
+[ext_resource path="res://offline_levels/level2/level2_discussion/data_security.png" type="Texture" id=5]
+[ext_resource path="res://offline_levels/level2/level2_discussion/exchange_management.png" type="Texture" id=7]
+[ext_resource path="res://offline_levels/level2/level2_discussion/routing.png" type="Texture" id=8]
 [ext_resource path="res://addons/VoiceGeneratorAudioStreamPlayer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://offline_levels/video_player.tscn" type="PackedScene" id=11]
 [ext_resource path="res://offline_levels/level2/level2_discussion/level2_video.ogv" type="VideoStream" id=12]
 [ext_resource path="res://offline_levels/level1/level1_discussion/play_button.png" type="Texture" id=13]
 [ext_resource path="res://offline_levels/level2/level2_discussion/videopage.png" type="Texture" id=14]
+[ext_resource path="res://offline_levels/level2/level2_discussion/data_traffic.png" type="Texture" id=15]
+[ext_resource path="res://offline_levels/level2/level2_discussion/synchronization.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=5]
 size = 22
@@ -21,102 +21,6 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "picture_animation"
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/1:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 478, 178 ), Vector2( 482, 272 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimationPlayer/2:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 707, 293 ), Vector2( 532, 293 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AnimationPlayer/3:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 355, 271 ), Vector2( 514, 277 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimationPlayer/4:rect_scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.00952068, 0.00585423 ), Vector2( 0.123307, 0.165836 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("AnimationPlayer/5:rect_position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 366, 245 ), Vector2( 496, 237 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("AnimationPlayer/5:rect_scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.0120923, 0.0183473 ), Vector2( 0.157017, 0.215427 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("AnimationPlayer/6:rect_position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 341, 271 ), Vector2( 486, 270 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("AnimationPlayer/6:rect_scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.00936417, 0.0122941 ), Vector2( 0.0406981, 0.0544926 ) ]
-}
 
 [sub_resource type="Animation" id=4]
 resource_name = "title_animation"
@@ -164,6 +68,105 @@ tracks/1/keys = {
 size = 50
 font_data = ExtResource( 3 )
 
+[sub_resource type="Animation" id=13]
+resource_name = "data_security"
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/data_security:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "exchange_management"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/exchange_management:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "interfacing"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/translator:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 4.3, 4.9, 5.3, 5.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 11, 12, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "routing"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/routing:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "synchronization"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/synchronization:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "transmission_system"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/transmission:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
 [node name="level2_discussion" type="Node2D"]
 
 [node name="Manager" type="Node2D" parent="."]
@@ -206,59 +209,46 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="1" type="TextureRect" parent="AnimationPlayer"]
+[node name="transmission" type="Sprite" parent="AnimationPlayer"]
 visible = false
-margin_left = 478.0
-margin_top = 178.0
-margin_right = 1149.0
-margin_bottom = 550.001
-rect_scale = Vector2( 0.461747, 0.446264 )
-texture = ExtResource( 7 )
+position = Vector2( 627, 345 )
+texture = ExtResource( 15 )
+hframes = 11
 
-[node name="2" type="TextureRect" parent="AnimationPlayer"]
+[node name="translator" type="Sprite" parent="AnimationPlayer"]
 visible = false
-margin_left = 707.0
-margin_top = 293.0
-margin_right = 1507.0
-margin_bottom = 917.0
-rect_scale = Vector2( 0.278231, 0.282524 )
-texture = ExtResource( 5 )
-
-[node name="3" type="TextureRect" parent="AnimationPlayer"]
-visible = false
-margin_left = 355.0
-margin_top = 271.0
-margin_right = 1955.0
-margin_bottom = 1338.0
-rect_scale = Vector2( 0.148327, 0.146714 )
-texture = ExtResource( 6 )
-
-[node name="4" type="TextureRect" parent="AnimationPlayer"]
-visible = false
-margin_left = 511.0
-margin_top = 262.0
-margin_right = 2431.0
-margin_bottom = 1342.0
-rect_scale = Vector2( 0.00952068, 0.00585423 )
+position = Vector2( 639, 340 )
+scale = Vector2( 0.407778, 0.478 )
 texture = ExtResource( 4 )
+hframes = 13
 
-[node name="5" type="TextureRect" parent="AnimationPlayer"]
+[node name="synchronization" type="Sprite" parent="AnimationPlayer"]
 visible = false
-margin_left = 366.0
-margin_top = 245.0
-margin_right = 2286.0
-margin_bottom = 1325.0
-rect_scale = Vector2( 0.0120923, 0.0183473 )
+position = Vector2( 620, 343 )
+scale = Vector2( 0.494281, 0.510976 )
+texture = ExtResource( 16 )
+hframes = 6
+
+[node name="exchange_management" type="Sprite" parent="AnimationPlayer"]
+visible = false
+position = Vector2( 630, 373 )
+scale = Vector2( 0.415, 0.309375 )
+texture = ExtResource( 7 )
+hframes = 10
+
+[node name="routing" type="Sprite" parent="AnimationPlayer"]
+visible = false
+position = Vector2( 629, 358 )
+scale = Vector2( 0.440769, 0.539726 )
 texture = ExtResource( 8 )
+hframes = 6
 
-[node name="6" type="TextureRect" parent="AnimationPlayer"]
+[node name="data_security" type="Sprite" parent="AnimationPlayer"]
 visible = false
-margin_left = 341.0
-margin_top = 271.0
-margin_right = 7253.0
-margin_bottom = 3727.0
-rect_scale = Vector2( 0.00936417, 0.0122941 )
-texture = ExtResource( 9 )
+position = Vector2( 618, 354 )
+scale = Vector2( 0.294732, 0.303201 )
+texture = ExtResource( 5 )
+hframes = 12
 
 [node name="VoiceGeneratorAudioStreamPlayer" parent="." instance=ExtResource( 10 )]
 
@@ -283,4 +273,14 @@ icon = ExtResource( 13 )
 flat = true
 icon_align = 1
 
+[node name="gif_player" type="AnimationPlayer" parent="."]
+anims/data_security = SubResource( 13 )
+anims/exchange_management = SubResource( 11 )
+anims/interfacing = SubResource( 9 )
+anims/routing = SubResource( 12 )
+anims/synchronization = SubResource( 10 )
+anims/transmission_system = SubResource( 8 )
+
+[connection signal="cancel" from="video_player" to="Manager" method="_on_video_player_cancel"]
+[connection signal="finish" from="video_player" to="Manager" method="_on_video_player_finish"]
 [connection signal="pressed" from="play" to="Manager" method="_on_play_pressed"]

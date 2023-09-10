@@ -1,16 +1,25 @@
 extends VideoPlayer
 var isPlaying = false
+
+signal cancel
+signal finish
+
 func _on_start_button_pressed():
+	if isPlaying:
+		stop()  
 	$start_button.visible = false
 	$cancel_button.visible = true
-	
-	if not isPlaying:
-		play()
-		isPlaying = true
+	play()
+	isPlaying = true
+
 
 func _on_cancel_button_pressed():
-	$start_button.visible = false
+	$start_button.visible = true
 	$cancel_button.visible = false
-	$".".visible = false
 	stop()
 	isPlaying = false
+	emit_signal("cancel")
+	
+func _on_video_player_finished():
+	isPlaying = false
+	emit_signal("finish")

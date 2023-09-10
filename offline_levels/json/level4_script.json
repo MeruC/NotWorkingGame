@@ -50,6 +50,11 @@
         "channel": "3"
     },
     {
+        "title": "Varied Insights:",
+        "dialog": "Tap the video to play.",
+        "channel": "TV"
+    },
+    {
         "title": "Now Challenge Yourself",
         "dialog": "You've now unveiled the distinctive landscapes of LAN, MAN, and WAN. As you journey through this level, you'll encounter scenarios where you'll need to match",
         "channel": "TV"

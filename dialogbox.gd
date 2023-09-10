@@ -3,16 +3,14 @@ extends Node2D
 export( NodePath ) onready var VoiceGen = get_node( VoiceGen ) as AudioStreamPlayer
 export( NodePath ) onready var dialog = get_node( dialog ) as Label
 
-
 var json_file = "res://offline_levels/json/level1_script.json"
 var json_data = []
 var textSpeed = 1
 var total_character = 0
 var click = 0
-var game_scene = "res://offline_levels/level1/level_1.tscn"
-var video_plyer: VideoPlayer
-
 var size = 0
+var game_scene = "res://offline_levels/level1/level_1.tscn"
+var touch = true
 
 func _ready():
 	VoiceGen.pitch_scale = 1.5
@@ -32,7 +30,6 @@ func _ready():
 	
 func _process(_delta):
 	if $"../CanvasLayer/NinePatchRect/dialog".visible_characters < total_character:
-		
 		 $"../CanvasLayer/NinePatchRect/dialog".visible_characters += textSpeed
 		
 	if Input.is_action_just_pressed("ui_accept"):
@@ -43,11 +40,9 @@ func _process(_delta):
 			size += 1
 			update_dialog()
 
-
 			
 func _input(event):
-	
-	if event is InputEventScreenTouch and event.pressed:
+	if touch and event is InputEventScreenTouch and event.pressed:
 		click += 1
 		$"../CanvasLayer/NinePatchRect/dialog".visible_characters = total_character
 		if click == 2:
@@ -56,7 +51,6 @@ func _input(event):
 			update_dialog()
 
 func update_dialog():
-		
 	if size < json_data.size():
 		var title = json_data[size]["title"]
 		var content = json_data[size]["content"]
@@ -97,8 +91,23 @@ func update_dialog():
 	# You can also return json_data here if needed
 
 func _on_play_button_pressed():
+	touch = false
 	$"../video_player".visible = true
 	$"../CanvasLayer/NinePatchRect/title".visible = false
 	$"../CanvasLayer/NinePatchRect/dialog".visible = false
 	click = 0
-		
+	
+
+func _on_video_player_cancel():
+	$"../CanvasLayer/NinePatchRect/title".visible = true
+	$"../CanvasLayer/NinePatchRect/dialog".visible = true
+	$"../video_player".visible = false
+	touch = true
+	click = 0
+
+func _on_video_player_finish():
+	$"../CanvasLayer/NinePatchRect/title".visible = true
+	$"../CanvasLayer/NinePatchRect/dialog".visible = true
+	$"../video_player".visible = false
+	touch = true
+	click = 0

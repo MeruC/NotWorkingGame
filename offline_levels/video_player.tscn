@@ -27,5 +27,6 @@ rect_scale = Vector2( 0.139112, 0.140207 )
 icon = ExtResource( 3 )
 flat = true
 
+[connection signal="finished" from="." to="." method="_on_video_player_finished"]
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="cancel_button" to="." method="_on_cancel_button_pressed"]

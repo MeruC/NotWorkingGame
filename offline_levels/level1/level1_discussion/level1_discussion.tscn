@@ -227,3 +227,5 @@ visible = false
 stream = ExtResource( 8 )
 
 [connection signal="pressed" from="play_button" to="manager" method="_on_play_button_pressed"]
+[connection signal="cancel" from="video_player" to="manager" method="_on_video_player_cancel"]
+[connection signal="finish" from="video_player" to="manager" method="_on_video_player_finish"]

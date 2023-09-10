@@ -9,6 +9,7 @@ var textSpeed = 1
 var total_character = 0
 var click = 0
 var size = 0
+var touch = true
 var game_scene = "res://offline_levels/level3/level3.tscn"
 
 func _ready():
@@ -41,7 +42,7 @@ func _process(_delta):
 			update_dialog()
 
 func _input(event):
-	if event is InputEventScreenTouch and event.pressed:
+	if touch and event is InputEventScreenTouch and event.pressed:
 		click += 1
 		$"../CanvasLayer/dialog".visible_characters = total_character
 		if click == 2:
@@ -111,10 +112,37 @@ func update_dialog():
 			$AnimationPlayer.play("channel 10")
 		elif size == 21:
 			$AnimationPlayer/cloud_infrastructure.visible = false
+			$AnimationPlayer.play("video")
+			$"../video".visible = true
+		elif size == 22:
+			$"../video".visible = false
+			$"../play_btn".visible = false
+			$AnimationPlayer/cloud_infrastructure.visible = false
 			$AnimationPlayer.play("ending_animation")
 
-			
 	else:
 		print("Dialog ended.")
 		get_tree().change_scene(game_scene)
 	# You can also return json_data here if needed
+
+func _on_play_btn_pressed():
+	touch = false
+	$"../video_player".visible = true
+	$"../video".visible = false
+	$"../play_btn".visible = false
+	click = 0
+
+
+func _on_video_player_cancel():
+	$"../video_player".visible = false
+	$"../video".visible = true
+	$"../play_btn".visible = true
+	touch = true
+	click = 0
+
+func _on_video_player_finish():
+	$"../video_player".visible = false
+	$"../video".visible = true
+	$"../play_btn".visible = true
+	touch = true
+	click = 0

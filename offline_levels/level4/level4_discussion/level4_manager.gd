@@ -9,6 +9,7 @@ var textSpeed = 1
 var total_character = 0
 var click = 0
 var size = 0
+var touch = true
 var game_scene = "res://offline_levels/level4/level4.tscn"
 
 func _ready():
@@ -30,7 +31,6 @@ func _ready():
 	
 func _process(_delta):
 	if $CanvasLayer/dialog.visible_characters < total_character:
-		
 		$CanvasLayer/dialog.visible_characters += textSpeed
 		
 	if Input.is_action_just_pressed("ui_accept"):
@@ -42,7 +42,7 @@ func _process(_delta):
 			update_dialog()
 			
 func _input(event):
-	if event is InputEventScreenTouch and event.pressed:
+	if touch and event is InputEventScreenTouch and event.pressed:
 		click += 1
 		$CanvasLayer/dialog.visible_characters = total_character
 		if click == 2:
@@ -85,8 +85,39 @@ func update_dialog():
 			$AnimationPlayer2.play("illustration_animation")
 		if size == 10:
 			$CanvasLayer/WAN.visible = false
+			$CanvasLayer/video_cover.visible = true
+			$AnimationPlayer.play("video")
+		if size == 11:
+			$CanvasLayer/video_cover.visible = false
+			$CanvasLayer/play_btn.visible = false
 			$AnimationPlayer.play("ending_animation")
 	else:
 		get_tree().change_scene(game_scene)
 	
 	# You can also return json_data here if needed
+
+
+func _on_video_player_cancel():
+	$CanvasLayer/video_player.visible = false
+	$CanvasLayer/title.visible = true
+	$CanvasLayer/dialog.visible = true
+	$CanvasLayer/video_cover.visible = true
+	$CanvasLayer/play_btn.visible = true
+	touch = true
+	click = 0
+
+func _on_play_btn_pressed():
+	touch = false
+	$CanvasLayer/video_player.visible = true
+	$CanvasLayer/title.visible = false
+	$CanvasLayer/dialog.visible = false
+	$CanvasLayer/video_cover.visible = false
+	$CanvasLayer/play_btn.visible = false
+	click = 0
+
+func _on_video_player_finish():
+	$"../video_player".visible = false
+	$"../video".visible = true
+	$"../play_btn".visible = true
+	touch = true
+	click = 0
