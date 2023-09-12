@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/character_formal.png-46920bb9ec4d3b979fe40f88d281e53f.stex"
+path="res://.import/arrow.png-e5a9d46a32fc344fb8f62425f20c0137.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://user_profile/character_formal.png"
-dest_files=[ "res://.import/character_formal.png-46920bb9ec4d3b979fe40f88d281e53f.stex" ]
+source_file="res://user_profile/buttons and panels/arrow.png"
+dest_files=[ "res://.import/arrow.png-e5a9d46a32fc344fb8f62425f20c0137.stex" ]
 
 [params]
 

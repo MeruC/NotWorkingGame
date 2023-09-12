@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/orange_shirt.png-0f83d2ebb8ea35caf3ab14fbdf64866e.stex"
+path="res://.import/main_menu_bg.png-c3e13322c031f160c3b6530006e6b0b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://user_profile/orange_shirt.png"
-dest_files=[ "res://.import/orange_shirt.png-0f83d2ebb8ea35caf3ab14fbdf64866e.stex" ]
+source_file="res://user_profile/main_menu_bg.png"
+dest_files=[ "res://.import/main_menu_bg.png-c3e13322c031f160c3b6530006e6b0b2.stex" ]
 
 [params]
 

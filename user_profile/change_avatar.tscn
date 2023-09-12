@@ -1,12 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://user_profile/change_icon.png" type="Texture" id=2]
+[ext_resource path="res://user_profile/buttons and panels/button1..png" type="Texture" id=2]
 [ext_resource path="res://user_profile/yellow_bg.png" type="Texture" id=3]
-[ext_resource path="res://user_profile/white_bg.jpg" type="Texture" id=4]
+[ext_resource path="res://user_profile/buttons and panels/panel.png" type="Texture" id=4]
 [ext_resource path="res://user_profile/podium.png" type="Texture" id=5]
-[ext_resource path="res://user_profile/character_formal.png" type="Texture" id=6]
-[ext_resource path="res://user_profile/orange_shirt.png" type="Texture" id=7]
+[ext_resource path="res://user_profile/avatar_boy_picture/default_character.png" type="Texture" id=6]
+[ext_resource path="res://user_profile/buttons and panels/arrow.png" type="Texture" id=7]
+[ext_resource path="res://user_profile/change_avatar.gd" type="Script" id=8]
+[ext_resource path="res://user_profile/background_animation.tres" type="Animation" id=9]
+[ext_resource path="res://user_profile/bg_spriteSheet.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -25,104 +28,121 @@ size = 60
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 60
+size = 200
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 60
+size = 140
 font_data = ExtResource( 1 )
 
 [node name="change_avatar" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 576, 385 )
+texture = ExtResource( 10 )
+hframes = 9
 
 [node name="current_avatar_bg" type="TextureRect" parent="."]
-margin_left = 29.0
-margin_top = 56.0
-margin_right = 1229.0
-margin_bottom = 656.0
-rect_scale = Vector2( 0.547449, 1.01595 )
+margin_left = 46.0
+margin_top = 84.0
+margin_right = 841.0
+margin_bottom = 854.0
+rect_scale = Vector2( 0.789167, 0.754032 )
 texture = ExtResource( 4 )
 
-[node name="2_bg" type="TextureRect" parent="current_avatar_bg"]
-margin_left = -67.5862
-margin_top = -89.5713
-margin_right = 1119.41
-margin_bottom = 990.429
-rect_scale = Vector2( 1.15164, 0.691418 )
+[node name="2_bg" type="TextureRect" parent="."]
+margin_left = 21.0
+margin_top = 19.0
+margin_right = 1208.0
+margin_bottom = 1099.0
+rect_scale = Vector2( 0.575758, 0.628429 )
 texture = ExtResource( 3 )
 stretch_mode = 1
 
-[node name="current_avatar" type="Label" parent="current_avatar_bg"]
-margin_left = 286.785
-margin_top = 66.9324
-margin_right = 928.785
-margin_bottom = 142.932
+[node name="current_avatar2" type="Label" parent="."]
+margin_left = 186.0
+margin_top = 158.0
+margin_right = 828.0
+margin_bottom = 234.0
+rect_scale = Vector2( 0.539645, 0.958181 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Current Avatar"
 align = 1
 
-[node name="Label" type="Label" parent="current_avatar_bg"]
-margin_left = 363.504
-margin_top = 490.181
-margin_right = 847.504
-margin_bottom = 585.181
+[node name="c_avatar_name" type="Label" parent="."]
+margin_left = 175.0
+margin_top = 570.0
+margin_right = 659.0
+margin_bottom = 616.0
+rect_scale = Vector2( 0.801568, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 6 )
-text = "avatar name"
+text = "Default Character"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="select_avatar" type="TextureRect" parent="."]
-margin_left = 718.0
-margin_top = 124.0
-margin_right = 1918.0
-margin_bottom = 724.0
-rect_scale = Vector2( 0.439602, 0.822397 )
+margin_left = 699.0
+margin_top = 52.0
+margin_right = 1486.0
+margin_bottom = 822.0
+rect_scale = Vector2( 0.70925, 0.800363 )
 texture = ExtResource( 4 )
 
-[node name="2_bg" type="TextureRect" parent="select_avatar"]
+[node name="podium" type="TextureRect" parent="."]
+margin_left = 155.0
+margin_top = 462.0
+margin_right = 1427.0
+margin_bottom = 721.0
+rect_scale = Vector2( 0.322301, 0.394528 )
+texture = ExtResource( 5 )
+
+[node name="2_bg2" type="TextureRect" parent="."]
 modulate = Color( 0.996078, 1, 0.92549, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -75.068
-margin_top = -44.9905
-margin_right = -195.068
-margin_bottom = 435.01
-rect_scale = Vector2( 1.28752, 0.643076 )
+margin_left = 677.0
+margin_top = 12.0
+margin_right = 1757.0
+margin_bottom = 1092.0
+rect_scale = Vector2( 0.566091, 0.580965 )
 texture = ExtResource( 3 )
 
-[node name="right" type="Button" parent="select_avatar"]
-margin_left = 779.918
-margin_top = 245.624
-margin_right = 1303.92
-margin_bottom = 763.624
-rect_scale = Vector2( 0.45447, 0.203423 )
-icon = ExtResource( 2 )
+[node name="right" type="Button" parent="."]
+margin_left = 1201.0
+margin_top = 323.0
+margin_right = 1951.0
+margin_bottom = 841.0
+rect_scale = Vector2( -0.154282, 0.141008 )
+icon = ExtResource( 7 )
 flat = true
 
-[node name="left" type="Button" parent="select_avatar"]
-margin_left = 408.107
-margin_top = 353.844
-margin_right = 932.107
-margin_bottom = 871.844
+[node name="left" type="Button" parent="."]
+margin_left = 751.0
+margin_top = 401.0
+margin_right = 1501.0
+margin_bottom = 919.0
 rect_rotation = 179.743
-rect_scale = Vector2( 0.489264, 0.203329 )
-icon = ExtResource( 2 )
+rect_scale = Vector2( -0.153918, 0.146671 )
+icon = ExtResource( 7 )
 flat = true
 
-[node name="border_bg" type="Sprite" parent="select_avatar"]
-position = Vector2( 609.688, -0.608032 )
-scale = Vector2( 0.672959, 0.129477 )
+[node name="border_bg" type="Sprite" parent="."]
+position = Vector2( 986.02, 123.5 )
+scale = Vector2( 0.295834, 0.106481 )
 texture = ExtResource( 3 )
 
-[node name="select_avatar_text" type="Label" parent="select_avatar"]
-margin_left = 383.922
-margin_top = -60.7979
-margin_right = 849.922
-margin_bottom = 62.2021
+[node name="select_avatar_text" type="Label" parent="."]
+margin_left = 875.0
+margin_top = 85.0
+margin_right = 1341.0
+margin_bottom = 208.0
+rect_scale = Vector2( 0.470641, 0.638737 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
@@ -130,55 +150,66 @@ text = "Select Avatar"
 align = 1
 valign = 1
 
-[node name="avatar_name" type="Label" parent="select_avatar"]
-margin_left = 457.232
-margin_top = 104.572
-margin_right = 752.232
-margin_bottom = 150.572
+[node name="avatar_name" type="Label" parent="."]
+margin_left = 775.0
+margin_top = 181.0
+margin_right = 1280.0
+margin_bottom = 227.0
+rect_scale = Vector2( 0.840882, 0.971448 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "avatar name"
+text = "Default Character"
 align = 1
+autowrap = true
 
-[node name="select_btn" type="Button" parent="select_avatar"]
-margin_left = 270.7
-margin_top = 545.965
-margin_right = 574.7
-margin_bottom = 597.965
+[node name="select_btn" type="Button" parent="."]
+margin_left = 903.0
+margin_top = 597.0
+margin_right = 1827.0
+margin_bottom = 855.0
+rect_scale = Vector2( 0.182395, 0.204949 )
 custom_fonts/font = SubResource( 4 )
 text = "Select"
+icon = ExtResource( 2 )
+clip_text = true
+icon_align = 1
 
-[node name="back_btn" type="Button" parent="select_avatar"]
-margin_left = 661.963
-margin_top = 547.181
-margin_right = 965.963
-margin_bottom = 599.181
+[node name="back_btn" type="Button" parent="."]
+margin_left = 13.0
+margin_top = 11.0
+margin_right = 763.0
+margin_bottom = 497.0
+rect_scale = Vector2( 0.186948, 0.129455 )
 custom_fonts/font = SubResource( 5 )
 text = "Back"
+icon = ExtResource( 7 )
+flat = true
+clip_text = true
+icon_align = 1
 
-[node name="podium" type="TextureRect" parent="select_avatar"]
-margin_left = -1397.0
-margin_top = 139.0
-margin_right = 83.0
-margin_bottom = 1219.0
-rect_scale = Vector2( 0.795255, 0.546746 )
+[node name="podium2" type="TextureRect" parent="."]
+margin_left = 807.0
+margin_top = 461.0
+margin_right = 2079.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.278467, 0.404445 )
 texture = ExtResource( 5 )
 
-[node name="podium2" type="TextureRect" parent="select_avatar"]
-margin_left = 188.807
-margin_top = 245.624
-margin_right = 1668.81
-margin_bottom = 1325.62
-rect_scale = Vector2( 0.604873, 0.384259 )
-texture = ExtResource( 5 )
-
-[node name="orange_shirt" type="Sprite" parent="."]
-position = Vector2( 350, 365 )
+[node name="current_avatar" type="Sprite" parent="."]
+position = Vector2( 354, 360 )
 scale = Vector2( 0.631641, 0.70638 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
-[node name="CharacterFormal2" type="Sprite" parent="."]
-position = Vector2( 989, 371 )
+[node name="avatar_selection" type="Sprite" parent="."]
+position = Vector2( 982, 354 )
 scale = Vector2( 0.649023, 0.707903 )
 texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/background_animation = ExtResource( 9 )
+
+[connection signal="pressed" from="right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="select_btn" to="." method="_on_select_btn_pressed"]
+[connection signal="pressed" from="back_btn" to="." method="_on_back_btn_pressed"]

@@ -20,7 +20,6 @@ margin_right = 155.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 135, 50 )
 custom_fonts/font = SubResource( 1 )
-disabled = true
 text = "User Profile"
 
 [node name="GridContainer" type="GridContainer" parent="."]
@@ -67,5 +66,6 @@ custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "Settings"
 
+[connection signal="pressed" from="profile_button" to="." method="_on_profile_button_pressed"]
 [connection signal="pressed" from="GridContainer/offline_button" to="." method="_on_offline_button_pressed"]
 [connection signal="pressed" from="GridContainer/online_button" to="." method="_on_online_button_pressed"]
