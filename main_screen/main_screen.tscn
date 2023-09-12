@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,16 @@
 [ext_resource path="res://user_profile/background_animation.tres" type="Animation" id=5]
 [ext_resource path="res://user_profile/bg_spriteSheet.png" type="Texture" id=6]
 [ext_resource path="res://user_profile/mascot/mascot-sheet.png" type="Texture" id=7]
+[ext_resource path="res://resources/Sprites/welcome_screen.png" type="Texture" id=8]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends ParallaxBackground
+
+export (float) var scrolling_speed = 250.0
+
+func _process(delta):
+	scroll_offset.x -= scrolling_speed * delta
+"
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -33,7 +43,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = SubResource( 3 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2776, 0 )
+
+[node name="WelcomeScreen" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1388.16, 360 )
+scale = Vector2( 2.88, 2.88 )
+texture = ExtResource( 8 )
+
 [node name="background" type="Sprite" parent="."]
+visible = false
 position = Vector2( 625, 393 )
 texture = ExtResource( 6 )
 hframes = 9
