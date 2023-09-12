@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://user_profile/yellow_bg.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://user_profile/user_profile.gd" type="Script" id=5]
 [ext_resource path="res://user_profile/avatar_boy_picture/default_character.png" type="Texture" id=6]
 [ext_resource path="res://user_profile/BSU_bg.png" type="Texture" id=7]
-[ext_resource path="res://user_profile/change_avatar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://user_profile/bg_spriteSheet.png" type="Texture" id=9]
 [ext_resource path="res://user_profile/buttons and panels/crown.png" type="Texture" id=10]
 [ext_resource path="res://user_profile/buttons and panels/panel.png" type="Texture" id=11]
@@ -217,9 +216,6 @@ margin_bottom = 126.0
 custom_fonts/font = SubResource( 6 )
 text = "Log out"
 flat = true
-
-[node name="change_avatar" parent="." instance=ExtResource( 8 )]
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/background_animation = ExtResource( 12 )

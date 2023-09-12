@@ -7,6 +7,8 @@ var level_create = "res://level_create_Menu/level_create.tscn"
 var user_profile = "res://user_profile/user_profile.tscn"
 
 func _ready():
+	$AnimationPlayer.play("background_animation")
+	$mascot_animation.play("mascot_animation")
 	pass # Replace with function body.
 
 

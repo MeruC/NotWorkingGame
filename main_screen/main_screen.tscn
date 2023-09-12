@@ -1,17 +1,43 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=1]
 [ext_resource path="res://resources/font/Arcadepix Plus.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://main_screen/direct.gd" type="Script" id=3]
+[ext_resource path="res://user_profile/buttons and panels/button1..png" type="Texture" id=4]
+[ext_resource path="res://user_profile/background_animation.tres" type="Animation" id=5]
+[ext_resource path="res://user_profile/bg_spriteSheet.png" type="Texture" id=6]
+[ext_resource path="res://user_profile/mascot/mascot-sheet.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 25
+size = 150
 font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "mascot_animation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("mascot:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
 
 [node name="main_screen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 625, 393 )
+texture = ExtResource( 6 )
+hframes = 9
+frame = 1
 
 [node name="profile_button" type="Button" parent="."]
 margin_left = 20.0
@@ -19,52 +45,87 @@ margin_top = 20.0
 margin_right = 155.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 135, 50 )
+rect_scale = Vector2( 0.23, 0.23 )
 custom_fonts/font = SubResource( 1 )
 text = "User Profile"
+icon = ExtResource( 4 )
+flat = true
+clip_text = true
+icon_align = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -530.0
-margin_top = -275.0
-margin_right = -80.0
-margin_bottom = 275.0
+margin_left = -682.0
+margin_top = -345.0
+margin_right = 242.0
+margin_bottom = 837.0
+rect_scale = Vector2( 0.715147, 0.578869 )
 custom_constants/vseparation = 50
 
 [node name="offline_button" type="Button" parent="GridContainer"]
-margin_right = 450.0
-margin_bottom = 100.0
+margin_right = 924.0
+margin_bottom = 258.0
 rect_min_size = Vector2( 450, 100 )
 custom_fonts/font = ExtResource( 1 )
 text = "Offline Mode"
+icon = ExtResource( 4 )
+flat = true
+clip_text = true
+icon_align = 1
 
 [node name="online_button" type="Button" parent="GridContainer"]
-margin_top = 150.0
-margin_right = 450.0
-margin_bottom = 250.0
+margin_top = 308.0
+margin_right = 924.0
+margin_bottom = 566.0
 rect_min_size = Vector2( 450, 100 )
 custom_fonts/font = ExtResource( 1 )
 text = "Online Mode"
+icon = ExtResource( 4 )
+flat = true
+clip_text = true
+icon_align = 1
 
 [node name="encyclopedia_button" type="Button" parent="GridContainer"]
-margin_top = 300.0
-margin_right = 450.0
-margin_bottom = 400.0
+margin_top = 616.0
+margin_right = 924.0
+margin_bottom = 874.0
 rect_min_size = Vector2( 450, 100 )
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "Encyclopedia"
+icon = ExtResource( 4 )
+flat = true
+clip_text = true
+icon_align = 1
 
 [node name="settings_button" type="Button" parent="GridContainer"]
-margin_top = 450.0
-margin_right = 450.0
-margin_bottom = 550.0
+margin_top = 924.0
+margin_right = 924.0
+margin_bottom = 1182.0
 rect_min_size = Vector2( 450, 100 )
 custom_fonts/font = ExtResource( 1 )
 disabled = true
 text = "Settings"
+icon = ExtResource( 4 )
+flat = true
+clip_text = true
+icon_align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/background_animation = ExtResource( 5 )
+
+[node name="mascot" type="Sprite" parent="."]
+position = Vector2( 297, 400 )
+scale = Vector2( 2.11146, 2.04297 )
+texture = ExtResource( 7 )
+hframes = 5
+frame = 1
+
+[node name="mascot_animation" type="AnimationPlayer" parent="."]
+anims/mascot_animation = SubResource( 2 )
 
 [connection signal="pressed" from="profile_button" to="." method="_on_profile_button_pressed"]
 [connection signal="pressed" from="GridContainer/offline_button" to="." method="_on_offline_button_pressed"]

@@ -8,6 +8,7 @@ var cict_shirt = load("res://user_profile/avatar_boy_picture/cict_shirt.png")
 var user_profile = "res://user_profile/user_profile.tscn"
 var selectedAvatar = "res://user_profile/avatar_boy_picture/default_character.png"
 var click = 0
+signal character_selected(characer_texture)
 
 
 var change_avatar : Sprite
@@ -24,7 +25,9 @@ func _ready():
 
 func _on_right_pressed():
 		click += 1
-		if click == 1:
+		if click > 4:
+			click = 4
+		elif click == 1:
 			change_avatar.texture = formal_attire
 			$avatar_name.text = "Formal Attire"
 		elif click == 2:
