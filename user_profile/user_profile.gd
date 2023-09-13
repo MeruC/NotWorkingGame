@@ -7,8 +7,9 @@ func _ready():
 	$AnimationPlayer.play("background_animation")
 	
 func _on_edit_avatar_pressed():
-	get_tree().change_scene(edit_avatar)
-
+	$user_profile.visible =false
+	$edit_avatar.visible = true
+	
 
 func _on_back_btn_pressed():
 	get_tree().change_scene(main_menu)
