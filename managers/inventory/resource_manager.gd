@@ -20,6 +20,7 @@ var sprites = {
 	"rarity_upgrade": preload("res://global/items/sprites/rarity_upgrade.png"),
 	"plank": preload("res://global/items/sprites/plank.png"),
 	"rock": preload("res://global/items/sprites/rock.png"),
+	"crossover_cable": preload("res://global/items/sprites/crossover_cable.png"),
 }
 
 var fonts = {

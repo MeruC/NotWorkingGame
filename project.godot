@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://global/items/base_stat.gd"
 }, {
+"base": "Item_Usable",
+"class": "Cable",
+"language": "GDScript",
+"path": "res://global/items/usable/cable.gd"
+}, {
 "base": "Area",
 "class": "Chest",
 "language": "GDScript",
@@ -180,6 +185,7 @@ _global_script_class_icons={
 "Affix_Item": "",
 "Affix_Item_List": "",
 "Base_stat": "",
+"Cable": "",
 "Chest": "",
 "Dragable_Control": "",
 "Equipment_Slot": "",

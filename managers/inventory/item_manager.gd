@@ -20,6 +20,7 @@ var type_names = {
 	Game_Enums.ITEM_TYPE.CURRENCY: "Currency",
 	Game_Enums.ITEM_TYPE.MATERIAL: "Material",
 	Game_Enums.ITEM_TYPE.PLACEHOLDER: "Placeholder",
+	Game_Enums.ITEM_TYPE.CABLE: "Cable",
 }
 
 onready var placeholders = {
@@ -32,6 +33,7 @@ onready var placeholders = {
 var usable = {
 	"healing": preload("res://global/items/usable/item_healing.gd"),
 	"upgrade": preload("res://global/items/usable/item_upgrade.gd"),
+	"cable": preload("res://global/items/usable/cable.gd"),
 }
 
 func _init():
