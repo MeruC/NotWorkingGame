@@ -34,7 +34,7 @@ func _ready():
 	animation_player.play("animation")
 	##
 	
-	#for getting data in a JSON file and putting it in the file variable as dictionary
+	#for getting data in a JSON file and putting it in the json_data variable as dictionary
 	var file = File.new()
 	if file.open(json_file, File.READ) == OK:
 		var json_content = file.get_as_text()

@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://level_create_Menu/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://online_mode/join_level/qr-code.png" type="Texture" id=3]
+[ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.980392, 0.980392, 0.980392, 1 )
+
+[node name="join_level" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -50.0
+margin_right = 450.0
+margin_bottom = 50.0
+custom_constants/separation = 50
+
+[node name="code" type="LineEdit" parent="HBoxContainer"]
+margin_right = 750.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 750, 100 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "9xz81ns6"
+align = 1
+
+[node name="scan_qr" type="Button" parent="HBoxContainer"]
+margin_left = 800.0
+margin_right = 900.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_styles/normal = SubResource( 3 )
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -346.5
+margin_top = -210.0
+margin_right = 346.5
+margin_bottom = -134.0
+custom_fonts/font = ExtResource( 1 )
+text = "Enter/Scan a Level Code"
+
+[node name="join" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = 140.0
+margin_right = 100.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "JOIN"
+
+[node name="back" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 4 )
+text = "<"

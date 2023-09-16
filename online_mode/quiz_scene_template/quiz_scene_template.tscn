@@ -1,0 +1,425 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://level_create_Menu/DroidSans.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://online_mode/quiz_scene_template/question_content.gd" type="Script" id=2]
+[ext_resource path="res://online_mode/quiz_scene_template/manager.gd" type="Script" id=3]
+[ext_resource path="res://level_create_Menu/font.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.784314 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+instructions = NodePath("CanvasLayer/instructions")
+game_over = NodePath("CanvasLayer/game_over")
+level_name = NodePath("level_name")
+minute = NodePath("HBoxContainer/minute")
+second = NodePath("HBoxContainer/sceond")
+timer = NodePath("Timer")
+current_item = NodePath("ColorRect/VBoxContainer/HBoxContainer/current_item")
+total_item = NodePath("ColorRect/VBoxContainer/HBoxContainer/total_item")
+question_content = NodePath("ColorRect/VBoxContainer/question_content")
+choices_container = NodePath("choices")
+choice1 = NodePath("choices/choice")
+choice2 = NodePath("choices/choice2")
+choice3 = NodePath("choices/choice3")
+choice4 = NodePath("choices/choice4")
+
+[node name="level_name" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -139.5
+margin_top = 20.0
+margin_right = 139.5
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 4 )
+text = "LEVEL NAME"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 264.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_right = 130.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 100, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "Timer:   "
+align = 1
+valign = 1
+
+[node name="minute" type="Label" parent="HBoxContainer"]
+margin_left = 134.0
+margin_right = 154.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+margin_left = 158.0
+margin_right = 195.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 1 )
+text = " :  "
+align = 1
+valign = 1
+
+[node name="sceond" type="Label" parent="HBoxContainer"]
+margin_left = 199.0
+margin_right = 239.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 1 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -578.0
+margin_top = -260.0
+margin_right = 578.0
+margin_bottom = 109.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -563.0
+margin_top = -175.0
+margin_right = 563.0
+margin_bottom = 175.0
+rect_min_size = Vector2( 1100, 350 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+margin_right = 1126.0
+margin_bottom = 49.0
+
+[node name="label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer"]
+margin_right = 362.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 100, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Question Number: "
+valign = 1
+
+[node name="current_item" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 366.0
+margin_right = 466.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 100, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="label2" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 470.0
+margin_right = 570.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 100, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "/"
+align = 1
+valign = 1
+
+[node name="total_item" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 574.0
+margin_right = 674.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 100, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="question_content" type="Label" parent="ColorRect/VBoxContainer"]
+margin_top = 53.0
+margin_right = 1126.0
+margin_bottom = 328.0
+rect_min_size = Vector2( 1126, 275 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Sample question"
+align = 3
+autowrap = true
+script = ExtResource( 2 )
+
+[node name="choices" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -537.5
+margin_top = -230.0
+margin_right = 537.5
+margin_bottom = -25.0
+custom_constants/vseparation = 25
+custom_constants/hseparation = 25
+columns = 2
+
+[node name="choice" type="Button" parent="choices"]
+margin_right = 525.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 525, 90 )
+custom_fonts/font = SubResource( 3 )
+text = "Option 1"
+
+[node name="choice2" type="Button" parent="choices"]
+margin_left = 550.0
+margin_right = 1075.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 525, 90 )
+custom_fonts/font = SubResource( 3 )
+text = "Option 2"
+
+[node name="choice3" type="Button" parent="choices"]
+margin_top = 115.0
+margin_right = 525.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 525, 90 )
+custom_fonts/font = SubResource( 3 )
+text = "Option 3"
+
+[node name="choice4" type="Button" parent="choices"]
+margin_left = 550.0
+margin_top = 115.0
+margin_right = 1075.0
+margin_bottom = 205.0
+rect_min_size = Vector2( 525, 90 )
+custom_fonts/font = SubResource( 3 )
+text = "Option 4"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="instructions" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/instructions"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -250.0
+margin_right = 500.0
+margin_bottom = 250.0
+color = Color( 0.984314, 0.780392, 0.235294, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/instructions/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -475.0
+margin_top = -225.0
+margin_right = 475.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 950, 325 )
+custom_constants/separation = 50
+alignment = 1
+
+[node name="info" type="Label" parent="CanvasLayer/instructions/ColorRect/VBoxContainer"]
+margin_top = 22.0
+margin_right = 950.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 4 )
+text = "WELCOME!"
+align = 1
+valign = 1
+
+[node name="instructions" type="Label" parent="CanvasLayer/instructions/ColorRect/VBoxContainer"]
+margin_top = 121.0
+margin_right = 950.0
+margin_bottom = 302.0
+rect_min_size = Vector2( 950, 0 )
+custom_fonts/font = SubResource( 6 )
+text = "This quiz will test your knowledge with regards to computer networking. You will be presented with a series of questions, and for each question, you must select the correct answer by clicking the corresponding button."
+align = 3
+valign = 1
+autowrap = true
+
+[node name="start" type="Button" parent="CanvasLayer/instructions/ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -125.0
+margin_right = 100.0
+margin_bottom = -25.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = ExtResource( 4 )
+text = "Start"
+
+[node name="game_over" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/game_over"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/game_over"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -250.0
+margin_right = 500.0
+margin_bottom = 250.0
+color = Color( 0.984314, 0.780392, 0.235294, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/game_over/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -475.0
+margin_top = -225.0
+margin_right = 475.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 950, 325 )
+custom_constants/separation = 25
+alignment = 1
+
+[node name="info" type="Label" parent="CanvasLayer/game_over/ColorRect/VBoxContainer"]
+margin_right = 950.0
+margin_bottom = 49.0
+custom_fonts/font = ExtResource( 4 )
+text = "CONGRATULATIONS!"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/game_over/ColorRect/VBoxContainer"]
+margin_top = 74.0
+margin_right = 950.0
+margin_bottom = 117.0
+alignment = 1
+
+[node name="Score" type="Label" parent="CanvasLayer/game_over/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 334.0
+margin_right = 454.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 120, 0 )
+custom_fonts/font = SubResource( 6 )
+text = "Score: "
+align = 3
+valign = 1
+autowrap = true
+
+[node name="user_score" type="Label" parent="CanvasLayer/game_over/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 458.0
+margin_right = 508.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = SubResource( 6 )
+text = "0"
+align = 3
+valign = 1
+autowrap = true
+
+[node name="label" type="Label" parent="CanvasLayer/game_over/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 512.0
+margin_right = 562.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = SubResource( 6 )
+text = "/"
+align = 3
+valign = 1
+autowrap = true
+
+[node name="total_items" type="Label" parent="CanvasLayer/game_over/ColorRect/VBoxContainer/HBoxContainer"]
+margin_left = 566.0
+margin_right = 616.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 50, 0 )
+custom_fonts/font = SubResource( 6 )
+text = "10"
+align = 3
+valign = 1
+autowrap = true
+
+[node name="message" type="Label" parent="CanvasLayer/game_over/ColorRect/VBoxContainer"]
+margin_top = 142.0
+margin_right = 950.0
+margin_bottom = 344.0
+rect_min_size = Vector2( 950, 0 )
+custom_fonts/font = SubResource( 7 )
+text = "Remember, you've given your best, and that's what truly matters. The journey of gathering knowledge is a continuous path. Keep your curiosity alive, stay committed, and embrace each day as an opportunity to learn and grow. Your dedication will lead you to new heights!"
+align = 3
+valign = 1
+autowrap = true
+
+[node name="exit" type="Button" parent="CanvasLayer/game_over/ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -125.0
+margin_right = 100.0
+margin_bottom = -25.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = ExtResource( 4 )
+text = "Exit"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="choices/choice" to="." method="_on_choice_pressed"]
+[connection signal="pressed" from="choices/choice2" to="." method="_on_choice2_pressed"]
+[connection signal="pressed" from="choices/choice3" to="." method="_on_choice3_pressed"]
+[connection signal="pressed" from="choices/choice4" to="." method="_on_choice4_pressed"]
+[connection signal="pressed" from="CanvasLayer/instructions/ColorRect/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/game_over/ColorRect/exit" to="." method="_on_exit_pressed"]

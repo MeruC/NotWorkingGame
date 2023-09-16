@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://level_create_Menu/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://online_mode/createQuiz_student/lesson_button.gd" type="Script" id=2]
+
+[node name="lesson_button" type="Button"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+custom_fonts/font = ExtResource( 1 )
+text = "Lesson 1"
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="." to="." method="_on_lesson_button_pressed"]

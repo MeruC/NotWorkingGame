@@ -1,0 +1,108 @@
+  {
+    "lesson1": [
+      {
+        "id": "1",
+        "question": "A collection of interconnected devices (such as computers, printers, and servers) that can communicate and share resources with each other.",
+        "answer": "Network"
+      },
+      {
+        "id": "2",
+        "question": "A set of rules and conventions that govern how data is transmitted and received over a network. It defines how devices should communicate with each other.",
+        "answer": "Protocol"
+      },
+      {
+        "id": "3",
+        "question": "A unique numerical label assigned to each device on a network. It is used to identify and locate devices on the internet or a local network.",
+        "answer": "IP Address"
+      },
+      {
+        "id": "4",
+        "question": "A networking device that directs data traffic between different networks. It determines the most efficient path for data to travel and helps devices on a local network connect to the internet.",
+        "answer": "Router"
+      },
+      {
+        "id": "5",
+        "question": "A device that operates at the data link layer (Layer 2) of the OSI model. It connects devices within a local network and forwards data based on MAC addresses.",
+        "answer": "Switch"
+      },
+      {
+        "id": "6",
+        "question": "A basic networking device that connects multiple devices in a network. Unlike a switch, it does not intelligently forward data and instead broadcasts data to all connected devices.",
+        "answer": "Hub"
+      },
+      {
+        "id": "7",
+        "question": "A security device or software that monitors and controls incoming and outgoing network traffic based on predefined security rules. It helps protect a network from unauthorized access and threats.",
+        "answer": "Firewall"
+      },
+      {
+        "id": "8",
+        "question": "A system that translates human-readable domain names (e.g., www.example.com) into IP addresses that computers use to locate each other on the internet.",
+        "answer": "DNS (Domain Name System)"
+      }
+    ],
+    "lesson2": [
+      {
+        "id": "1",
+        "question": "A network that covers a small geographical area, such as a home, office, or campus.",
+        "answer": "LAN (Local Area Network)"
+      },
+      {
+        "id": "2",
+        "question": "A network that spans a larger geographical area, often connecting multiple LANs.",
+        "answer": "WAN (Wide Area Network)"
+      },
+      {
+        "id": "3",
+        "question": "A device or software that connects two different networks, allowing them to communicate with each other. It acts as a bridge between networks with different protocols.",
+        "answer": "Gateway"
+      },
+      {
+        "id": "4",
+        "question": "Refers to the capacity or speed at which data can be transmitted over a network. It is typically measured in bits per second (bps) or megabits per second (Mbps).",
+        "answer": "Bandwidth"
+      },
+      {
+        "id": "5",
+        "question": "A small unit of data that is transmitted over a network. Data is divided into packets for efficient transmission and reassembled at its destination.",
+        "answer": "Packet"
+      },
+      {
+        "id": "6",
+        "question": "A reliable and connection-oriented protocol used for data transmission on the internet. It ensures data integrity and delivery.",
+        "answer": "TCP (Transmission Control Protocol)"
+      },
+      {
+        "id": "7",
+        "question": "A connectionless and less reliable protocol used for faster data transmission when some loss of data is acceptable.",
+        "answer": "UDP (User Datagram Protocol)"
+      },
+      {
+        "id": "8",
+        "question": "A unique hardware address assigned to network interfaces, such as Ethernet or Wi-Fi adapters. It is used at the data link layer to identify devices on a local network.",
+        "answer": "MAC Address"
+      }
+    ],
+    "lesson3": [
+      {
+        "id": "1",
+        "question": "A nlogical subdivision of an IP network. It helps manage and organize IP addresses within a network.",
+        "answer": "Subnet"
+      },
+      {
+        "id": "2",
+        "question": "A data structure on a router that contains information about the routes to reach different network destinations.",
+        "answer": "Router Table"
+      },
+      {
+        "id": "3",
+        "question": "It is the IP address of the router or gateway that connects a local network to other networks, such as the internet.",
+        "answer": "Gateway IP Address"
+      },
+      {
+        "id": "4",
+        "question": "A technique used by routers to map multiple private IP addresses on a local network to a single public IP address for internet access.",
+        "answer": "NAT (Network Address Translation)"
+      }
+    ]
+  }

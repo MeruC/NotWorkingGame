@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://resources/font/button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://level_create_Menu/DroidSans.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://online_mode/create_sub-menu/quiz.png" type="Texture" id=3]
+[ext_resource path="res://online_mode/create_sub-menu/simulation.png" type="Texture" id=4]
+[ext_resource path="res://level_create_Menu/font.tres" type="DynamicFont" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+font_data = ExtResource( 2 )
+
+[node name="create_sub-menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -60.0
+margin_right = 600.0
+margin_bottom = 320.0
+custom_constants/separation = 100
+
+[node name="simulation_button" type="Control" parent="HBoxContainer"]
+margin_right = 550.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 550, 380 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/simulation_button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/simulation_button/VBoxContainer"]
+margin_right = 550.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 550, 300 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Label" type="Label" parent="HBoxContainer/simulation_button/VBoxContainer"]
+margin_top = 304.0
+margin_right = 550.0
+margin_bottom = 380.0
+custom_fonts/font = ExtResource( 5 )
+text = "SIMULATION"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="simulation" type="Button" parent="HBoxContainer/simulation_button"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="quiz_button" type="Control" parent="HBoxContainer"]
+margin_left = 650.0
+margin_right = 1200.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 550, 380 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/quiz_button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/quiz_button/VBoxContainer"]
+margin_right = 550.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 550, 300 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="HBoxContainer/quiz_button/VBoxContainer"]
+margin_top = 304.0
+margin_right = 550.0
+margin_bottom = 380.0
+custom_fonts/font = ExtResource( 5 )
+text = "QUIZ"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="quiz" type="Button" parent="HBoxContainer/quiz_button"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="back" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = ExtResource( 1 )
+text = "<"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -520.5
+margin_top = 175.0
+margin_right = 520.5
+margin_bottom = 251.0
+custom_fonts/font = SubResource( 1 )
+text = "What type of level do you want to create?"
+align = 1
+valign = 1

@@ -1,0 +1,38 @@
+{
+  "level_name": "Sample Level",
+  "questions": [
+    {
+      "answer": "Subnet",
+      "question": "A nlogical subdivision of an IP network. It helps manage and organize IP addresses within a network."
+    },
+    {
+      "answer": "Router Table",
+      "question": "A data structure on a router that contains information about the routes to reach different network destinations."
+    },
+    {
+      "answer": "Gateway IP Address",
+      "question": "It is the IP address of the router or gateway that connects a local network to other networks, such as the internet."
+    },
+    {
+      "answer": "NAT (Network Address Translation)",
+      "question": "A technique used by routers to map multiple private IP addresses on a local network to a single public IP address for internet access."
+    },
+    {
+      "answer": "Protocol",
+      "question": "A set of rules and conventions that govern how data is transmitted and received over a network. It defines how devices should communicate with each other."
+    },
+    {
+      "answer": "IP Address",
+      "question": "A unique numerical label assigned to each device on a network. It is used to identify and locate devices on the internet or a local network."
+    },
+    {
+      "answer": "Router",
+      "question": "A networking device that directs data traffic between different networks. It determines the most efficient path for data to travel and helps devices on a local network connect to the internet."
+    },
+    {
+      "answer": "Switch",
+      "question": "A device that operates at the data link layer (Layer 2) of the OSI model. It connects devices within a local network and forwards data based on MAC addresses."
+    }
+  ],
+  "time": 180
+}
