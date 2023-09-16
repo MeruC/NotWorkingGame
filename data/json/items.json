@@ -1,4 +1,16 @@
 {
+	"crossover_cable": {
+		"name": "Crossover Cable",
+		"type": "CABLE",
+		"stack_size": 64,
+		"level": 1,
+		"usable": {
+			"type": "cable",
+			"data": {
+				"cable_type": "crossover"
+			}
+		}
+	},
 	"gold_coin": {
 		"name": "Gold Coin",
 		"type": "CURRENCY",
@@ -35,18 +47,6 @@
 		"type": "MATERIAL",
 		"stack_size": 10,
 		"level": 1
-	},
-	"small_healing_potion": {
-		"name": "Small Healing Potion",
-		"type": "CONSUMABLE",
-		"stack_size": 10,
-		"level": 1,
-		"usable": {
-			"type": "healing",
-			"data": {
-				"healing": 10
-			}
-		}
 	},
 	"big_healing_potion": {
 		"name": "Big Healing Potion",
